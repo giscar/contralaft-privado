@@ -1,0 +1,52 @@
+C:\SBS\UIF\Aplicaciones\SISDEL\App\SBS.UIF.SISDEL\SBS.UIF.SISDEL.DataAccess\bin\Debug\SBS.UIF.SISDEL.DataAccess.dll
+C:\SBS\UIF\Aplicaciones\SISDEL\App\SBS.UIF.SISDEL\SBS.UIF.SISDEL.DataAccess\bin\Debug\SBS.UIF.SISDEL.DataAccess.pdb
+C:\SBS\UIF\Aplicaciones\SISDEL\App\SBS.UIF.SISDEL\SBS.UIF.SISDEL.DataAccess\bin\Debug\IBatisNet.Common.dll
+C:\SBS\UIF\Aplicaciones\SISDEL\App\SBS.UIF.SISDEL\SBS.UIF.SISDEL.DataAccess\bin\Debug\IBatisNet.DataMapper.dll
+C:\SBS\UIF\Aplicaciones\SISDEL\App\SBS.UIF.SISDEL\SBS.UIF.SISDEL.DataAccess\bin\Debug\SBS.UIF.SISDEL.Entity.dll
+C:\SBS\UIF\Aplicaciones\SISDEL\App\SBS.UIF.SISDEL\SBS.UIF.SISDEL.DataAccess\bin\Debug\SBS.UIF.SISDEL.Entity.pdb
+C:\SBS\UIF\Aplicaciones\SISDEL\App\SBS.UIF.SISDEL\SBS.UIF.SISDEL.DataAccess\obj\Debug\SBS.UIF.SISDEL.DataAccess.csprojResolveAssemblyReference.cache
+C:\SBS\UIF\Aplicaciones\SISDEL\App\SBS.UIF.SISDEL\SBS.UIF.SISDEL.DataAccess\obj\Debug\SBS.UIF.SISDEL.DataAccess.dll
+C:\SBS\UIF\Aplicaciones\SISDEL\App\SBS.UIF.SISDEL\SBS.UIF.SISDEL.DataAccess\obj\Debug\SBS.UIF.SISDEL.DataAccess.pdb
+C:\SBS\UIF\Aplicaciones\SISDEL\App\uif_sisdel\trunk\SBS.UIF.SISDEL\SBS.UIF.SISDEL.DataAccess\bin\Debug\SBS.UIF.SISDEL.DataAccess.dll
+C:\SBS\UIF\Aplicaciones\SISDEL\App\uif_sisdel\trunk\SBS.UIF.SISDEL\SBS.UIF.SISDEL.DataAccess\bin\Debug\SBS.UIF.SISDEL.DataAccess.pdb
+C:\SBS\UIF\Aplicaciones\SISDEL\App\uif_sisdel\trunk\SBS.UIF.SISDEL\SBS.UIF.SISDEL.DataAccess\bin\Debug\IBatisNet.Common.dll
+C:\SBS\UIF\Aplicaciones\SISDEL\App\uif_sisdel\trunk\SBS.UIF.SISDEL\SBS.UIF.SISDEL.DataAccess\bin\Debug\IBatisNet.DataMapper.dll
+C:\SBS\UIF\Aplicaciones\SISDEL\App\uif_sisdel\trunk\SBS.UIF.SISDEL\SBS.UIF.SISDEL.DataAccess\bin\Debug\SBS.UIF.SISDEL.Entity.dll
+C:\SBS\UIF\Aplicaciones\SISDEL\App\uif_sisdel\trunk\SBS.UIF.SISDEL\SBS.UIF.SISDEL.DataAccess\bin\Debug\SBS.UIF.SISDEL.Entity.pdb
+C:\SBS\UIF\Aplicaciones\SISDEL\App\uif_sisdel\trunk\SBS.UIF.SISDEL\SBS.UIF.SISDEL.DataAccess\obj\Debug\SBS.UIF.SISDEL.DataAccess.csprojResolveAssemblyReference.cache
+C:\SBS\UIF\Aplicaciones\SISDEL\App\uif_sisdel\trunk\SBS.UIF.SISDEL\SBS.UIF.SISDEL.DataAccess\obj\Debug\SBS.UIF.SISDEL.DataAccess.dll
+C:\SBS\UIF\Aplicaciones\SISDEL\App\uif_sisdel\trunk\SBS.UIF.SISDEL\SBS.UIF.SISDEL.DataAccess\obj\Debug\SBS.UIF.SISDEL.DataAccess.pdb
+C:\SBS\UIF\DSL - Aplicaciones\SISDEL\App\uif_sisdel\trunk\SBS.UIF.SISDEL\SBS.UIF.SISDEL.DataAccess\bin\Debug\SBS.UIF.SISDEL.DataAccess.dll
+C:\SBS\UIF\DSL - Aplicaciones\SISDEL\App\uif_sisdel\trunk\SBS.UIF.SISDEL\SBS.UIF.SISDEL.DataAccess\bin\Debug\SBS.UIF.SISDEL.DataAccess.pdb
+C:\SBS\UIF\DSL - Aplicaciones\SISDEL\App\uif_sisdel\trunk\SBS.UIF.SISDEL\SBS.UIF.SISDEL.DataAccess\bin\Debug\IBatisNet.Common.dll
+C:\SBS\UIF\DSL - Aplicaciones\SISDEL\App\uif_sisdel\trunk\SBS.UIF.SISDEL\SBS.UIF.SISDEL.DataAccess\bin\Debug\IBatisNet.DataMapper.dll
+C:\SBS\UIF\DSL - Aplicaciones\SISDEL\App\uif_sisdel\trunk\SBS.UIF.SISDEL\SBS.UIF.SISDEL.DataAccess\bin\Debug\SBS.UIF.SISDEL.Entity.dll
+C:\SBS\UIF\DSL - Aplicaciones\SISDEL\App\uif_sisdel\trunk\SBS.UIF.SISDEL\SBS.UIF.SISDEL.DataAccess\bin\Debug\SBS.UIF.SISDEL.Entity.pdb
+C:\SBS\UIF\DSL - Aplicaciones\SISDEL\App\uif_sisdel\trunk\SBS.UIF.SISDEL\SBS.UIF.SISDEL.DataAccess\obj\Debug\SBS.UIF.SISDEL.DataAccess.csprojResolveAssemblyReference.cache
+C:\SBS\UIF\DSL - Aplicaciones\SISDEL\App\uif_sisdel\trunk\SBS.UIF.SISDEL\SBS.UIF.SISDEL.DataAccess\obj\Debug\SBS.UIF.SISDEL.DataAccess.dll
+C:\SBS\UIF\DSL - Aplicaciones\SISDEL\App\uif_sisdel\trunk\SBS.UIF.SISDEL\SBS.UIF.SISDEL.DataAccess\obj\Debug\SBS.UIF.SISDEL.DataAccess.pdb
+C:\SBS\UIF\DSL - Aplicaciones\uif_sisdel\trunk\SBS.UIF.SISDEL\SBS.UIF.SISDEL.DataAccess\bin\Debug\SBS.UIF.SISDEL.DataAccess.dll
+C:\SBS\UIF\DSL - Aplicaciones\uif_sisdel\trunk\SBS.UIF.SISDEL\SBS.UIF.SISDEL.DataAccess\bin\Debug\SBS.UIF.SISDEL.DataAccess.pdb
+C:\SBS\UIF\DSL - Aplicaciones\uif_sisdel\trunk\SBS.UIF.SISDEL\SBS.UIF.SISDEL.DataAccess\bin\Debug\IBatisNet.Common.dll
+C:\SBS\UIF\DSL - Aplicaciones\uif_sisdel\trunk\SBS.UIF.SISDEL\SBS.UIF.SISDEL.DataAccess\bin\Debug\IBatisNet.DataMapper.dll
+C:\SBS\UIF\DSL - Aplicaciones\uif_sisdel\trunk\SBS.UIF.SISDEL\SBS.UIF.SISDEL.DataAccess\bin\Debug\SBS.UIF.SISDEL.Entity.dll
+C:\SBS\UIF\DSL - Aplicaciones\uif_sisdel\trunk\SBS.UIF.SISDEL\SBS.UIF.SISDEL.DataAccess\bin\Debug\SBS.UIF.SISDEL.Entity.pdb
+C:\SBS\UIF\DSL - Aplicaciones\uif_sisdel\trunk\SBS.UIF.SISDEL\SBS.UIF.SISDEL.DataAccess\obj\Debug\SBS.UIF.SISDEL.DataAccess.csprojResolveAssemblyReference.cache
+C:\SBS\UIF\DSL - Aplicaciones\uif_sisdel\trunk\SBS.UIF.SISDEL\SBS.UIF.SISDEL.DataAccess\obj\Debug\SBS.UIF.SISDEL.DataAccess.dll
+C:\SBS\UIF\DSL - Aplicaciones\uif_sisdel\trunk\SBS.UIF.SISDEL\SBS.UIF.SISDEL.DataAccess\obj\Debug\SBS.UIF.SISDEL.DataAccess.pdb
+E:\Fuente\SISDEL\SBS.UIF.SISDEL\SBS.UIF.SISDEL.DataAccess\bin\Debug\SBS.UIF.SISDEL.DataAccess.dll
+E:\Fuente\SISDEL\SBS.UIF.SISDEL\SBS.UIF.SISDEL.DataAccess\bin\Debug\SBS.UIF.SISDEL.DataAccess.pdb
+E:\Fuente\SISDEL\SBS.UIF.SISDEL\SBS.UIF.SISDEL.DataAccess\bin\Debug\SBS.UIF.SISDEL.Entity.dll
+E:\Fuente\SISDEL\SBS.UIF.SISDEL\SBS.UIF.SISDEL.DataAccess\bin\Debug\SBS.UIF.SISDEL.Entity.pdb
+E:\Fuente\SISDEL\SBS.UIF.SISDEL\SBS.UIF.SISDEL.DataAccess\obj\Debug\SBS.UIF.SISDEL.DataAccess.csprojResolveAssemblyReference.cache
+E:\Fuente\SISDEL\SBS.UIF.SISDEL\SBS.UIF.SISDEL.DataAccess\obj\Debug\SBS.UIF.SISDEL.DataAccess.dll
+E:\Fuente\SISDEL\SBS.UIF.SISDEL\SBS.UIF.SISDEL.DataAccess\obj\Debug\SBS.UIF.SISDEL.DataAccess.pdb
+E:\Fuente\SISDEL2\SBS.UIF.SISDEL\SBS.UIF.SISDEL.DataAccess\bin\Debug\SBS.UIF.SISDEL.DataAccess.dll
+E:\Fuente\SISDEL2\SBS.UIF.SISDEL\SBS.UIF.SISDEL.DataAccess\bin\Debug\SBS.UIF.SISDEL.DataAccess.pdb
+E:\Fuente\SISDEL2\SBS.UIF.SISDEL\SBS.UIF.SISDEL.DataAccess\bin\Debug\IBatisNet.Common.dll
+E:\Fuente\SISDEL2\SBS.UIF.SISDEL\SBS.UIF.SISDEL.DataAccess\bin\Debug\IBatisNet.DataMapper.dll
+E:\Fuente\SISDEL2\SBS.UIF.SISDEL\SBS.UIF.SISDEL.DataAccess\bin\Debug\SBS.UIF.SISDEL.Entity.dll
+E:\Fuente\SISDEL2\SBS.UIF.SISDEL\SBS.UIF.SISDEL.DataAccess\bin\Debug\SBS.UIF.SISDEL.Entity.pdb
+E:\Fuente\SISDEL2\SBS.UIF.SISDEL\SBS.UIF.SISDEL.DataAccess\obj\Debug\SBS.UIF.SISDEL.DataAccess.csprojResolveAssemblyReference.cache
+E:\Fuente\SISDEL2\SBS.UIF.SISDEL\SBS.UIF.SISDEL.DataAccess\obj\Debug\SBS.UIF.SISDEL.DataAccess.dll
+E:\Fuente\SISDEL2\SBS.UIF.SISDEL\SBS.UIF.SISDEL.DataAccess\obj\Debug\SBS.UIF.SISDEL.DataAccess.pdb

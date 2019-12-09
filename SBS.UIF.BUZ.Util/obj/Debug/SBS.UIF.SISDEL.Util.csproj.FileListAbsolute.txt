@@ -1,0 +1,44 @@
+C:\SBS\UIF\Aplicaciones\SISDEL\App\SBS.UIF.SISDEL\SBS.UIF.SISDEL.Util\bin\Debug\SBS.UIF.SISDEL.Util.dll
+C:\SBS\UIF\Aplicaciones\SISDEL\App\SBS.UIF.SISDEL\SBS.UIF.SISDEL.Util\bin\Debug\SBS.UIF.SISDEL.Util.pdb
+C:\SBS\UIF\Aplicaciones\SISDEL\App\SBS.UIF.SISDEL\SBS.UIF.SISDEL.Util\obj\Debug\SBS.UIF.SISDEL.Util.dll
+C:\SBS\UIF\Aplicaciones\SISDEL\App\SBS.UIF.SISDEL\SBS.UIF.SISDEL.Util\obj\Debug\SBS.UIF.SISDEL.Util.pdb
+C:\SBS\UIF\Aplicaciones\SISDEL\App\uif_sisdel\trunk\SBS.UIF.SISDEL\SBS.UIF.SISDEL.Util\bin\Debug\SBS.UIF.SISDEL.Util.dll
+C:\SBS\UIF\Aplicaciones\SISDEL\App\uif_sisdel\trunk\SBS.UIF.SISDEL\SBS.UIF.SISDEL.Util\bin\Debug\SBS.UIF.SISDEL.Util.pdb
+C:\SBS\UIF\Aplicaciones\SISDEL\App\uif_sisdel\trunk\SBS.UIF.SISDEL\SBS.UIF.SISDEL.Util\bin\Debug\Microsoft.SharePoint.dll
+C:\SBS\UIF\Aplicaciones\SISDEL\App\uif_sisdel\trunk\SBS.UIF.SISDEL\SBS.UIF.SISDEL.Util\bin\Debug\SBS.UIF.SISDEL.Entity.dll
+C:\SBS\UIF\Aplicaciones\SISDEL\App\uif_sisdel\trunk\SBS.UIF.SISDEL\SBS.UIF.SISDEL.Util\bin\Debug\SBS.UIF.SISDEL.Entity.pdb
+C:\SBS\UIF\Aplicaciones\SISDEL\App\uif_sisdel\trunk\SBS.UIF.SISDEL\SBS.UIF.SISDEL.Util\obj\Debug\SBS.UIF.SISDEL.Util.csprojResolveAssemblyReference.cache
+C:\SBS\UIF\Aplicaciones\SISDEL\App\uif_sisdel\trunk\SBS.UIF.SISDEL\SBS.UIF.SISDEL.Util\obj\Debug\SBS.UIF.SISDEL.Util.dll
+C:\SBS\UIF\Aplicaciones\SISDEL\App\uif_sisdel\trunk\SBS.UIF.SISDEL\SBS.UIF.SISDEL.Util\obj\Debug\SBS.UIF.SISDEL.Util.pdb
+C:\SBS\UIF\DSL - Aplicaciones\SISDEL\App\uif_sisdel\trunk\SBS.UIF.SISDEL\SBS.UIF.SISDEL.Util\bin\Debug\SBS.UIF.SISDEL.Util.dll
+C:\SBS\UIF\DSL - Aplicaciones\SISDEL\App\uif_sisdel\trunk\SBS.UIF.SISDEL\SBS.UIF.SISDEL.Util\bin\Debug\SBS.UIF.SISDEL.Util.pdb
+C:\SBS\UIF\DSL - Aplicaciones\SISDEL\App\uif_sisdel\trunk\SBS.UIF.SISDEL\SBS.UIF.SISDEL.Util\bin\Debug\ICSharpCode.SharpZipLib.dll
+C:\SBS\UIF\DSL - Aplicaciones\SISDEL\App\uif_sisdel\trunk\SBS.UIF.SISDEL\SBS.UIF.SISDEL.Util\bin\Debug\Microsoft.SharePoint.dll
+C:\SBS\UIF\DSL - Aplicaciones\SISDEL\App\uif_sisdel\trunk\SBS.UIF.SISDEL\SBS.UIF.SISDEL.Util\bin\Debug\Newtonsoft.Json.dll
+C:\SBS\UIF\DSL - Aplicaciones\SISDEL\App\uif_sisdel\trunk\SBS.UIF.SISDEL\SBS.UIF.SISDEL.Util\bin\Debug\SBS.UIF.SISDEL.Entity.dll
+C:\SBS\UIF\DSL - Aplicaciones\SISDEL\App\uif_sisdel\trunk\SBS.UIF.SISDEL\SBS.UIF.SISDEL.Util\bin\Debug\SBS.UIF.SISDEL.Entity.pdb
+C:\SBS\UIF\DSL - Aplicaciones\SISDEL\App\uif_sisdel\trunk\SBS.UIF.SISDEL\SBS.UIF.SISDEL.Util\obj\Debug\SBS.UIF.SISDEL.Util.csprojResolveAssemblyReference.cache
+C:\SBS\UIF\DSL - Aplicaciones\SISDEL\App\uif_sisdel\trunk\SBS.UIF.SISDEL\SBS.UIF.SISDEL.Util\obj\Debug\SBS.UIF.SISDEL.Util.dll
+C:\SBS\UIF\DSL - Aplicaciones\SISDEL\App\uif_sisdel\trunk\SBS.UIF.SISDEL\SBS.UIF.SISDEL.Util\obj\Debug\SBS.UIF.SISDEL.Util.pdb
+C:\SBS\UIF\DSL - Aplicaciones\uif_sisdel\trunk\SBS.UIF.SISDEL\SBS.UIF.SISDEL.Util\bin\Debug\SBS.UIF.SISDEL.Util.dll
+C:\SBS\UIF\DSL - Aplicaciones\uif_sisdel\trunk\SBS.UIF.SISDEL\SBS.UIF.SISDEL.Util\bin\Debug\SBS.UIF.SISDEL.Util.pdb
+C:\SBS\UIF\DSL - Aplicaciones\uif_sisdel\trunk\SBS.UIF.SISDEL\SBS.UIF.SISDEL.Util\bin\Debug\ICSharpCode.SharpZipLib.dll
+C:\SBS\UIF\DSL - Aplicaciones\uif_sisdel\trunk\SBS.UIF.SISDEL\SBS.UIF.SISDEL.Util\bin\Debug\Microsoft.SharePoint.dll
+C:\SBS\UIF\DSL - Aplicaciones\uif_sisdel\trunk\SBS.UIF.SISDEL\SBS.UIF.SISDEL.Util\bin\Debug\Newtonsoft.Json.dll
+C:\SBS\UIF\DSL - Aplicaciones\uif_sisdel\trunk\SBS.UIF.SISDEL\SBS.UIF.SISDEL.Util\bin\Debug\SBS.UIF.SISDEL.Entity.dll
+C:\SBS\UIF\DSL - Aplicaciones\uif_sisdel\trunk\SBS.UIF.SISDEL\SBS.UIF.SISDEL.Util\bin\Debug\SBS.UIF.SISDEL.Entity.pdb
+C:\SBS\UIF\DSL - Aplicaciones\uif_sisdel\trunk\SBS.UIF.SISDEL\SBS.UIF.SISDEL.Util\obj\Debug\SBS.UIF.SISDEL.Util.csprojResolveAssemblyReference.cache
+C:\SBS\UIF\DSL - Aplicaciones\uif_sisdel\trunk\SBS.UIF.SISDEL\SBS.UIF.SISDEL.Util\obj\Debug\SBS.UIF.SISDEL.Util.dll
+C:\SBS\UIF\DSL - Aplicaciones\uif_sisdel\trunk\SBS.UIF.SISDEL\SBS.UIF.SISDEL.Util\obj\Debug\SBS.UIF.SISDEL.Util.pdb
+E:\Fuente\SISDEL\SBS.UIF.SISDEL\SBS.UIF.SISDEL.Util\obj\Debug\SBS.UIF.SISDEL.Util.csprojResolveAssemblyReference.cache
+E:\Fuente\SISDEL\SBS.UIF.SISDEL\SBS.UIF.SISDEL.Util\obj\Debug\SBS.UIF.SISDEL.Util.dll
+E:\Fuente\SISDEL\SBS.UIF.SISDEL\SBS.UIF.SISDEL.Util\obj\Debug\SBS.UIF.SISDEL.Util.pdb
+E:\Fuente\SISDEL2\SBS.UIF.SISDEL\SBS.UIF.SISDEL.Util\bin\Debug\SBS.UIF.SISDEL.Util.dll
+E:\Fuente\SISDEL2\SBS.UIF.SISDEL\SBS.UIF.SISDEL.Util\bin\Debug\SBS.UIF.SISDEL.Util.pdb
+E:\Fuente\SISDEL2\SBS.UIF.SISDEL\SBS.UIF.SISDEL.Util\bin\Debug\ICSharpCode.SharpZipLib.dll
+E:\Fuente\SISDEL2\SBS.UIF.SISDEL\SBS.UIF.SISDEL.Util\bin\Debug\Newtonsoft.Json.dll
+E:\Fuente\SISDEL2\SBS.UIF.SISDEL\SBS.UIF.SISDEL.Util\bin\Debug\SBS.UIF.SISDEL.Entity.dll
+E:\Fuente\SISDEL2\SBS.UIF.SISDEL\SBS.UIF.SISDEL.Util\bin\Debug\SBS.UIF.SISDEL.Entity.pdb
+E:\Fuente\SISDEL2\SBS.UIF.SISDEL\SBS.UIF.SISDEL.Util\obj\Debug\SBS.UIF.SISDEL.Util.csprojResolveAssemblyReference.cache
+E:\Fuente\SISDEL2\SBS.UIF.SISDEL\SBS.UIF.SISDEL.Util\obj\Debug\SBS.UIF.SISDEL.Util.dll
+E:\Fuente\SISDEL2\SBS.UIF.SISDEL\SBS.UIF.SISDEL.Util\obj\Debug\SBS.UIF.SISDEL.Util.pdb

@@ -1,0 +1,12 @@
+C:\Users\carlos\Desktop\contralaft\contralaft-privado\Buzon\SBS.UIF.BUZ.BusinessLogic\bin\x64\Release\SBS.UIF.BUZ.BusinessLogic.dll
+C:\Users\carlos\Desktop\contralaft\contralaft-privado\Buzon\SBS.UIF.BUZ.BusinessLogic\bin\x64\Release\SBS.UIF.BUZ.BusinessLogic.pdb
+C:\Users\carlos\Desktop\contralaft\contralaft-privado\Buzon\SBS.UIF.BUZ.BusinessLogic\bin\x64\Release\ICSharpCode.SharpZipLib.dll
+C:\Users\carlos\Desktop\contralaft\contralaft-privado\Buzon\SBS.UIF.BUZ.BusinessLogic\bin\x64\Release\SBS.UIF.BUZ.DataAccess.dll
+C:\Users\carlos\Desktop\contralaft\contralaft-privado\Buzon\SBS.UIF.BUZ.BusinessLogic\bin\x64\Release\SBS.UIF.BUZ.Entity.dll
+C:\Users\carlos\Desktop\contralaft\contralaft-privado\Buzon\SBS.UIF.BUZ.BusinessLogic\bin\x64\Release\SBS.UIF.BUZ.DataAccess.pdb
+C:\Users\carlos\Desktop\contralaft\contralaft-privado\Buzon\SBS.UIF.BUZ.BusinessLogic\bin\x64\Release\SBS.UIF.BUZ.Entity.pdb
+C:\Users\carlos\Desktop\contralaft\contralaft-privado\Buzon\SBS.UIF.BUZ.BusinessLogic\obj\x64\Release\SBS.UIF.BUZ.BusinessLogic.csprojAssemblyReference.cache
+C:\Users\carlos\Desktop\contralaft\contralaft-privado\Buzon\SBS.UIF.BUZ.BusinessLogic\obj\x64\Release\SBS.UIF.BUZ.BusinessLogic.csproj.CoreCompileInputs.cache
+C:\Users\carlos\Desktop\contralaft\contralaft-privado\Buzon\SBS.UIF.BUZ.BusinessLogic\obj\x64\Release\SBS.UIF.BUZ.BusinessLogic.csproj.CopyComplete
+C:\Users\carlos\Desktop\contralaft\contralaft-privado\Buzon\SBS.UIF.BUZ.BusinessLogic\obj\x64\Release\SBS.UIF.BUZ.BusinessLogic.dll
+C:\Users\carlos\Desktop\contralaft\contralaft-privado\Buzon\SBS.UIF.BUZ.BusinessLogic\obj\x64\Release\SBS.UIF.BUZ.BusinessLogic.pdb

@@ -1,0 +1,9 @@
+E:\Fuente\SISDEL2-reestructuracion 1\SBS.UIF.SISDEL\SBS.UIF.SISDEL.Entity\bin\x64\Debug\SBS.UIF.SISDEL.Entity.dll
+E:\Fuente\SISDEL2-reestructuracion 1\SBS.UIF.SISDEL\SBS.UIF.SISDEL.Entity\bin\x64\Debug\SBS.UIF.SISDEL.Entity.pdb
+E:\Fuente\SISDEL2-reestructuracion 1\SBS.UIF.SISDEL\SBS.UIF.SISDEL.Entity\obj\x64\Debug\SBS.UIF.SISDEL.Entity.dll
+E:\Fuente\SISDEL2-reestructuracion 1\SBS.UIF.SISDEL\SBS.UIF.SISDEL.Entity\obj\x64\Debug\SBS.UIF.SISDEL.Entity.pdb
+E:\Fuente\SISDEL2-reestructuracion 2\SBS.UIF.SISDEL\SBS.UIF.SISDEL.Entity\obj\x64\Debug\SBS.UIF.BUZ.Entity.csprojResolveAssemblyReference.cache
+E:\Fuente\SISDEL2-reestructuracion 2\SBS.UIF.SISDEL\SBS.UIF.SISDEL.Entity\bin\x64\Debug\SBS.UIF.BUZ.Entity.dll
+E:\Fuente\SISDEL2-reestructuracion 2\SBS.UIF.SISDEL\SBS.UIF.SISDEL.Entity\bin\x64\Debug\SBS.UIF.BUZ.Entity.pdb
+E:\Fuente\SISDEL2-reestructuracion 2\SBS.UIF.SISDEL\SBS.UIF.SISDEL.Entity\obj\x64\Debug\SBS.UIF.BUZ.Entity.dll
+E:\Fuente\SISDEL2-reestructuracion 2\SBS.UIF.SISDEL\SBS.UIF.SISDEL.Entity\obj\x64\Debug\SBS.UIF.BUZ.Entity.pdb
