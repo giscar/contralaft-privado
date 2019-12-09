@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<sqlMap namespace="UsuarioMap" xmlns="http://ibatis.apache.org/mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+  <alias>
+    <typeAlias alias="Usuario" type="SBS.UIF.BUZ.Entity.Core.Usuario,SBS.UIF.BUZ.Entity" />
+  </alias>
+  <resultMaps>
+    <resultMap id="rm_usuario" class="Usuario">
+      <result property="id" column="NUM_COD_USUARIO"></result>
+      <result property="nombre" column="DES_DET_NOMBRE"></result>
+      <result property="password" column="DES_CON_CONTRA"></result>
+
+
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+
+    <insert id="insert_usuario">
+      INSERT INTO usuario (
+      DES_DET_NOMBRE,
+      DES_CON_CONTRA)
+      VALUES
+      (#nombre#,
+      #password#)
+    </insert>
+
+    <select id="select_usuario" resultMap="rm_usuario" >
+      SELECT NUM_COD_USUARIO, DES_DET_NOMBRE, DES_CON_CONTRA FROM USUARIO WHERE DES_DET_NOMBRE = #nombre# AND DES_CON_CONTRA = #password#
+    </select>
+
+    <select id="select_todos" resultMap="rm_usuario" >
+      SELECT NUM_COD_USUARIO, DES_DET_NOMBRE, DES_CON_CONTRA FROM USUARIO
+    </select>
+
+  </statements>
+</sqlMap>

@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<sqlMap namespace="ReporteSolDesigMap" xmlns="http://ibatis.apache.org/mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+  <alias>
+    <typeAlias alias="ReporteSolDesig" type="SBS.UIF.SISDEL.Entity.Report.ReporteSolDesig,SBS.UIF.SISDEL.Entity" />
+  </alias>
+  <resultMaps>
+    <resultMap id="rm_solicitud_designacion" class="ReporteSolDesig">
+      <result property="IdSolicitudDesignacion" column="id_solicitud_designacion"></result>
+      <result property="Codigo" column="codigo"></result>
+      <result property="IdUsuario" column="id_usuario"></result>
+      <result property="CodTipoDesignacion" column="cod_tipo_designacion"></result>
+      <result property="TipoDesignacion" column="tipo_designacion"></result>
+      <result property="CodMotivoCambio" column="cod_motivo_cambio"></result>
+      <result property="MotivoCambio" column="motivo_cambio"></result>
+      <result property="SustentoMotivoCambio" column="sustento_motivo_cambio"></result>
+      <result property="FechaSolicitud" column="fecha_solicitud"></result>
+      <result property="CodEstadoSol" column="cod_estado_sol"></result>
+      <result property="EstadoSol" column="estado_sol"></result>
+      <result property="CodEstadoSolExt" column="cod_estado_sol_ext"></result>
+      <result property="EstadoSolExt" column="estado_sol_ext"></result>
+      <result property="FlagDescarga" column="flag_descarga"></result>
+      
+      <result property="IdSujetoObligado" column="id_sujeto_obligado"></result>
+      <result property="CodTipoDocumentoSO" column="cod_tipo_documento_so"></result>
+      <result property="TipoDocumentoSO" column="tipo_documento_so"></result>
+      <result property="NumDocumentoSO" column="num_documento_so"></result>
+      <result property="RazonSocial" column="razon_social"></result>
+      <result property="CodSupervisor" column="cod_supervisor"></result>
+      <result property="Supervisor" column="supervisor"></result>
+      <result property="CodTipoSujeto" column="cod_tipo_sujeto"></result>
+      <result property="TipoSujeto" column="tipo_sujeto"></result>
+      
+      <result property="IdOficialCumplimiento" column="id_oficial_cumplimiento"></result>
+      <result property="CodTipoDocumentoOC" column="cod_tipo_documento_oc"></result>
+      <result property="TipoDocumentoOC" column="tipo_documento_oc"></result>
+      <result property="NumDocumentoOC" column="num_documento_oc"></result>
+      <result property="PrimerApellido" column="primer_apellido"></result>
+      <result property="SegundoApellido" column="segundo_apellido"></result>
+      <result property="Nombres" column="nombres"></result>
+
+      <result property="TipoCategoria" column="tipo_categoria"></result>
+
+      <result property="Archivos" column="archivos"></result>
+      <result property="NumeroExpedienteMP" column="numero_expediente_mp"></result>
+      <result property="FechaCreaCA" column="fecha_crea_ca"></result>
+      <result property="FechaCreaAA" column="fecha_crea_aa"></result>
+      <result property="UsuarioCA" column="usuario_ca"></result>      
+      <result property="UsuarioAA" column="usuario_aa"></result>
+      <result property="PrioridadCA" column="prioridad_ca"></result>
+      <result property="PrioridadJA" column="prioridad_ja"></result>
+
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <select id="select_solicitud_desig_general" resultMap="rm_solicitud_designacion">
+      SELECT n_c_ros codigo, c_c_nrorosuif NumDocumentoSO from ros r where n_c_ros in (68,74,79)
+    </select>
+    
+  </statements>
+</sqlMap>

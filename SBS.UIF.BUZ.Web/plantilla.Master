@@ -1,0 +1,62 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="plantilla.master.cs" Inherits="SBS.UIF.BUZ.Web.plantilla" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Buzón del Ciudadano</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
+
+    <link type="text/css" href="~/css/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link type="text/css" href="~/css/bootstrap/bootstrap-theme.min.css" rel="stylesheet" />
+    <link type="text/css" href="~/css/bootstrap-typeahead.css" rel="stylesheet" />
+    <link type="text/css" href="~/css/bootstrap/bootstrap-datepicker3.min.css" rel="stylesheet" />
+    <style type="text/css">
+        div.container-custom {
+            width: 100%;
+            border: 1px solid red;
+            margin: 0 auto;
+            padding: 2px 2px;
+        }        
+    </style>
+    <!--[if lte IE 8]>        
+       <script src="<%=Page.ResolveUrl("~/js/html5shiv.js") %>"></script>
+       <script src="<%=Page.ResolveUrl("~/js/respond.min.js") %>"></script>  
+    <![endif]-->
+    <script type="text/javascript" src="<%= Page.ResolveUrl("~/js/jquery-1.11.3.min.js") %>"></script>
+    <script type="text/javascript" src="<%= Page.ResolveUrl("~/js/bootstrap/bootstrap.min.js") %>"></script>
+    <script type="text/javascript" src="<%= Page.ResolveUrl("~/js/bootstrap-typeahead.min.js") %>"></script>
+
+   
+</head>
+<body>
+
+    
+	<!--PROTOTIPO CLEONV-->
+	
+	
+	
+	
+
+	
+	<form id="frmSISDEL" runat="server">
+        <div class="container container-custom" style="border: 1px solid #fff;">
+            <asp:ContentPlaceHolder ID="cphBody" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+	
+	
+	
+	
+	
+	
+	<!--PROTOTIPO CLEONV-->
+	
+   
+        <script type="text/javascript" src="<%= Page.ResolveUrl("~/js/jquery.MultiFile.js") %>"></script>
+</body>
+</html>

@@ -1,0 +1,381 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5992A5C6-F72E-4EF3-8BAE-A599DB5A6740}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SBS.UIF.BUZ.Web</RootNamespace>
+    <AssemblyName>SBS.UIF.BUZ.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <TargetFrameworkProfile />
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Aspose.Cells">
+      <HintPath>..\DLL\Aspose.Cells.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Core.3.3.3\lib\net45\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="IBatisNet.Common, Version=1.6.2.0, Culture=neutral, PublicKeyToken=ed781d9fc396c6ca, processorArchitecture=MSIL">
+      <HintPath>..\packages\IBatisNet45.1.6.2\lib\net45\IBatisNet.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="IBatisNet.Common.Logging.Log4Net, Version=1.6.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\IBatisNet45.1.6.2\lib\net45\IBatisNet.Common.Logging.Log4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="IBatisNet.DataMapper, Version=1.6.2.0, Culture=neutral, PublicKeyToken=ed781d9fc396c6ca, processorArchitecture=MSIL">
+      <HintPath>..\packages\IBatisNet45.1.6.2\lib\net45\IBatisNet.DataMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>..\DLL\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Ionic.Zip, Version=1.9.1.8, Culture=neutral, PublicKeyToken=edbe51ad942a3f5c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DLL\Ionic.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp">
+      <HintPath>..\DLL\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.14.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.4\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog">
+      <HintPath>..\DLL\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog.Extended">
+      <HintPath>..\DLL\NLog.Extended.dll</HintPath>
+    </Reference>
+    <Reference Include="SBS.CaptchaControl">
+      <HintPath>..\DLL\SBS.CaptchaControl.dll</HintPath>
+    </Reference>
+    <Reference Include="SBS.ComponenteSeguridad">
+      <HintPath>..\DLL\SBS.ComponenteSeguridad.dll</HintPath>
+    </Reference>
+    <Reference Include="Sbs.Web.Util">
+      <HintPath>..\DLL\Sbs.Web.Util.dll</HintPath>
+    </Reference>
+    <Reference Include="SBS.Web.Utils">
+      <HintPath>..\DLL\SBS.Web.Utils.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="css\bootstrap-typeahead.css" />
+    <Content Include="css\bootstrap\bootstrap-datepicker3.min.css" />
+    <Content Include="css\bootstrap\bootstrap-theme.css" />
+    <Content Include="css\bootstrap\bootstrap-theme.min.css" />
+    <Content Include="css\bootstrap\bootstrap.css" />
+    <Content Include="css\bootstrap\bootstrap.min.css" />
+    <Content Include="css\fileinput.css" />
+    <Content Include="css\fileinput.min.css" />
+    <Content Include="css\step-progress-bar.css" />
+    <Content Include="css\perfect-scrollbar-0.4.10.min.css" />
+    <Content Include="css\site.css" />
+    <Content Include="fonts\bootstrap\glyphicons-halflings-regular.svg" />
+    <Content Include="formularioPersona.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="img\blanco.JPG" />
+    <Content Include="img\empresa.png" />
+    <Content Include="img\hip_reload.gif" />
+    <Content Include="img\hip_reload.png" />
+    <Content Include="img\icon_check_16x16.png" />
+    <Content Include="img\info.png" />
+    <Content Include="img\loader.gif" />
+    <Content Include="img\loading-animation.gif" />
+    <Content Include="img\loading-progress.jpg" />
+    <Content Include="img\loading-sm.gif" />
+    <Content Include="img\loading.gif" />
+    <Content Include="img\pdf.png" />
+    <Content Include="img\persona.png" />
+    <Content Include="img\plaft-cabecera-01.jpg" />
+    <Content Include="img\question.png" />
+    <Content Include="img\resultset_first.png" />
+    <Content Include="img\resultset_last.png" />
+    <Content Include="img\resultset_next.png" />
+    <Content Include="img\resultset_previous.png" />
+    <Content Include="img\sbs_logo.jpg" />
+    <Content Include="img\warning.png" />
+    <Content Include="js\bootstrap-typeahead.min.js" />
+    <Content Include="js\bootstrap\bootstrap-datepicker.es.min.js" />
+    <Content Include="js\bootstrap\bootstrap-datepicker.min.js" />
+    <Content Include="js\bootstrap\bootstrap.js" />
+    <Content Include="js\bootstrap\bootstrap.min.js" />
+    <Content Include="js\bootstrap\npm.js" />
+    <Content Include="js\fileinput.js" />
+    <Content Include="js\fileinput.min.js" />
+    <Content Include="js\html5shiv.js" />
+    <Content Include="js\jquery-1.11.3.js" />
+    <Content Include="js\jquery-1.11.3.min.js" />
+    <Content Include="js\jquery.alphanum.js" />
+    <Content Include="js\jquery.blockUI.js" />
+    <Content Include="js\jquery.MultiFile.js" />
+    <Content Include="js\jquery.MultiFile.min.js" />
+    <Content Include="js\site.js" />
+    <Content Include="js\perfect-scrollbar-0.4.10.with-mousewheel.min.js" />
+    <Content Include="js\respond.min.js" />
+    <Content Include="pages\entidad.aspx" />
+    <Content Include="pages\login.aspx" />
+    <Content Include="pages\perfil.aspx" />
+    <Content Include="pages\roles.aspx" />
+    <Content Include="pages\usuario.aspx" />
+    <Content Include="recursos\core\Entidad.xml" />
+    <Content Include="recursos\core\Usuario.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="comun\PaginaBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="filters\Acceder.cs" />
+    <Compile Include="formularioPersona.aspx.cs">
+      <DependentUpon>formularioPersona.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="formularioPersona.aspx.designer.cs">
+      <DependentUpon>formularioPersona.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="pages\entidad.aspx.cs">
+      <DependentUpon>entidad.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\entidad.aspx.designer.cs">
+      <DependentUpon>entidad.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\perfil.aspx.cs">
+      <DependentUpon>perfil.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\perfil.aspx.designer.cs">
+      <DependentUpon>perfil.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\roles.aspx.cs">
+      <DependentUpon>roles.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\roles.aspx.designer.cs">
+      <DependentUpon>roles.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\usuario.aspx.cs">
+      <DependentUpon>usuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\usuario.aspx.designer.cs">
+      <DependentUpon>usuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="plantilla.Master.cs">
+      <DependentUpon>plantilla.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="plantilla.Master.designer.cs">
+      <DependentUpon>plantilla.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="logs\" />
+    <Folder Include="recursos\common\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="css\bootstrap\bootstrap-theme.css.map" />
+    <Content Include="css\bootstrap\bootstrap-theme.min.css.map" />
+    <Content Include="css\bootstrap\bootstrap.css.map" />
+    <Content Include="css\bootstrap\bootstrap.min.css.map" />
+    <Content Include="fonts\bootstrap\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\bootstrap\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\bootstrap\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\bootstrap\glyphicons-halflings-regular.woff2" />
+    <Content Include="Providers.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlMap.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="img\Thumbs.db" />
+    <Content Include="plantilla.Master" />
+    <None Include="packages.config" />
+    <None Include="Properties\PublishProfiles\SISDEL any CPU.pubxml" />
+    <None Include="Properties\PublishProfiles\sisdel3.pubxml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SBS.UIF.BUZ.BusinessLogic\SBS.UIF.BUZ.BusinessLogic.csproj">
+      <Project>{953df26a-8370-49b6-890c-b2c757f96384}</Project>
+      <Name>SBS.UIF.BUZ.BusinessLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SBS.UIF.BUZ.DataAccess\SBS.UIF.BUZ.DataAccess.csproj">
+      <Project>{f7875e67-05b8-4203-b013-e24ee599851b}</Project>
+      <Name>SBS.UIF.BUZ.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SBS.UIF.BUZ.Entity\SBS.UIF.BUZ.Entity.csproj">
+      <Project>{cf2d6df6-c1f7-4dd7-b023-b1a55b5d3be3}</Project>
+      <Name>SBS.UIF.BUZ.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SBS.UIF.BUZ.Util\SBS.UIF.BUZ.Util.csproj">
+      <Project>{ac54d9ec-4adb-42ea-8d7d-4332442f1a46}</Project>
+      <Name>SBS.UIF.BUZ.Util</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>56041</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:56041/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>https://desa-rosel.sbs.gob.pe/sisdel/</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
