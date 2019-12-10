@@ -98,3 +98,13 @@ C:\Users\carlos\Desktop\DNN\privado\v7\Buzon\SBS.UIF.BUZ.Util\obj\Debug\SBS.UIF.
 C:\Users\carlos\Desktop\DNN\privado\v7\Buzon\SBS.UIF.BUZ.Util\obj\Debug\SBS.UIF.BUZ.Util.csproj.CopyComplete
 C:\Users\carlos\Desktop\DNN\privado\v7\Buzon\SBS.UIF.BUZ.Util\obj\Debug\SBS.UIF.BUZ.Util.dll
 C:\Users\carlos\Desktop\DNN\privado\v7\Buzon\SBS.UIF.BUZ.Util\obj\Debug\SBS.UIF.BUZ.Util.pdb
+C:\Users\carlos\Desktop\DNN\privado\v8\trunk\SBS.UIF.BUZ.Util\bin\Debug\SBS.UIF.BUZ.Util.dll
+C:\Users\carlos\Desktop\DNN\privado\v8\trunk\SBS.UIF.BUZ.Util\bin\Debug\SBS.UIF.BUZ.Util.pdb
+C:\Users\carlos\Desktop\DNN\privado\v8\trunk\SBS.UIF.BUZ.Util\bin\Debug\ICSharpCode.SharpZipLib.dll
+C:\Users\carlos\Desktop\DNN\privado\v8\trunk\SBS.UIF.BUZ.Util\bin\Debug\Newtonsoft.Json.dll
+C:\Users\carlos\Desktop\DNN\privado\v8\trunk\SBS.UIF.BUZ.Util\bin\Debug\SBS.UIF.BUZ.Entity.dll
+C:\Users\carlos\Desktop\DNN\privado\v8\trunk\SBS.UIF.BUZ.Util\bin\Debug\SBS.UIF.BUZ.Entity.pdb
+C:\Users\carlos\Desktop\DNN\privado\v8\trunk\SBS.UIF.BUZ.Util\obj\Debug\SBS.UIF.BUZ.Util.csprojAssemblyReference.cache
+C:\Users\carlos\Desktop\DNN\privado\v8\trunk\SBS.UIF.BUZ.Util\obj\Debug\SBS.UIF.BUZ.Util.csproj.CopyComplete
+C:\Users\carlos\Desktop\DNN\privado\v8\trunk\SBS.UIF.BUZ.Util\obj\Debug\SBS.UIF.BUZ.Util.dll
+C:\Users\carlos\Desktop\DNN\privado\v8\trunk\SBS.UIF.BUZ.Util\obj\Debug\SBS.UIF.BUZ.Util.pdb

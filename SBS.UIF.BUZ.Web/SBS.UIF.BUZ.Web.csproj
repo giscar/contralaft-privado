@@ -130,11 +130,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\bootstrap-typeahead.css" />
-    <Content Include="css\bootstrap\bootstrap-datepicker3.min.css" />
-    <Content Include="css\bootstrap\bootstrap-theme.css" />
-    <Content Include="css\bootstrap\bootstrap-theme.min.css" />
-    <Content Include="css\bootstrap\bootstrap.css" />
-    <Content Include="css\bootstrap\bootstrap.min.css" />
     <Content Include="css\fileinput.css" />
     <Content Include="css\fileinput.min.css" />
     <Content Include="css\step-progress-bar.css" />
@@ -164,24 +159,6 @@
     <Content Include="img\resultset_previous.png" />
     <Content Include="img\sbs_logo.jpg" />
     <Content Include="img\warning.png" />
-    <Content Include="js\bootstrap-typeahead.min.js" />
-    <Content Include="js\bootstrap\bootstrap-datepicker.es.min.js" />
-    <Content Include="js\bootstrap\bootstrap-datepicker.min.js" />
-    <Content Include="js\bootstrap\bootstrap.js" />
-    <Content Include="js\bootstrap\bootstrap.min.js" />
-    <Content Include="js\bootstrap\npm.js" />
-    <Content Include="js\fileinput.js" />
-    <Content Include="js\fileinput.min.js" />
-    <Content Include="js\html5shiv.js" />
-    <Content Include="js\jquery-1.11.3.js" />
-    <Content Include="js\jquery-1.11.3.min.js" />
-    <Content Include="js\jquery.alphanum.js" />
-    <Content Include="js\jquery.blockUI.js" />
-    <Content Include="js\jquery.MultiFile.js" />
-    <Content Include="js\jquery.MultiFile.min.js" />
-    <Content Include="js\site.js" />
-    <Content Include="js\perfect-scrollbar-0.4.10.with-mousewheel.min.js" />
-    <Content Include="js\respond.min.js" />
     <Content Include="pages\entidad.aspx" />
     <Content Include="pages\login.aspx" />
     <Content Include="pages\perfil.aspx" />
@@ -245,25 +222,23 @@
     <Compile Include="pages\usuario.aspx.designer.cs">
       <DependentUpon>usuario.aspx</DependentUpon>
     </Compile>
-    <Compile Include="plantilla.Master.cs">
+    <Compile Include="pages\plantilla.Master.cs">
       <DependentUpon>plantilla.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="plantilla.Master.designer.cs">
+    <Compile Include="pages\plantilla.Master.designer.cs">
       <DependentUpon>plantilla.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="css\bootstrap\" />
+    <Folder Include="js\bootstrap\" />
     <Folder Include="logs\" />
     <Folder Include="recursos\common\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="css\bootstrap\bootstrap-theme.css.map" />
-    <Content Include="css\bootstrap\bootstrap-theme.min.css.map" />
-    <Content Include="css\bootstrap\bootstrap.css.map" />
-    <Content Include="css\bootstrap\bootstrap.min.css.map" />
     <Content Include="fonts\bootstrap\glyphicons-halflings-regular.eot" />
     <Content Include="fonts\bootstrap\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\bootstrap\glyphicons-halflings-regular.woff" />
@@ -275,7 +250,7 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="img\Thumbs.db" />
-    <Content Include="plantilla.Master" />
+    <Content Include="pages\plantilla.Master" />
     <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\SISDEL any CPU.pubxml" />
     <None Include="Properties\PublishProfiles\sisdel3.pubxml" />

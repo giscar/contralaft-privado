@@ -109,3 +109,16 @@ C:\Users\carlos\Desktop\DNN\privado\v7\Buzon\SBS.UIF.BUZ.BusinessLogic\obj\Debug
 C:\Users\carlos\Desktop\DNN\privado\v7\Buzon\SBS.UIF.BUZ.BusinessLogic\obj\Debug\SBS.UIF.BUZ.BusinessLogic.csproj.CopyComplete
 C:\Users\carlos\Desktop\DNN\privado\v7\Buzon\SBS.UIF.BUZ.BusinessLogic\obj\Debug\SBS.UIF.BUZ.BusinessLogic.dll
 C:\Users\carlos\Desktop\DNN\privado\v7\Buzon\SBS.UIF.BUZ.BusinessLogic\obj\Debug\SBS.UIF.BUZ.BusinessLogic.pdb
+C:\Users\carlos\Desktop\DNN\privado\v8\trunk\SBS.UIF.BUZ.BusinessLogic\bin\Debug\SBS.UIF.BUZ.BusinessLogic.dll
+C:\Users\carlos\Desktop\DNN\privado\v8\trunk\SBS.UIF.BUZ.BusinessLogic\bin\Debug\SBS.UIF.BUZ.BusinessLogic.pdb
+C:\Users\carlos\Desktop\DNN\privado\v8\trunk\SBS.UIF.BUZ.BusinessLogic\bin\Debug\ICSharpCode.SharpZipLib.dll
+C:\Users\carlos\Desktop\DNN\privado\v8\trunk\SBS.UIF.BUZ.BusinessLogic\bin\Debug\SBS.UIF.BUZ.DataAccess.dll
+C:\Users\carlos\Desktop\DNN\privado\v8\trunk\SBS.UIF.BUZ.BusinessLogic\bin\Debug\SBS.UIF.BUZ.Entity.dll
+C:\Users\carlos\Desktop\DNN\privado\v8\trunk\SBS.UIF.BUZ.BusinessLogic\bin\Debug\Castle.Core.dll
+C:\Users\carlos\Desktop\DNN\privado\v8\trunk\SBS.UIF.BUZ.BusinessLogic\bin\Debug\SBS.UIF.BUZ.DataAccess.pdb
+C:\Users\carlos\Desktop\DNN\privado\v8\trunk\SBS.UIF.BUZ.BusinessLogic\bin\Debug\SBS.UIF.BUZ.Entity.pdb
+C:\Users\carlos\Desktop\DNN\privado\v8\trunk\SBS.UIF.BUZ.BusinessLogic\bin\Debug\Castle.Core.xml
+C:\Users\carlos\Desktop\DNN\privado\v8\trunk\SBS.UIF.BUZ.BusinessLogic\obj\Debug\SBS.UIF.BUZ.BusinessLogic.csprojAssemblyReference.cache
+C:\Users\carlos\Desktop\DNN\privado\v8\trunk\SBS.UIF.BUZ.BusinessLogic\obj\Debug\SBS.UIF.BUZ.BusinessLogic.csproj.CopyComplete
+C:\Users\carlos\Desktop\DNN\privado\v8\trunk\SBS.UIF.BUZ.BusinessLogic\obj\Debug\SBS.UIF.BUZ.BusinessLogic.dll
+C:\Users\carlos\Desktop\DNN\privado\v8\trunk\SBS.UIF.BUZ.BusinessLogic\obj\Debug\SBS.UIF.BUZ.BusinessLogic.pdb
