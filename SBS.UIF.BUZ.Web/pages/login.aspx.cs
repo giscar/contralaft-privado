@@ -43,8 +43,8 @@ namespace SBS.UIF.BUZ.Web.pages.login
 
         private void MsgServidor(string pmessage)
         {
-            idModalInfoServer.Visible = true;
-            lblMensajeOk.Text = pmessage;
+            /*idModalInfoServer.Visible = true;
+            lblMensajeOk.Text = pmessage;*/
         }
     }
 }
