@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<sqlMap namespace="MenuMap" xmlns="http://ibatis.apache.org/mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+  <alias>
+    <typeAlias alias="Menu" type="SBS.UIF.BUZ.Entity.Core.Menu,SBS.UIF.BUZ.Entity" />
+  </alias>
+  <resultMaps>
+    <resultMap id="rm_menu" class="Menu">
+      <result property="IdTipo" column="N_COD_ENTIDAD"></result>
+      <result property="DesTipo" column="C_DES_RAZON"></result>
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <select id="select_entidad" resultMap="rm_entidad" >
+      SELECT N_COD_ENTIDAD, C_DES_RAZON FROM ENTIDAD WHERE N_FL_ACTIVO = 1
+    </select>
+  </statements>
+</sqlMap>
