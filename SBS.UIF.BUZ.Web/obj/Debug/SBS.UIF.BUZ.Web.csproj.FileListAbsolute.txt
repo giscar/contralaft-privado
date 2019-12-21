@@ -375,7 +375,6 @@ C:\Users\carlos\Desktop\DNN\privado\v7\Buzon\SBS.UIF.BUZ.Web\obj\Debug\SBS.UIF.B
 C:\Users\carlos\Desktop\DNN\privado\v7\Buzon\SBS.UIF.BUZ.Web\obj\Debug\SBS.UIF.BUZ.Web.csproj.CopyComplete
 C:\Users\carlos\Desktop\DNN\privado\v7\Buzon\SBS.UIF.BUZ.Web\obj\Debug\SBS.UIF.BUZ.Web.dll
 C:\Users\carlos\Desktop\DNN\privado\v7\Buzon\SBS.UIF.BUZ.Web\obj\Debug\SBS.UIF.BUZ.Web.pdb
-C:\Users\carlos\Desktop\DNN\privado\v8\trunk\SBS.UIF.BUZ.Web\obj\Debug\SBS.UIF.BUZ.Web.csprojAssemblyReference.cache
 C:\Users\carlos\Desktop\DNN\privado\v8\trunk\SBS.UIF.BUZ.Web\bin\SBS.UIF.BUZ.Web.dll.config
 C:\Users\carlos\Desktop\DNN\privado\v8\trunk\SBS.UIF.BUZ.Web\bin\SBS.UIF.BUZ.Web.dll
 C:\Users\carlos\Desktop\DNN\privado\v8\trunk\SBS.UIF.BUZ.Web\bin\SBS.UIF.BUZ.Web.pdb
@@ -421,6 +420,7 @@ C:\Users\carlos\Desktop\DNN\privado\v8\trunk\SBS.UIF.BUZ.Web\bin\System.Web.Razo
 C:\Users\carlos\Desktop\DNN\privado\v8\trunk\SBS.UIF.BUZ.Web\bin\System.Web.WebPages.xml
 C:\Users\carlos\Desktop\DNN\privado\v8\trunk\SBS.UIF.BUZ.Web\bin\System.Web.WebPages.Deployment.xml
 C:\Users\carlos\Desktop\DNN\privado\v8\trunk\SBS.UIF.BUZ.Web\bin\System.Web.WebPages.Razor.xml
+C:\Users\carlos\Desktop\DNN\privado\v8\trunk\SBS.UIF.BUZ.Web\obj\Debug\SBS.UIF.BUZ.Web.csprojAssemblyReference.cache
 C:\Users\carlos\Desktop\DNN\privado\v8\trunk\SBS.UIF.BUZ.Web\obj\Debug\SBS.UIF.BUZ.Web.csproj.CopyComplete
 C:\Users\carlos\Desktop\DNN\privado\v8\trunk\SBS.UIF.BUZ.Web\obj\Debug\SBS.UIF.BUZ.Web.dll
 C:\Users\carlos\Desktop\DNN\privado\v8\trunk\SBS.UIF.BUZ.Web\obj\Debug\SBS.UIF.BUZ.Web.pdb
