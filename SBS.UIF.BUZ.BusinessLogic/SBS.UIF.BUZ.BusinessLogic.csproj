@@ -93,6 +93,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\MenuBusinessLogic.cs" />
     <Compile Include="Core\EntidadBusinessLogic.cs" />
     <Compile Include="Core\UsuarioBusinessLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -107,9 +108,7 @@
       <Name>SBS.UIF.BUZ.Entity</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Common\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

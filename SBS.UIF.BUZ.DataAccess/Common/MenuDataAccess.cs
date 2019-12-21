@@ -5,13 +5,13 @@ using System.Text;
 using SBS.UIF.BUZ.Entity.Common;
 using SBS.UIF.BUZ.DataAccess.Mapper;
 
-namespace SBS.UIF.BUZ.DataAccess.Core
+namespace SBS.UIF.BUZ.DataAccess.Common
 {
-    public class EntidadDataAccess
+    public class MenuDataAccess
     {
-        public List<Entidad> listarPorEntidad()
+        public List<Menu> listarPorMenu()
         {
-            return (BaseService<Entidad>.QueryForList("select_entidad", null));
+            return (BaseService<Menu>.QueryForList("select_menu", null));
         }
     }
 }

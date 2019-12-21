@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-using SBS.UIF.BUZ.Entity.Core;
+using SBS.UIF.BUZ.Entity.Common;
 using SBS.UIF.BUZ.DataAccess.Core;
 
 namespace SBS.UIF.BUZ.BusinessLogic.Core

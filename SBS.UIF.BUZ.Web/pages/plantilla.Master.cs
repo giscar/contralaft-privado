@@ -1,17 +1,22 @@
-﻿using System;
+﻿using SBS.UIF.BUZ.BusinessLogic.Common;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
+using SBS.UIF.BUZ.Entity.Common;
 
 namespace SBS.UIF.BUZ.Web
 {
     public partial class plantilla : System.Web.UI.MasterPage
     {
+        MenuBusinessLogic _menuBusinessLogic = new MenuBusinessLogic();
+
+        List<Menu> listadoMenu;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            listadoMenu = _menuBusinessLogic.listarPorMenu();
+            Console.WriteLine(listadoMenu.Count);
         }
     }
 }
