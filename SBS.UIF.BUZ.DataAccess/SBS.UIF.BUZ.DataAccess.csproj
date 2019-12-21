@@ -97,6 +97,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseDatos.cs" />
+    <Compile Include="Common\MenuDataAccess.cs" />
     <Compile Include="Core\EntidadDataAccess.cs" />
     <Compile Include="Core\UsuarioDataAccess.cs" />
     <Compile Include="Mapper\CastType.cs" />
@@ -109,9 +110,7 @@
       <Name>SBS.UIF.BUZ.Entity</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Common\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
