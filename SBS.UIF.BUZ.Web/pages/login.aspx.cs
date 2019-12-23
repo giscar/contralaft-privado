@@ -8,7 +8,7 @@ using System.Web.UI.WebControls;
 using System.Security.Cryptography;
 using System.Data;
 using SBS.UIF.BUZ.BusinessLogic.Core;
-using SBS.UIF.BUZ.Entity.Common;
+using SBS.UIF.BUZ.Entity.Core;
 
 namespace SBS.UIF.BUZ.Web.pages.login
 {

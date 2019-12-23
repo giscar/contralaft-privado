@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace SBS.UIF.BUZ.Entity.Common
+namespace SBS.UIF.BUZ.Entity.Core
 {
     public class Usuario
     {

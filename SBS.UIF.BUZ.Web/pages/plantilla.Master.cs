@@ -17,6 +17,8 @@ namespace SBS.UIF.BUZ.Web
         {
             listadoMenu = _menuBusinessLogic.listarPorMenu();
             Console.WriteLine(listadoMenu.Count);
+            cdcatalog.DataSource = listadoMenu;
+            cdcatalog.DataBind();
         }
     }
 }

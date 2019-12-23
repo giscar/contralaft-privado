@@ -10,13 +10,12 @@
       <result property="DesNombre" column="C_DES_NOMBRE"></result>
       <result property="CodIcon" column="C_COD_ICON"></result>
       <result property="NomPage" column="C_NOM_PAGE"></result>
-      <result property="FlActivo" column="N_FL_ACTIVO"></result>
     </resultMap>
   </resultMaps>
 
   <statements>
     <select id="select_menu" resultMap="rm_menu" >
-      SELECT N_COD_MENU, N_COD_PADRE C_DES_NOMBRE, C_COD_ICON, C_NOM_PAGE, N_FL_ACTIVO FROM MENU WHERE N_FL_ACTIVO = 1
+      SELECT N_COD_MENU, N_COD_PADRE, C_DES_NOMBRE, C_COD_ICON, C_NOM_PAGE FROM MENU WHERE N_FL_ACTIVO = 1
     </select>
   </statements>
 </sqlMap>

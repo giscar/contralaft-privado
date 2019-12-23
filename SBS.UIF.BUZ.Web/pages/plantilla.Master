@@ -22,7 +22,27 @@
 </head>
 <body>
 
-    
+   
+            
+            <li class="nav-item">
+              <a href="pages/widgets.html" class="nav-link"><i class="link-icon mdi mdi-apple-safari"></i><span class="menu-title">WIDGETS</span></a>
+            </li>
+                 <div class="nav-bottom">
+        <div class="container">
+          <ul class="nav page-navigation">
+
+        
+  <asp:Repeater id="cdcatalog" runat="server">
+   <ItemTemplate>
+       <li class="nav-item">
+              <a href="index.html" class="nav-link"><i class="link-icon mdi mdi-television"></i><span class="menu-title"><%# Eval("DesNombre")%></span></a>
+            </li>
+        </ItemTemplate>
+</asp:Repeater>
+    </ul>
+            </div>
+        </div>
+
 <div class="container-scroller">
     <!-- partial:partials/_horizontal-navbar.html -->
     <nav class="navbar horizontal-layout col-lg-12 col-12 p-0">
