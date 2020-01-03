@@ -22,5 +22,10 @@ namespace SBS.UIF.BUZ.BusinessLogic.Core
             return (_entidadDataAccess.listarPorEntidad());
         }
 
+        public int guardarEntidad(Entidad _entidad)
+        {
+            return (_entidadDataAccess.guardarEntidad(_entidad));
+        }
+
     }
 }

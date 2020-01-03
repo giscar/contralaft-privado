@@ -9,9 +9,9 @@ namespace SBS.UIF.BUZ.Entity.Core
     {
         public int IdTipo { get; set; }
         public string DesTipo { get; set; }
-        public int CodRuc { get; set; }
+        public string CodRuc { get; set; }
         public string UsuRegistro { get; set; }
-        public string FecRegistro { get; set; }
+        public DateTime FecRegistro { get; set; }
         public string FlActivo { get; set; }
 
 

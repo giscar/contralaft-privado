@@ -7,7 +7,7 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace SBS.UIF.BUZ.Web.pages.login
+namespace SBS.UIF.BUZ.Web.pages
 {
 
 

@@ -7,6 +7,9 @@
     <resultMap id="rm_entidad" class="Entidad">
       <result property="IdTipo" column="N_COD_ENTIDAD"></result>
       <result property="DesTipo" column="C_DES_RAZON"></result>
+      <result property="CodRuc" column="C_COD_RUC"></result>
+      <result property="FecRegistro" column="D_FEC_REGISTRO"></result>
+      
     </resultMap>
   </resultMaps>
 
@@ -14,5 +17,18 @@
     <select id="select_entidad" resultMap="rm_entidad" >
       SELECT N_COD_ENTIDAD, C_DES_RAZON FROM ENTIDAD WHERE N_FL_ACTIVO = 1
     </select>
+
+    <insert id="insert_entidad">
+      INSERT INTO ENTIDAD (
+      C_DES_RAZON,
+      C_COD_RUC,
+      D_FEC_REGISTRO,
+      N_FL_ACTIVO)
+      VALUES
+      (#DesTipo#,
+      #CodRuc#,
+      #FecRegistro#,
+      1)
+    </insert>
   </statements>
 </sqlMap>

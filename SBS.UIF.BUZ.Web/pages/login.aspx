@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="SBS.UIF.BUZ.Web.pages.login.login" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="SBS.UIF.BUZ.Web.pages.login" %>
 <!DOCTYPE html>
 <html lang="en">
 

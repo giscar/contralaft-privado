@@ -13,5 +13,10 @@ namespace SBS.UIF.BUZ.DataAccess.Core
         {
             return (BaseService<Entidad>.QueryForList("select_entidad", null));
         }
+
+        public int guardarEntidad(Entidad _entidad)
+        {
+            return (Convert.ToInt32(MapperPro.Instance().Insert("insert_entidad", _entidad)));
+        }
     }
 }

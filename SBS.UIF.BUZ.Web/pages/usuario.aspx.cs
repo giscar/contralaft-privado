@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web.UI;
 using System.Text;
 using System.Security.Cryptography;
 using System.Web.UI.WebControls;
@@ -12,11 +11,13 @@ using SBS.UIF.BUZ.Entity.Core;
 using SBS.UIF.BUZ.Web.comun;
 using SBS.UIF.BUZ.Util;
 
-namespace SBS.UIF.BUZ.Web.pages.usuario
+namespace SBS.UIF.BUZ.Web.pages
 {
     public partial class usuario : PaginaBase
     {
         UsuarioBusinessLogic usuarioBusinessLogic = new UsuarioBusinessLogic();
+
+        EntidadBusinessLogic entidadBusinessLogic = new EntidadBusinessLogic();
 
         List<Usuario> listadoUsuarios;
         protected void Page_Load(object sender, EventArgs e)
@@ -49,7 +50,8 @@ namespace SBS.UIF.BUZ.Web.pages.usuario
             GridView1.DataBind();
         }
 
-        protected void Submit_nuevo(object sender, EventArgs e) {
+        protected void Submit_nuevo(object sender, EventArgs e) 
+        {
             Usuario _usuario = new Usuario();
             _usuario.nombre = txtNombre.Value;
             SHA256Managed sha = new SHA256Managed();
@@ -60,7 +62,21 @@ namespace SBS.UIF.BUZ.Web.pages.usuario
             limpiar();
         }
 
-        private void limpiar() {
+        protected void Submit_nuevo_entidad(object sender, EventArgs e)
+        {
+            var usuarioSession= HttpContext.Current.Session["Usuario"];
+            Entidad entidad = new Entidad
+            {
+                DesTipo = txtNombre.Value,
+                CodRuc = txtRuc.Value,
+                FecRegistro = new DateTime(),
+                //entidad.UsuRegistro = usuarioSession.
+                FlActivo = "1"
+            };
+            entidadBusinessLogic.guardarEntidad(entidad);
+        }
+
+            private void limpiar() {
             txtNombre.Value = "";
             txtContra.Value = "";
         }

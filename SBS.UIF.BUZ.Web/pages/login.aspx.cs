@@ -10,7 +10,7 @@ using System.Data;
 using SBS.UIF.BUZ.BusinessLogic.Core;
 using SBS.UIF.BUZ.Entity.Core;
 
-namespace SBS.UIF.BUZ.Web.pages.login
+namespace SBS.UIF.BUZ.Web.pages
 {
     public partial class login : System.Web.UI.Page
     {
