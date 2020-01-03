@@ -52,3 +52,4 @@ C:\Users\carlos\Desktop\DNN\privado\v8\trunk\SBS.UIF.BUZ.Entity\bin\Debug\SBS.UI
 C:\Users\carlos\Desktop\DNN\privado\v8\trunk\SBS.UIF.BUZ.Entity\bin\Debug\SBS.UIF.BUZ.Entity.pdb
 C:\Users\carlos\Desktop\DNN\privado\v8\trunk\SBS.UIF.BUZ.Entity\obj\Debug\SBS.UIF.BUZ.Entity.dll
 C:\Users\carlos\Desktop\DNN\privado\v8\trunk\SBS.UIF.BUZ.Entity\obj\Debug\SBS.UIF.BUZ.Entity.pdb
+C:\Users\carlos\Desktop\DNN\privado\v8\trunk\SBS.UIF.BUZ.Entity\obj\Debug\SBS.UIF.BUZ.Entity.csprojAssemblyReference.cache
