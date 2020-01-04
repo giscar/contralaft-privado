@@ -12,7 +12,7 @@ namespace SBS.UIF.BUZ.Entity.Core
         public string CodRuc { get; set; }
         public string UsuRegistro { get; set; }
         public DateTime FecRegistro { get; set; }
-        public string FlActivo { get; set; }
+        public int FlActivo { get; set; }
 
 
 

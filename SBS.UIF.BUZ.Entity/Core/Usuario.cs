@@ -7,13 +7,21 @@ namespace SBS.UIF.BUZ.Entity.Core
 {
     public class Usuario
     {
-        public int id { get; set; }
+        public int IdUsuario { get; set; }
 
-        public String nombre { get; set; }
+        public String DetCodigo { get; set; }
 
-        public String indHabilitado { get; set; }
+        public int IdPerfil { get; set; }
 
-        public String password { get; set; }
+        public int IdEntidad { get; set; }
+
+        public int FlActivo { get; set; }
+
+        public String FecRegistro { get; set; }
+
+        public String UsuRegistro { get; set; }
+
+        public String DetContrasenia { get; set; }
 
     }
 }

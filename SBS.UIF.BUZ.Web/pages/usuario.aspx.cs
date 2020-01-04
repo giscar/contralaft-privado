@@ -64,14 +64,14 @@ namespace SBS.UIF.BUZ.Web.pages
 
         protected void Submit_nuevo_entidad(object sender, EventArgs e)
         {
-            var usuarioSession= HttpContext.Current.Session["Usuario"];
+            Usuario usuarioSession = (Usuario) HttpContext.Current.Session["Usuario"];
             Entidad entidad = new Entidad
             {
                 DesTipo = txtNombre.Value,
                 CodRuc = txtRuc.Value,
                 FecRegistro = new DateTime(),
-                //entidad.UsuRegistro = usuarioSession.
-                FlActivo = "1"
+                entidad.UsuRegistro = usuarioSession.id.ToString();
+                FlActivo = 1
             };
             entidadBusinessLogic.guardarEntidad(entidad);
         }
