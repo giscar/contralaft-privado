@@ -5,15 +5,15 @@
   </alias>
   <resultMaps>
     <resultMap id="rm_usuario" class="Usuario">
-      <result property="id" column="N_COD_ID"></result>
-      <result property="codigo" column="C_DET_CODIGO"></result>
-      <result property="nombre" column="C_DET_NOMBRE"></result>
-      <result property="nombre" column="N_COD_PERFIL"></result>
-      <result property="nombre" column="N_COD_ENTIDAD"></result>
-      <result property="nombre" column="N_FL_ACTIVO"></result>
-      <result property="nombre" column="D_FEC_REGISTRO"></result>
-      <result property="nombre" column="C_USU_REGISTRO"></result>
-      <result property="nombre" column="C_DET_CONTRA"></result>
+      <result property="IdUsuario" column="N_COD_ID"></result>
+      <result property="DetCodigo" column="C_DET_CODIGO"></result>
+      <result property="DetNombre" column="C_DET_NOMBRE"></result>
+      <result property="IdPerfil" column="N_COD_PERFIL"></result>
+      <result property="IdEntidad" column="N_COD_ENTIDAD"></result>
+      <result property="FlActivo" column="N_FL_ACTIVO"></result>
+      <result property="FecRegistro" column="D_FEC_REGISTRO"></result>
+      <result property="UsuRegistro" column="C_USU_REGISTRO"></result>
+      <result property="DetContrasenia" column="C_DET_CONTRA"></result>
       
     </resultMap>
   </resultMaps>
@@ -22,19 +22,19 @@
 
     <insert id="insert_usuario">
       INSERT INTO usuario (
-      DES_DET_NOMBRE,
-      DES_CON_CONTRA)
+      C_DET_NOMBRE,
+      C_DET_CONTRA)
       VALUES
       (#nombre#,
       #password#)
     </insert>
 
     <select id="select_usuario" resultMap="rm_usuario" >
-      SELECT NUM_COD_USUARIO, DES_DET_NOMBRE, DES_CON_CONTRA FROM USUARIO WHERE DES_DET_NOMBRE = #nombre# AND DES_CON_CONTRA = #password#
+      SELECT * WHERE C_DET_NOMBRE = #nombre# AND C_DET_CONTRA = #password#
     </select>
 
     <select id="select_todos" resultMap="rm_usuario" >
-      SELECT NUM_COD_USUARIO, DES_DET_NOMBRE, DES_CON_CONTRA FROM USUARIO
+      SELECT * FROM USUARIO
     </select>
 
   </statements>

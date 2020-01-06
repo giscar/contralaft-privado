@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<sqlMap namespace="PerfilMap" xmlns="http://ibatis.apache.org/mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+  <alias>
+    <typeAlias alias="Perfil" type="SBS.UIF.BUZ.Entity.Common.Perfil,SBS.UIF.BUZ.Entity" />
+  </alias>
+  <resultMaps>
+    <resultMap id="rm_perfil" class="Perfil">
+      <result property="codPerfil" column="N_COD_PERFIL"></result>
+      <result property="DetNombre" column="C_DET_NOMBRE"></result>
+      <result property="DetDetalle" column="C_DET_DETALLE"></result>
+      
+    </resultMap>
+  </resultMaps>
+  <statements>
+    <select id="select_perfil" resultMap="rm_perfil" >
+      SELECT * FROM PERFIL WHERE N_FL_ACTIVO = 1
+    </select>
+
+    <insert id="insert_perfil">
+      INSERT INTO PERFIL (
+      C_DET_NOMBRE,
+      C_DET_DETALLE,
+      N_FL_ACTIVO)
+      VALUES
+      (#DetNombre#,
+      #DetDetalle#,
+      1)
+    </insert>
+  </statements>
+</sqlMap>

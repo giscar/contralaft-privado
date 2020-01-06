@@ -97,6 +97,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseDatos.cs" />
+    <Compile Include="Common\PerfilDataAccess.cs" />
+    <Compile Include="Common\PerfilRolDataAccess.cs" />
+    <Compile Include="Common\RolDataAccess.cs" />
     <Compile Include="Common\MenuDataAccess.cs" />
     <Compile Include="Core\EntidadDataAccess.cs" />
     <Compile Include="Core\UsuarioDataAccess.cs" />

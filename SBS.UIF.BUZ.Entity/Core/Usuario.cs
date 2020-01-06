@@ -11,6 +11,8 @@ namespace SBS.UIF.BUZ.Entity.Core
 
         public String DetCodigo { get; set; }
 
+        public String DetNombre { get; set; }
+
         public int IdPerfil { get; set; }
 
         public int IdEntidad { get; set; }

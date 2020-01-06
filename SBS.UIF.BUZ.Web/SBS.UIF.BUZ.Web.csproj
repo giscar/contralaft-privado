@@ -230,6 +230,7 @@
     <Content Include="pages\perfil.aspx" />
     <Content Include="pages\roles.aspx" />
     <Content Include="pages\usuario.aspx" />
+    <Content Include="recursos\common\Perfil.xml" />
     <Content Include="recursos\common\Menu.xml" />
     <Content Include="recursos\core\Entidad.xml" />
     <Content Include="recursos\core\Usuario.xml">

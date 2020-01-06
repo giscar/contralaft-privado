@@ -27,8 +27,8 @@ namespace SBS.UIF.BUZ.Web.pages
                 SHA256Managed sha = new SHA256Managed();
                 byte[] pass = Encoding.Default.GetBytes(txtContra.Value);
                 byte[] passCifrado = sha.ComputeHash(pass);
-                _usuario.password = BitConverter.ToString(passCifrado).Replace("-", "");
-                _usuario.nombre = txtNombrePersona.Value;
+                _usuario.DetContrasenia = BitConverter.ToString(passCifrado).Replace("-", "");
+                _usuario.DetNombre = txtNombrePersona.Value;
                 _usuario = new UsuarioBusinessLogic().buscarUsuario(_usuario);
                 Session["Usuario"] = _usuario;
                 Response.Redirect("usuario.aspx");

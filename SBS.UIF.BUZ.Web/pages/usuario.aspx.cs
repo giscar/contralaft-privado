@@ -22,11 +22,11 @@ namespace SBS.UIF.BUZ.Web.pages
         List<Usuario> listadoUsuarios;
         protected void Page_Load(object sender, EventArgs e)
         {
-            var usuario = HttpContext.Current.Session["Usuario"];
+            /*var usuario = HttpContext.Current.Session["Usuario"];
             if (usuario == null)
             {
                 Response.Redirect("../login/login.aspx");
-            }
+            }*/
             cargarLista();
             cargarCombos();
         }
@@ -53,11 +53,11 @@ namespace SBS.UIF.BUZ.Web.pages
         protected void Submit_nuevo(object sender, EventArgs e) 
         {
             Usuario _usuario = new Usuario();
-            _usuario.nombre = txtNombre.Value;
+            _usuario.DetNombre = txtNombre.Value;
             SHA256Managed sha = new SHA256Managed();
             byte[] pass = Encoding.Default.GetBytes(txtContra.Value);
             byte[] passCifrado = sha.ComputeHash(pass);
-            _usuario.password = BitConverter.ToString(passCifrado).Replace("-", "");
+            _usuario.DetContrasenia = BitConverter.ToString(passCifrado).Replace("-", "");
             new UsuarioBusinessLogic().guardarPersona(_usuario);
             limpiar();
         }
@@ -70,7 +70,7 @@ namespace SBS.UIF.BUZ.Web.pages
                 DesTipo = txtNombre.Value,
                 CodRuc = txtRuc.Value,
                 FecRegistro = new DateTime(),
-                entidad.UsuRegistro = usuarioSession.id.ToString();
+                UsuRegistro = usuarioSession.IdUsuario.ToString(),
                 FlActivo = 1
             };
             entidadBusinessLogic.guardarEntidad(entidad);

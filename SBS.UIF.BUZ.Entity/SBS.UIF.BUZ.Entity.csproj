@@ -76,6 +76,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\Menu.cs" />
+    <Compile Include="Common\Rol.cs" />
+    <Compile Include="Common\PerfilRol.cs" />
+    <Compile Include="Common\Perfil.cs" />
     <Compile Include="Core\Entidad.cs" />
     <Compile Include="Core\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
