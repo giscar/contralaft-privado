@@ -24,13 +24,13 @@ namespace SBS.UIF.BUZ.Web.pages
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Control txtNombrePersona.
+        /// Control txtCodigo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtNombrePersona;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtCodigo;
 
         /// <summary>
         /// Control txtContra.

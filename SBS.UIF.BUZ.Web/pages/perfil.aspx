@@ -20,6 +20,9 @@
                             
                         <asp:Button class="btn btn-lg btn-primary" ID="btnNuevo" runat="server" Text="Crear Perfil" OnClick="Submit_nuevo" />
                         </div>
-    
+    <br />
+        <asp:GridView ID="GridView1" runat="server" AllowPaging="true" OnPageIndexChanging="GridView1_PageIndexChanging" CssClass="table table-hover">
+        </asp:GridView>
+        <br />
 
     </asp:Content>

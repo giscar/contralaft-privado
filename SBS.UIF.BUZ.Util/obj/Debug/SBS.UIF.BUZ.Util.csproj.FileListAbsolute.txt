@@ -108,3 +108,13 @@ C:\Users\carlos\Desktop\DNN\privado\v8\trunk\SBS.UIF.BUZ.Util\obj\Debug\SBS.UIF.
 C:\Users\carlos\Desktop\DNN\privado\v8\trunk\SBS.UIF.BUZ.Util\obj\Debug\SBS.UIF.BUZ.Util.csproj.CopyComplete
 C:\Users\carlos\Desktop\DNN\privado\v8\trunk\SBS.UIF.BUZ.Util\obj\Debug\SBS.UIF.BUZ.Util.dll
 C:\Users\carlos\Desktop\DNN\privado\v8\trunk\SBS.UIF.BUZ.Util\obj\Debug\SBS.UIF.BUZ.Util.pdb
+D:\requerimientos\2020\contralaft-privado\SBS.UIF.BUZ.Util\bin\Debug\SBS.UIF.BUZ.Util.dll
+D:\requerimientos\2020\contralaft-privado\SBS.UIF.BUZ.Util\bin\Debug\SBS.UIF.BUZ.Util.pdb
+D:\requerimientos\2020\contralaft-privado\SBS.UIF.BUZ.Util\bin\Debug\ICSharpCode.SharpZipLib.dll
+D:\requerimientos\2020\contralaft-privado\SBS.UIF.BUZ.Util\bin\Debug\Newtonsoft.Json.dll
+D:\requerimientos\2020\contralaft-privado\SBS.UIF.BUZ.Util\bin\Debug\SBS.UIF.BUZ.Entity.dll
+D:\requerimientos\2020\contralaft-privado\SBS.UIF.BUZ.Util\bin\Debug\SBS.UIF.BUZ.Entity.pdb
+D:\requerimientos\2020\contralaft-privado\SBS.UIF.BUZ.Util\obj\Debug\SBS.UIF.BUZ.Util.csprojAssemblyReference.cache
+D:\requerimientos\2020\contralaft-privado\SBS.UIF.BUZ.Util\obj\Debug\SBS.UIF.BUZ.Util.csproj.CopyComplete
+D:\requerimientos\2020\contralaft-privado\SBS.UIF.BUZ.Util\obj\Debug\SBS.UIF.BUZ.Util.dll
+D:\requerimientos\2020\contralaft-privado\SBS.UIF.BUZ.Util\obj\Debug\SBS.UIF.BUZ.Util.pdb

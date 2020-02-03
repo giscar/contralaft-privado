@@ -9,9 +9,9 @@ namespace SBS.UIF.BUZ.Entity.Common
     {
         public int codPerfil { get; set; }
 
-        public String DetNombre { get; set; }
+        public int codRol { get; set; }
 
-        public String DetDetalle { get; set; }
+        public int FlActivo { get; set; }
 
     }
 }

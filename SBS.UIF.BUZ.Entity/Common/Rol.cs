@@ -7,9 +7,8 @@ namespace SBS.UIF.BUZ.Entity.Common
 {
     public class Rol
     {
-        public int codPerfil { get; set; }
-
-        public String DetNombre { get; set; }
+        public int IdTipo { get; set; }
+        public string DesTipo { get; set; }
 
         public String DetDetalle { get; set; }
 

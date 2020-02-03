@@ -23,14 +23,26 @@
     <insert id="insert_usuario">
       INSERT INTO usuario (
       C_DET_NOMBRE,
-      C_DET_CONTRA)
+      C_DET_CODIGO,
+      C_DET_CONTRA,
+      N_COD_ENTIDAD,
+      N_FL_ACTIVO,
+      D_FEC_REGISTRO,
+      C_USU_REGISTRO
+      )
       VALUES
-      (#nombre#,
-      #password#)
+      (#DetNombre#,
+      #DetCodigo#,
+      #DetContrasenia#,
+      #IdEntidad#,
+      #FlActivo#,
+      #FecRegistro#,
+      #UsuRegistro#)
     </insert>
 
+
     <select id="select_usuario" resultMap="rm_usuario" >
-      SELECT * WHERE C_DET_NOMBRE = #nombre# AND C_DET_CONTRA = #password#
+      SELECT * FROM USUARIO WHERE C_DET_CODIGO = #DetCodigo# AND C_DET_CONTRA = #DetContrasenia#
     </select>
 
     <select id="select_todos" resultMap="rm_usuario" >

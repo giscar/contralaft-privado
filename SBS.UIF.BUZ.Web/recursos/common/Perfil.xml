@@ -5,8 +5,8 @@
   </alias>
   <resultMaps>
     <resultMap id="rm_perfil" class="Perfil">
-      <result property="codPerfil" column="N_COD_PERFIL"></result>
-      <result property="DetNombre" column="C_DET_NOMBRE"></result>
+      <result property="IdTipo" column="N_COD_PERFIL"></result>
+      <result property="DesTipo" column="C_DET_NOMBRE"></result>
       <result property="DetDetalle" column="C_DET_DETALLE"></result>
       
     </resultMap>
@@ -22,7 +22,7 @@
       C_DET_DETALLE,
       N_FL_ACTIVO)
       VALUES
-      (#DetNombre#,
+      (#DesTipo#,
       #DetDetalle#,
       1)
     </insert>

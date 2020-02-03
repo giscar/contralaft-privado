@@ -22,5 +22,9 @@ namespace SBS.UIF.BUZ.BusinessLogic.Common
             return (_rolDataAccess.listarPorRol());
         }
 
+        public int guardarRol(Rol _rol)
+        {
+            return _rolDataAccess.guardarRol(_rol);
+        }
     }
 }

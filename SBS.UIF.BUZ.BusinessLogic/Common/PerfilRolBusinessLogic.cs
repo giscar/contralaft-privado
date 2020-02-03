@@ -16,6 +16,10 @@ namespace SBS.UIF.BUZ.BusinessLogic.Common
             _perfilRolDataAccess = new PerfilRolDataAccess();
         
         }
+        public void guardarPerfilRol(PerfilRol _perfilRol)
+        {
+            _perfilRolDataAccess.guardarPerfilRol(_perfilRol);
+        }
 
     }
 }

@@ -122,3 +122,16 @@ C:\Users\carlos\Desktop\DNN\privado\v8\trunk\SBS.UIF.BUZ.BusinessLogic\obj\Debug
 C:\Users\carlos\Desktop\DNN\privado\v8\trunk\SBS.UIF.BUZ.BusinessLogic\obj\Debug\SBS.UIF.BUZ.BusinessLogic.csproj.CopyComplete
 C:\Users\carlos\Desktop\DNN\privado\v8\trunk\SBS.UIF.BUZ.BusinessLogic\obj\Debug\SBS.UIF.BUZ.BusinessLogic.dll
 C:\Users\carlos\Desktop\DNN\privado\v8\trunk\SBS.UIF.BUZ.BusinessLogic\obj\Debug\SBS.UIF.BUZ.BusinessLogic.pdb
+D:\requerimientos\2020\contralaft-privado\SBS.UIF.BUZ.BusinessLogic\bin\Debug\SBS.UIF.BUZ.BusinessLogic.dll
+D:\requerimientos\2020\contralaft-privado\SBS.UIF.BUZ.BusinessLogic\bin\Debug\SBS.UIF.BUZ.BusinessLogic.pdb
+D:\requerimientos\2020\contralaft-privado\SBS.UIF.BUZ.BusinessLogic\bin\Debug\ICSharpCode.SharpZipLib.dll
+D:\requerimientos\2020\contralaft-privado\SBS.UIF.BUZ.BusinessLogic\bin\Debug\SBS.UIF.BUZ.DataAccess.dll
+D:\requerimientos\2020\contralaft-privado\SBS.UIF.BUZ.BusinessLogic\bin\Debug\SBS.UIF.BUZ.Entity.dll
+D:\requerimientos\2020\contralaft-privado\SBS.UIF.BUZ.BusinessLogic\bin\Debug\Castle.Core.dll
+D:\requerimientos\2020\contralaft-privado\SBS.UIF.BUZ.BusinessLogic\bin\Debug\SBS.UIF.BUZ.DataAccess.pdb
+D:\requerimientos\2020\contralaft-privado\SBS.UIF.BUZ.BusinessLogic\bin\Debug\SBS.UIF.BUZ.Entity.pdb
+D:\requerimientos\2020\contralaft-privado\SBS.UIF.BUZ.BusinessLogic\bin\Debug\Castle.Core.xml
+D:\requerimientos\2020\contralaft-privado\SBS.UIF.BUZ.BusinessLogic\obj\Debug\SBS.UIF.BUZ.BusinessLogic.csprojAssemblyReference.cache
+D:\requerimientos\2020\contralaft-privado\SBS.UIF.BUZ.BusinessLogic\obj\Debug\SBS.UIF.BUZ.BusinessLogic.csproj.CopyComplete
+D:\requerimientos\2020\contralaft-privado\SBS.UIF.BUZ.BusinessLogic\obj\Debug\SBS.UIF.BUZ.BusinessLogic.dll
+D:\requerimientos\2020\contralaft-privado\SBS.UIF.BUZ.BusinessLogic\obj\Debug\SBS.UIF.BUZ.BusinessLogic.pdb

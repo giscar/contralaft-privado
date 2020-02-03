@@ -131,7 +131,6 @@
   <ItemGroup>
     <Content Include="css\style.css" />
     <Content Include="fonts\Roboto\LICENSE.txt" />
-    <Content Include="formularioPersona.aspx" />
     <Content Include="Global.asax" />
     <Content Include="images\favicon.png" />
     <Content Include="images\file-icons\128\001-interface-1.png" />
@@ -228,8 +227,10 @@
     <Content Include="pages\entidad.aspx" />
     <Content Include="pages\login.aspx" />
     <Content Include="pages\perfil.aspx" />
-    <Content Include="pages\roles.aspx" />
+    <Content Include="pages\rol.aspx" />
     <Content Include="pages\usuario.aspx" />
+    <Content Include="recursos\common\PerfilRol.xml" />
+    <Content Include="recursos\common\Rol.xml" />
     <Content Include="recursos\common\Perfil.xml" />
     <Content Include="recursos\common\Menu.xml" />
     <Content Include="recursos\core\Entidad.xml" />
@@ -1904,13 +1905,6 @@
     <Compile Include="comun\PaginaBase.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="formularioPersona.aspx.cs">
-      <DependentUpon>formularioPersona.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="formularioPersona.aspx.designer.cs">
-      <DependentUpon>formularioPersona.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -1935,12 +1929,12 @@
     <Compile Include="pages\perfil.aspx.designer.cs">
       <DependentUpon>perfil.aspx</DependentUpon>
     </Compile>
-    <Compile Include="pages\roles.aspx.cs">
-      <DependentUpon>roles.aspx</DependentUpon>
+    <Compile Include="pages\rol.aspx.cs">
+      <DependentUpon>rol.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="pages\roles.aspx.designer.cs">
-      <DependentUpon>roles.aspx</DependentUpon>
+    <Compile Include="pages\rol.aspx.designer.cs">
+      <DependentUpon>rol.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\usuario.aspx.cs">
       <DependentUpon>usuario.aspx</DependentUpon>

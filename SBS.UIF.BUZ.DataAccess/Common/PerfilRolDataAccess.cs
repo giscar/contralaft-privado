@@ -9,6 +9,11 @@ namespace SBS.UIF.BUZ.DataAccess.Common
 {
     public class PerfilRolDataAccess
     {
-        
+
+        public int guardarPerfilRol(PerfilRol _perfilRol)
+        {
+            return (Convert.ToInt32(MapperPro.Instance().Insert("insert_perfilRol", _perfilRol)));
+        }
+
     }
 }

@@ -42,6 +42,15 @@ namespace SBS.UIF.BUZ.Web.pages
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtNombre;
 
         /// <summary>
+        /// Control txtDocumento.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtDocumento;
+
+        /// <summary>
         /// Control txtContra.
         /// </summary>
         /// <remarks>

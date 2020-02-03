@@ -13,5 +13,10 @@ namespace SBS.UIF.BUZ.DataAccess.Common
         {
             return (BaseService<Rol>.QueryForList("select_rol", null));
         }
+
+        public int guardarRol(Rol _rol)
+        {
+            return (Convert.ToInt32(MapperPro.Instance().Insert("insert_rol", _rol)));
+        }
     }
 }

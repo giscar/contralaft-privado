@@ -42,7 +42,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="mdi mdi-account-outline"></i></span>
                     </div>
-                    <input type="text" class="form-control" id="txtNombrePersona" runat="server" autocomplete="off" maxlength="80" placeholder="Usuario"/>
+                    <input type="text" class="form-control" id="txtCodigo" runat="server" autocomplete="off" maxlength="80" placeholder="Usuario"/>
                   </div>
                 </div>
                 <div class="form-group">

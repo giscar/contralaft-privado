@@ -20,13 +20,16 @@ namespace SBS.UIF.BUZ.Web.pages
         EntidadBusinessLogic entidadBusinessLogic = new EntidadBusinessLogic();
 
         List<Usuario> listadoUsuarios;
+
+        Usuario usuarioSession;
         protected void Page_Load(object sender, EventArgs e)
         {
-            /*var usuario = HttpContext.Current.Session["Usuario"];
+            usuarioSession = (Usuario)HttpContext.Current.Session["Usuario"];
+            var usuario = HttpContext.Current.Session["Usuario"];
             if (usuario == null)
             {
                 Response.Redirect("../login/login.aspx");
-            }*/
+            }
             cargarLista();
             cargarCombos();
         }
@@ -50,7 +53,7 @@ namespace SBS.UIF.BUZ.Web.pages
             GridView1.DataBind();
         }
 
-        protected void Submit_nuevo(object sender, EventArgs e) 
+        protected void Submit_nuevo(object sender, EventArgs e)
         {
             Usuario _usuario = new Usuario();
             _usuario.DetNombre = txtNombre.Value;
@@ -58,25 +61,30 @@ namespace SBS.UIF.BUZ.Web.pages
             byte[] pass = Encoding.Default.GetBytes(txtContra.Value);
             byte[] passCifrado = sha.ComputeHash(pass);
             _usuario.DetContrasenia = BitConverter.ToString(passCifrado).Replace("-", "");
+            _usuario.DetCodigo = txtDocumento.Value;
+            _usuario.FecRegistro = DateTime.Today;
+            _usuario.FlActivo = 1;
+            _usuario.IdEntidad = int.Parse(ddlCodigoEntidad.SelectedValue);
+            _usuario.UsuRegistro = usuarioSession.DetCodigo;
             new UsuarioBusinessLogic().guardarPersona(_usuario);
+            cargarLista();
             limpiar();
         }
 
         protected void Submit_nuevo_entidad(object sender, EventArgs e)
         {
-            Usuario usuarioSession = (Usuario) HttpContext.Current.Session["Usuario"];
             Entidad entidad = new Entidad
             {
                 DesTipo = txtNombre.Value,
                 CodRuc = txtRuc.Value,
                 FecRegistro = new DateTime(),
-                UsuRegistro = usuarioSession.IdUsuario.ToString(),
+                UsuRegistro = usuarioSession.DetCodigo,
                 FlActivo = 1
             };
             entidadBusinessLogic.guardarEntidad(entidad);
         }
 
-            private void limpiar() {
+        private void limpiar() {
             txtNombre.Value = "";
             txtContra.Value = "";
         }

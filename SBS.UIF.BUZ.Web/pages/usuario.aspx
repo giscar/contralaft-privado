@@ -26,9 +26,14 @@
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
-                            <label for="txtNombre">Nombre</label>
+                            <label for="txtNombre">Nombre Completo</label>
                             <input type="text" class="form-control" id="txtNombre" runat="server" autocomplete="off" maxlength="80" placeholder="Ingrese usuario" />
                             <small class="form-text text-muted">Ingrese el nuevo usuario</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="txtNombre">DNI</label>
+                            <input type="text" class="form-control" id="txtDocumento" runat="server" autocomplete="off" maxlength="80" placeholder="Ingrese el documento" />
+                            <small class="form-text text-muted">Ingrese el documento de identidad</small>
                         </div>
                         <div class="form-group">
                             <label for="txtContra">Password</label>
@@ -41,7 +46,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                        <asp:Button class="btn btn-lg btn-primary" ID="btnNuevo" runat="server" Text="Nueva Entidad" OnClick="Submit_nuevo" />
+                        <asp:Button class="btn btn-lg btn-primary" ID="btnNuevo" runat="server" Text="Nuevo usuario" OnClick="Submit_nuevo" />
                     </div>
                 </div>
             </div>

@@ -19,7 +19,7 @@ namespace SBS.UIF.BUZ.Entity.Core
 
         public int FlActivo { get; set; }
 
-        public String FecRegistro { get; set; }
+        public DateTime FecRegistro { get; set; }
 
         public String UsuRegistro { get; set; }
 

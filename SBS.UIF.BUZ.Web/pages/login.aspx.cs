@@ -28,7 +28,7 @@ namespace SBS.UIF.BUZ.Web.pages
                 byte[] pass = Encoding.Default.GetBytes(txtContra.Value);
                 byte[] passCifrado = sha.ComputeHash(pass);
                 _usuario.DetContrasenia = BitConverter.ToString(passCifrado).Replace("-", "");
-                _usuario.DetNombre = txtNombrePersona.Value;
+                _usuario.DetCodigo = txtCodigo.Value;
                 _usuario = new UsuarioBusinessLogic().buscarUsuario(_usuario);
                 Session["Usuario"] = _usuario;
                 Response.Redirect("usuario.aspx");
