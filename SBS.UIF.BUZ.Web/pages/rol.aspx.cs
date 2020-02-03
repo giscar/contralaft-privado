@@ -28,14 +28,27 @@ namespace SBS.UIF.BUZ.Web.pages
         Usuario usuarioSession;
         protected void Page_Load(object sender, EventArgs e)
         {
-            usuarioSession = (Usuario)HttpContext.Current.Session["Usuario"];
-            var usuario = HttpContext.Current.Session["Usuario"];
-            if (usuario == null)
+            if (!Page.IsPostBack)
             {
-                Response.Redirect("../login/login.aspx");
+                try
+                {
+                    usuarioSession = (Usuario)HttpContext.Current.Session["Usuario"];
+                    var usuario = HttpContext.Current.Session["Usuario"];
+                    if (usuario == null)
+                    {
+                        Response.Redirect("../login/login.aspx");
+                    }
+                    cargarLista();
+                    cargarCombos();
+                }
+                catch (Exception ex)
+                {
+                    //logger.ErrorException(ex.Message, ex);
+                    //EventLog.WriteEntry("Application", "Ocurrió el error: " + ex.Message, EventLogEntryType.Error);
+
+                }
             }
-            cargarLista();
-            cargarCombos();
+            
         }
 
         private void cargarLista()
@@ -45,7 +58,7 @@ namespace SBS.UIF.BUZ.Web.pages
 
         private void cargarCombos()
         {
-            LlenarDropDownList(ddlCodigoPerfil, new PerfilBusinessLogic().listarPorPerfil().OrderBy(x => x.DesTipo), "0", Constante.MensajeComboRegistro);
+            LlenarCheckList(ddlCodigoPerfil, new PerfilBusinessLogic().listarPorPerfil().OrderBy(x => x.DesTipo), "0", Constante.MensajeComboRegistro);
         }
 
         protected void Submit_nuevo(object sender, EventArgs e)

@@ -224,7 +224,6 @@
     <Content Include="js\typeahead.js" />
     <Content Include="js\wizard.js" />
     <Content Include="js\x-editable.js" />
-    <Content Include="pages\entidad.aspx" />
     <Content Include="pages\login.aspx" />
     <Content Include="pages\perfil.aspx" />
     <Content Include="pages\rol.aspx" />
@@ -1907,13 +1906,6 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="pages\entidad.aspx.cs">
-      <DependentUpon>entidad.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="pages\entidad.aspx.designer.cs">
-      <DependentUpon>entidad.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>

@@ -19,5 +19,16 @@ namespace SBS.UIF.BUZ.Web.comun {
                 Combo.Items.Insert(0, new ListItem(TextoRegistroVacio, ValorRegistroVacio));
             }
         }
+
+        public void LlenarCheckList(CheckBoxList Combo, object Lista, string ValorRegistroVacio, string TextoRegistroVacio)
+        {
+            Combo.Items.Clear();
+            Combo.DataSource = Lista;
+            Combo.DataBind();
+            if (ValorRegistroVacio != "")
+            {
+                Combo.Items.Insert(0, new ListItem(TextoRegistroVacio, ValorRegistroVacio));
+            }
+        }
     }
 }

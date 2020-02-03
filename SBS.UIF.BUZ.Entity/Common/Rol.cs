@@ -10,7 +10,7 @@ namespace SBS.UIF.BUZ.Entity.Common
         public int IdTipo { get; set; }
         public string DesTipo { get; set; }
 
-        public String DetDetalle { get; set; }
+        public string DetDetalle { get; set; }
 
     }
 }

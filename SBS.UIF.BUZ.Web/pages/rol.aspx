@@ -18,10 +18,13 @@
                         </div>
                         <div class="form-group">
                             <label style="vertical-align: bottom">Perfil</label>
-                            <asp:DropDownList class="form-control" id="ddlCodigoPerfil" runat="server" DataValueField="idTipo" DataTextField="DesTipo"></asp:DropDownList>
+
+                            
+                            <asp:CheckBoxList id="ddlCodigoPerfil" CssClass="cllRadioButton" runat="server" AutoPostBack="false" DataValueField="idTipo" DataTextField="DesTipo"></asp:CheckBoxList>
+                            <small class="form-text text-muted">Ingrese el Perfil</small>
                         </div>
                        <div class="form-group">
-                            
+                        
                         <asp:Button class="btn btn-lg btn-primary" ID="btnNuevo" runat="server" Text="Crear rol" OnClick="Submit_nuevo" />
                         </div>
     <br />

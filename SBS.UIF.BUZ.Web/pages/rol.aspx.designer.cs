@@ -48,7 +48,7 @@ namespace SBS.UIF.BUZ.Web.pages
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlCodigoPerfil;
+        protected global::System.Web.UI.WebControls.CheckBoxList ddlCodigoPerfil;
 
         /// <summary>
         /// Control btnNuevo.

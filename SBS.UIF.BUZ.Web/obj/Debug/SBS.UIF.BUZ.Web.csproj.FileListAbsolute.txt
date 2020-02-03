@@ -424,6 +424,7 @@ C:\Users\carlos\Desktop\DNN\privado\v8\trunk\SBS.UIF.BUZ.Web\obj\Debug\SBS.UIF.B
 C:\Users\carlos\Desktop\DNN\privado\v8\trunk\SBS.UIF.BUZ.Web\obj\Debug\SBS.UIF.BUZ.Web.csproj.CopyComplete
 C:\Users\carlos\Desktop\DNN\privado\v8\trunk\SBS.UIF.BUZ.Web\obj\Debug\SBS.UIF.BUZ.Web.dll
 C:\Users\carlos\Desktop\DNN\privado\v8\trunk\SBS.UIF.BUZ.Web\obj\Debug\SBS.UIF.BUZ.Web.pdb
+D:\requerimientos\2020\contralaft-privado\SBS.UIF.BUZ.Web\obj\Debug\SBS.UIF.BUZ.Web.csprojAssemblyReference.cache
 D:\requerimientos\2020\contralaft-privado\SBS.UIF.BUZ.Web\bin\SBS.UIF.BUZ.Web.dll.config
 D:\requerimientos\2020\contralaft-privado\SBS.UIF.BUZ.Web\bin\SBS.UIF.BUZ.Web.dll
 D:\requerimientos\2020\contralaft-privado\SBS.UIF.BUZ.Web\bin\SBS.UIF.BUZ.Web.pdb
@@ -469,7 +470,6 @@ D:\requerimientos\2020\contralaft-privado\SBS.UIF.BUZ.Web\bin\System.Web.Razor.x
 D:\requerimientos\2020\contralaft-privado\SBS.UIF.BUZ.Web\bin\System.Web.WebPages.xml
 D:\requerimientos\2020\contralaft-privado\SBS.UIF.BUZ.Web\bin\System.Web.WebPages.Deployment.xml
 D:\requerimientos\2020\contralaft-privado\SBS.UIF.BUZ.Web\bin\System.Web.WebPages.Razor.xml
-D:\requerimientos\2020\contralaft-privado\SBS.UIF.BUZ.Web\obj\Debug\SBS.UIF.BUZ.Web.csprojAssemblyReference.cache
 D:\requerimientos\2020\contralaft-privado\SBS.UIF.BUZ.Web\obj\Debug\SBS.UIF.BUZ.Web.csproj.CopyComplete
 D:\requerimientos\2020\contralaft-privado\SBS.UIF.BUZ.Web\obj\Debug\SBS.UIF.BUZ.Web.dll
 D:\requerimientos\2020\contralaft-privado\SBS.UIF.BUZ.Web\obj\Debug\SBS.UIF.BUZ.Web.pdb
