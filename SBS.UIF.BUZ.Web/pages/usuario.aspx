@@ -43,6 +43,10 @@
                             <label style="vertical-align: bottom">Entidad</label>
                             <asp:DropDownList class="form-control" ID="ddlCodigoEntidad" runat="server" DataValueField="idTipo" DataTextField="DesTipo"></asp:DropDownList>
                         </div>
+                        <div class="form-group">
+                            <label style="vertical-align: bottom">Perfil</label>
+                            <asp:DropDownList class="form-control" ID="ddlCodigoPerfil" runat="server" DataValueField="idTipo" DataTextField="DesTipo"></asp:DropDownList>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>

@@ -17,9 +17,9 @@ namespace SBS.UIF.BUZ.BusinessLogic.Common
         
         }
 
-        public List<Menu> listarPorMenu()
+        public List<Menu> listarPorMenu(int id)
         {
-            return (_menuDataAccess.listarPorMenu());
+            return (_menuDataAccess.listarPorMenu(id));
         }
 
     }

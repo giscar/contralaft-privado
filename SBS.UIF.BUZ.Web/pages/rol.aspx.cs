@@ -58,7 +58,7 @@ namespace SBS.UIF.BUZ.Web.pages
 
         private void cargarCombos()
         {
-            LlenarCheckList(ddlCodigoPerfil, new PerfilBusinessLogic().listarPorPerfil().OrderBy(x => x.DesTipo), "0", Constante.MensajeComboRegistro);
+            LlenarCheckList(ddlCodigoPerfil, new PerfilBusinessLogic().listarPorPerfil().OrderBy(x => x.DesTipo), "", "");
         }
 
         protected void Submit_nuevo(object sender, EventArgs e)
@@ -74,7 +74,13 @@ namespace SBS.UIF.BUZ.Web.pages
             PerfilRol _perfilRol = new PerfilRol();
             _perfilRol.codPerfil = codigoPerfil;
             _perfilRol.codRol = codigoRol;
-            _perfilRolBusinessLogic.guardarPerfilRol(_perfilRol);
+
+            List<ListItem> selected = new List<ListItem>();
+            foreach (ListItem item in ddlCodigoPerfil.Items)
+                if (item.Selected) {
+                    _perfilRol.codPerfil = int.Parse(item.Value);
+                    _perfilRolBusinessLogic.guardarPerfilRol(_perfilRol);
+                }
         }
 
         protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)

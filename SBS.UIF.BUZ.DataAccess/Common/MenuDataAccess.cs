@@ -9,9 +9,9 @@ namespace SBS.UIF.BUZ.DataAccess.Common
 {
     public class MenuDataAccess
     {
-        public List<Menu> listarPorMenu()
+        public List<Menu> listarPorMenu(int id)
         {
-            return (BaseService<Menu>.QueryForList("select_menu", null));
+            return (BaseService<Menu>.QueryForList("select_menu", id));
         }
     }
 }

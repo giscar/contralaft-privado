@@ -14,8 +14,12 @@
   </resultMaps>
 
   <statements>
-    <select id="select_menu" resultMap="rm_menu" >
-      SELECT N_COD_MENU, N_COD_PADRE, C_DES_NOMBRE, C_COD_ICON, C_NOM_PAGE FROM MENU WHERE N_FL_ACTIVO = 1
+    <select id="select_menu" parameterType="int" resultMap="rm_menu" >
+      SELECT A.* FROM MENU A
+      INNER JOIN MENUROL B ON A.N_COD_MENU = B.N_COD_MENU
+      INNER JOIN ROL C ON C.N_COD_ROL = B.N_COD_ROL
+      INNER JOIN PERFILROL D ON C.N_COD_ROL = D.N_COD_ROL
+      WHERE D.N_COD_PERFIL = #id# AND D.N_FL_ACTIVO = 1
     </select>
   </statements>
 </sqlMap>

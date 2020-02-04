@@ -7,6 +7,7 @@ using System.Security.Cryptography;
 using System.Web.UI.WebControls;
 using System.Data;
 using SBS.UIF.BUZ.BusinessLogic.Core;
+using SBS.UIF.BUZ.BusinessLogic.Common;
 using SBS.UIF.BUZ.Entity.Core;
 using SBS.UIF.BUZ.Web.comun;
 using SBS.UIF.BUZ.Util;
@@ -19,16 +20,19 @@ namespace SBS.UIF.BUZ.Web.pages
 
         EntidadBusinessLogic entidadBusinessLogic = new EntidadBusinessLogic();
 
+        PerfilBusinessLogic perfilBusinessLogic = new PerfilBusinessLogic();
+
         List<Usuario> listadoUsuarios;
 
-        Usuario usuarioSession;
+        
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
             {
                 try
                 {
-                    usuarioSession = (Usuario)HttpContext.Current.Session["Usuario"];
+                    
                     var usuario = HttpContext.Current.Session["Usuario"];
                     if (usuario == null)
                     {
@@ -49,6 +53,7 @@ namespace SBS.UIF.BUZ.Web.pages
         private void cargarCombos()
         {
             LlenarDropDownList(ddlCodigoEntidad, new EntidadBusinessLogic().listarPorEntidad().OrderBy(x => x.DesTipo), "0", Constante.MensajeComboRegistro);
+            LlenarDropDownList(ddlCodigoPerfil, new PerfilBusinessLogic().listarPorPerfil().OrderBy(x => x.DesTipo), "0", Constante.MensajeComboRegistro); 
         }
 
         private void cargarLista() 
@@ -67,6 +72,7 @@ namespace SBS.UIF.BUZ.Web.pages
 
         protected void Submit_nuevo(object sender, EventArgs e)
         {
+            Usuario usuarioSession = (Usuario)HttpContext.Current.Session["Usuario"];
             Usuario _usuario = new Usuario();
             _usuario.DetNombre = txtNombre.Value;
             SHA256Managed sha = new SHA256Managed();
@@ -77,6 +83,7 @@ namespace SBS.UIF.BUZ.Web.pages
             _usuario.FecRegistro = DateTime.Today;
             _usuario.FlActivo = 1;
             _usuario.IdEntidad = int.Parse(ddlCodigoEntidad.SelectedValue);
+            _usuario.IdPerfil = int.Parse(ddlCodigoPerfil.SelectedValue);
             _usuario.UsuRegistro = usuarioSession.DetCodigo;
             new UsuarioBusinessLogic().guardarPersona(_usuario);
             cargarLista();
@@ -85,6 +92,7 @@ namespace SBS.UIF.BUZ.Web.pages
 
         protected void Submit_nuevo_entidad(object sender, EventArgs e)
         {
+            Usuario usuarioSession = (Usuario)HttpContext.Current.Session["Usuario"];
             Entidad entidad = new Entidad
             {
                 DesTipo = txtNombre.Value,

@@ -28,7 +28,8 @@
       N_COD_ENTIDAD,
       N_FL_ACTIVO,
       D_FEC_REGISTRO,
-      C_USU_REGISTRO
+      C_USU_REGISTRO,
+      N_COD_PERFIL
       )
       VALUES
       (#DetNombre#,
@@ -37,7 +38,8 @@
       #IdEntidad#,
       #FlActivo#,
       #FecRegistro#,
-      #UsuRegistro#)
+      #UsuRegistro#,
+      #IdPerfil#)
     </insert>
 
 
