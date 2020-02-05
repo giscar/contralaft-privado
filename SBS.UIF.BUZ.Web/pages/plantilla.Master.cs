@@ -18,9 +18,8 @@ namespace SBS.UIF.BUZ.Web
         
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-            listadoMenu = _menuBusinessLogic.listarPorMenu(1);
-            Console.WriteLine(listadoMenu.Count);
+            Usuario usuarioSession = (Usuario)HttpContext.Current.Session["Usuario"];
+            listadoMenu = _menuBusinessLogic.listarPorMenu(usuarioSession.IdPerfil);
             cdcatalog.DataSource = listadoMenu;
             cdcatalog.DataBind();
         }
