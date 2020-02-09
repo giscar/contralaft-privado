@@ -224,6 +224,9 @@
     <Content Include="js\typeahead.js" />
     <Content Include="js\wizard.js" />
     <Content Include="js\x-editable.js" />
+    <Content Include="pages\editarAccion.aspx" />
+    <Content Include="pages\inicializarEntidad.aspx" />
+    <Content Include="pages\listadoAcciones.aspx" />
     <Content Include="pages\login.aspx" />
     <Content Include="pages\perfil.aspx" />
     <Content Include="pages\rol.aspx" />
@@ -232,6 +235,9 @@
     <Content Include="recursos\common\Rol.xml" />
     <Content Include="recursos\common\Perfil.xml" />
     <Content Include="recursos\common\Menu.xml" />
+    <Content Include="recursos\core\Indicador.xml" />
+    <Content Include="recursos\core\IndicadorEntidad.xml" />
+    <Content Include="recursos\core\Accion.xml" />
     <Content Include="recursos\core\Entidad.xml" />
     <Content Include="recursos\core\Usuario.xml">
       <SubType>Designer</SubType>
@@ -1906,6 +1912,27 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="pages\editarAccion.aspx.cs">
+      <DependentUpon>editarAccion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\editarAccion.aspx.designer.cs">
+      <DependentUpon>editarAccion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\inicializarEntidad.aspx.cs">
+      <DependentUpon>inicializarEntidad.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\inicializarEntidad.aspx.designer.cs">
+      <DependentUpon>inicializarEntidad.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\listadoAcciones.aspx.cs">
+      <DependentUpon>listadoAcciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\listadoAcciones.aspx.designer.cs">
+      <DependentUpon>listadoAcciones.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>

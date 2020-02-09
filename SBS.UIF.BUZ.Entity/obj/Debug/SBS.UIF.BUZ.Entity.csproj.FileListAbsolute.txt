@@ -56,3 +56,4 @@ D:\requerimientos\2020\contralaft-privado\SBS.UIF.BUZ.Entity\bin\Debug\SBS.UIF.B
 D:\requerimientos\2020\contralaft-privado\SBS.UIF.BUZ.Entity\bin\Debug\SBS.UIF.BUZ.Entity.pdb
 D:\requerimientos\2020\contralaft-privado\SBS.UIF.BUZ.Entity\obj\Debug\SBS.UIF.BUZ.Entity.dll
 D:\requerimientos\2020\contralaft-privado\SBS.UIF.BUZ.Entity\obj\Debug\SBS.UIF.BUZ.Entity.pdb
+D:\requerimientos\2020\contralaft-privado\SBS.UIF.BUZ.Entity\obj\Debug\SBS.UIF.BUZ.Entity.csprojAssemblyReference.cache

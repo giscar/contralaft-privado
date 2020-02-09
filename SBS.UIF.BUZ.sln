@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29728.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SBS.UIF.BUZ.Entity", "SBS.UIF.BUZ.Entity\SBS.UIF.BUZ.Entity.csproj", "{CF2D6DF6-C1F7-4DD7-B023-B1A55B5D3BE3}"
 EndProject
@@ -86,5 +86,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A36DAB8A-912B-4C19-B918-768E9AA8A2B0}
 	EndGlobalSection
 EndGlobal

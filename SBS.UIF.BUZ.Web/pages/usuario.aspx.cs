@@ -11,6 +11,7 @@ using SBS.UIF.BUZ.BusinessLogic.Common;
 using SBS.UIF.BUZ.Entity.Core;
 using SBS.UIF.BUZ.Web.comun;
 using SBS.UIF.BUZ.Util;
+using System.Web.Security;
 
 namespace SBS.UIF.BUZ.Web.pages
 {
@@ -72,12 +73,15 @@ namespace SBS.UIF.BUZ.Web.pages
 
         protected void Submit_nuevo(object sender, EventArgs e)
         {
+            string password = Membership.GeneratePassword(12, 1);
             Usuario usuarioSession = (Usuario)HttpContext.Current.Session["Usuario"];
             Usuario _usuario = new Usuario();
             _usuario.DetNombre = txtNombre.Value;
             SHA256Managed sha = new SHA256Managed();
-            byte[] pass = Encoding.Default.GetBytes(txtContra.Value);
+            Console.WriteLine(password);
+            byte[] pass = Encoding.Default.GetBytes(password);
             byte[] passCifrado = sha.ComputeHash(pass);
+            //_usuario.DetContrasenia = BitConverter.ToString(passCifrado).Replace("-", "");
             _usuario.DetContrasenia = BitConverter.ToString(passCifrado).Replace("-", "");
             _usuario.DetCodigo = txtDocumento.Value;
             _usuario.FecRegistro = DateTime.Today;

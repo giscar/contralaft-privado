@@ -2,6 +2,15 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cphBody" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+    <h5 class="card-title mb-4">Manage Tickets</h5>
+                  <div class="fluid-container">
+                    <div class="row ticket-card mt-3 pb-2 border-bottom pb-3 mb-3">
+                      <div class="col-md-1">
+                        <img class="img-sm rounded-circle mb-4 mb-md-0" src="https://placehold.it/100x100" alt="profile image">
+                      </div>
+                      <div class="ticket-details col-md-9">
+                          <div class="container container-custom" style="border: 1px solid #fff;">
+
 
 
     <div>
@@ -85,10 +94,28 @@
             </div>
         </div>
         <br />
-        <asp:GridView ID="GridView1" runat="server" AllowPaging="true" OnPageIndexChanging="GridView1_PageIndexChanging" CssClass="table table-hover">
+        <asp:GridView ID="GridView1" runat="server" AllowPaging="true" OnPageIndexChanging="GridView1_PageIndexChanging" CssClass="table table-hover" PageSize="20" AutoGenerateColumns="false">
+            <Columns>
+        <asp:BoundField ItemStyle-Width="30%" DataField="DetCodigo" HeaderText="Customer ID" />
+        <asp:BoundField ItemStyle-Width="30%" DataField="DetNombre" HeaderText="Contact Name" />
+        <asp:BoundField ItemStyle-Width="40%" DataField="FecRegistro" HeaderText="FecRegistro" />
+        
+    </Columns>
         </asp:GridView>
         <br />
     </div>
+
+
+
+                          </div>
+    
+                      </div>
+                      
+                    </div>
+                    
+                    
+                  </div>
+
 
 
 </asp:Content>

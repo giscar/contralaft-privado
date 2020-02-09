@@ -97,6 +97,9 @@
     <Compile Include="Common\PerfilBusinessLogic.cs" />
     <Compile Include="Common\RolBusinessLogic.cs" />
     <Compile Include="Common\MenuBusinessLogic.cs" />
+    <Compile Include="Core\AccionBusinessLogic.cs" />
+    <Compile Include="Core\IndicadorBusinessLogic.cs" />
+    <Compile Include="Core\IndicadorEntidadBusinessLogic.cs" />
     <Compile Include="Core\EntidadBusinessLogic.cs" />
     <Compile Include="Core\UsuarioBusinessLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
