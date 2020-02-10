@@ -30,6 +30,10 @@ namespace SBS.UIF.BUZ.BusinessLogic.Core
         public List<Usuario> buscarTodos() {
             return _usuarioDataAccess.buscarTodos();
         }
+
+        public Usuario buscarUsuarioForID(int idUsuario) {
+            return _usuarioDataAccess.buscarUsuarioForID(idUsuario);
+        }
     }
 
 }

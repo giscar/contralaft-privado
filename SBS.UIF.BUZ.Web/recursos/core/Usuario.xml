@@ -5,7 +5,7 @@
   </alias>
   <resultMaps>
     <resultMap id="rm_usuario" class="Usuario">
-      <result property="IdUsuario" column="N_COD_ID"></result>
+      <result property="Id" column="N_COD_ID"></result>
       <result property="DetCodigo" column="C_DET_CODIGO"></result>
       <result property="DetNombre" column="C_DET_NOMBRE"></result>
       <result property="IdPerfil" column="N_COD_PERFIL"></result>
@@ -14,7 +14,8 @@
       <result property="FecRegistro" column="D_FEC_REGISTRO"></result>
       <result property="UsuRegistro" column="C_USU_REGISTRO"></result>
       <result property="DetContrasenia" column="C_DET_CONTRA"></result>
-      
+      <result property="RazonSocialEntidad" column="C_DES_RAZON"></result>
+
     </resultMap>
   </resultMaps>
 
@@ -44,11 +45,19 @@
 
 
     <select id="select_usuario" resultMap="rm_usuario" >
-      SELECT * FROM USUARIO WHERE C_DET_CODIGO = #DetCodigo# AND C_DET_CONTRA = #DetContrasenia#
+      SELECT A.*, B.C_DES_RAZON C_DES_RAZON FROM USUARIO A INNER JOIN ENTIDAD B ON A.N_COD_ENTIDAD = B.N_COD_ENTIDAD 
+      WHERE A.C_DET_CODIGO = #DetCodigo# AND A.C_DET_CONTRA = #DetContrasenia# AND A.N_FL_ACTIVO = 1
     </select>
 
     <select id="select_todos" resultMap="rm_usuario" >
-      SELECT * FROM USUARIO
+      SELECT A.*, B.C_DES_RAZON C_DES_RAZON FROM USUARIO A INNER JOIN ENTIDAD B ON A.N_COD_ENTIDAD = B.N_COD_ENTIDAD
+      WHERE A.N_FL_ACTIVO = 1
+    </select>
+
+    <select id="select_usuario_id" resultMap="rm_usuario" >
+      SELECT A.*, B.C_DES_RAZON C_DES_RAZON
+      FROM USUARIO A INNER JOIN ENTIDAD B ON A.N_COD_ENTIDAD = B.N_COD_ENTIDAD
+      WHERE A.N_COD_ID = #Id#
     </select>
 
   </statements>

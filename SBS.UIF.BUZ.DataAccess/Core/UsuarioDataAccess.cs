@@ -24,5 +24,11 @@ namespace SBS.UIF.BUZ.DataAccess.Core
             return (BaseService<Usuario>.QueryForList("select_todos", null));
         }
 
+        public Usuario buscarUsuarioForID(int idUsuario)
+        {
+            return (BaseService<Usuario>.QueryForObject("select_usuario_id", idUsuario));
+        }
+        
+
     }
 }

@@ -6,7 +6,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>LibertyUI Premium Bootstrap Admin Dashboard Template</title>
+  <title>CONTRALAFT</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="../../vendors/iconfonts/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="../../vendors/css/vendor.bundle.base.css">
@@ -20,6 +20,25 @@
   <link rel="shortcut icon" href="../../images/favicon.png" />
 </head>
 <body>
+    <style>
+        .auth.theme-two .banner-section .slide-content.bg-1 {
+            background: url(../images/sbs.jpg) no-repeat center center;
+            background-size: cover;
+        }
+
+        .mdi:before, .mdi-set {
+    display: inline-block;
+    font: normal normal normal 24px/1 "Material Design Icons";
+    text-rendering: auto;
+    line-height: inherit;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+        .login-input-text {
+            font-size: 14px;
+        }
+    </style>
       <div class="container-scroller">
     <div class="container-fluid page-body-wrapper full-page-wrapper">
       <div class="content-wrapper auth p-0 theme-two">
@@ -30,19 +49,16 @@
           </div>
           <div class="col-12 col-md-8 h-100 bg-white">
             <div class="auto-form-wrapper d-flex align-items-center justify-content-center flex-column">
-              <div class="nav-get-started">
-                <p>Don't have an account?</p>
-                <a class="btn get-started-btn" href="register-2.html">GET STARTED</a>
-              </div>
+              
               <form id="form1" runat="server">
-                <h3 class="mr-auto">Hello! let's get started</h3>
-                <p class="mb-5 mr-auto">Enter your details below.</p>
+                <h3 class="mr-auto">Registro de indicadores de CONTRALAFT</h3>
+                <p class="mb-5 mr-auto">Ingresar el usuario y contraseña asignados</p>
                 <div class="form-group">
                   <div class="input-group">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="mdi mdi-account-outline"></i></span>
                     </div>
-                    <input type="text" class="form-control" id="txtCodigo" runat="server" autocomplete="off" maxlength="80" placeholder="Usuario"/>
+                    <input type="text" class="form-control login-input-text" id="txtCodigo" runat="server" autocomplete="off" maxlength="80" placeholder="Usuario"/>
                   </div>
                 </div>
                 <div class="form-group">
@@ -50,18 +66,14 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="mdi mdi-lock-outline"></i></span>
                     </div>
-                    <input type="password" class="form-control" placeholder="Password" id="txtContra" runat="server" />
+                    <input type="password" class="form-control login-input-text" placeholder="Contraseña" id="txtContra" runat="server" />
                   </div>
                 </div>
                 <div class="form-group">
-                  <asp:Button  class="btn btn-primary submit-btn" ID="Button1" runat="server" Text="Button" OnClick="Submit_Login" />
+                  <asp:Button  class="btn btn-primary submit-btn" ID="Button1" runat="server" Text="Acceder" OnClick="Submit_Login" />
                 </div>
-                <div class="wrapper mt-5 text-gray">
-                  <p class="footer-text">Copyright © 2018 Urbanui. All rights reserved.</p>
-                  <ul class="auth-footer text-gray">
-                    <li><a href="#">Terms & Conditions</a></li>
-                    <li><a href="#">Cookie Policy</a></li>
-                  </ul>
+                <div class="wrapper mt-5" style="float:right">
+                    <img src="../images/giz.jpg" />
                 </div>
               </form>
             </div>

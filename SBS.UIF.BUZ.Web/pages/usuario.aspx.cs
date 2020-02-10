@@ -37,7 +37,7 @@ namespace SBS.UIF.BUZ.Web.pages
                     var usuario = HttpContext.Current.Session["Usuario"];
                     if (usuario == null)
                     {
-                        Response.Redirect("../login/login.aspx");
+                        Response.Redirect("../pages/login.aspx");
                     }
                     cargarLista();
                     cargarCombos();
@@ -69,6 +69,11 @@ namespace SBS.UIF.BUZ.Web.pages
             cargarLista();
             GridView1.PageIndex = e.NewPageIndex;
             GridView1.DataBind();
+            if (GridView1.Columns.Count > 0)
+            {
+                GridView1.Columns[0].Visible = false;
+            }
+            this.GridView1.Columns[0].Visible = false;
         }
 
         protected void Submit_nuevo(object sender, EventArgs e)
@@ -92,6 +97,27 @@ namespace SBS.UIF.BUZ.Web.pages
             new UsuarioBusinessLogic().guardarPersona(_usuario);
             cargarLista();
             limpiar();
+        }
+
+        protected void OnSelectedIndexChanged(Object sender, EventArgs e)
+        {
+
+            // Get the currently selected row using the SelectedRow property.
+            GridViewRow row = GridView1.SelectedRow;
+            Console.WriteLine(row.Cells[0].Text);
+            // In this example, the first column (index 0) contains
+           // TextBox1.Text = row.Cells[0].Text;
+
+        }
+
+
+        protected void userProfile_Command(object sender, CommandEventArgs e)
+        {
+            int id = Int32.Parse(e.CommandArgument.ToString());
+            Console.WriteLine(id);
+            Usuario usu = new UsuarioBusinessLogic().buscarUsuarioForID(id);
+            editNombre.Value = usu.DetNombre;
+            editDNI.Value = usu.DetCodigo;
         }
 
         protected void Submit_nuevo_entidad(object sender, EventArgs e)
