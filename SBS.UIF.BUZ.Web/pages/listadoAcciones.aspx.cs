@@ -1,4 +1,4 @@
-﻿using SBS.UIF.BUZ.BusinessLogic.Core;
+﻿using SBS.UIF.CONTRALAFT.BusinessLogic.Core;
 using SBS.UIF.BUZ.Entity.Core;
 using System;
 using System.Collections.Generic;

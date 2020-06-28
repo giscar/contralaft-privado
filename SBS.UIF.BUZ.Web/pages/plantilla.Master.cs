@@ -1,4 +1,4 @@
-﻿using SBS.UIF.BUZ.BusinessLogic.Common;
+﻿using SBS.UIF.CONTRALAFT.BusinessLogic.Common;
 using System;
 using System.Collections.Generic;
 using System.Web;

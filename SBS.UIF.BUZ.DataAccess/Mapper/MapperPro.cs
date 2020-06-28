@@ -1,8 +1,6 @@
 ﻿using IBatisNet.Common.Utilities;
 using IBatisNet.DataMapper;
 using IBatisNet.DataMapper.Configuration;
-using System.Net;
-using System.Xml;
 
 namespace SBS.UIF.BUZ.DataAccess.Mapper
 {

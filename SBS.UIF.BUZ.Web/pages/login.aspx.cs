@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 using System.Security.Cryptography;
-using SBS.UIF.BUZ.BusinessLogic.Core;
+using SBS.UIF.CONTRALAFT.BusinessLogic.Core;
 using SBS.UIF.BUZ.Entity.Core;
 
 namespace SBS.UIF.BUZ.Web.pages
