@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SBS.UIF.CONTRALAFT.DataAccess</RootNamespace>
-    <AssemblyName>SBS.UIF.BUZ.DataAccess</AssemblyName>
+    <AssemblyName>SBS.CONTRALAFT.BUZ.DataAccess</AssemblyName>
     <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />

@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SBS.UIF.CONTRALAFT.Util</RootNamespace>
-    <AssemblyName>SBS.UIF.BUZ.Util</AssemblyName>
+    <AssemblyName>SBS.UIF.CONTRALAFT.Util</AssemblyName>
     <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -86,7 +86,7 @@
     <Compile Include="Log.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SBS.UIF.BUZ.Entity\SBS.UIF.BUZ.Entity.csproj">
+    <ProjectReference Include="..\SBS.UIF.CONTRALAFT.Entity\SBS.UIF.CONTRALAFT.Entity.csproj">
       <Project>{cf2d6df6-c1f7-4dd7-b023-b1a55b5d3be3}</Project>
       <Name>SBS.UIF.CONTRALAFT.Entity</Name>
     </ProjectReference>
