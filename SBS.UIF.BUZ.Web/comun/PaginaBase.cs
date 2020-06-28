@@ -9,7 +9,8 @@ using System.Configuration;
 
 namespace SBS.UIF.BUZ.Web.comun {
 
-    public class PaginaBase : System.Web.UI.Page {
+    public class PaginaBase : Page
+    {
 
         public void LlenarDropDownList(DropDownList Combo, object Lista, string ValorRegistroVacio, string TextoRegistroVacio) {
             Combo.Items.Clear();

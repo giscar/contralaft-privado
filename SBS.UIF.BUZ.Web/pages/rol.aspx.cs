@@ -4,13 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
-using SBS.UIF.BUZ.BusinessLogic.Core;
 using SBS.UIF.BUZ.BusinessLogic.Common;
 using SBS.UIF.BUZ.Entity.Core;
 using SBS.UIF.BUZ.Entity.Common;
-using SBS.UIF.BUZ.Util;
-
+using System.Web.UI.WebControls;
 
 namespace SBS.UIF.BUZ.Web.pages
 {
@@ -75,7 +72,7 @@ namespace SBS.UIF.BUZ.Web.pages
             _perfilRol.codPerfil = codigoPerfil;
             _perfilRol.codRol = codigoRol;
 
-            List<ListItem> selected = new List<ListItem>();
+            List<System.Web.UI.WebControls.ListItem> selected = new List<ListItem>();
             foreach (ListItem item in ddlCodigoPerfil.Items)
                 if (item.Selected) {
                     _perfilRol.codPerfil = int.Parse(item.Value);

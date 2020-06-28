@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Text;
-using System.Web.UI.WebControls;
 using System.Security.Cryptography;
-using System.Data;
 using SBS.UIF.BUZ.BusinessLogic.Core;
 using SBS.UIF.BUZ.Entity.Core;
 
