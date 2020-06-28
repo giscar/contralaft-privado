@@ -2103,7 +2103,7 @@
       <Project>{953DF26A-8370-49B6-890C-B2C757F96384}</Project>
       <Name>SBS.UIF.CONTRALAFT.BusinessLogic</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SBS.CONTRALAFT.BUZ.Util\SBS.UIF.CONTRALAFT.Util.csproj">
+    <ProjectReference Include="..\SBS.UIF.CONTRALAFT.Util\SBS.UIF.CONTRALAFT.Util.csproj">
       <Project>{AC54D9EC-4ADB-42EA-8D7D-4332442F1A46}</Project>
       <Name>SBS.UIF.CONTRALAFT.Util</Name>
     </ProjectReference>
