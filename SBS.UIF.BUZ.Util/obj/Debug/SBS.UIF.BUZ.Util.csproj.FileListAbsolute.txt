@@ -120,8 +120,6 @@ D:/requerimientos/2020/contralaft-privado/SBS.UIF.BUZ.Util/obj/Debug/SBS.UIF.BUZ
 D:/requerimientos/2020/contralaft-privado/SBS.UIF.BUZ.Util/obj/Debug/SBS.UIF.BUZ.Util.pdb
 /Users/carlosleon/requerimientos/2020/contralaft-privado/SBS.UIF.BUZ.Util/bin/Debug/SBS.UIF.BUZ.Util.dll
 /Users/carlosleon/requerimientos/2020/contralaft-privado/SBS.UIF.BUZ.Util/bin/Debug/SBS.UIF.BUZ.Util.pdb
-/Users/carlosleon/requerimientos/2020/contralaft-privado/SBS.UIF.BUZ.Util/bin/Debug/ICSharpCode.SharpZipLib.dll
-/Users/carlosleon/requerimientos/2020/contralaft-privado/SBS.UIF.BUZ.Util/bin/Debug/Newtonsoft.Json.dll
 /Users/carlosleon/requerimientos/2020/contralaft-privado/SBS.UIF.BUZ.Util/bin/Debug/SBS.UIF.BUZ.Entity.dll
 /Users/carlosleon/requerimientos/2020/contralaft-privado/SBS.UIF.BUZ.Util/bin/Debug/SBS.UIF.BUZ.Entity.pdb
 /Users/carlosleon/requerimientos/2020/contralaft-privado/SBS.UIF.BUZ.Util/obj/Debug/SBS.UIF.BUZ.Util.csprojAssemblyReference.cache

@@ -135,15 +135,3 @@ D:/requerimientos/2020/contralaft-privado/SBS.UIF.BUZ.BusinessLogic/obj/Debug/SB
 D:/requerimientos/2020/contralaft-privado/SBS.UIF.BUZ.BusinessLogic/obj/Debug/SBS.UIF.BUZ.BusinessLogic.csproj.CopyComplete
 D:/requerimientos/2020/contralaft-privado/SBS.UIF.BUZ.BusinessLogic/obj/Debug/SBS.UIF.BUZ.BusinessLogic.dll
 D:/requerimientos/2020/contralaft-privado/SBS.UIF.BUZ.BusinessLogic/obj/Debug/SBS.UIF.BUZ.BusinessLogic.pdb
-/Users/carlosleon/requerimientos/2020/contralaft-privado/SBS.UIF.BUZ.BusinessLogic/bin/Debug/SBS.UIF.BUZ.BusinessLogic.dll
-/Users/carlosleon/requerimientos/2020/contralaft-privado/SBS.UIF.BUZ.BusinessLogic/bin/Debug/SBS.UIF.BUZ.BusinessLogic.pdb
-/Users/carlosleon/requerimientos/2020/contralaft-privado/SBS.UIF.BUZ.BusinessLogic/bin/Debug/ICSharpCode.SharpZipLib.dll
-/Users/carlosleon/requerimientos/2020/contralaft-privado/SBS.UIF.BUZ.BusinessLogic/bin/Debug/SBS.UIF.BUZ.DataAccess.dll
-/Users/carlosleon/requerimientos/2020/contralaft-privado/SBS.UIF.BUZ.BusinessLogic/bin/Debug/SBS.UIF.BUZ.Entity.dll
-/Users/carlosleon/requerimientos/2020/contralaft-privado/SBS.UIF.BUZ.BusinessLogic/bin/Debug/SBS.UIF.BUZ.DataAccess.pdb
-/Users/carlosleon/requerimientos/2020/contralaft-privado/SBS.UIF.BUZ.BusinessLogic/bin/Debug/SBS.UIF.BUZ.Entity.pdb
-/Users/carlosleon/requerimientos/2020/contralaft-privado/SBS.UIF.BUZ.BusinessLogic/obj/Debug/SBS.UIF.BUZ.BusinessLogic.csprojAssemblyReference.cache
-/Users/carlosleon/requerimientos/2020/contralaft-privado/SBS.UIF.BUZ.BusinessLogic/obj/Debug/SBS.UIF.BUZ.BusinessLogic.csproj.CoreCompileInputs.cache
-/Users/carlosleon/requerimientos/2020/contralaft-privado/SBS.UIF.BUZ.BusinessLogic/obj/Debug/SBS.UIF.BUZ.BusinessLogic.csproj.CopyComplete
-/Users/carlosleon/requerimientos/2020/contralaft-privado/SBS.UIF.BUZ.BusinessLogic/obj/Debug/SBS.UIF.BUZ.BusinessLogic.dll
-/Users/carlosleon/requerimientos/2020/contralaft-privado/SBS.UIF.BUZ.BusinessLogic/obj/Debug/SBS.UIF.BUZ.BusinessLogic.pdb
