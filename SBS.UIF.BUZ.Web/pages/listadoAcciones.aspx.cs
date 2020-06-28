@@ -1,5 +1,5 @@
 ﻿using SBS.UIF.CONTRALAFT.BusinessLogic.Core;
-using SBS.UIF.BUZ.Entity.Core;
+using SBS.UIF.CONTRALAFT.Entity.Core;
 using System;
 using System.Collections.Generic;
 using System.Web.UI.WebControls;

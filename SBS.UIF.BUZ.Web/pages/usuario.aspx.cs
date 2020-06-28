@@ -8,7 +8,7 @@ using System.Web.UI.WebControls;
 using System.Data;
 using SBS.UIF.CONTRALAFT.BusinessLogic.Core;
 using SBS.UIF.CONTRALAFT.BusinessLogic.Common;
-using SBS.UIF.BUZ.Entity.Core;
+using SBS.UIF.CONTRALAFT.Entity.Core;
 using SBS.UIF.BUZ.Web.comun;
 using SBS.UIF.CONTRALAFT.Util;
 using System.Web.Security;

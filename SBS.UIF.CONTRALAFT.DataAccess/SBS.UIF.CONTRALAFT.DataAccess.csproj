@@ -7,7 +7,7 @@
     <ProjectGuid>{F7875E67-05B8-4203-B013-E24EE599851B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SBS.UIF.BUZ.DataAccess</RootNamespace>
+    <RootNamespace>SBS.UIF.CONTRALAFT.DataAccess</RootNamespace>
     <AssemblyName>SBS.UIF.BUZ.DataAccess</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -111,15 +111,15 @@
     <Compile Include="Mapper\MapperPro.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\SBS.UIF.BUZ.Entity\SBS.UIF.BUZ.Entity.csproj">
-      <Project>{cf2d6df6-c1f7-4dd7-b023-b1a55b5d3be3}</Project>
-      <Name>SBS.UIF.BUZ.Entity</Name>
-    </ProjectReference>
-  </ItemGroup>
   <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SBS.UIF.CONTRALAFT.Entity\SBS.UIF.CONTRALAFT.Entity.csproj">
+      <Project>{CF2D6DF6-C1F7-4DD7-B023-B1A55B5D3BE3}</Project>
+      <Name>SBS.UIF.CONTRALAFT.Entity</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

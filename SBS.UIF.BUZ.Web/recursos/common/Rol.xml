@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <sqlMap namespace="RollMap" xmlns="http://ibatis.apache.org/mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
   <alias>
-    <typeAlias alias="Rol" type="SBS.UIF.BUZ.Entity.Common.Rol,SBS.UIF.BUZ.Entity" />
+    <typeAlias alias="Rol" type="SBS.UIF.CONTRALAFT.Entity.Common.Rol,SBS.UIF.CONTRALAFT.Entity" />
   </alias>
   <resultMaps>
     <resultMap id="rm_rol" class="Rol">

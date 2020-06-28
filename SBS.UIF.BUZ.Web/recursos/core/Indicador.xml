@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <sqlMap namespace="IndicadorMap" xmlns="http://ibatis.apache.org/mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
   <alias>
-    <typeAlias alias="Indicador" type="SBS.UIF.BUZ.Entity.Core.Indicador,SBS.UIF.BUZ.Entity" />
+    <typeAlias alias="Indicador" type="SBS.UIF.CONTRALAFT.Entity.Core.Indicador,SBS.UIF.CONTRALAFT.Entity" />
   </alias>
   <resultMaps>
     <resultMap id="rm_indicador" class="Indicador">

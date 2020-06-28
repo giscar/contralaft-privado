@@ -2,8 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Web;
-using SBS.UIF.BUZ.Entity.Common;
-using SBS.UIF.BUZ.Entity.Core;
+using SBS.UIF.CONTRALAFT.Entity.Common;
+using SBS.UIF.CONTRALAFT.Entity.Core;
 
 namespace SBS.UIF.BUZ.Web
 {

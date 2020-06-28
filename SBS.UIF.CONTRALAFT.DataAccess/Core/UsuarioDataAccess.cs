@@ -1,6 +1,6 @@
 ﻿using System;
 
-using SBS.UIF.BUZ.Entity.Core;
+using SBS.UIF.CONTRALAFT.Entity.Core;
 using SBS.UIF.CONTRALAFT.DataAccess.Mapper;
 using System.Collections.Generic;
 

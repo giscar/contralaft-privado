@@ -1,4 +1,4 @@
-﻿using SBS.UIF.BUZ.Entity.Core;
+﻿using SBS.UIF.CONTRALAFT.Entity.Core;
 using SBS.UIF.CONTRALAFT.DataAccess.Core;
 
 namespace SBS.UIF.CONTRALAFT.BusinessLogic.Core

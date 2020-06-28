@@ -1,6 +1,0 @@
-C:\Users\carlos\Desktop\contralaft\contralaft-privado\Buzon\SBS.UIF.BUZ.Entity\bin\x64\Release\SBS.UIF.BUZ.Entity.dll
-C:\Users\carlos\Desktop\contralaft\contralaft-privado\Buzon\SBS.UIF.BUZ.Entity\bin\x64\Release\SBS.UIF.BUZ.Entity.pdb
-C:\Users\carlos\Desktop\contralaft\contralaft-privado\Buzon\SBS.UIF.BUZ.Entity\obj\x64\Release\SBS.UIF.BUZ.Entity.csprojAssemblyReference.cache
-C:\Users\carlos\Desktop\contralaft\contralaft-privado\Buzon\SBS.UIF.BUZ.Entity\obj\x64\Release\SBS.UIF.BUZ.Entity.csproj.CoreCompileInputs.cache
-C:\Users\carlos\Desktop\contralaft\contralaft-privado\Buzon\SBS.UIF.BUZ.Entity\obj\x64\Release\SBS.UIF.BUZ.Entity.dll
-C:\Users\carlos\Desktop\contralaft\contralaft-privado\Buzon\SBS.UIF.BUZ.Entity\obj\x64\Release\SBS.UIF.BUZ.Entity.pdb

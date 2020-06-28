@@ -2091,25 +2091,21 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SBS.UIF.BUZ.DataAccess\SBS.UIF.BUZ.DataAccess.csproj">
-      <Project>{f7875e67-05b8-4203-b013-e24ee599851b}</Project>
-      <Name>SBS.UIF.CONTRALAFT.DataAccess</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SBS.UIF.BUZ.Entity\SBS.UIF.BUZ.Entity.csproj">
-      <Project>{cf2d6df6-c1f7-4dd7-b023-b1a55b5d3be3}</Project>
-      <Name>SBS.UIF.BUZ.Entity</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SBS.UIF.CONTRALAFT.BusinessLogic\SBS.UIF.CONTRALAFT.BusinessLogic.csproj">
-      <Project>{953DF26A-8370-49B6-890C-B2C757F96384}</Project>
-      <Name>SBS.UIF.CONTRALAFT.BusinessLogic</Name>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SBS.UIF.CONTRALAFT.Entity\SBS.UIF.CONTRALAFT.Entity.csproj">
+      <Project>{CF2D6DF6-C1F7-4DD7-B023-B1A55B5D3BE3}</Project>
+      <Name>SBS.UIF.CONTRALAFT.Entity</Name>
     </ProjectReference>
     <ProjectReference Include="..\SBS.UIF.CONTRALAFT.Util\SBS.UIF.CONTRALAFT.Util.csproj">
       <Project>{AC54D9EC-4ADB-42EA-8D7D-4332442F1A46}</Project>
       <Name>SBS.UIF.CONTRALAFT.Util</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
+    <ProjectReference Include="..\SBS.UIF.CONTRALAFT.BusinessLogic\SBS.UIF.CONTRALAFT.BusinessLogic.csproj">
+      <Project>{953DF26A-8370-49B6-890C-B2C757F96384}</Project>
+      <Name>SBS.UIF.CONTRALAFT.BusinessLogic</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

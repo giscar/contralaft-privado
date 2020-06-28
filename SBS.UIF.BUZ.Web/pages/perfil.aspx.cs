@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Web;
 using System.Web.UI.WebControls;
 using SBS.UIF.CONTRALAFT.BusinessLogic.Common;
-using SBS.UIF.BUZ.Entity.Common;
-using SBS.UIF.BUZ.Entity.Core;
+using SBS.UIF.CONTRALAFT.Entity.Common;
+using SBS.UIF.CONTRALAFT.Entity.Core;
 
 
 namespace SBS.UIF.BUZ.Web.pages

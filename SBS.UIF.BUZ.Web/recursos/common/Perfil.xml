@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <sqlMap namespace="PerfilMap" xmlns="http://ibatis.apache.org/mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
   <alias>
-    <typeAlias alias="Perfil" type="SBS.UIF.BUZ.Entity.Common.Perfil,SBS.UIF.BUZ.Entity" />
+    <typeAlias alias="Perfil" type="SBS.UIF.CONTRALAFT.Entity.Common.Perfil,SBS.UIF.CONTRALAFT.Entity" />
   </alias>
   <resultMaps>
     <resultMap id="rm_perfil" class="Perfil">

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <sqlMap namespace="EntidadMap" xmlns="http://ibatis.apache.org/mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
   <alias>
-    <typeAlias alias="Entidad" type="SBS.UIF.BUZ.Entity.Core.Entidad,SBS.UIF.BUZ.Entity" />
+    <typeAlias alias="Entidad" type="SBS.UIF.CONTRALAFT.Entity.Core.Entidad,SBS.UIF.CONTRALAFT.Entity" />
   </alias>
   <resultMaps>
     <resultMap id="rm_entidad" class="Entidad">

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SBS.UIF.BUZ.Web
+namespace SBS.UIF.CONTRALAFT.Web
 {
     public class Global : System.Web.HttpApplication
     {

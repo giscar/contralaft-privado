@@ -1,1 +1,1 @@
-﻿<%@ Application Codebehind="Global.asax.cs" Inherits="SBS.UIF.BUZ.Web.Global" Language="C#" %>
+﻿<%@ Application Codebehind="Global.asax.cs" Inherits="SBS.UIF.CONTRALAFT.Web.Global" Language="C#" %>
