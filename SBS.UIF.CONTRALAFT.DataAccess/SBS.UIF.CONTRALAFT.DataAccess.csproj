@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{953DF26A-8370-49B6-890C-B2C757F96384}</ProjectGuid>
+    <ProjectGuid>{F7875E67-05B8-4203-B013-E24EE599851B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SBS.UIF.BUZ.BusinessLogic</RootNamespace>
-    <AssemblyName>SBS.UIF.BUZ.BusinessLogic</AssemblyName>
+    <RootNamespace>SBS.UIF.BUZ.DataAccess</RootNamespace>
+    <AssemblyName>SBS.UIF.BUZ.DataAccess</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -73,24 +73,42 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="IBatisNet.Common, Version=1.6.2.0, Culture=neutral, PublicKeyToken=ed781d9fc396c6ca, processorArchitecture=MSIL">
+      <HintPath>..\packages\IBatisNet45.1.6.2\lib\net45\IBatisNet.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="IBatisNet.Common.Logging.Log4Net, Version=1.6.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\IBatisNet45.1.6.2\lib\net45\IBatisNet.Common.Logging.Log4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="IBatisNet.DataMapper, Version=1.6.2.0, Culture=neutral, PublicKeyToken=ed781d9fc396c6ca, processorArchitecture=MSIL">
+      <HintPath>..\packages\IBatisNet45.1.6.2\lib\net45\IBatisNet.DataMapper.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="Castle.Core">
+      <HintPath>..\packages\Castle.Core.4.4.1\lib\net45\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Common\PerfilRolBusinessLogic.cs" />
-    <Compile Include="Common\PerfilBusinessLogic.cs" />
-    <Compile Include="Common\RolBusinessLogic.cs" />
-    <Compile Include="Common\MenuBusinessLogic.cs" />
-    <Compile Include="Core\AccionBusinessLogic.cs" />
-    <Compile Include="Core\IndicadorBusinessLogic.cs" />
-    <Compile Include="Core\IndicadorEntidadBusinessLogic.cs" />
-    <Compile Include="Core\EntidadBusinessLogic.cs" />
-    <Compile Include="Core\UsuarioBusinessLogic.cs" />
+    <Compile Include="BaseDatos.cs" />
+    <Compile Include="Common\PerfilDataAccess.cs" />
+    <Compile Include="Common\PerfilRolDataAccess.cs" />
+    <Compile Include="Common\RolDataAccess.cs" />
+    <Compile Include="Common\MenuDataAccess.cs" />
+    <Compile Include="Core\AccionDataAccess.cs" />
+    <Compile Include="Core\IndicadorDataAccess.cs" />
+    <Compile Include="Core\IndicadorEntidadDataAccess.cs" />
+    <Compile Include="Core\EntidadDataAccess.cs" />
+    <Compile Include="Core\UsuarioDataAccess.cs" />
+    <Compile Include="Mapper\CastType.cs" />
+    <Compile Include="Mapper\MapperPro.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -98,12 +116,11 @@
       <Project>{cf2d6df6-c1f7-4dd7-b023-b1a55b5d3be3}</Project>
       <Name>SBS.UIF.BUZ.Entity</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SBS.UIF.CONTRALAFT.DataAccess\SBS.UIF.CONTRALAFT.DataAccess.csproj">
-      <Project>{F7875E67-05B8-4203-B013-E24EE599851B}</Project>
-      <Name>SBS.UIF.CONTRALAFT.DataAccess</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

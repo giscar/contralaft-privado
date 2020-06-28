@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 
 using SBS.UIF.BUZ.Entity.Core;
-using SBS.UIF.BUZ.DataAccess.Core;
+using SBS.UIF.CONTRALAFT.DataAccess.Core;
 
 namespace SBS.UIF.CONTRALAFT.BusinessLogic.Core
 {

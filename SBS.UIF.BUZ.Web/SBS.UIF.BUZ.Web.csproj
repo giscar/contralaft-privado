@@ -2093,7 +2093,7 @@
   <ItemGroup>
     <ProjectReference Include="..\SBS.UIF.BUZ.DataAccess\SBS.UIF.BUZ.DataAccess.csproj">
       <Project>{f7875e67-05b8-4203-b013-e24ee599851b}</Project>
-      <Name>SBS.UIF.BUZ.DataAccess</Name>
+      <Name>SBS.UIF.CONTRALAFT.DataAccess</Name>
     </ProjectReference>
     <ProjectReference Include="..\SBS.UIF.BUZ.Entity\SBS.UIF.BUZ.Entity.csproj">
       <Project>{cf2d6df6-c1f7-4dd7-b023-b1a55b5d3be3}</Project>

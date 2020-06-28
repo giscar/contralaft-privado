@@ -1,9 +1,0 @@
-E:\Fuente\SISDEL2\SBS.UIF.SISDEL\SBS.UIF.SISDEL.DataAccess\bin\x86\Debug\SBS.UIF.SISDEL.DataAccess.dll
-E:\Fuente\SISDEL2\SBS.UIF.SISDEL\SBS.UIF.SISDEL.DataAccess\bin\x86\Debug\SBS.UIF.SISDEL.DataAccess.pdb
-E:\Fuente\SISDEL2\SBS.UIF.SISDEL\SBS.UIF.SISDEL.DataAccess\bin\x86\Debug\IBatisNet.Common.dll
-E:\Fuente\SISDEL2\SBS.UIF.SISDEL\SBS.UIF.SISDEL.DataAccess\bin\x86\Debug\IBatisNet.DataMapper.dll
-E:\Fuente\SISDEL2\SBS.UIF.SISDEL\SBS.UIF.SISDEL.DataAccess\bin\x86\Debug\SBS.UIF.SISDEL.Entity.dll
-E:\Fuente\SISDEL2\SBS.UIF.SISDEL\SBS.UIF.SISDEL.DataAccess\bin\x86\Debug\SBS.UIF.SISDEL.Entity.pdb
-E:\Fuente\SISDEL2\SBS.UIF.SISDEL\SBS.UIF.SISDEL.DataAccess\obj\x86\Debug\SBS.UIF.SISDEL.DataAccess.csprojResolveAssemblyReference.cache
-E:\Fuente\SISDEL2\SBS.UIF.SISDEL\SBS.UIF.SISDEL.DataAccess\obj\x86\Debug\SBS.UIF.SISDEL.DataAccess.dll
-E:\Fuente\SISDEL2\SBS.UIF.SISDEL\SBS.UIF.SISDEL.DataAccess\obj\x86\Debug\SBS.UIF.SISDEL.DataAccess.pdb

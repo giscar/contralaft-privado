@@ -482,7 +482,6 @@ D:/requerimientos/2020/contralaft-privado/SBS.UIF.BUZ.Web/obj/Debug/SBS.UIF.BUZ.
 /Users/carlosleon/requerimientos/2020/contralaft-privado/SBS.UIF.BUZ.Web/bin/log4net.dll
 /Users/carlosleon/requerimientos/2020/contralaft-privado/SBS.UIF.BUZ.Web/bin/Microsoft.Web.Infrastructure.dll
 /Users/carlosleon/requerimientos/2020/contralaft-privado/SBS.UIF.BUZ.Web/bin/SBS.UIF.BUZ.BusinessLogic.dll
-/Users/carlosleon/requerimientos/2020/contralaft-privado/SBS.UIF.BUZ.Web/bin/SBS.UIF.BUZ.DataAccess.dll
 /Users/carlosleon/requerimientos/2020/contralaft-privado/SBS.UIF.BUZ.Web/bin/SBS.UIF.BUZ.Entity.dll
 /Users/carlosleon/requerimientos/2020/contralaft-privado/SBS.UIF.BUZ.Web/bin/SBS.UIF.BUZ.Util.dll
 /Users/carlosleon/requerimientos/2020/contralaft-privado/SBS.UIF.BUZ.Web/bin/System.Web.Helpers.dll
@@ -491,7 +490,7 @@ D:/requerimientos/2020/contralaft-privado/SBS.UIF.BUZ.Web/obj/Debug/SBS.UIF.BUZ.
 /Users/carlosleon/requerimientos/2020/contralaft-privado/SBS.UIF.BUZ.Web/bin/System.Web.WebPages.Deployment.dll
 /Users/carlosleon/requerimientos/2020/contralaft-privado/SBS.UIF.BUZ.Web/bin/System.Web.WebPages.dll
 /Users/carlosleon/requerimientos/2020/contralaft-privado/SBS.UIF.BUZ.Web/bin/System.Web.WebPages.Razor.dll
-/Users/carlosleon/requerimientos/2020/contralaft-privado/SBS.UIF.BUZ.Web/bin/SBS.UIF.BUZ.DataAccess.pdb
+/Users/carlosleon/requerimientos/2020/contralaft-privado/SBS.UIF.BUZ.Web/bin/SBS.UIF.BUZ.DataAccess.dll
 /Users/carlosleon/requerimientos/2020/contralaft-privado/SBS.UIF.BUZ.Web/bin/SBS.UIF.BUZ.Entity.pdb
 /Users/carlosleon/requerimientos/2020/contralaft-privado/SBS.UIF.BUZ.Web/bin/SBS.UIF.BUZ.Util.pdb
 /Users/carlosleon/requerimientos/2020/contralaft-privado/SBS.UIF.BUZ.Web/bin/SBS.UIF.BUZ.BusinessLogic.pdb
@@ -506,6 +505,7 @@ D:/requerimientos/2020/contralaft-privado/SBS.UIF.BUZ.Web/obj/Debug/SBS.UIF.BUZ.
 /Users/carlosleon/requerimientos/2020/contralaft-privado/SBS.UIF.BUZ.Web/bin/System.Web.WebPages.Razor.xml
 /Users/carlosleon/requerimientos/2020/contralaft-privado/SBS.UIF.BUZ.Web/bin/log4net.xml
 /Users/carlosleon/requerimientos/2020/contralaft-privado/SBS.UIF.BUZ.Web/bin/Castle.Core.xml
+/Users/carlosleon/requerimientos/2020/contralaft-privado/SBS.UIF.BUZ.Web/bin/SBS.UIF.BUZ.DataAccess.pdb
 /Users/carlosleon/requerimientos/2020/contralaft-privado/SBS.UIF.BUZ.Web/obj/Debug/SBS.UIF.BUZ.Web.csprojAssemblyReference.cache
 /Users/carlosleon/requerimientos/2020/contralaft-privado/SBS.UIF.BUZ.Web/obj/Debug/SBS.UIF.BUZ.Web.csproj.CoreCompileInputs.cache
 /Users/carlosleon/requerimientos/2020/contralaft-privado/SBS.UIF.BUZ.Web/obj/Debug/SBS.UIF.BUZ.Web.csproj.CopyComplete

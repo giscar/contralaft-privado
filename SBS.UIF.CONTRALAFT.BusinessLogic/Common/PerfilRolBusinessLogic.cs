@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using SBS.UIF.BUZ.Entity.Common;
-using SBS.UIF.BUZ.DataAccess.Common;
+﻿using SBS.UIF.BUZ.Entity.Common;
+using SBS.UIF.CONTRALAFT.DataAccess.Common;
 
 namespace SBS.UIF.CONTRALAFT.BusinessLogic.Common
 {
