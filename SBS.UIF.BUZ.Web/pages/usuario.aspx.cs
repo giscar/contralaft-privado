@@ -10,7 +10,7 @@ using SBS.UIF.CONTRALAFT.BusinessLogic.Core;
 using SBS.UIF.CONTRALAFT.BusinessLogic.Common;
 using SBS.UIF.BUZ.Entity.Core;
 using SBS.UIF.BUZ.Web.comun;
-using SBS.UIF.BUZ.Util;
+using SBS.UIF.CONTRALAFT.Util;
 using System.Web.Security;
 
 namespace SBS.UIF.BUZ.Web.pages

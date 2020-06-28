@@ -2099,13 +2099,13 @@
       <Project>{cf2d6df6-c1f7-4dd7-b023-b1a55b5d3be3}</Project>
       <Name>SBS.UIF.BUZ.Entity</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SBS.UIF.BUZ.Util\SBS.UIF.BUZ.Util.csproj">
-      <Project>{ac54d9ec-4adb-42ea-8d7d-4332442f1a46}</Project>
-      <Name>SBS.UIF.BUZ.Util</Name>
-    </ProjectReference>
     <ProjectReference Include="..\SBS.UIF.CONTRALAFT.BusinessLogic\SBS.UIF.CONTRALAFT.BusinessLogic.csproj">
       <Project>{953DF26A-8370-49B6-890C-B2C757F96384}</Project>
       <Name>SBS.UIF.CONTRALAFT.BusinessLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SBS.CONTRALAFT.BUZ.Util\SBS.UIF.CONTRALAFT.Util.csproj">
+      <Project>{AC54D9EC-4ADB-42EA-8D7D-4332442F1A46}</Project>
+      <Name>SBS.UIF.CONTRALAFT.Util</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

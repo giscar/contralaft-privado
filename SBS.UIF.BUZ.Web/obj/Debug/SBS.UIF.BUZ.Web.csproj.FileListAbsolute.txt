@@ -492,8 +492,8 @@ D:/requerimientos/2020/contralaft-privado/SBS.UIF.BUZ.Web/obj/Debug/SBS.UIF.BUZ.
 /Users/carlosleon/requerimientos/2020/contralaft-privado/SBS.UIF.BUZ.Web/bin/System.Web.WebPages.Razor.dll
 /Users/carlosleon/requerimientos/2020/contralaft-privado/SBS.UIF.BUZ.Web/bin/SBS.UIF.BUZ.DataAccess.dll
 /Users/carlosleon/requerimientos/2020/contralaft-privado/SBS.UIF.BUZ.Web/bin/SBS.UIF.BUZ.Entity.pdb
-/Users/carlosleon/requerimientos/2020/contralaft-privado/SBS.UIF.BUZ.Web/bin/SBS.UIF.BUZ.Util.pdb
 /Users/carlosleon/requerimientos/2020/contralaft-privado/SBS.UIF.BUZ.Web/bin/SBS.UIF.BUZ.BusinessLogic.pdb
+/Users/carlosleon/requerimientos/2020/contralaft-privado/SBS.UIF.BUZ.Web/bin/SBS.UIF.BUZ.Util.pdb
 /Users/carlosleon/requerimientos/2020/contralaft-privado/SBS.UIF.BUZ.Web/bin/IBatisNet.Common.xml
 /Users/carlosleon/requerimientos/2020/contralaft-privado/SBS.UIF.BUZ.Web/bin/IBatisNet.Common.Logging.Log4Net.xml
 /Users/carlosleon/requerimientos/2020/contralaft-privado/SBS.UIF.BUZ.Web/bin/IBatisNet.DataMapper.xml
