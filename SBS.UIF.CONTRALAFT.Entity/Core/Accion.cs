@@ -1,4 +1,4 @@
-﻿
+﻿#pragma warning disable 1591
 
 namespace SBS.UIF.CONTRALAFT.Entity.Core
 {
@@ -13,3 +13,4 @@ namespace SBS.UIF.CONTRALAFT.Entity.Core
 
     }
 }
+#pragma warning restore 1591

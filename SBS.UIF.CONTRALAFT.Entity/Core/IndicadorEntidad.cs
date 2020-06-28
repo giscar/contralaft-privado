@@ -1,7 +1,10 @@
-﻿
+﻿#pragma warning disable 1591
 
 namespace SBS.UIF.CONTRALAFT.Entity.Core
 {
+    ///<Summary>
+    /// Gets the answer
+    ///</Summary>
     public class IndicadorEntidad
     {
         public int IdIndicador { get; set; }
@@ -11,3 +14,4 @@ namespace SBS.UIF.CONTRALAFT.Entity.Core
 
     }
 }
+#pragma warning restore 1591

@@ -1,7 +1,9 @@
-﻿using System;
+﻿#pragma warning disable 1591
+using System;
 
 namespace SBS.UIF.CONTRALAFT.Entity.Core
 {
+
     public class Indicador
     {
         public int Id { get; set; }
@@ -14,3 +16,4 @@ namespace SBS.UIF.CONTRALAFT.Entity.Core
 
     }
 }
+#pragma warning restore 1591

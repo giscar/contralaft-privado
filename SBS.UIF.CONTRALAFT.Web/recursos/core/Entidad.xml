@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<sqlMap namespace="EntidadMap" xmlns="http://ibatis.apache.org/mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+  <alias>
+    <typeAlias alias="Entidad" type="SBS.UIF.CONTRALAFT.Entity.Core.Entidad,SBS.UIF.CONTRALAFT.Entity" />
+  </alias>
+  <resultMaps>
+    <resultMap id="rm_entidad" class="Entidad">
+      <result property="IdTipo" column="N_COD_ENTIDAD"></result>
+      <result property="DesTipo" column="C_DES_RAZON"></result>
+      <result property="CodRuc" column="C_COD_RUC"></result>
+      <result property="FecRegistro" column="D_FEC_REGISTRO"></result>
+      
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <select id="select_entidad" resultMap="rm_entidad" >
+      SELECT N_COD_ENTIDAD, C_DES_RAZON, C_COD_RUC, D_FEC_REGISTRO FROM ENTIDAD WHERE N_FL_ACTIVO = 1
+    </select>
+
+    <insert id="insert_entidad">
+      INSERT INTO ENTIDAD (
+      C_DES_RAZON,
+      C_COD_RUC,
+      D_FEC_REGISTRO,
+      N_FL_ACTIVO)
+      VALUES
+      (#DesTipo#,
+      #CodRuc#,
+      #FecRegistro#,
+      1)
+    </insert>
+  </statements>
+</sqlMap>

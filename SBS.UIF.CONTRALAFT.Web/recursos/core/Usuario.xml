@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<sqlMap namespace="UsuarioMap" xmlns="http://ibatis.apache.org/mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+  <alias>
+    <typeAlias alias="Usuario" type="SBS.UIF.CONTRALAFT.Entity.Core.Usuario,SBS.UIF.CONTRALAFT.Entity" />
+  </alias>
+  <resultMaps>
+    <resultMap id="rm_usuario" class="Usuario">
+      <result property="Id" column="N_COD_ID"></result>
+      <result property="DetCodigo" column="C_DET_CODIGO"></result>
+      <result property="DetNombre" column="C_DET_NOMBRE"></result>
+      <result property="IdPerfil" column="N_COD_PERFIL"></result>
+      <result property="IdEntidad" column="N_COD_ENTIDAD"></result>
+      <result property="FlActivo" column="N_FL_ACTIVO"></result>
+      <result property="FecRegistro" column="D_FEC_REGISTRO"></result>
+      <result property="UsuRegistro" column="C_USU_REGISTRO"></result>
+      <result property="DetContrasenia" column="C_DET_CONTRA"></result>
+      <result property="RazonSocialEntidad" column="C_DES_RAZON"></result>
+
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+
+    <insert id="insert_usuario">
+      INSERT INTO usuario (
+      C_DET_NOMBRE,
+      C_DET_CODIGO,
+      C_DET_CONTRA,
+      N_COD_ENTIDAD,
+      N_FL_ACTIVO,
+      D_FEC_REGISTRO,
+      C_USU_REGISTRO,
+      N_COD_PERFIL
+      )
+      VALUES
+      (#DetNombre#,
+      #DetCodigo#,
+      #DetContrasenia#,
+      #IdEntidad#,
+      #FlActivo#,
+      #FecRegistro#,
+      #UsuRegistro#,
+      #IdPerfil#)
+    </insert>
+
+
+    <select id="select_usuario" resultMap="rm_usuario" >
+      SELECT A.*, B.C_DES_RAZON C_DES_RAZON FROM USUARIO A INNER JOIN ENTIDAD B ON A.N_COD_ENTIDAD = B.N_COD_ENTIDAD 
+      WHERE A.C_DET_CODIGO = #DetCodigo# AND A.C_DET_CONTRA = #DetContrasenia# AND A.N_FL_ACTIVO = 1
+    </select>
+
+    <select id="select_todos" resultMap="rm_usuario" >
+      SELECT A.*, B.C_DES_RAZON C_DES_RAZON FROM USUARIO A INNER JOIN ENTIDAD B ON A.N_COD_ENTIDAD = B.N_COD_ENTIDAD
+      WHERE A.N_FL_ACTIVO = 1
+    </select>
+
+    <select id="select_usuario_id" resultMap="rm_usuario" >
+      SELECT A.*, B.C_DES_RAZON C_DES_RAZON
+      FROM USUARIO A INNER JOIN ENTIDAD B ON A.N_COD_ENTIDAD = B.N_COD_ENTIDAD
+      WHERE A.N_COD_ID = #Id#
+    </select>
+
+  </statements>
+</sqlMap>

@@ -1,4 +1,4 @@
-﻿using System;
+﻿#pragma warning disable 1591
 
 namespace SBS.UIF.CONTRALAFT.Entity.Common
 {
@@ -6,8 +6,9 @@ namespace SBS.UIF.CONTRALAFT.Entity.Common
     {
         public int IdTipo { get; set; }
         public string DesTipo { get; set; }
-
-        public String DetDetalle { get; set; }
+        public string DetDetalle { get; set; }
 
     }
 }
+
+#pragma warning restore 1591
