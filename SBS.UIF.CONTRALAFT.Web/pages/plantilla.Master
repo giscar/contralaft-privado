@@ -42,8 +42,8 @@
     <nav class="navbar horizontal-layout col-lg-12 col-12 p-0">
       <div class="container d-flex flex-row">
         <div class="text-center navbar-brand-wrapper d-flex align-items-top">
-          <a class="navbar-brand brand-logo" href="index.html"><img src="images/logo-inverse.svg" alt="logo"/></a>
-          <a class="navbar-brand brand-logo-mini" href="index.html"><img src="images/logo-mini.svg" alt="logo"/></a>
+          <a class="navbar-brand brand-logo" href="index.html"><img src="images/logo.png" alt="logo"/></a>
+          <a class="navbar-brand brand-logo-mini" href="index.html"><img src="images/logo.png" alt="logo"/></a>
         </div>
         <div class="navbar-menu-wrapper d-flex align-items-center">
           <form class="search-field ml-auto" action="#">
@@ -217,7 +217,85 @@
 	
 	
 	
-	
+	<div id="idModalInfoServer" runat="server">
+        <div class="modal show" id="idInfoServer">
+            <div class="modal-dialog ">
+                <div class="modal-content" style="background: #D9EDF7">
+                    <div class="modal-header" style="padding: 5px;">
+                        <a onclick="cerrarModalInfo()" class="close" data-dismiss="modal" aria-label="Close"><span style="color: red; font-size: large" class="glyphicon glyphicon-remove"></span></a>
+                        <p style="color: #3170A5; font-size: 1.5em">Se enviaron los datos</p>
+                    </div>
+                    <div style="background: white; box-sizing: border-box;">
+                        <div class="modal-body" style="padding: 7px;">
+                            <table style="width: 100%">
+                                <tr>
+                                    <td style="padding-right: 8px">
+                                        <img style="width: 30px" src="img/info.png" />
+                                    </td>
+                                    <td>
+                                        <div id="mensajeInfo" style="font-size: 1.4em">
+                                            <asp:Label ID="lblMensajeOk" runat="server" Text=""></asp:Label>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="idAlerta">
+            <div class="modal-dialog modal-sm" >
+                <div class="modal-content" style=" background: #FCF8E3">
+                    <div class="modal-header" style="padding: 5px;">
+                        <a  class="close" data-dismiss="modal" aria-label="Close"><span style="color: red; font-size: large" class="glyphicon glyphicon-remove" ></span></a>
+                        <h5 style="color: #8A6D3B"><b>Alerta!</b></h5>
+                    </div>
+                    <div style="background: white;box-sizing: border-box;" >
+                        <div class="modal-body" style="padding: 7px;">
+                            <table style="width: 100%">
+                                <tr>
+                                    <td style="padding-right: 8px">
+                                        <img style="width: 30px" src="img/warning.png" />
+                                    </td>
+                                    <td>
+                                        <div id="mensaje" class="text-resalt-comun"></div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <div class="modal fade" id="idInformativo">
+            <div class="modal-dialog modal-sm" >
+                <div class="modal-content " style="background: #D9EDF7">
+                    <div class="modal-header" style="padding: 5px;">
+                        <a onclick="cerrarModalInfo()" class="close" data-dismiss="modal" aria-label="Close"><span style="color: red; font-size: large" class="glyphicon glyphicon-remove"></span></a>
+                        <h5 style="color: #8A6D3B"><b>Información:</b></h5>
+                    </div>
+                    <div style="background: white; box-sizing: border-box;">
+                        <div class="modal-body" style="padding: 7px;">
+                            <table style="width: 100%">
+                                <tr>
+                                    <td style="padding-right: 8px">
+                                        <img style="width: 30px" src="img/info.png" />
+                                    </td>
+                                    <td>
+                                        <div id="mensajeInf" class="text-resalt-comun"></div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 	
 	

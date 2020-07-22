@@ -194,7 +194,6 @@
     <Content Include="js\typeahead.js" />
     <Content Include="js\wizard.js" />
     <Content Include="js\x-editable.js" />
-    <Content Include="pages\editarAccion.aspx" />
     <Content Include="pages\inicializarEntidad.aspx" />
     <Content Include="pages\listadoAcciones.aspx" />
     <Content Include="pages\login.aspx" />
@@ -1875,6 +1874,7 @@
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="images\logo.png" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="comun\PaginaBase.cs">
@@ -1882,13 +1882,6 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="pages\editarAccion.aspx.cs">
-      <DependentUpon>editarAccion.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="pages\editarAccion.aspx.designer.cs">
-      <DependentUpon>editarAccion.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\inicializarEntidad.aspx.cs">
       <DependentUpon>inicializarEntidad.aspx</DependentUpon>

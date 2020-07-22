@@ -11,7 +11,7 @@
 namespace SBS.UIF.CONTRALAFT.Web.pages {
 	
 	
-	public partial class editarAccion {
+	public partial class perfil {
 		
 		protected System.Web.UI.WebControls.Content Content1;
 		
@@ -19,10 +19,14 @@ namespace SBS.UIF.CONTRALAFT.Web.pages {
 		
 		protected System.Web.UI.HtmlControls.HtmlInputText txtNombrePerfil;
 		
-		protected System.Web.UI.HtmlControls.HtmlInputText txtDescripcion;
+		protected System.Web.UI.HtmlControls.HtmlTextArea txtDescripcion;
 		
 		protected System.Web.UI.WebControls.Button btnNuevo;
 		
 		protected System.Web.UI.WebControls.GridView GridView1;
+		
+		protected System.Web.UI.HtmlControls.HtmlGenericControl idModalInfoServer;
+		
+		protected System.Web.UI.WebControls.Label lblMensajeOk;
 	}
 }

@@ -25,20 +25,12 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
 
         List<Usuario> listadoUsuarios;
 
-        
-
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
             {
                 try
                 {
-                    
-                    var usuario = HttpContext.Current.Session["Usuario"];
-                    if (usuario == null)
-                    {
-                        Response.Redirect("../pages/login.aspx");
-                    }
                     cargarLista();
                     cargarCombos();
                 }
@@ -79,7 +71,6 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
         protected void Submit_nuevo(object sender, EventArgs e)
         {
             string password = Membership.GeneratePassword(12, 1);
-            Usuario usuarioSession = (Usuario)HttpContext.Current.Session["Usuario"];
             Usuario _usuario = new Usuario();
             _usuario.DetNombre = txtNombre.Value;
             SHA256Managed sha = new SHA256Managed();
@@ -129,7 +120,7 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
                 CodRuc = txtRuc.Value,
                 FecRegistro = new DateTime(),
                 UsuRegistro = usuarioSession.DetCodigo,
-                FlActivo = 1
+                FlActivo = (int)Constante.FlagEstado.ACTIVO
             };
             entidadBusinessLogic.guardarEntidad(entidad);
         }

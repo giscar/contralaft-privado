@@ -8,7 +8,11 @@
       <result property="IdTipo" column="N_COD_PERFIL"></result>
       <result property="DesTipo" column="C_DET_NOMBRE"></result>
       <result property="DetDetalle" column="C_DET_DETALLE"></result>
-      
+      <result property="DetUsuarioRegistro" column="C_USU_REGISTRO"></result>
+      <result property="DetUsuarioModificacion" column="C_USU_MODIFICACION"></result>
+      <result property="FecModificacion" column="D_FEC_REGISTRO"></result>
+      <result property="FecRegistro" column="D_FEC_MODIFICACION"></result>
+      <result property="FlagEstado" column="N_FL_ACTIVO"></result>      
     </resultMap>
   </resultMaps>
   <statements>
@@ -20,11 +24,19 @@
       INSERT INTO PERFIL (
       C_DET_NOMBRE,
       C_DET_DETALLE,
-      N_FL_ACTIVO)
+      N_FL_ACTIVO,
+      C_USU_REGISTRO,
+      C_USU_MODIFICACION,
+      D_FEC_REGISTRO,
+      D_FEC_MODIFICACION)
       VALUES
       (#DesTipo#,
       #DetDetalle#,
-      1)
+      #FlagEstado#,
+      #DetUsuarioRegistro#,
+      #DetUsuarioModificacion#,
+      #FecModificacion#,
+      #FecRegistro#)
     </insert>
   </statements>
 </sqlMap>

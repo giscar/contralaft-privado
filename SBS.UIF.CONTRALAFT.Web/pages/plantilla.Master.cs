@@ -21,5 +21,7 @@ namespace SBS.UIF.CONTRALAFT.Web
             cdcatalog.DataSource = listadoMenu;
             cdcatalog.DataBind();
         }
+
+        
     }
 }
