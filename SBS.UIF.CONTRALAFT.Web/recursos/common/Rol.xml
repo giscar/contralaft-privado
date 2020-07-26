@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<sqlMap namespace="RollMap" xmlns="http://ibatis.apache.org/mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+  <alias>
+    <typeAlias alias="Rol" type="SBS.UIF.CONTRALAFT.Entity.Common.Rol,SBS.UIF.CONTRALAFT.Entity" />
+  </alias>
+  <resultMaps>
+    <resultMap id="rm_rol" class="Rol">
+      <result property="IdTipo" column="N_COD_ROL"></result>
+      <result property="DesTipo" column="C_DES_ROL"></result>
+      <result property="DetDetalle" column="C_DET_DETALLE"></result>
+
+    </resultMap>
+    
+  </resultMaps>
+  <statements>
+    <select id="select_rol" resultMap="rm_rol" >
+      SELECT * FROM ROL WHERE N_FL_ACTIVO = 1
+    </select>
+
+    <insert id="insert_rol">
+
+      INSERT INTO ROL (
+      C_DES_ROL,
+      C_DET_DETALLE,
+      N_FL_ACTIVO)
+      VALUES
+      (#DesTipo#,
+      #DetDetalle#,
+      1)
+      <selectKey property="IdTipo" type="post" resultClass="int">
+        SELECT MAX(N_COD_ROL) FROM ROL
+      </selectKey>
+    </insert>
+  </statements>
+</sqlMap>

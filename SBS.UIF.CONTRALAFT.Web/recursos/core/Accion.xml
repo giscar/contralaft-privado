@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<sqlMap namespace="AccionMap" xmlns="http://ibatis.apache.org/mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+  <alias>
+    <typeAlias alias="Accion" type="SBS.UIF.CONTRALAFT.Entity.Core.Accion,SBS.UIF.CONTRALAFT.Entity" />
+  </alias>
+  <resultMaps>
+    <resultMap id="rm_accion" class="Accion">
+      <result property="Id" column="N_ID_ACCION"></result>
+      <result property="Codigo" column="C_NUM_CODIGO"></result>
+      <result property="Nombre" column="C_DES_NOMBRE"></result>
+      <result property="Descripcion" column="C_DES_DESCRIPCION"></result>
+      <result property="FlActivo" column="N_FL_ACTIVO"></result>
+      <result property="Estado" column="C_COD_ESTADO"></result>
+     
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <select id="select_accion" resultMap="rm_accion" >
+      SELECT * FROM ACCION WHERE N_FL_ACTIVO = 1
+    </select>
+
+    <insert id="insert_accion">
+      INSERT INTO ACCION (
+      C_NUM_CODIGO,
+      C_DES_NOMBRE,
+      C_DES_DESCRIPCION,
+      C_COD_ESTADO,
+      N_FL_ACTIVO
+      )
+      VALUES
+      (#Codigo#,
+      #Nombre#,
+      #Descripcion#,
+      #Estado#,
+      1)
+    </insert>
+
+
+    <update id="update_accion">
+      UPDATE ACCION SET
+      C_NUM_CODIGO = #Codigo#,
+      C_DES_NOMBRE = #Nombre#,
+      C_DES_DESCRIPCION = #Descripcion#,
+      C_COD_ESTADO = #Estado#,
+      N_FL_ACTIVO = #FlActivo#
+      WHERE N_ID_ACCION = #Id#
+    </update>
+  </statements>
+</sqlMap>
