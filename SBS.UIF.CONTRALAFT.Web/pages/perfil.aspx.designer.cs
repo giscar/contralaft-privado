@@ -23,6 +23,8 @@ namespace SBS.UIF.CONTRALAFT.Web.pages {
 		
 		protected System.Web.UI.WebControls.GridView GridView1;
 		
+		protected System.Web.UI.WebControls.LinkButton userProfile;
+		
 		protected System.Web.UI.WebControls.Button btnNuevo;
 	}
 }

@@ -132,22 +132,20 @@
                                 PageSize="20" AutoGenerateColumns="false">
                             <Columns>
                                 <asp:TemplateField>
-    <ItemTemplate>
-        <%# Container.DataItemIndex + 1 %>
-    </ItemTemplate>
-</asp:TemplateField>
+                                    <ItemTemplate>
+                                        <%# Container.DataItemIndex + 1 %>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
                                 <asp:BoundField ItemStyle-Width="15%" DataField="DetCodigo" HeaderText="Usuario" />
                                 <asp:BoundField ItemStyle-Width="30%" DataField="DetNombre" HeaderText="Nombre completo" />
                                 <asp:BoundField ItemStyle-Width="30%" DataField="RazonSocialEntidad" HeaderText="Entidad" />
                                 <asp:BoundField ItemStyle-Width="15%" DataField="FecRegistro" HeaderText="Fecha de registro" />
                                 <asp:ButtonField ItemStyle-Width="10%" Text="Editar usuario" CommandName="Select"/>
-                               <asp:TemplateField ShowHeader="false">
-                            <ItemTemplate>
-                                <asp:LinkButton ID="userProfile" runat="server" OnCommand="userProfile_Command"
-   CommandArgument='<%# Eval("Id") %>'
-   Text="Open User Profile" CssClass="btn btn-success"  />
-                            </ItemTemplate>
-                        </asp:TemplateField>
+                                <asp:TemplateField ShowHeader="false">
+                                    <ItemTemplate>
+                                        <asp:LinkButton ID="userProfile" runat="server" OnCommand="userProfile_Command" CommandArgument='<%# Eval("Id") %>' Text="Open User Profile" CssClass="btn btn-success"  />
+                                    </ItemTemplate>
+                                </asp:TemplateField>
                             </Columns>
                         </asp:GridView>
                             

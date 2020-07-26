@@ -34,6 +34,7 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
                 DetDetalle = txtDescripcion.Value
             };
             perfilBusinessLogic.guardarPerfil(perfil);
+            Limpiar();
             AlertDanger("Debe de ingresar el captcha");
         }
 
@@ -55,6 +56,18 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
         {
             /*idModalAlertaServer.Visible = true;
             lblMensajePeligro.Text = pmessage;*/
+        }
+
+        protected void userProfile_Command(object sender, CommandEventArgs e)
+        {
+            int id = Int32.Parse(e.CommandArgument.ToString());
+            Console.WriteLine(id);
+            
+        }
+
+        private void Limpiar() {
+            txtNombrePerfil.Value = "";
+            txtDescripcion.Value = "";
         }
 
     }
