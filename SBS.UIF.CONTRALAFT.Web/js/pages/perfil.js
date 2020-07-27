@@ -33,5 +33,13 @@
         $("#mensaje").html(msg);
     }
 
+     
+   
 })(jQuery);
 
+function showEdit(id, desTipo, detDetalle) {
+    $('.txtId').val(id);
+    $('.txtEditarPerfil').val(desTipo);
+    $('.txtEditarDescripcion').val(detDetalle);
+    $('#editarPerfil').modal('show');
+}

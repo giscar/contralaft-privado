@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cphBody" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-    
+        
     <div class="form-group">
         <label for="txtNombre">Perfil</label>
         <input type="text" class="form-control soloLetras txtNombrePerfil" id="txtNombrePerfil" runat="server" autocomplete="off" maxlength="80" placeholder="Ingrese perfil" style="width: 50%"/>
@@ -30,14 +30,42 @@
                                 <asp:BoundField ItemStyle-Width="50%" DataField="DetDetalle" HeaderText="Detalle del Perfil" />
                                 <asp:TemplateField ShowHeader="false">
                                     <ItemTemplate>
-                                        <asp:LinkButton ID="userProfile" runat="server" OnCommand="userProfile_Command" CommandArgument='<%# Eval("IdTipo") %>' Text="Editar" CssClass="btn btn-success"  />
+                                        <a id="selectPerfil" onclick="showEdit(<%# Eval("IdTipo") %>, '<%# Eval("DesTipo") %>', '<%# Eval("DetDetalle") %>')" class="btn btn-success selectPerfil" >Editar</a>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                             </Columns>
                         </asp:GridView>
+   
+    <div class="modal fade" id="editarPerfil" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title">Editar Perfil</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                            <input type="hidden" class="txtId" id="txtId" runat="server"/>
+                            <div class="form-group">
+                              <label for="recipient-name" class="col-form-label">Perfil:</label>
+                                <input type="text" class="form-control txtEditarPerfil" id="txtEditarPerfil" runat="server" autocomplete="off" maxlength="80" placeholder="Ingrese perfil">
+                              </div>
+                            <div class="form-group">
+                              <label for="message-text" class="col-form-label">Descripción:</label>
+                              <textarea class="form-control txtEditarDescripcion" id="txtEditarDescripcion" runat="server" autocomplete="off" maxlength="80" placeholder="Ingrese descripción"></textarea>
+                            </div>
+                         
+                        </div>
+                        <div class="modal-footer">
+                          <asp:Button class="btn btn-success" ID="btnSeleccionar" runat="server" Text="Modificar Perfil" OnClick="Submit_edit" />
+                          <button type="button" class="btn btn-light" data-dismiss="modal">Cerrar</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
     
-    
-    <br />
     <div class="modal fade" id="modal-confirmacion" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-sm" role="document">
             <div class="modal-content">
@@ -57,6 +85,6 @@
             </div>
         </div>
     </div>
-    
-    <script src="/js/pages/perfil.js"></script>
+   
+   <script src="/js/pages/perfil.js"></script>
 </asp:Content>

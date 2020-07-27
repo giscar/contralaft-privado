@@ -15,6 +15,10 @@
     <select id="select_perfil" resultMap="rm_perfil" >
       SELECT * FROM PERFIL WHERE N_FL_ACTIVO = 1
     </select>
+        
+    <select id="select_perfil_id" resultMap="rm_perfil"  parameterClass="int">
+      SELECT * FROM PERFIL WHERE N_FL_ACTIVO = 1 AND N_COD_PERFIL = #value#
+    </select>
 
     <insert id="insert_perfil">
       INSERT INTO PERFIL (

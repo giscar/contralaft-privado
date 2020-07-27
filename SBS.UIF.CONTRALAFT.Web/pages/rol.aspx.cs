@@ -57,7 +57,7 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
 
         private void cargarCombos()
         {
-            LlenarCheckList(ddlCodigoPerfil, new PerfilBusinessLogic().listarPorPerfil().OrderBy(x => x.DesTipo), "", "");
+            LlenarCheckList(ddlCodigoPerfil, new PerfilBusinessLogic().ListarPorPerfil().OrderBy(x => x.DesTipo), "", "");
         }
 
         protected void Submit_nuevo(object sender, EventArgs e)

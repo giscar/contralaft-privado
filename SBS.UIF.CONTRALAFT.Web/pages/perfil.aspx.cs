@@ -14,18 +14,33 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
     {
         Logger log = LogManager.GetCurrentClassLogger();
 
-        PerfilBusinessLogic perfilBusinessLogic = new PerfilBusinessLogic();
+        PerfilBusinessLogic _perfilBusinessLogic = new PerfilBusinessLogic();
 
         List<Perfil> listadoPerfiles;
+
+        Perfil _perfilEdit;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (UsuarioSession() == null) {
                 Response.Redirect("../pages/login.aspx");
             }
-            cargarLista();
+            CargarLista();
         }
 
         protected void Submit_nuevo(object sender, EventArgs e)
+        {
+            Perfil perfil = new Perfil
+            {
+                DesTipo = txtNombrePerfil.Value,
+                DetDetalle = txtDescripcion.Value
+            };
+            _perfilBusinessLogic.GuardarPerfil(perfil);
+            Limpiar();
+            AlertDanger("Debe de ingresar el captcha");
+        }
+
+        protected void Submit_edit(object sender, EventArgs e)
         {
             Usuario usuarioSession = (Usuario)HttpContext.Current.Session["Usuario"];
             Perfil perfil = new Perfil
@@ -33,21 +48,30 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
                 DesTipo = txtNombrePerfil.Value,
                 DetDetalle = txtDescripcion.Value
             };
-            perfilBusinessLogic.guardarPerfil(perfil);
+            _perfilBusinessLogic.GuardarPerfil(perfil);
             Limpiar();
             AlertDanger("Debe de ingresar el captcha");
         }
 
+        protected void SeleccionarPerfil_Command(object sender, CommandEventArgs e)
+        {
+            int id = Int32.Parse(e.CommandArgument.ToString());
+            Perfil _perfil = _perfilBusinessLogic.ListarPerfilForId(id);
+            txtEditarPerfil.Value = _perfil.DesTipo;
+            txtEditarDescripcion.Value = _perfil.DetDetalle;
+        }
+
+
         protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-            cargarLista();
+            CargarLista();
             GridView1.PageIndex = e.NewPageIndex;
             GridView1.DataBind();
         }
 
-        private void cargarLista()
+        private void CargarLista()
         {
-            listadoPerfiles = perfilBusinessLogic.listarPorPerfil();
+            listadoPerfiles = _perfilBusinessLogic.ListarPorPerfil();
             GridView1.DataSource = listadoPerfiles;
             GridView1.DataBind();
         }
@@ -56,13 +80,6 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
         {
             /*idModalAlertaServer.Visible = true;
             lblMensajePeligro.Text = pmessage;*/
-        }
-
-        protected void userProfile_Command(object sender, CommandEventArgs e)
-        {
-            int id = Int32.Parse(e.CommandArgument.ToString());
-            Console.WriteLine(id);
-            
         }
 
         private void Limpiar() {

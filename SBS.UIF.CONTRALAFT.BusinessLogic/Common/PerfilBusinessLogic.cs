@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using SBS.UIF.CONTRALAFT.Entity.Common;
 using SBS.UIF.CONTRALAFT.DataAccess.Common;
 
@@ -14,18 +11,23 @@ namespace SBS.UIF.CONTRALAFT.BusinessLogic.Common
         public PerfilBusinessLogic()
         {
             _perfilDataAccess = new PerfilDataAccess();
+        }
+
+        public List<Perfil> ListarPorPerfil()
+        {
+            return (_perfilDataAccess.ListarPorPerfil());
+        }
+
+        public void GuardarPerfil(Perfil _perfil)
+        {
+            _perfilDataAccess.GuardarPerfil(_perfil);
+        }
+
+        public Perfil ListarPerfilForId(int _idPerfil)
+        {
+            return _perfilDataAccess.ListarPerfilForId(_idPerfil);
+        }
         
-        }
-
-        public List<Perfil> listarPorPerfil()
-        {
-            return (_perfilDataAccess.listarPorPerfil());
-        }
-
-        public void guardarPerfil(Perfil _perfil)
-        {
-            _perfilDataAccess.guardarPerfil(_perfil);
-        }
 
     }
 }

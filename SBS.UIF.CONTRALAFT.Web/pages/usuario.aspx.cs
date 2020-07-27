@@ -39,8 +39,8 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
                     {
                         Response.Redirect("../pages/login.aspx");
                     }
-                    cargarLista();
-                    cargarCombos();
+                    CargarLista();
+                    CargarCombos();
                 }
                 catch (Exception ex)
                 {
@@ -51,13 +51,13 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
             }
         }
 
-        private void cargarCombos()
+        private void CargarCombos()
         {
             LlenarDropDownList(ddlCodigoEntidad, new EntidadBusinessLogic().listarPorEntidad().OrderBy(x => x.DesTipo), "0", "Seleccione");
-            LlenarDropDownList(ddlCodigoPerfil, new PerfilBusinessLogic().listarPorPerfil().OrderBy(x => x.DesTipo), "0", "Seleccione"); 
+            LlenarDropDownList(ddlCodigoPerfil, new PerfilBusinessLogic().ListarPorPerfil().OrderBy(x => x.DesTipo), "0", "Seleccione"); 
         }
 
-        private void cargarLista() 
+        private void CargarLista() 
         {
             listadoUsuarios = usuarioBusinessLogic.buscarTodos();
             GridView1.DataSource = listadoUsuarios;
@@ -66,7 +66,7 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
 
         protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-            cargarLista();
+            CargarLista();
             GridView1.PageIndex = e.NewPageIndex;
             GridView1.DataBind();
             if (GridView1.Columns.Count > 0)
@@ -86,7 +86,6 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
             Console.WriteLine(password);
             byte[] pass = Encoding.Default.GetBytes(password);
             byte[] passCifrado = sha.ComputeHash(pass);
-            //_usuario.DetContrasenia = BitConverter.ToString(passCifrado).Replace("-", "");
             _usuario.DetContrasenia = BitConverter.ToString(passCifrado).Replace("-", "");
             _usuario.DetCodigo = txtDocumento.Value;
             _usuario.FecRegistro = DateTime.Today;
@@ -95,7 +94,7 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
             _usuario.IdPerfil = int.Parse(ddlCodigoPerfil.SelectedValue);
             _usuario.UsuRegistro = usuarioSession.DetCodigo;
             new UsuarioBusinessLogic().guardarPersona(_usuario);
-            cargarLista();
+            CargarLista();
             limpiar();
         }
 
@@ -114,7 +113,6 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
         protected void userProfile_Command(object sender, CommandEventArgs e)
         {
             int id = Int32.Parse(e.CommandArgument.ToString());
-            Console.WriteLine(id);
             Usuario usu = new UsuarioBusinessLogic().buscarUsuarioForID(id);
             editNombre.Value = usu.DetNombre;
             editDNI.Value = usu.DetCodigo;

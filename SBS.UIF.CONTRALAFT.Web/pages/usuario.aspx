@@ -2,13 +2,12 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cphBody" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-    <link rel="stylesheet" href="/css/style.css">
+    
     <div class="row">
         <div class="col-md-6">
             <h5 class="card-title mb-4">Listado de usuarios activos</h5>
         </div>
         <div class="col-md-6">
-            <!-- Button trigger modal -->
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#usuarioModal">
                             Crear usuario
                         </button>
