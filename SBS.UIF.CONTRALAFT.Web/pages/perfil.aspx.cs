@@ -7,6 +7,7 @@ using SBS.UIF.CONTRALAFT.BusinessLogic.Common;
 using SBS.UIF.CONTRALAFT.Entity.Common;
 using SBS.UIF.CONTRALAFT.Entity.Core;
 using SBS.UIF.CONTRALAFT.Web.comun;
+using SBS.UIF.CONTRALAFT.Web.util;
 
 namespace SBS.UIF.CONTRALAFT.Web.pages
 {
@@ -33,24 +34,43 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
             Perfil perfil = new Perfil
             {
                 DesTipo = txtNombrePerfil.Value,
-                DetDetalle = txtDescripcion.Value
+                DetDetalle = txtDescripcion.Value,
+                DetUsuarioRegistro = UsuarioSession().DetCodigo,
+                FecRegistro = DateTime.Now,
+                FlagEstado = (int)Constantes.EstadoFlag.ACTIVO
             };
             _perfilBusinessLogic.GuardarPerfil(perfil);
             Limpiar();
-            AlertDanger("Debe de ingresar el captcha");
+            CargarLista();
         }
+
+        protected void Submit_inactive(object sender, EventArgs e)
+        {
+            Perfil perfil = new Perfil
+            {
+                IdTipo = int.Parse(txtIdInactive.Value),
+                DetUsuarioModificacion = UsuarioSession().DetCodigo,
+                FecModificacion = DateTime.Now,
+                FlagEstado = (int)Constantes.EstadoFlag.INACTIVO
+            };
+            _perfilBusinessLogic.InactivarPerfil(perfil);
+            Limpiar();
+            CargarLista();
+        }
+        
 
         protected void Submit_edit(object sender, EventArgs e)
         {
-            Usuario usuarioSession = (Usuario)HttpContext.Current.Session["Usuario"];
-            Perfil perfil = new Perfil
+            Perfil _perfil = new Perfil
             {
-                DesTipo = txtNombrePerfil.Value,
-                DetDetalle = txtDescripcion.Value
+                IdTipo = int.Parse(txtId.Value),
+                DetDetalle = txtEditarDescripcion.Value, 
+                DetUsuarioModificacion = UsuarioSession().DetCodigo,
+                FecModificacion = DateTime.Now
             };
-            _perfilBusinessLogic.GuardarPerfil(perfil);
+            _perfilBusinessLogic.ActualizarPerfil(_perfil);
             Limpiar();
-            AlertDanger("Debe de ingresar el captcha");
+            CargarLista();
         }
 
         protected void SeleccionarPerfil_Command(object sender, CommandEventArgs e)

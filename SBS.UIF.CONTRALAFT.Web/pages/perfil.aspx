@@ -10,7 +10,7 @@
     </div>
     <div class="form-group">
         <label for="txtContra">Descripción</label>
-        <input type="text" class="form-control txtDescripcion" id="txtDescripcion" runat="server" autocomplete="off" maxlength="80" placeholder="Ingrese descripción" />
+        <textarea class="form-control txtDescripcion" id="txtDescripcion" runat="server" autocomplete="off" maxlength="800" placeholder="Ingrese descripción"></textarea>
         <small class="form-text text-muted">Ingrese la descripción del perfil</small>
     </div>
     <div class="form-group">
@@ -26,15 +26,18 @@
                                         <%# Container.DataItemIndex + 1 %>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:BoundField ItemStyle-Width="30%" DataField="DesTipo" HeaderText="Nombre del Perfil" />
-                                <asp:BoundField ItemStyle-Width="50%" DataField="DetDetalle" HeaderText="Detalle del Perfil" />
+                                <asp:BoundField ItemStyle-Width="20%" DataField="DesTipo" HeaderText="Nombre del Perfil" />
+                                <asp:BoundField ItemStyle-Width="40%" DataField="DetDetalle" HeaderText="Detalle del Perfil" />
                                 <asp:TemplateField ShowHeader="false">
                                     <ItemTemplate>
                                         <a id="selectPerfil" onclick="showEdit(<%# Eval("IdTipo") %>, '<%# Eval("DesTipo") %>', '<%# Eval("DetDetalle") %>')" class="btn btn-success selectPerfil" >Editar</a>
+                                        <a id="inactivarPerfil" style="color: white" onclick="showInactive(<%# Eval("IdTipo") %>)" class="btn btn-danger inactivePerfil" >Inactivar</a>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                             </Columns>
                         </asp:GridView>
+    
+    <input type="hidden" class="txtIdInactive" id="txtIdInactive" runat="server"/>
    
     <div class="modal fade" id="editarPerfil" tabindex="-1" role="dialog" aria-hidden="true">
                     <div class="modal-dialog">
@@ -49,11 +52,11 @@
                             <input type="hidden" class="txtId" id="txtId" runat="server"/>
                             <div class="form-group">
                               <label for="recipient-name" class="col-form-label">Perfil:</label>
-                                <input type="text" class="form-control txtEditarPerfil" id="txtEditarPerfil" runat="server" autocomplete="off" maxlength="80" placeholder="Ingrese perfil">
+                                <input type="text" class="form-control txtEditarPerfil" id="txtEditarPerfil" readonly="true" runat="server" autocomplete="off" maxlength="80" placeholder="Ingrese perfil">
                               </div>
                             <div class="form-group">
                               <label for="message-text" class="col-form-label">Descripción:</label>
-                              <textarea class="form-control txtEditarDescripcion" id="txtEditarDescripcion" runat="server" autocomplete="off" maxlength="80" placeholder="Ingrese descripción"></textarea>
+                              <textarea class="form-control txtEditarDescripcion" id="txtEditarDescripcion" runat="server" autocomplete="off" maxlength="800" placeholder="Ingrese descripción"></textarea>
                             </div>
                          
                         </div>
@@ -80,6 +83,26 @@
                 </div>
                 <div class="modal-footer">
                     <asp:Button class="btn btn-success" ID="btnNuevo" runat="server" Text="Crear Perfil" OnClick="Submit_nuevo" />
+                    <button type="button" class="btn btn-light" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal fade" id="modal-inactivacion" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel-3">Ventana de Confirmación</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Esta seguro de inactivar el perfil.</p>
+                </div>
+                <div class="modal-footer">
+                    <asp:Button class="btn btn-danger" ID="btnInactive" runat="server" Text="Inactivar Perfil" OnClick="Submit_inactive" />
                     <button type="button" class="btn btn-light" data-dismiss="modal">Cancelar</button>
                 </div>
             </div>

@@ -27,7 +27,18 @@ namespace SBS.UIF.CONTRALAFT.BusinessLogic.Common
         {
             return _perfilDataAccess.ListarPerfilForId(_idPerfil);
         }
+
+        public void ActualizarPerfil(Perfil _perfil)
+        {
+            _perfilDataAccess.ActualizarPerfil(_perfil);
+        }
+
+        public void InactivarPerfil(Perfil _perfil)
+        {
+            _perfilDataAccess.InactivarPerfil(_perfil);
+        }
         
+
 
     }
 }

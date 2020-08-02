@@ -43,3 +43,9 @@ function showEdit(id, desTipo, detDetalle) {
     $('.txtEditarDescripcion').val(detDetalle);
     $('#editarPerfil').modal('show');
 }
+
+
+function showInactive(id) {
+    $('.txtIdInactive').val(id);
+    $('#modal-inactivacion').modal('show');
+}

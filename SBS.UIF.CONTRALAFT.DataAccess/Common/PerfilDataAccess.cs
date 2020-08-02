@@ -21,6 +21,16 @@ namespace SBS.UIF.CONTRALAFT.DataAccess.Common
         {
             return (BaseService<Perfil>.QueryForObject("select_perfil_id", _idPerfil));
         }
-        
+
+        public void ActualizarPerfil(Perfil _perfil)
+        {
+            MapperPro.Instance().Update("update_perfil", _perfil);
+        }
+
+        public void InactivarPerfil(Perfil _perfil)
+        {
+            MapperPro.Instance().Update("inactive_perfil", _perfil);
+        }
+
     }
 }

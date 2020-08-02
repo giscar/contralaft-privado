@@ -19,9 +19,11 @@ namespace SBS.UIF.CONTRALAFT.Web.pages {
 		
 		protected System.Web.UI.HtmlControls.HtmlInputText txtNombrePerfil;
 		
-		protected System.Web.UI.HtmlControls.HtmlInputText txtDescripcion;
+		protected System.Web.UI.HtmlControls.HtmlTextArea txtDescripcion;
 		
 		protected System.Web.UI.WebControls.GridView GridView1;
+		
+		protected System.Web.UI.HtmlControls.HtmlInputHidden txtIdInactive;
 		
 		protected System.Web.UI.HtmlControls.HtmlInputHidden txtId;
 		
@@ -32,5 +34,7 @@ namespace SBS.UIF.CONTRALAFT.Web.pages {
 		protected System.Web.UI.WebControls.Button btnSeleccionar;
 		
 		protected System.Web.UI.WebControls.Button btnNuevo;
+		
+		protected System.Web.UI.WebControls.Button btnInactive;
 	}
 }

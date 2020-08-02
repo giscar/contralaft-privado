@@ -14,6 +14,7 @@ namespace SBS.UIF.CONTRALAFT.Entity.Common
         public int FlagEstado { get; set; }
         public DateTime FecModificacion { get; set; }
         public DateTime FecRegistro { get; set; }
+
     }
 }
 

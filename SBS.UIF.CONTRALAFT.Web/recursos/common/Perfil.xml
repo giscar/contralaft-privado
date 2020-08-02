@@ -8,6 +8,11 @@
       <result property="IdTipo" column="N_COD_PERFIL"></result>
       <result property="DesTipo" column="C_DET_NOMBRE"></result>
       <result property="DetDetalle" column="C_DET_DETALLE"></result>
+      <result property="DetUsuarioRegistro" column="C_USU_REGISTRO"></result>
+      <result property="DetUsuarioModificacion" column="C_USU_MODIFICACION"></result>
+      <result property="FecModificacion" column="D_FEC_MODIFICACION"></result>
+      <result property="FecRegistro" column="D_FEC_REGISTRO"></result>
+      <result property="FlagEstado" column="N_FL_ACTIVO"></result>
       
     </resultMap>
   </resultMaps>
@@ -19,16 +24,37 @@
     <select id="select_perfil_id" resultMap="rm_perfil"  parameterClass="int">
       SELECT * FROM PERFIL WHERE N_FL_ACTIVO = 1 AND N_COD_PERFIL = #value#
     </select>
-
+        
     <insert id="insert_perfil">
       INSERT INTO PERFIL (
       C_DET_NOMBRE,
       C_DET_DETALLE,
+      C_USU_REGISTRO,
+      D_FEC_REGISTRO,   
       N_FL_ACTIVO)
       VALUES
       (#DesTipo#,
       #DetDetalle#,
-      1)
+      #DetUsuarioRegistro#,
+      #FecRegistro#,
+      #FlagEstado#
+            )
     </insert>
+        
+        <update id="update_perfil">
+            UPDATE PERFIL SET 
+            C_DET_DETALLE = #DetDetalle#,
+            C_USU_MODIFICACION = #DetUsuarioModificacion#,
+            D_FEC_MODIFICACION = #FecModificacion#
+            WHERE N_COD_PERFIL = #IdTipo#
+        </update>
+        
+        <update id="inactive_perfil">
+            UPDATE PERFIL SET 
+            N_FL_ACTIVO = #FlagEstado#,
+            C_USU_MODIFICACION = #DetUsuarioModificacion#,
+            D_FEC_MODIFICACION = #FecModificacion#
+            WHERE N_COD_PERFIL = #IdTipo#
+        </update>
   </statements>
 </sqlMap>
