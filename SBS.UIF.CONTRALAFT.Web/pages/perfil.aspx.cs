@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Web;
 using System.Web.UI.WebControls;
 using NLog;
+using SBS.UIF.BUZ.Web.util;
 using SBS.UIF.CONTRALAFT.BusinessLogic.Common;
 using SBS.UIF.CONTRALAFT.Entity.Common;
-using SBS.UIF.CONTRALAFT.Entity.Core;
 using SBS.UIF.CONTRALAFT.Web.comun;
 using SBS.UIF.CONTRALAFT.Web.util;
 
@@ -13,7 +12,7 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
 {
     public partial class perfil : PaginaBase
     {
-        Logger log = LogManager.GetCurrentClassLogger();
+        Logger Log = LogManager.GetCurrentClassLogger();
 
         PerfilBusinessLogic _perfilBusinessLogic = new PerfilBusinessLogic();
 
@@ -31,17 +30,27 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
 
         protected void Submit_nuevo(object sender, EventArgs e)
         {
-            Perfil perfil = new Perfil
+            try
             {
-                DesTipo = txtNombrePerfil.Value,
-                DetDetalle = txtDescripcion.Value,
-                DetUsuarioRegistro = UsuarioSession().DetCodigo,
-                FecRegistro = DateTime.Now,
-                FlagEstado = (int)Constantes.EstadoFlag.ACTIVO
-            };
-            _perfilBusinessLogic.GuardarPerfil(perfil);
-            Limpiar();
-            CargarLista();
+                Perfil perfil = new Perfil
+                {
+                    DesTipo = txtNombrePerfil.Value,
+                    DetDetalle = txtDescripcion.Value,
+                    DetUsuarioRegistro = UsuarioSession().DetCodigo,
+                    FecRegistro = DateTime.Now,
+                    FlagEstado = (int)Constantes.EstadoFlag.ACTIVO
+                };
+                _perfilBusinessLogic.GuardarPerfil(perfil);
+                Limpiar();
+                CargarLista();
+                ClientMessageBox.Show("Se registro el nuevo perfil", this);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+            
+            
         }
 
         protected void Submit_inactive(object sender, EventArgs e)
