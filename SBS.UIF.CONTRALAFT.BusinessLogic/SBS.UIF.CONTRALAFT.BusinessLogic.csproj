@@ -93,17 +93,17 @@
     <Compile Include="Core\UsuarioBusinessLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="..\SBS.UIF.CONTRALAFT.DataAccess\SBS.UIF.CONTRALAFT.DataAccess.csproj">
-      <Project>{F7875E67-05B8-4203-B013-E24EE599851B}</Project>
-      <Name>SBS.UIF.CONTRALAFT.DataAccess</Name>
-    </ProjectReference>
     <ProjectReference Include="..\SBS.UIF.CONTRALAFT.Entity\SBS.UIF.CONTRALAFT.Entity.csproj">
       <Project>{CF2D6DF6-C1F7-4DD7-B023-B1A55B5D3BE3}</Project>
       <Name>SBS.UIF.CONTRALAFT.Entity</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SBS.UIF.CONTRALAFT.DataAccess\SBS.UIF.CONTRALAFT.DataAccess.csproj">
+      <Project>{F7875E67-05B8-4203-B013-E24EE599851B}</Project>
+      <Name>SBS.UIF.CONTRALAFT.DataAccess</Name>
+    </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

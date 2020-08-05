@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using SBS.UIF.CONTRALAFT.BusinessLogic.Core;
+using NLog;
 using SBS.UIF.CONTRALAFT.BusinessLogic.Common;
 using SBS.UIF.CONTRALAFT.Entity.Core;
 using SBS.UIF.CONTRALAFT.Entity.Common;
@@ -16,6 +16,8 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
     
     public partial class rol : PaginaBase
     {
+        readonly Logger Log = LogManager.GetCurrentClassLogger();
+
         RolBusinessLogic _rolBusinessLogic = new RolBusinessLogic();
 
         PerfilBusinessLogic _perfillBusinessLogic = new PerfilBusinessLogic();
@@ -32,19 +34,16 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
             {
                 try
                 {
-                    usuarioSession = (Usuario)HttpContext.Current.Session["Usuario"];
-                    var usuario = HttpContext.Current.Session["Usuario"];
-                    if (usuario == null)
+                    if (UsuarioSession() == null)
                     {
-                        Response.Redirect("../login/login.aspx");
+                        Response.Redirect("../pages/login.aspx");
                     }
                     cargarLista();
                     cargarCombos();
                 }
                 catch (Exception ex)
                 {
-                  
-
+                    Log.Error(ex);
                 }
             }
             
@@ -57,29 +56,37 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
 
         private void cargarCombos()
         {
-            LlenarCheckList(ddlCodigoPerfil, new PerfilBusinessLogic().ListarPorPerfil().OrderBy(x => x.DesTipo), "", "");
+            LlenarRadioList(ddlCodigoPerfil, new PerfilBusinessLogic().ListarPorPerfil().OrderBy(x => x.DesTipo), "", ""); 
         }
 
         protected void Submit_nuevo(object sender, EventArgs e)
         {
-            Usuario usuarioSession = (Usuario)HttpContext.Current.Session["Usuario"];
-            Rol rol = new Rol
+            try
             {
-                DesTipo = txtNombreRol.Value,
-                DetDetalle = txtDescripcion.Value
-            };
-            int codigoRol = _rolBusinessLogic.guardarRol(rol);
-            int codigoPerfil = int.Parse(ddlCodigoPerfil.SelectedValue);
-            PerfilRol _perfilRol = new PerfilRol();
-            _perfilRol.codPerfil = codigoPerfil;
-            _perfilRol.codRol = codigoRol;
+                Rol rol = new Rol
+                {
+                    DesTipo = txtNombreRol.Value,
+                    DetDetalle = txtDescripcion.Value
+                };
+                int codigoRol = _rolBusinessLogic.guardarRol(rol);
+                int codigoPerfil = int.Parse(ddlCodigoPerfil.SelectedValue);
+                PerfilRol _perfilRol = new PerfilRol();
+                _perfilRol.codPerfil = codigoPerfil;
+                _perfilRol.codRol = codigoRol;
 
-            List<ListItem> selected = new List<ListItem>();
-            foreach (ListItem item in ddlCodigoPerfil.Items)
-                if (item.Selected) {
-                    _perfilRol.codPerfil = int.Parse(item.Value);
-                    _perfilRolBusinessLogic.guardarPerfilRol(_perfilRol);
-                }
+                List<ListItem> selected = new List<ListItem>();
+                foreach (ListItem item in ddlCodigoPerfil.Items)
+                    if (item.Selected)
+                    {
+                        _perfilRol.codPerfil = int.Parse(item.Value);
+                        _perfilRolBusinessLogic.guardarPerfilRol(_perfilRol);
+                    }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+            
         }
 
         protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)

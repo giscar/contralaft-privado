@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="/vendors/iconfonts/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="/vendors/css/vendor.bundle.base.css">
   <link rel="stylesheet" href="/vendors/css/vendor.bundle.addons.css">
+  <link rel="stylesheet" href="/vendors/css/icheck/all.css">
   <!-- endinject -->
   <!-- plugin css for this page -->
   <!-- End plugin css for this page -->
@@ -19,7 +20,10 @@
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/master.css">
   <script src="/vendors/js/vendor.bundle.base.js"></script>
-  <script src="/vendors/js/vendor.bundle.addons.js"></script>   
+  <script src="/vendors/js/vendor.bundle.addons.js"></script> 
+        <script src="/vendors/js/iCheck.js"></script>
+  <script src="/vendors/js/typeahead.js"></script>
+  <script src="/vendors/js/select2.js"></script>
   <script src="/js/pages/master.js"></script>
   <link rel="shortcut icon" href="/images/favicon.png" />
 </head>

@@ -26,6 +26,17 @@ namespace SBS.UIF.CONTRALAFT.Web.comun {
             }
         }
 
+        public void LlenarRadioList(RadioButtonList Combo, object Lista, string ValorRegistroVacio, string TextoRegistroVacio)
+        {
+            Combo.Items.Clear();
+            Combo.DataSource = Lista;
+            Combo.DataBind();
+            if (ValorRegistroVacio != "")
+            {
+                Combo.Items.Insert(0, new ListItem(TextoRegistroVacio, ValorRegistroVacio));
+            }
+        }
+
         public Usuario UsuarioSession() {
             Usuario usuarioSession = (Usuario)HttpContext.Current.Session["Usuario"];
             return usuarioSession;
