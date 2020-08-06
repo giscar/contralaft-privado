@@ -19,7 +19,7 @@ namespace SBS.UIF.CONTRALAFT.Web.pages {
 		
 		protected System.Web.UI.HtmlControls.HtmlInputText txtNombreRol;
 		
-		protected System.Web.UI.HtmlControls.HtmlInputText txtDescripcion;
+		protected System.Web.UI.HtmlControls.HtmlTextArea txtDescripcion;
 		
 		protected System.Web.UI.WebControls.RadioButtonList ddlCodigoPerfil;
 		

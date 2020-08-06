@@ -9,7 +9,7 @@ using NLog;
 using SBS.UIF.CONTRALAFT.BusinessLogic.Common;
 using SBS.UIF.CONTRALAFT.Entity.Core;
 using SBS.UIF.CONTRALAFT.Entity.Common;
-
+using SBS.UIF.CONTRALAFT.Web.util;
 
 namespace SBS.UIF.CONTRALAFT.Web.pages
 {
@@ -38,8 +38,8 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
                     {
                         Response.Redirect("../pages/login.aspx");
                     }
-                    cargarLista();
-                    cargarCombos();
+                    CargarLista();
+                    CargarCombos();
                 }
                 catch (Exception ex)
                 {
@@ -49,12 +49,7 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
             
         }
 
-        private void cargarLista()
-        {
-            listadoRoles = _rolBusinessLogic.listarPorRol();
-        }
-
-        private void cargarCombos()
+        private void CargarCombos()
         {
             LlenarRadioList(ddlCodigoPerfil, new PerfilBusinessLogic().ListarPorPerfil().OrderBy(x => x.DesTipo), "", ""); 
         }
@@ -66,7 +61,9 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
                 Rol rol = new Rol
                 {
                     DesTipo = txtNombreRol.Value,
-                    DetDetalle = txtDescripcion.Value
+                    DetDetalle = txtDescripcion.Value,
+                    FecRegistro = DateTime.Now,
+                    FlagEstado = (int)Constantes.EstadoFlag.ACTIVO
                 };
                 int codigoRol = _rolBusinessLogic.guardarRol(rol);
                 int codigoPerfil = int.Parse(ddlCodigoPerfil.SelectedValue);
@@ -81,19 +78,40 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
                         _perfilRol.codPerfil = int.Parse(item.Value);
                         _perfilRolBusinessLogic.guardarPerfilRol(_perfilRol);
                     }
+                CargarLista();
             }
             catch (Exception ex)
             {
                 Log.Error(ex);
             }
-            
         }
 
         protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-            cargarLista();
-            GridView1.PageIndex = e.NewPageIndex;
-            GridView1.DataBind();
+            try
+            {
+                CargarLista();
+                GridView1.PageIndex = e.NewPageIndex;
+                GridView1.DataBind();
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+        }
+
+        private void CargarLista()
+        {
+            try
+            {
+                listadoRoles = _rolBusinessLogic.listarPorRol();
+                GridView1.DataSource = listadoRoles;
+                GridView1.DataBind();
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
         }
     }
 }
