@@ -1,13 +1,88 @@
-drop database contralaft_privado
+if exists (select 1
+   from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
+   where r.fkeyid = object_id('dbo.PERFILROL') and o.name = 'FK_PERFILRO_REFERENCE_PERFIL')
+alter table dbo.PERFILROL
+   drop constraint FK_PERFILRO_REFERENCE_PERFIL
 go
 
-/*==============================================================*/
-/* Database: contralaft_privado                                 */
-/*==============================================================*/
-create database contralaft_privado
+if exists (select 1
+   from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
+   where r.fkeyid = object_id('dbo.PERFILROL') and o.name = 'FK_PERFILRO_REFERENCE_ROL')
+alter table dbo.PERFILROL
+   drop constraint FK_PERFILRO_REFERENCE_ROL
 go
 
-use contralaft_privado
+if exists (select 1
+            from  sysobjects
+           where  id = object_id('dbo.ACCION')
+            and   type = 'U')
+   drop table dbo.ACCION
+go
+
+if exists (select 1
+            from  sysobjects
+           where  id = object_id('dbo.ENTIDAD')
+            and   type = 'U')
+   drop table dbo.ENTIDAD
+go
+
+if exists (select 1
+            from  sysobjects
+           where  id = object_id('dbo.INDICADOR')
+            and   type = 'U')
+   drop table dbo.INDICADOR
+go
+
+if exists (select 1
+            from  sysobjects
+           where  id = object_id('dbo.INDICADORENTIDAD')
+            and   type = 'U')
+   drop table dbo.INDICADORENTIDAD
+go
+
+if exists (select 1
+            from  sysobjects
+           where  id = object_id('dbo.MENU')
+            and   type = 'U')
+   drop table dbo.MENU
+go
+
+if exists (select 1
+            from  sysobjects
+           where  id = object_id('dbo.MENUROL')
+            and   type = 'U')
+   drop table dbo.MENUROL
+go
+
+if exists (select 1
+            from  sysobjects
+           where  id = object_id('dbo.PERFIL')
+            and   type = 'U')
+   drop table dbo.PERFIL
+go
+
+if exists (select 1
+            from  sysobjects
+           where  id = object_id('dbo.PERFILROL')
+            and   type = 'U')
+   drop table dbo.PERFILROL
+go
+
+if exists (select 1
+            from  sysobjects
+           where  id = object_id('dbo.ROL')
+            and   type = 'U')
+   drop table dbo.ROL
+go
+
+if exists (select 1
+            from  sysobjects
+           where  id = object_id('dbo.USUARIO')
+            and   type = 'U')
+   drop table dbo.USUARIO
+go
+
+drop schema dbo
 go
 
 /*==============================================================*/
@@ -138,7 +213,11 @@ create table dbo.ROL (
    N_COD_ROL            int                  identity(1,1),
    C_DES_ROL            varchar(50)          null,
    N_FL_ACTIVO          int                  null,
-   C_DET_DETALLE        varchar(500)         null,
+   C_DET_DETALLE        varchar(1000)        null,
+   C_USU_REGISTRO       varchar(100)         null,
+   C_USU_MODIFICACION   varchar(100)         null,
+   D_FEC_REGISTRO       datetime             null,
+   D_FEC_MODIFICACION   datetime             null,
    constraint PK_ROLES primary key (N_COD_ROL)
          WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 )
@@ -160,4 +239,14 @@ create table dbo.USUARIO (
    C_DET_CONTRA         varchar(500)         null
 )
 ON [PRIMARY]
+go
+
+alter table dbo.PERFILROL
+   add constraint FK_PERFILRO_REFERENCE_PERFIL foreign key (N_COD_PERFIL)
+      references dbo.PERFIL (N_COD_PERFIL)
+go
+
+alter table dbo.PERFILROL
+   add constraint FK_PERFILRO_REFERENCE_ROL foreign key (N_COD_ROL)
+      references dbo.ROL (N_COD_ROL)
 go
