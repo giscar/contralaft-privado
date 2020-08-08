@@ -1148,6 +1148,7 @@
     <Content Include="vendors\css\icheck\square\yellow.css" />
     <Content Include="vendors\css\icheck\square\yellow.png" />
     <Content Include="vendors\css\icheck\square\yellow%402x.png" />
+    <Content Include="js\pages\rol.js" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="comun\PaginaBase.cs">
@@ -1400,7 +1401,6 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
-    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
     <OutputPath>bin\</OutputPath>

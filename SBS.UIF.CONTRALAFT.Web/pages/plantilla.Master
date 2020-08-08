@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="/css/master.css">
   <script src="/vendors/js/vendor.bundle.base.js"></script>
   <script src="/vendors/js/vendor.bundle.addons.js"></script> 
-        <script src="/vendors/js/iCheck.js"></script>
+  <script src="/vendors/js/iCheck.js"></script>
   <script src="/vendors/js/typeahead.js"></script>
   <script src="/vendors/js/select2.js"></script>
   <script src="/js/pages/master.js"></script>
@@ -43,7 +43,7 @@
         <div class="modal-dialog modal-sm" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel-3">Ventana de Alerta</h5>
+                    <h5 class="modal-title" id="titulo">Ventana de Alerta</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>

@@ -63,6 +63,7 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
                     DesTipo = txtNombreRol.Value,
                     DetDetalle = txtDescripcion.Value,
                     FecRegistro = DateTime.Now,
+                    DetUsuarioRegistro = UsuarioSession().DetCodigo,
                     FlagEstado = (int)Constantes.EstadoFlag.ACTIVO
                 };
                 int codigoRol = _rolBusinessLogic.guardarRol(rol);

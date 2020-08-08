@@ -23,8 +23,8 @@ namespace SBS.UIF.CONTRALAFT.Web.pages {
 		
 		protected System.Web.UI.WebControls.RadioButtonList ddlCodigoPerfil;
 		
-		protected System.Web.UI.WebControls.Button btnNuevo;
-		
 		protected System.Web.UI.WebControls.GridView GridView1;
+		
+		protected System.Web.UI.WebControls.Button btnNuevo;
 	}
 }

@@ -1,16 +1,15 @@
 ﻿(function ($) {
 
     $('#idConfirmacion').click(function () {
-        console.log($('.txtNombrePerfil').val());
         if ($('.txtNombrePerfil').val().trim() === '') {
-            alertar('Debe ingresar el nombre del perfil')
+            mensaje('Debe ingresar el nombre del perfil', 'Alerta');
             $('.txtNombrePerfil').addClass('form-control-danger')
             return;
         } else {
             $('.txtNombrePerfil').removeClass('form-control-danger');
         }
         if ($('.txtDescripcion').val().trim() === '') {
-            alertar('Debe ingresar la descripción del perfil')
+            mensaje('Debe ingresar la descripción del perfil', 'Alerta');
             $('.txtDescripcion').addClass('form-control-danger')
             return;
         } else {
@@ -26,14 +25,7 @@
             event.preventDefault();
             return false;
         }
-    });
-   
-    function alertar(msg) {
-        $("#modal-alerta").modal('show');
-        $("#mensaje").html(msg);
-    }
-
-     
+    }); 
    
 })(jQuery);
 
