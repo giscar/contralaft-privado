@@ -14,17 +14,26 @@ namespace SBS.UIF.CONTRALAFT.BusinessLogic.Common
         public RolBusinessLogic()
         {
             _rolDataAccess = new RolDataAccess();
-        
         }
 
-        public List<Rol> listarPorRol()
+        public List<Rol> ListarPorRol()
         {
-            return (_rolDataAccess.listarPorRol());
+            return (_rolDataAccess.ListarPorRol());
         }
 
-        public int guardarRol(Rol _rol)
+        public int GuardarRol(Rol _rol)
         {
-            return _rolDataAccess.guardarRol(_rol);
+            return _rolDataAccess.GuardarRol(_rol);
+        }
+
+        public void ActualizarRol(Rol _rol)
+        {
+            _rolDataAccess.ActualizarRol(_rol);
+        }
+
+        public void InactivarRol(Rol _rol)
+        {
+            _rolDataAccess.InactivarRol(_rol);
         }
     }
 }

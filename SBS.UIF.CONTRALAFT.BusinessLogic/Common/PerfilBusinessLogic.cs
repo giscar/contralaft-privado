@@ -37,8 +37,5 @@ namespace SBS.UIF.CONTRALAFT.BusinessLogic.Common
         {
             _perfilDataAccess.InactivarPerfil(_perfil);
         }
-        
-
-
     }
 }

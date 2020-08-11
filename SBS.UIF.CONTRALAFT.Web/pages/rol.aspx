@@ -16,7 +16,7 @@
         <div class="form-group">
             <label style="vertical-align: bottom">Seleccione el perfil </label>
             <div class="icheck-square">
-                <asp:RadioButtonList id="ddlCodigoPerfil" runat="server" class="ddlCodigoPerfil" AutoPostBack="false" DataValueField="idTipo" DataTextField="DesTipo"/>
+                <asp:CheckBoxList id="ddlCodigoPerfil" runat="server" class="ddlCodigoPerfil" AutoPostBack="false" DataValueField="idTipo" DataTextField="DesTipo"/>
             </div>
         </div>
         <div class="form-group">
@@ -40,6 +40,27 @@
             </asp:TemplateField>
         </Columns>
     </asp:GridView> 
+    
+    <input type="hidden" class="txtIdInactive" id="txtIdInactive" runat="server"/>
+    <div class="modal fade" id="modal-inactivacion" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel-3">Ventana de Confirmación</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Esta seguro de inactivar el rol.</p>
+                </div>
+                <div class="modal-footer">
+                    <asp:Button class="btn btn-danger" ID="btnInactive" runat="server" Text="Inactivar Rol" OnClick="Submit_inactive" />
+                    <button type="button" class="btn btn-light" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
     
     <div class="modal fade" id="modal-confirmacion" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-sm" role="document">
@@ -80,9 +101,7 @@
             $('#modal-confirmacion').modal('show');
         }else {
             mensaje('Debe seleccionar un perfil', 'Alerta');
-        }
-
-        
+        }  
     })
     </script>
     <script src="/js/pages/rol.js"></script>

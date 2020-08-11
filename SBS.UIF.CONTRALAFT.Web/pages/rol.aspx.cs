@@ -10,6 +10,7 @@ using SBS.UIF.CONTRALAFT.BusinessLogic.Common;
 using SBS.UIF.CONTRALAFT.Entity.Core;
 using SBS.UIF.CONTRALAFT.Entity.Common;
 using SBS.UIF.CONTRALAFT.Web.util;
+using SBS.UIF.BUZ.Web.util;
 
 namespace SBS.UIF.CONTRALAFT.Web.pages
 {
@@ -25,8 +26,6 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
         PerfilRolBusinessLogic _perfilRolBusinessLogic = new PerfilRolBusinessLogic();
 
         List<Rol> listadoRoles;
-
-        Usuario usuarioSession;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -46,12 +45,33 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
                     Log.Error(ex);
                 }
             }
-            
+        }
+
+        protected void Submit_inactive(object sender, EventArgs e)
+        {
+            try
+            {
+                Rol _rol = new Rol
+                {
+                    IdTipo = int.Parse(txtIdInactive.Value),
+                    DetUsuarioModificacion = UsuarioSession().DetCodigo,
+                    FecModificacion = DateTime.Now,
+                    FlagEstado = (int)Constantes.EstadoFlag.INACTIVO
+                };
+                _rolBusinessLogic.InactivarRol(_rol);
+                Limpiar();
+                CargarLista();
+                ClientMessageBox.Show("Se inactivo el rol", this);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
         }
 
         private void CargarCombos()
         {
-            LlenarRadioList(ddlCodigoPerfil, new PerfilBusinessLogic().ListarPorPerfil().OrderBy(x => x.DesTipo), "", ""); 
+            LlenarCheckList(ddlCodigoPerfil, new PerfilBusinessLogic().ListarPorPerfil().OrderBy(x => x.DesTipo), "", ""); 
         }
 
         protected void Submit_nuevo(object sender, EventArgs e)
@@ -66,12 +86,11 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
                     DetUsuarioRegistro = UsuarioSession().DetCodigo,
                     FlagEstado = (int)Constantes.EstadoFlag.ACTIVO
                 };
-                int codigoRol = _rolBusinessLogic.guardarRol(rol);
+                int codigoRol = _rolBusinessLogic.GuardarRol(rol);
                 int codigoPerfil = int.Parse(ddlCodigoPerfil.SelectedValue);
                 PerfilRol _perfilRol = new PerfilRol();
                 _perfilRol.codPerfil = codigoPerfil;
                 _perfilRol.codRol = codigoRol;
-
                 List<ListItem> selected = new List<ListItem>();
                 foreach (ListItem item in ddlCodigoPerfil.Items)
                     if (item.Selected)
@@ -105,7 +124,7 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
         {
             try
             {
-                listadoRoles = _rolBusinessLogic.listarPorRol();
+                listadoRoles = _rolBusinessLogic.ListarPorRol();
                 GridView1.DataSource = listadoRoles;
                 GridView1.DataBind();
             }
@@ -113,6 +132,12 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
             {
                 Log.Error(ex);
             }
+        }
+
+        private void Limpiar()
+        {
+            txtNombreRol.Value = "";
+            txtDescripcion.Value = "";
         }
     }
 }

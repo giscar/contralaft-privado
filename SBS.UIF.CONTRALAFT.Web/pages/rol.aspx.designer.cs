@@ -21,9 +21,13 @@ namespace SBS.UIF.CONTRALAFT.Web.pages {
 		
 		protected System.Web.UI.HtmlControls.HtmlTextArea txtDescripcion;
 		
-		protected System.Web.UI.WebControls.RadioButtonList ddlCodigoPerfil;
+		protected System.Web.UI.WebControls.CheckBoxList ddlCodigoPerfil;
 		
 		protected System.Web.UI.WebControls.GridView GridView1;
+		
+		protected System.Web.UI.HtmlControls.HtmlInputHidden txtIdInactive;
+		
+		protected System.Web.UI.WebControls.Button btnInactive;
 		
 		protected System.Web.UI.WebControls.Button btnNuevo;
 	}

@@ -22,7 +22,6 @@
     </select>
 
     <insert id="insert_rol">
-
       INSERT INTO ROL (
       C_DES_ROL,
       C_DET_DETALLE,
@@ -39,5 +38,21 @@
         SELECT MAX(N_COD_ROL) FROM ROL
       </selectKey>
     </insert>
+        
+        <update id="update_rol">
+            UPDATE ROL SET 
+            C_DET_DETALLE = #DetDetalle#,
+            C_USU_MODIFICACION = #DetUsuarioModificacion#,
+            D_FEC_MODIFICACION = #FecModificacion#
+            WHERE N_COD_ROL = #IdTipo#
+        </update>
+        
+        <update id="inactive_rol">
+            UPDATE ROL SET 
+            N_FL_ACTIVO = #FlagEstado#,
+            C_USU_MODIFICACION = #DetUsuarioModificacion#,
+            D_FEC_MODIFICACION = #FecModificacion#
+            WHERE N_COD_ROL = #IdTipo#
+        </update>
   </statements>
 </sqlMap>
