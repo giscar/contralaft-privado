@@ -17,7 +17,9 @@
         <a class="btn btn-primary btn-sm" id="idConfirmacion" data-toggle="modal" style="color: white">Crear Perfil<i class="mdi mdi-play-circle ml-1"></i></a> 
     </div>
     <br />
-    <asp:GridView ID="GridView1" runat="server" AllowPaging="true" OnPageIndexChanging="GridView1_PageIndexChanging" Class="table table-hover table-striped table-bordered" PageSize="10" AutoGenerateColumns="false">
+   
+<ContentTemplate> 
+    <asp:GridView ID="GridView1" runat="server" AllowPaging="true" OnPageIndexChanging="GridView1_PageIndexChanging" OnRowCommand="gridPerfil_RowCommand" Class="table table-hover table-striped table-bordered" PageSize="10" AutoGenerateColumns="false">
         <Columns>
             <asp:TemplateField HeaderText="Nro.">
                 <ItemTemplate>
@@ -28,14 +30,14 @@
             <asp:BoundField ItemStyle-Width="40%" DataField="DetDetalle" HeaderText="Detalle del Perfil" />
             <asp:TemplateField ShowHeader="false">
                 <ItemTemplate>
-                    <a id="selectPerfil" onclick="showEdit(<%# Eval("IdTipo") %>, '<%# Eval("DesTipo") %>', '<%# Eval("DetDetalle") %>')" class="btn btn-success selectPerfil" >Editar</a>
-                    <a id="inactivarPerfil" style="color: white" onclick="showInactive(<%# Eval("IdTipo") %>)" class="btn btn-danger inactivePerfil" >Inactivar</a>
+                    <asp:LinkButton runat="server" CssClass="btn btn-success" CommandArgument='<%# Eval("IdTipo") %>' CommandName="editarPerfil" >Editar</asp:LinkButton>
+                    <asp:LinkButton runat="server" CssClass="btn btn-danger" CommandArgument='<%# Eval("IdTipo") %>' CommandName="eliminarPerfil" >Eliminar</asp:LinkButton>    
                 </ItemTemplate>
             </asp:TemplateField>
         </Columns>
     </asp:GridView>
+    </ContentTemplate>
     
-    <input type="hidden" class="txtIdInactive" id="txtIdInactive" runat="server"/>
     <div class="modal fade" id="editarPerfil" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -46,14 +48,13 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <input type="hidden" class="txtId" id="txtId" runat="server"/>
                     <div class="form-group">
                         <label for="recipient-name" class="col-form-label">Perfil:</label>
-                        <input type="text" class="form-control txtEditarPerfil" id="txtEditarPerfil" readonly="true" runat="server" autocomplete="off" maxlength="80" placeholder="Ingrese perfil">
+                        <input type="text" class="form-control txtEditarPerfil" Id="txtEditarPerfil" readonly="true" runat="server" autocomplete="off" maxlength="80" placeholder="Ingrese perfil">
                     </div>
                     <div class="form-group">
                         <label for="message-text" class="col-form-label">Descripción:</label>
-                        <textarea class="form-control txtEditarDescripcion" id="txtEditarDescripcion" runat="server" autocomplete="off" maxlength="800" placeholder="Ingrese descripción"></textarea>
+                        <textarea class="form-control txtEditarDescripcion" Id="txtEditarDescripcion" runat="server" autocomplete="off" maxlength="800" placeholder="Ingrese descripción"></textarea>
                     </div>  
                 </div>
                 <div class="modal-footer">
@@ -63,8 +64,9 @@
             </div>
         </div>
      </div>
+
     
-    <div class="modal fade" id="modal-confirmacion" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal fade" id="confirmacion" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-sm" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -84,7 +86,7 @@
         </div>
     </div>
     
-    <div class="modal fade" id="modal-inactivacion" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal fade" id="inactivacion" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-sm" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -103,6 +105,5 @@
             </div>
         </div>
     </div>
-   
    <script src="/js/pages/perfil.js"></script>
 </asp:Content>

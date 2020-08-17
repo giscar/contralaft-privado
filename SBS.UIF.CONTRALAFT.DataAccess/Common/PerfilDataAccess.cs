@@ -17,7 +17,7 @@ namespace SBS.UIF.CONTRALAFT.DataAccess.Common
             return (Convert.ToInt32(MapperPro.Instance().Insert("insert_perfil", _perfil)));
         }
 
-        public Perfil ListarPerfilForId(int _idPerfil)
+        public Perfil PerfilForId(int _idPerfil)
         {
             return (BaseService<Perfil>.QueryForObject("select_perfil_id", _idPerfil));
         }

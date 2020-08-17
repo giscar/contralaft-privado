@@ -22,17 +22,22 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            try {
-                if (UsuarioSession() == null)
-                {
-                    Response.Redirect("../pages/login.aspx");
-                }
-                CargarLista();
-            }
-            catch (Exception ex)
+            if (!Page.IsPostBack)
             {
-                Log.Error(ex);
+                try
+                {
+                    if (UsuarioSession() == null)
+                    {
+                        Response.Redirect("../pages/login.aspx");
+                    }
+                    CargarLista();
+                }
+                catch (Exception ex)
+                {
+                    Log.Error(ex);
+                }
             }
+                
         }
 
         protected void Submit_nuevo(object sender, EventArgs e)
@@ -64,7 +69,7 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
             {
                 Perfil perfil = new Perfil
                 {
-                    IdTipo = int.Parse(txtIdInactive.Value),
+                    IdTipo = (int)ViewState["idPerfil"],
                     DetUsuarioModificacion = UsuarioSession().DetCodigo,
                     FecModificacion = DateTime.Now,
                     FlagEstado = (int)Constantes.EstadoFlag.INACTIVO
@@ -87,7 +92,7 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
             {
                 Perfil _perfil = new Perfil
                 {
-                    IdTipo = int.Parse(txtId.Value),
+                    IdTipo = (int)ViewState["idPerfil"],
                     DetDetalle = txtEditarDescripcion.Value,
                     DetUsuarioModificacion = UsuarioSession().DetCodigo,
                     FecModificacion = DateTime.Now
@@ -108,7 +113,7 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
             try
             {
                 int id = Int32.Parse(e.CommandArgument.ToString());
-                Perfil _perfil = _perfilBusinessLogic.ListarPerfilForId(id);
+                Perfil _perfil = _perfilBusinessLogic.PerfilForId(id);
                 txtEditarPerfil.Value = _perfil.DesTipo;
                 txtEditarDescripcion.Value = _perfil.DetDetalle;
             }
@@ -145,5 +150,30 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
             txtDescripcion.Value = "";
         }
 
+        protected void gridPerfil_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            ViewState["idPerfil"] = int.Parse(e.CommandArgument.ToString());
+       
+            if (e.CommandName == "editarPerfil")
+            {
+                Perfil perfilActualizado = _perfilBusinessLogic.PerfilForId((int)ViewState["idPerfil"]);
+                txtEditarPerfil.Value = perfilActualizado.DesTipo;
+                txtEditarDescripcion.Value = perfilActualizado.DetDetalle;
+                System.Text.StringBuilder sb = new System.Text.StringBuilder();
+                sb.Append(@"<script type='text/javascript'>");
+                sb.Append("$(document).ready(function() {$('#editarPerfil').modal('show');});");
+                sb.Append(@"</script>");
+                System.Web.UI.ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "editarPerfil", sb.ToString(), false);
+            }
+
+            if (e.CommandName == "eliminarPerfil")
+            {
+                System.Text.StringBuilder sb = new System.Text.StringBuilder();
+                sb.Append(@"<script type='text/javascript'>");
+                sb.Append("$(document).ready(function() {$('#inactivacion').modal('show');});");
+                sb.Append(@"</script>");
+                System.Web.UI.ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "inactivacion", sb.ToString(), false);
+            }
+        }
     }
 }

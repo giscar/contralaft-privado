@@ -23,9 +23,9 @@ namespace SBS.UIF.CONTRALAFT.BusinessLogic.Common
             _perfilDataAccess.GuardarPerfil(_perfil);
         }
 
-        public Perfil ListarPerfilForId(int _idPerfil)
+        public Perfil PerfilForId(int _idPerfil)
         {
-            return _perfilDataAccess.ListarPerfilForId(_idPerfil);
+            return _perfilDataAccess.PerfilForId(_idPerfil);
         }
 
         public void ActualizarPerfil(Perfil _perfil)

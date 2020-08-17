@@ -1218,7 +1218,6 @@
     <Compile Include="util\ClientMessageBox.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="logs\" />
     <Folder Include="js\pages\" />
     <Folder Include="util\" />

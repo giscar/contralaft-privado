@@ -15,7 +15,7 @@
         } else {
             $('.txtDescripcion').removeClass('form-control-danger');
         }
-        $('#modal-confirmacion').modal('show');
+        $('#confirmacion').modal('show');
     })
 
     $(".soloLetras").bind('keypress', function (event) {
@@ -29,15 +29,3 @@
    
 })(jQuery);
 
-function showEdit(id, desTipo, detDetalle) {
-    $('.txtId').val(id);
-    $('.txtEditarPerfil').val(desTipo);
-    $('.txtEditarDescripcion').val(detDetalle);
-    $('#editarPerfil').modal('show');
-}
-
-
-function showInactive(id) {
-    $('.txtIdInactive').val(id);
-    $('#modal-inactivacion').modal('show');
-}

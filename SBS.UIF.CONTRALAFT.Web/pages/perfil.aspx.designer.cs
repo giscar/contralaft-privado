@@ -23,10 +23,6 @@ namespace SBS.UIF.CONTRALAFT.Web.pages {
 		
 		protected System.Web.UI.WebControls.GridView GridView1;
 		
-		protected System.Web.UI.HtmlControls.HtmlInputHidden txtIdInactive;
-		
-		protected System.Web.UI.HtmlControls.HtmlInputHidden txtId;
-		
 		protected System.Web.UI.HtmlControls.HtmlInputText txtEditarPerfil;
 		
 		protected System.Web.UI.HtmlControls.HtmlTextArea txtEditarDescripcion;
