@@ -108,6 +108,8 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
             }
         }
 
+
+        /*
         protected void SeleccionarPerfil_Command(object sender, CommandEventArgs e)
         {
             try
@@ -122,7 +124,7 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
                 Log.Error(ex);
             }
         }
-
+        */
 
         protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {

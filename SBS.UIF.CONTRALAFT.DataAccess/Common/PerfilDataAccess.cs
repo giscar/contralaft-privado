@@ -12,6 +12,11 @@ namespace SBS.UIF.CONTRALAFT.DataAccess.Common
             return (BaseService<Perfil>.QueryForList("select_perfil", null));
         }
 
+        public List<Perfil> ListarPerfirForRol(int _rol)
+        {
+            return (BaseService<Perfil>.QueryForList("select_perfil_for_rol", _rol));
+        }
+        
         public int GuardarPerfil(Perfil _perfil)
         {
             return (Convert.ToInt32(MapperPro.Instance().Insert("insert_perfil", _perfil)));
@@ -31,6 +36,8 @@ namespace SBS.UIF.CONTRALAFT.DataAccess.Common
         {
             MapperPro.Instance().Update("inactive_perfil", _perfil);
         }
+
+        
 
     }
 }

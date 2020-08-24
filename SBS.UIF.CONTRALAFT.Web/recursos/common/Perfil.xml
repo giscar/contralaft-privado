@@ -25,6 +25,12 @@
       SELECT * FROM PERFIL WHERE N_FL_ACTIVO = 1 AND N_COD_PERFIL = #value#
     </select>
         
+    <select id="select_perfil_for_rol" resultMap="rm_perfil"  parameterClass="int">
+      SELECT A.* FROM PERFIL A
+      INNER JOIN PERFILROL B ON A.N_COD_PERFIL = B.N_COD_PERFIL
+      WHERE B.N_COD_ROL = #value#
+    </select>    
+        
     <insert id="insert_perfil">
       INSERT INTO PERFIL (
       C_DET_NOMBRE,

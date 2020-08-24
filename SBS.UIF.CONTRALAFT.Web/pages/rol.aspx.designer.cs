@@ -25,7 +25,15 @@ namespace SBS.UIF.CONTRALAFT.Web.pages {
 		
 		protected System.Web.UI.WebControls.GridView GridView1;
 		
-		protected System.Web.UI.HtmlControls.HtmlInputHidden txtIdInactive;
+		protected System.Web.UI.WebControls.GridView GridView2;
+		
+		protected System.Web.UI.HtmlControls.HtmlInputText txtEditarRol;
+		
+		protected System.Web.UI.HtmlControls.HtmlTextArea txtEditarDescripcion;
+		
+		protected System.Web.UI.WebControls.CheckBoxList ddlCodigoPerfilEdit;
+		
+		protected System.Web.UI.WebControls.Button btnSeleccionar;
 		
 		protected System.Web.UI.WebControls.Button btnInactive;
 		

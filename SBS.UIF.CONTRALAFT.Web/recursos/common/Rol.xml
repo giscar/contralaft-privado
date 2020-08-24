@@ -20,6 +20,10 @@
     <select id="select_rol" resultMap="rm_rol" >
       SELECT * FROM ROL WHERE N_FL_ACTIVO = 1
     </select>
+        
+    <select id="select_rol_id" resultMap="rm_rol" parameterClass="int">
+      SELECT * FROM ROL WHERE N_FL_ACTIVO = 1 AND N_COD_ROL = #value#
+    </select>
 
     <insert id="insert_rol">
       INSERT INTO ROL (

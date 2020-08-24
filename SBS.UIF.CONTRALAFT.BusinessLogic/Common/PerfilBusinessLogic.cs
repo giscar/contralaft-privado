@@ -37,5 +37,10 @@ namespace SBS.UIF.CONTRALAFT.BusinessLogic.Common
         {
             _perfilDataAccess.InactivarPerfil(_perfil);
         }
+
+        public List<Perfil> ListarPerfirForRol(int _rol)
+        {
+            return _perfilDataAccess.ListarPerfirForRol(_rol);
+        }
     }
 }

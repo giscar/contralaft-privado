@@ -5,9 +5,9 @@
   </alias>
   <resultMaps>
     <resultMap id="rm_perfilRol" class="PerfilRol">
-      <result property="codPerfil" column="N_COD_PERFIL"></result>
-      <result property="codRol" column="N_COD_ROL"></result>
-     
+      <result property="CodPerfil" column="N_COD_PERFIL"></result>
+      <result property="CodRol" column="N_COD_ROL"></result>
+      <result property="FlActivo" column="N_FL_ACTIVO"></result>
     </resultMap>
   </resultMaps>
   <statements>
@@ -18,10 +18,21 @@
       N_COD_ROL,
       N_FL_ACTIVO)
       VALUES
-      (#codPerfil#,
-      #codRol#,
-      1)
-
+      (#CodPerfil#,
+      #CodRol#,
+      #FlActivo#)
     </insert>
+        
+    <select id="count_perfil_rol" resultMap="rm_perfilRol" >
+      SELECT * FROM PERFILROL WHERE N_COD_PERFIL = #CodPerfil# AND N_COD_ROL = #CodRol#
+    </select> 
+        
+    <update id="update_perfil_rol">
+            UPDATE PERFILROL SET 
+            N_FL_ACTIVO = #FlActivo#
+            WHERE N_COD_PERFIL = #CodPerfil# AND N_COD_ROL = #CodRol# 
+    </update>    
+        
+        
   </statements>
 </sqlMap>

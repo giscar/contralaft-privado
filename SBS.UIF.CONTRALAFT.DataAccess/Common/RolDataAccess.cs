@@ -14,14 +14,19 @@ namespace SBS.UIF.CONTRALAFT.DataAccess.Common
             return (BaseService<Rol>.QueryForList("select_rol", null));
         }
 
+        public Rol RolForId(int idRol)
+        {
+            return (BaseService<Rol>.QueryForObject("select_rol_id", idRol));
+        }
+        
         public int GuardarRol(Rol _rol)
         {
             return (Convert.ToInt32(MapperPro.Instance().Insert("insert_rol", _rol)));
         }
 
-        public void ActualizarRol(Rol _rol)
+        public int ActualizarRol(Rol _rol)
         {
-            MapperPro.Instance().Update("update_rol", _rol);
+            return (Convert.ToInt32(MapperPro.Instance().Update("update_rol", _rol)));
         }
 
         public void InactivarRol(Rol _rol)

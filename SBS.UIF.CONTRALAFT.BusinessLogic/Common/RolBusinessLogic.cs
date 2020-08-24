@@ -21,14 +21,19 @@ namespace SBS.UIF.CONTRALAFT.BusinessLogic.Common
             return (_rolDataAccess.ListarPorRol());
         }
 
+        public Rol RolForId(int idRol)
+        {
+            return (_rolDataAccess.RolForId(idRol));
+        }
+
         public int GuardarRol(Rol _rol)
         {
             return _rolDataAccess.GuardarRol(_rol);
         }
 
-        public void ActualizarRol(Rol _rol)
+        public int ActualizarRol(Rol _rol)
         {
-            _rolDataAccess.ActualizarRol(_rol);
+            return _rolDataAccess.ActualizarRol(_rol);
         }
 
         public void InactivarRol(Rol _rol)
