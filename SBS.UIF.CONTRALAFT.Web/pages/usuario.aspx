@@ -8,23 +8,17 @@
             <h5 class="card-title mb-4">Listado de usuarios activos</h5>
         </div>
         <div class="col-md-6">
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#usuarioModal">
-                            Crear usuario
-                        </button>
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#entidadModal">
-                            Crear entidad
-                        </button>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#usuarioModal">Crear usuario</button>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#entidadModal">Crear entidad</button>
         </div>
     </div>
     
     <div class="fluid-container">
         <div class="row ticket-card mt-3 pb-2 border-bottom pb-3 mb-3">
-            
             <div class="ticket-details col-md-9">
                 <div class="container container-custom" style="border: 1px solid #fff;">
                     <div>
                         <br />
-                        
                         <!-- Modal nuevo usuario-->
                         <div class="modal fade" id="usuarioModal" tabindex="-1" role="dialog" aria-labelledby="usuarioModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
@@ -37,27 +31,34 @@
                                     </div>
                                     <div class="modal-body">
                                         <div class="form-group">
-                                            <label for="txtNombre">Nombre Completo</label>
-                                            <input type="text" class="form-control" id="txtNombre" runat="server" autocomplete="off" maxlength="80" placeholder="Ingrese usuario" />
-                                            <small class="form-text text-muted">Ingrese el nuevo usuario</small>
-                                        </div>
-                                        <div class="form-group">
                                             <label for="txtNombre">DNI</label>
                                             <input type="text" class="form-control" id="txtDocumento" runat="server" autocomplete="off" maxlength="80" placeholder="Ingrese el documento" />
                                             <small class="form-text text-muted">Ingrese el documento de identidad</small>
                                         </div>
                                         <div class="form-group">
+                                            <label style="vertical-align: bottom">Perfil</label>
+                                            <asp:DropDownList class="form-control" ID="ddlCodigoPerfil" runat="server" DataValueField="idTipo" DataTextField="DesTipo" AutoPostBack="true" OnSelectedIndexChanged="DDlCodigoPerfil_SelectedIndexChanged"></asp:DropDownList>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="txtNombre">Nombre Completo</label>
+                                            <input type="text" class="form-control" id="txtNombre" runat="server" autocomplete="off" maxlength="80" placeholder="Ingrese usuario" />
+                                            <small class="form-text text-muted">Ingrese el nuevo usuario</small>
+                                        </div>
+                                        <div class="form-group">
                                             <label for="txtContra">Password</label>
                                             <input type="text" class="form-control" id="txtContra" runat="server" autocomplete="off" maxlength="80" placeholder="Ingrese contraseña" />
                                         </div>
-                                        <div class="form-group">
-                                            <label style="vertical-align: bottom">Entidad</label>
-                                            <asp:DropDownList class="form-control" ID="ddlCodigoEntidad" runat="server" DataValueField="idTipo" DataTextField="DesTipo"></asp:DropDownList>
-                                        </div>
-                                        <div class="form-group">
-                                            <label style="vertical-align: bottom">Perfil</label>
-                                            <asp:DropDownList class="form-control" ID="ddlCodigoPerfil" runat="server" DataValueField="idTipo" DataTextField="DesTipo"></asp:DropDownList>
-                                        </div>
+                                        <asp:UpdatePanel ID="upEntidad" runat="server" UpdateMode="Conditional">
+                                            <ContentTemplate>
+                                                <div class="form-group" ID="divEntidad" runat="server">
+                                                    <label style="vertical-align: bottom">Entidad</label>
+                                                    <asp:DropDownList class="form-control" ID="ddlCodigoEntidad" runat="server" DataValueField="idTipo" DataTextField="DesTipo"></asp:DropDownList>
+                                                </div>
+                                            </ContentTemplate>
+                                            <Triggers>
+                                                <asp:AsyncPostBackTrigger ControlID="ddlCodigoPerfil" EventName="SelectedIndexChanged" />
+                                            </Triggers>
+                                        </asp:UpdatePanel>         
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
@@ -125,32 +126,22 @@
                             </div>
                         </div>
                         <br />
-                        <div class="table*responsive">
-                            <asp:GridView ID="GridView1" runat="server" AllowPaging="true" OnSelectedIndexChanged = "OnSelectedIndexChanged"
-                                OnPageIndexChanging="GridView1_PageIndexChanging" Class="table table-hover table-striped table-bordered" 
-                                PageSize="20" AutoGenerateColumns="false">
-                            <Columns>
-                                <asp:TemplateField>
-                                    <ItemTemplate>
-                                        <%# Container.DataItemIndex + 1 %>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:BoundField ItemStyle-Width="15%" DataField="DetCodigo" HeaderText="Usuario" />
-                                <asp:BoundField ItemStyle-Width="30%" DataField="DetNombre" HeaderText="Nombre completo" />
-                                <asp:BoundField ItemStyle-Width="30%" DataField="RazonSocialEntidad" HeaderText="Entidad" />
-                                <asp:BoundField ItemStyle-Width="15%" DataField="FecRegistro" HeaderText="Fecha de registro" />
-                                <asp:ButtonField ItemStyle-Width="10%" Text="Editar usuario" CommandName="Select"/>
-                                <asp:TemplateField ShowHeader="false">
-                                    <ItemTemplate>
-                                        <asp:LinkButton ID="userProfile" runat="server" OnCommand="userProfile_Command" CommandArgument='<%# Eval("Id") %>' Text="Open User Profile" CssClass="btn btn-success"  />
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                            </Columns>
-                        </asp:GridView>
-                            
+                        <div class="table-responsive">
+                            <asp:GridView ID="GridView1" runat="server" AllowPaging="true" Class="table table-hover table-striped table-bordered" PageSize="20" AutoGenerateColumns="false">
+                                <Columns>
+                                    <asp:TemplateField>
+                                        <ItemTemplate>
+                                            <%# Container.DataItemIndex + 1 %>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:BoundField ItemStyle-Width="15%" DataField="DetCodigo" HeaderText="Usuario" />
+                                    <asp:BoundField ItemStyle-Width="30%" DataField="DetNombre" HeaderText="Nombre completo" />
+                                    <asp:BoundField ItemStyle-Width="30%" DataField="RazonSocialEntidad" HeaderText="Entidad" />
+                                    <asp:BoundField ItemStyle-Width="15%" DataField="FecRegistro" HeaderText="Fecha de registro" />
+                                    
+                                </Columns>
+                            </asp:GridView>
                         </div>
-                        
-                        <br />
                     </div>
                 </div>
             </div>

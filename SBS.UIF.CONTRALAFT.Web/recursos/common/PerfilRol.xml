@@ -23,7 +23,7 @@
       #FlActivo#)
     </insert>
         
-    <select id="count_perfil_rol" resultMap="rm_perfilRol" >
+    <select id="list_perfil_rol_all" resultMap="rm_perfilRol" >
       SELECT * FROM PERFILROL WHERE N_COD_PERFIL = #CodPerfil# AND N_COD_ROL = #CodRol#
     </select> 
         

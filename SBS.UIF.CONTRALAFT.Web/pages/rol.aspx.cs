@@ -34,7 +34,7 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
                 {
                     if (UsuarioSession() == null)
                     {
-                        Response.Redirect("../pages/login.aspx");
+                        Response.Redirect(Constantes.PaginaInicioLogin);
                     }
                     CargarLista();
                     CargarCombos();
@@ -64,10 +64,12 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
                     FlagEstado = (int)Constantes.EstadoFlag.ACTIVO
                 };
                 int codigoRol = _rolBusinessLogic.GuardarRol(rol);
-                PerfilRol _perfilRol = new PerfilRol();
-                _perfilRol.CodRol = codigoRol;
-                _perfilRol.FlActivo = (int)Constantes.EstadoFlag.ACTIVO;
-                
+                PerfilRol _perfilRol = new PerfilRol
+                {
+                    CodRol = codigoRol,
+                    FlActivo = (int)Constantes.EstadoFlag.ACTIVO
+                };
+
                 List<ListItem> selected = new List<ListItem>();
                 foreach (ListItem item in ddlCodigoPerfil.Items)
                     if (item.Selected)
@@ -96,14 +98,20 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
                     FecModificacion = DateTime.Now
                 };
                 _rolBusinessLogic.ActualizarRol(_rol);
-              
-                foreach (ListItem item in ddlCodigoPerfilEdit.Items)
-                    if (item.Selected) {
-                        PerfilRol _perfilRol = new PerfilRol();
-                        _perfilRol.CodRol = _rol.IdTipo;
-                        _perfilRol.CodPerfil = int.Parse(item.Value);
-                        _perfilRolBusinessLogic.GuardarActualizarPerfilRol(_perfilRol);
+
+                foreach (ListItem item in ddlCodigoPerfilEdit.Items) { 
+                PerfilRol _perfilRol = new PerfilRol();
+                    if (item.Selected)
+                    {
+                        _perfilRol.FlActivo = (int)Constantes.EstadoFlag.ACTIVO;
                     }
+                    else {
+                        _perfilRol.FlActivo = (int)Constantes.EstadoFlag.INACTIVO;
+                    }
+                _perfilRol.CodRol = _rol.IdTipo;
+                _perfilRol.CodPerfil = int.Parse(item.Value);
+                _perfilRolBusinessLogic.GuardarActualizarPerfilRol(_perfilRol);
+                }
                 Limpiar();
                 CargarLista();
                 ClientMessageBox.Show("Se modificó el rol seleccionado", this);
@@ -135,7 +143,7 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
             }
         }
 
-        protected void gridRol_RowCommand(object sender, GridViewCommandEventArgs e)
+        protected void GridRol_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             ViewState["idRol"] = int.Parse(e.CommandArgument.ToString());
 

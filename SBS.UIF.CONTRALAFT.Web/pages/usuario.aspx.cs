@@ -6,26 +6,25 @@ using System.Text;
 using System.Security.Cryptography;
 using System.Web.UI.WebControls;
 using System.Data;
+using NLog;
 using SBS.UIF.CONTRALAFT.BusinessLogic.Core;
 using SBS.UIF.CONTRALAFT.BusinessLogic.Common;
 using SBS.UIF.CONTRALAFT.Entity.Core;
 using SBS.UIF.CONTRALAFT.Web.comun;
 using System.Web.Security;
+using SBS.UIF.CONTRALAFT.Web.util;
 
 namespace SBS.UIF.CONTRALAFT.Web.pages
 {
     public partial class usuario : PaginaBase
     {
+        readonly Logger Log = LogManager.GetCurrentClassLogger();
 
-        UsuarioBusinessLogic usuarioBusinessLogic = new UsuarioBusinessLogic();
+        UsuarioBusinessLogic _usuarioBusinessLogic = new UsuarioBusinessLogic();
 
-        EntidadBusinessLogic entidadBusinessLogic = new EntidadBusinessLogic();
-
-        PerfilBusinessLogic perfilBusinessLogic = new PerfilBusinessLogic();
+        EntidadBusinessLogic _entidadBusinessLogic = new EntidadBusinessLogic();
 
         List<Usuario> listadoUsuarios;
-
-        
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -33,106 +32,123 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
             {
                 try
                 {
-                    
                     var usuario = HttpContext.Current.Session["Usuario"];
                     if (usuario == null)
                     {
-                        Response.Redirect("../pages/login.aspx");
+                        Response.Redirect(Constantes.PaginaInicioLogin);
                     }
                     CargarLista();
                     CargarCombos();
+                    divEntidad.Visible = false;
                 }
                 catch (Exception ex)
                 {
-                    //logger.ErrorException(ex.Message, ex);
-                    //EventLog.WriteEntry("Application", "Ocurrió el error: " + ex.Message, EventLogEntryType.Error);
-
+                    Log.Error(ex);
                 }
             }
         }
 
         private void CargarCombos()
         {
-            LlenarDropDownList(ddlCodigoEntidad, new EntidadBusinessLogic().listarPorEntidad().OrderBy(x => x.DesTipo), "0", "Seleccione");
-            LlenarDropDownList(ddlCodigoPerfil, new PerfilBusinessLogic().ListarPorPerfil().OrderBy(x => x.DesTipo), "0", "Seleccione"); 
+            try
+            {
+                LlenarDropDownList(ddlCodigoEntidad, new EntidadBusinessLogic().listarPorEntidad().OrderBy(x => x.DesTipo), "0", "Seleccione");
+                LlenarDropDownList(ddlCodigoPerfil, new PerfilBusinessLogic().ListarPorPerfil().OrderBy(x => x.DesTipo), "0", "Seleccione");
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
         }
 
         private void CargarLista() 
         {
-            listadoUsuarios = usuarioBusinessLogic.buscarTodos();
-            GridView1.DataSource = listadoUsuarios;
-            GridView1.DataBind();
-        }
-
-        protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
-        {
-            CargarLista();
-            GridView1.PageIndex = e.NewPageIndex;
-            GridView1.DataBind();
-            if (GridView1.Columns.Count > 0)
+            try
             {
-                GridView1.Columns[0].Visible = false;
+                listadoUsuarios = _usuarioBusinessLogic.buscarTodos();
+                GridView1.DataSource = listadoUsuarios;
+                GridView1.DataBind();
             }
-            this.GridView1.Columns[0].Visible = false;
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
         }
 
         protected void Submit_nuevo(object sender, EventArgs e)
         {
-            string password = Membership.GeneratePassword(12, 1);
-            Usuario usuarioSession = (Usuario)HttpContext.Current.Session["Usuario"];
-            Usuario _usuario = new Usuario();
-            _usuario.DetNombre = txtNombre.Value;
-            SHA256Managed sha = new SHA256Managed();
-            Console.WriteLine(password);
-            byte[] pass = Encoding.Default.GetBytes(password);
-            byte[] passCifrado = sha.ComputeHash(pass);
-            _usuario.DetContrasenia = BitConverter.ToString(passCifrado).Replace("-", "");
-            _usuario.DetCodigo = txtDocumento.Value;
-            _usuario.FecRegistro = DateTime.Today;
-            _usuario.FlActivo = 1;
-            _usuario.IdEntidad = int.Parse(ddlCodigoEntidad.SelectedValue);
-            _usuario.IdPerfil = int.Parse(ddlCodigoPerfil.SelectedValue);
-            _usuario.UsuRegistro = usuarioSession.DetCodigo;
-            new UsuarioBusinessLogic().guardarPersona(_usuario);
-            CargarLista();
-            limpiar();
+            try
+            {
+                string password = Membership.GeneratePassword(12, 1);
+                Usuario _usuario = new Usuario
+                {
+                    DetNombre = txtNombre.Value
+                };
+                SHA256Managed sha = new SHA256Managed();
+                Console.WriteLine(password);
+                byte[] pass = Encoding.Default.GetBytes(password);
+                byte[] passCifrado = sha.ComputeHash(pass);
+                _usuario.DetContrasenia = BitConverter.ToString(passCifrado).Replace("-", "");
+                _usuario.DetCodigo = txtDocumento.Value;
+                _usuario.FecRegistro = DateTime.Today;
+                _usuario.FlActivo = (int)Constantes.EstadoFlag.ACTIVO;
+                _usuario.IdEntidad = int.Parse(ddlCodigoEntidad.SelectedValue);
+                _usuario.IdPerfil = int.Parse(ddlCodigoPerfil.SelectedValue);
+                _usuario.UsuRegistro = UsuarioSession().DetCodigo;
+                new UsuarioBusinessLogic().guardarPersona(_usuario);
+                CargarLista();
+                Limpiar();
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
         }
 
-        protected void OnSelectedIndexChanged(Object sender, EventArgs e)
+        protected void DDlCodigoPerfil_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-            // Get the currently selected row using the SelectedRow property.
-            GridViewRow row = GridView1.SelectedRow;
-            Console.WriteLine(row.Cells[0].Text);
-            // In this example, the first column (index 0) contains
-           // TextBox1.Text = row.Cells[0].Text;
-
+            Console.WriteLine(Constantes.codigoPerfilAdministradxor);
+            Console.WriteLine(ddlCodigoPerfil.SelectedValue);
+            divEntidad.Visible = !ddlCodigoPerfil.SelectedValue.Equals(Constantes.codigoPerfilAdministradxor);
+            upEntidad.Update();
         }
 
-
-        protected void userProfile_Command(object sender, CommandEventArgs e)
+        protected void UserProfile_Command(object sender, CommandEventArgs e)
         {
-            int id = Int32.Parse(e.CommandArgument.ToString());
-            Usuario usu = new UsuarioBusinessLogic().buscarUsuarioForID(id);
-            editNombre.Value = usu.DetNombre;
-            editDNI.Value = usu.DetCodigo;
+            try
+            {
+                int id = Int32.Parse(e.CommandArgument.ToString());
+                Usuario usu = new UsuarioBusinessLogic().buscarUsuarioForID(id);
+                editNombre.Value = usu.DetNombre;
+                editDNI.Value = usu.DetCodigo;
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
         }
 
         protected void Submit_nuevo_entidad(object sender, EventArgs e)
         {
-            Usuario usuarioSession = (Usuario)HttpContext.Current.Session["Usuario"];
-            Entidad entidad = new Entidad
+            try
             {
-                DesTipo = txtNombre.Value,
-                CodRuc = txtRuc.Value,
-                FecRegistro = new DateTime(),
-                UsuRegistro = usuarioSession.DetCodigo,
-                FlActivo = 1
-            };
-            entidadBusinessLogic.guardarEntidad(entidad);
+                Entidad entidad = new Entidad
+                {
+                    DesTipo = txtNombre.Value,
+                    CodRuc = txtRuc.Value,
+                    FecRegistro = new DateTime(),
+                    UsuRegistro = UsuarioSession().DetCodigo,
+                    FlActivo = (int)Constantes.EstadoFlag.ACTIVO
+                };
+                _entidadBusinessLogic.guardarEntidad(entidad);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
         }
 
-        private void limpiar() {
+        private void Limpiar() {
             txtNombre.Value = "";
             txtContra.Value = "";
         }

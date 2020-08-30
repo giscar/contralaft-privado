@@ -23,15 +23,13 @@
             <a class="btn btn-primary btn-sm" id="idConfirmacion" data-toggle="modal" style="color: white">Crear Rol<i class="mdi mdi-play-circle ml-1"></i></a>
         </div>
     <br/>
-    <asp:GridView ID="GridView1" runat="server" AllowPaging="true" OnRowCommand="gridRol_RowCommand" Class="table table-hover table-bordered" PageSize="10" AutoGenerateColumns="false">
+    <asp:GridView ID="GridView1" runat="server" AllowPaging="true" OnRowCommand="GridRol_RowCommand" Class="table table-hover table-bordered" PageSize="10" AutoGenerateColumns="false">
         <Columns>
             <asp:TemplateField HeaderText="Nro.">
                 <ItemTemplate>
                     <%# Container.DataItemIndex + 1 %>
                 </ItemTemplate>
             </asp:TemplateField>
-            
-            
             <asp:BoundField ItemStyle-Width="20%" DataField="DesTipo" HeaderText="Nombre del Rol" />
             <asp:BoundField ItemStyle-Width="20%" DataField="DetDetalle" HeaderText="Detalle del Rol" />
             <asp:TemplateField  HeaderText="Lista de perfiles">

@@ -28,7 +28,7 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
                 {
                     if (UsuarioSession() == null)
                     {
-                        Response.Redirect("../pages/login.aspx");
+                        Response.Redirect(Constantes.PaginaInicioLogin);
                     }
                     CargarLista();
                 }
@@ -107,24 +107,6 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
                 Log.Error(ex);
             }
         }
-
-
-        /*
-        protected void SeleccionarPerfil_Command(object sender, CommandEventArgs e)
-        {
-            try
-            {
-                int id = Int32.Parse(e.CommandArgument.ToString());
-                Perfil _perfil = _perfilBusinessLogic.PerfilForId(id);
-                txtEditarPerfil.Value = _perfil.DesTipo;
-                txtEditarDescripcion.Value = _perfil.DetDetalle;
-            }
-            catch (Exception ex)
-            {
-                Log.Error(ex);
-            }
-        }
-        */
 
         protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {

@@ -17,15 +17,19 @@ namespace SBS.UIF.CONTRALAFT.Web.pages {
 		
 		protected System.Web.UI.ScriptManager ScriptManager1;
 		
-		protected System.Web.UI.HtmlControls.HtmlInputText txtNombre;
-		
 		protected System.Web.UI.HtmlControls.HtmlInputText txtDocumento;
+		
+		protected System.Web.UI.WebControls.DropDownList ddlCodigoPerfil;
+		
+		protected System.Web.UI.HtmlControls.HtmlInputText txtNombre;
 		
 		protected System.Web.UI.HtmlControls.HtmlInputText txtContra;
 		
-		protected System.Web.UI.WebControls.DropDownList ddlCodigoEntidad;
+		protected System.Web.UI.UpdatePanel upEntidad;
 		
-		protected System.Web.UI.WebControls.DropDownList ddlCodigoPerfil;
+		protected System.Web.UI.HtmlControls.HtmlGenericControl divEntidad;
+		
+		protected System.Web.UI.WebControls.DropDownList ddlCodigoEntidad;
 		
 		protected System.Web.UI.WebControls.Button btnNuevo;
 		
@@ -42,7 +46,5 @@ namespace SBS.UIF.CONTRALAFT.Web.pages {
 		protected System.Web.UI.WebControls.Button Button2;
 		
 		protected System.Web.UI.WebControls.GridView GridView1;
-		
-		protected System.Web.UI.WebControls.LinkButton userProfile;
 	}
 }

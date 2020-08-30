@@ -17,7 +17,7 @@ namespace SBS.UIF.CONTRALAFT.DataAccess.Common
 
         public List<PerfilRol> ValidarPerfilRol(PerfilRol _perfilRol)
         {
-            return (BaseService<PerfilRol>.QueryForList("count_perfil_rol", _perfilRol));   
+            return (BaseService<PerfilRol>.QueryForList("list_perfil_rol_all", _perfilRol));   
         }
 
         public void ActualizarPerfilRol(PerfilRol _perfilRol)
