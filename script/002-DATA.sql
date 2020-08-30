@@ -94,9 +94,11 @@ INSERT [dbo].[ACCION] ( [C_NUM_CODIGO], [C_DES_NOMBRE], [C_DES_DESCRIPCION], [N_
 INSERT [dbo].[ACCION] ( [C_NUM_CODIGO], [C_DES_NOMBRE], [C_DES_DESCRIPCION], [N_FL_ACTIVO], [C_COD_ESTADO]) VALUES ( N'4.5.1.', N'Ejecutar el seguimiento del cumplimiento de los estándares internacionales, como consecuencia de los resultados del Informe de Evaluación Mutua del GAFILAT.', NULL, 1, N'Pendiente')
 INSERT [dbo].[ACCION] ( [C_NUM_CODIGO], [C_DES_NOMBRE], [C_DES_DESCRIPCION], [N_FL_ACTIVO], [C_COD_ESTADO]) VALUES ( N'4.5.2', N'Establecer un mecanismo de diálogo entre la SBS y los organismos involucrados para impulsar la implementación de los cambios que se detecten producto del seguimiento del cumplimiento de los estándares internacionales. ', NULL, 1, N'Pendiente')
 
---USUARIO
-INSERT [dbo].[USUARIO] ( [C_DET_CODIGO], [C_DET_NOMBRE], [N_COD_PERFIL], [N_COD_ENTIDAD], [N_FL_ACTIVO], [D_FEC_REGISTRO], [C_USU_REGISTRO], [C_DET_CONTRA]) VALUES ( N'41093973', N'carlos enrique', 1, 1, 1, CAST(N'2020-06-21T06:06:30.060' AS DateTime), N'41093973', N'A665A45920422F9D417E4867EFDC4FB8A04A1F3FFF1FA07E998E86F7F7A27AE3')
-
 --ENTIDADES
 INSERT [dbo].[ENTIDAD] ( [C_DES_RAZON], [C_COD_RUC], [C_USU_REGISTRO], [D_FEC_REGISTRO], [N_FL_ACTIVO]) VALUES ( N'Ministerio Público', N'10410254877', NULL, CAST(N'2020-06-21T06:55:06.433' AS DateTime), 1)
 INSERT [dbo].[ENTIDAD] ( [C_DES_RAZON], [C_COD_RUC], [C_USU_REGISTRO], [D_FEC_REGISTRO], [N_FL_ACTIVO]) VALUES ( N'Poder Judicial', N'10410254875', NULL, CAST(N'2020-06-21T06:55:06.440' AS DateTime), 1)
+
+
+--USUARIO
+INSERT [dbo].[USUARIO] ( [C_DET_CODIGO], [C_DET_NOMBRE], [N_COD_PERFIL], [N_FL_ACTIVO], [D_FEC_REGISTRO], [C_USU_REGISTRO], [C_DET_CONTRA]) VALUES ( N'41093973', N'carlos enrique', 1, 1, CAST(N'2020-06-21T06:06:30.060' AS DateTime), N'41093973', N'A665A45920422F9D417E4867EFDC4FB8A04A1F3FFF1FA07E998E86F7F7A27AE3')
+
