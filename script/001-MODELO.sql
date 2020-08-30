@@ -1,100 +1,119 @@
 if exists (select 1
    from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
-   where r.fkeyid = object_id('dbo.PERFILROL') and o.name = 'FK_PERFILRO_REFERENCE_PERFIL')
-alter table dbo.PERFILROL
+   where r.fkeyid = object_id('MENUROL') and o.name = 'FK_MENUROL_REFERENCE_MENU')
+alter table MENUROL
+   drop constraint FK_MENUROL_REFERENCE_MENU
+go
+
+if exists (select 1
+   from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
+   where r.fkeyid = object_id('MENUROL') and o.name = 'FK_MENUROL_REFERENCE_ROL')
+alter table MENUROL
+   drop constraint FK_MENUROL_REFERENCE_ROL
+go
+
+if exists (select 1
+   from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
+   where r.fkeyid = object_id('PERFILROL') and o.name = 'FK_PERFILRO_REFERENCE_PERFIL')
+alter table PERFILROL
    drop constraint FK_PERFILRO_REFERENCE_PERFIL
 go
 
 if exists (select 1
    from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
-   where r.fkeyid = object_id('dbo.PERFILROL') and o.name = 'FK_PERFILRO_REFERENCE_ROL')
-alter table dbo.PERFILROL
+   where r.fkeyid = object_id('PERFILROL') and o.name = 'FK_PERFILRO_REFERENCE_ROL')
+alter table PERFILROL
    drop constraint FK_PERFILRO_REFERENCE_ROL
 go
 
 if exists (select 1
-            from  sysobjects
-           where  id = object_id('dbo.ACCION')
-            and   type = 'U')
-   drop table dbo.ACCION
+   from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
+   where r.fkeyid = object_id('USUARIO') and o.name = 'FK_USUARIO_REFERENCE_PERFIL')
+alter table USUARIO
+   drop constraint FK_USUARIO_REFERENCE_PERFIL
+go
+
+if exists (select 1
+   from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
+   where r.fkeyid = object_id('USUARIO') and o.name = 'FK_USUARIO_REFERENCE_ENTIDAD')
+alter table USUARIO
+   drop constraint FK_USUARIO_REFERENCE_ENTIDAD
 go
 
 if exists (select 1
             from  sysobjects
-           where  id = object_id('dbo.ENTIDAD')
+           where  id = object_id('ACCION')
             and   type = 'U')
-   drop table dbo.ENTIDAD
+   drop table ACCION
 go
 
 if exists (select 1
             from  sysobjects
-           where  id = object_id('dbo.INDICADOR')
+           where  id = object_id('ENTIDAD')
             and   type = 'U')
-   drop table dbo.INDICADOR
+   drop table ENTIDAD
 go
 
 if exists (select 1
             from  sysobjects
-           where  id = object_id('dbo.INDICADORENTIDAD')
+           where  id = object_id('INDICADOR')
             and   type = 'U')
-   drop table dbo.INDICADORENTIDAD
+   drop table INDICADOR
 go
 
 if exists (select 1
             from  sysobjects
-           where  id = object_id('dbo.MENU')
+           where  id = object_id('INDICADORENTIDAD')
             and   type = 'U')
-   drop table dbo.MENU
+   drop table INDICADORENTIDAD
 go
 
 if exists (select 1
             from  sysobjects
-           where  id = object_id('dbo.MENUROL')
+           where  id = object_id('MENU')
             and   type = 'U')
-   drop table dbo.MENUROL
+   drop table MENU
 go
 
 if exists (select 1
             from  sysobjects
-           where  id = object_id('dbo.PERFIL')
+           where  id = object_id('MENUROL')
             and   type = 'U')
-   drop table dbo.PERFIL
+   drop table MENUROL
 go
 
 if exists (select 1
             from  sysobjects
-           where  id = object_id('dbo.PERFILROL')
+           where  id = object_id('PERFIL')
             and   type = 'U')
-   drop table dbo.PERFILROL
+   drop table PERFIL
 go
 
 if exists (select 1
             from  sysobjects
-           where  id = object_id('dbo.ROL')
+           where  id = object_id('PERFILROL')
             and   type = 'U')
-   drop table dbo.ROL
+   drop table PERFILROL
 go
 
 if exists (select 1
             from  sysobjects
-           where  id = object_id('dbo.USUARIO')
+           where  id = object_id('ROL')
             and   type = 'U')
-   drop table dbo.USUARIO
+   drop table ROL
 go
 
-drop schema dbo
-go
-
-/*==============================================================*/
-/* User: dbo                                                    */
-/*==============================================================*/
-create schema dbo
+if exists (select 1
+            from  sysobjects
+           where  id = object_id('USUARIO')
+            and   type = 'U')
+   drop table USUARIO
 go
 
 /*==============================================================*/
 /* Table: ACCION                                                */
 /*==============================================================*/
-create table dbo.ACCION (
+create table ACCION (
    N_ID_ACCION          int                  identity(1,1),
    C_NUM_CODIGO         varchar(50)          null,
    C_DES_NOMBRE         varchar(500)         null,
@@ -110,13 +129,14 @@ go
 /*==============================================================*/
 /* Table: ENTIDAD                                               */
 /*==============================================================*/
-create table dbo.ENTIDAD (
+create table ENTIDAD (
    N_COD_ENTIDAD        int                  identity(1,1),
    C_DES_RAZON          varchar(200)         null,
    C_COD_RUC            varchar(50)          null,
    C_USU_REGISTRO       varchar(50)          null,
    D_FEC_REGISTRO       datetime             null,
-   N_FL_ACTIVO          int                  null
+   N_FL_ACTIVO          int                  null,
+   constraint PK_ENTIDAD primary key (N_COD_ENTIDAD)
 )
 ON [PRIMARY]
 go
@@ -124,7 +144,7 @@ go
 /*==============================================================*/
 /* Table: INDICADOR                                             */
 /*==============================================================*/
-create table dbo.INDICADOR (
+create table INDICADOR (
    N_ID_INDICADOR       int                  identity(1,1),
    N_ID_ACCION          int                  null,
    C_DES_DETALLE        varchar(500)         null,
@@ -141,7 +161,7 @@ go
 /*==============================================================*/
 /* Table: INDICADORENTIDAD                                      */
 /*==============================================================*/
-create table dbo.INDICADORENTIDAD (
+create table INDICADORENTIDAD (
    N_ID_INDICADOR       int                  null,
    N_ID_ENTIDAD         int                  null,
    N_COD_ESTADO         int                  null,
@@ -153,7 +173,7 @@ go
 /*==============================================================*/
 /* Table: MENU                                                  */
 /*==============================================================*/
-create table dbo.MENU (
+create table MENU (
    N_COD_MENU           int                  identity(1,1),
    N_COD_PADRE          int                  null,
    C_DES_NOMBRE         varchar(50)          null,
@@ -169,7 +189,7 @@ go
 /*==============================================================*/
 /* Table: MENUROL                                               */
 /*==============================================================*/
-create table dbo.MENUROL (
+create table MENUROL (
    N_COD_MENU           int                  null,
    N_COD_ROL            int                  null,
    N_FL_ACTIVO          int                  null
@@ -180,7 +200,7 @@ go
 /*==============================================================*/
 /* Table: PERFIL                                                */
 /*==============================================================*/
-create table dbo.PERFIL (
+create table PERFIL (
    N_COD_PERFIL         int                  identity(1,1),
    C_DET_NOMBRE         varchar(100)         null,
    N_FL_ACTIVO          int                  null,
@@ -198,7 +218,7 @@ go
 /*==============================================================*/
 /* Table: PERFILROL                                             */
 /*==============================================================*/
-create table dbo.PERFILROL (
+create table PERFILROL (
    N_COD_PERFIL         int                  null,
    N_COD_ROL            int                  null,
    N_FL_ACTIVO          int                  null
@@ -209,7 +229,7 @@ go
 /*==============================================================*/
 /* Table: ROL                                                   */
 /*==============================================================*/
-create table dbo.ROL (
+create table ROL (
    N_COD_ROL            int                  identity(1,1),
    C_DES_ROL            varchar(50)          null,
    N_FL_ACTIVO          int                  null,
@@ -227,26 +247,51 @@ go
 /*==============================================================*/
 /* Table: USUARIO                                               */
 /*==============================================================*/
-create table dbo.USUARIO (
+create table USUARIO (
    N_COD_ID             int                  identity(1,1),
-   C_DET_CODIGO         varchar(100)         null,
-   C_DET_NOMBRE         varchar(300)         null,
    N_COD_PERFIL         int                  null,
    N_COD_ENTIDAD        int                  null,
+   C_DET_CODIGO         varchar(100)         null,
+   C_DET_NOMBRE         varchar(300)         null,
+   C_DET_CONTRA         varchar(500)         null,
+   C_DET_EMAIL          varchar(300)         null,
+   C_COD_DOCUMENTO      varchar(500)         null,
    N_FL_ACTIVO          int                  null,
    D_FEC_REGISTRO       datetime             null,
    C_USU_REGISTRO       varchar(100)         null,
-   C_DET_CONTRA         varchar(500)         null
+   D_FEC_MODIFICACION   datetime             null,
+   C_USU_MODIFICACION   varchar(100)         null,
+   constraint PK_USUARIO primary key (N_COD_ID)
 )
 ON [PRIMARY]
 go
 
-alter table dbo.PERFILROL
-   add constraint FK_PERFILRO_REFERENCE_PERFIL foreign key (N_COD_PERFIL)
-      references dbo.PERFIL (N_COD_PERFIL)
+alter table MENUROL
+   add constraint FK_MENUROL_REFERENCE_MENU foreign key (N_COD_MENU)
+      references MENU (N_COD_MENU)
 go
 
-alter table dbo.PERFILROL
+alter table MENUROL
+   add constraint FK_MENUROL_REFERENCE_ROL foreign key (N_COD_ROL)
+      references ROL (N_COD_ROL)
+go
+
+alter table PERFILROL
+   add constraint FK_PERFILRO_REFERENCE_PERFIL foreign key (N_COD_PERFIL)
+      references PERFIL (N_COD_PERFIL)
+go
+
+alter table PERFILROL
    add constraint FK_PERFILRO_REFERENCE_ROL foreign key (N_COD_ROL)
-      references dbo.ROL (N_COD_ROL)
+      references ROL (N_COD_ROL)
+go
+
+alter table USUARIO
+   add constraint FK_USUARIO_REFERENCE_PERFIL foreign key (N_COD_PERFIL)
+      references PERFIL (N_COD_PERFIL)
+go
+
+alter table USUARIO
+   add constraint FK_USUARIO_REFERENCE_ENTIDAD foreign key (N_COD_ENTIDAD)
+      references ENTIDAD (N_COD_ENTIDAD)
 go

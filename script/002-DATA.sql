@@ -1,6 +1,6 @@
 --PERFIL
-INSERT [dbo].[PERFIL] ([C_DET_NOMBRE], [N_FL_ACTIVO], [C_DET_DETALLE], [C_USU_REGISTRO], [C_USU_MODIFICACION], [D_FEC_REGISTRO], [D_FEC_MODIFICACION]) VALUES ( N'admnistrador', 1, N'usuario administrador de la pagina de la pagina', NULL, N'41093973', NULL, CAST(N'2020-08-04T22:14:03.850' AS DateTime))
-INSERT [dbo].[PERFIL] ([C_DET_NOMBRE], [N_FL_ACTIVO], [C_DET_DETALLE], [C_USU_REGISTRO], [C_USU_MODIFICACION], [D_FEC_REGISTRO], [D_FEC_MODIFICACION]) VALUES ( N'usuario', 1, N'usuario registrador de la pagina de la', NULL, N'41093973', NULL, CAST(N'2020-08-01T23:54:21.060' AS DateTime))
+INSERT [dbo].[PERFIL] ([C_DET_NOMBRE], [N_FL_ACTIVO], [C_DET_DETALLE], [C_USU_REGISTRO], [C_USU_MODIFICACION], [D_FEC_REGISTRO], [D_FEC_MODIFICACION]) VALUES ( N'Administrador UIF', 1, N'Este rol está previsto para funcionarias o funcionarios de la UIF que administran el portal y las cuentas de acceso a la sección privada.', NULL, N'41093973', NULL, CAST(N'2020-08-04T22:14:03.850' AS DateTime))
+INSERT [dbo].[PERFIL] ([C_DET_NOMBRE], [N_FL_ACTIVO], [C_DET_DETALLE], [C_USU_REGISTRO], [C_USU_MODIFICACION], [D_FEC_REGISTRO], [D_FEC_MODIFICACION]) VALUES ( N'Gestor de información UIF', 1, N'Este rol está previsto para funcionarias o funcionarios de la UIF', NULL, N'40627888', NULL, CAST(N'2020-08-04T22:14:03.850' AS DateTime))
 
 --ROL
 INSERT [dbo].[ROL] ([C_DES_ROL], [N_FL_ACTIVO], [C_DET_DETALLE]) VALUES ( N'PERFIL', 1, N'INGRESA A LA PAGINA DE PERFIL')
