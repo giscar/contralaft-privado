@@ -27,7 +27,7 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
                 byte[] passCifrado = sha.ComputeHash(pass);
                 _usuario.DetContrasenia = BitConverter.ToString(passCifrado).Replace("-", "");
                 _usuario.DetCodigo = txtCodigo.Value;
-                _usuario = new UsuarioBusinessLogic().buscarUsuario(_usuario);
+                _usuario = new UsuarioBusinessLogic().BuscarUsuario(_usuario);
                 Session["Usuario"] = _usuario;
                 Response.Redirect("usuario.aspx");
             }

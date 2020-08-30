@@ -121,6 +121,7 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
                 Log.Error(ex);
             }
         }
+
         protected void Submit_inactive(object sender, EventArgs e)
         {
             try

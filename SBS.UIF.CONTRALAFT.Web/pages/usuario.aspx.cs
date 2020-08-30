@@ -39,7 +39,6 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
                     }
                     CargarLista();
                     CargarCombos();
-                    divEntidad.Visible = false;
                 }
                 catch (Exception ex)
                 {
@@ -65,7 +64,7 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
         {
             try
             {
-                listadoUsuarios = _usuarioBusinessLogic.buscarTodos();
+                listadoUsuarios = _usuarioBusinessLogic.BuscarTodos();
                 GridView1.DataSource = listadoUsuarios;
                 GridView1.DataBind();
             }
@@ -95,7 +94,7 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
                 _usuario.IdEntidad = int.Parse(ddlCodigoEntidad.SelectedValue);
                 _usuario.IdPerfil = int.Parse(ddlCodigoPerfil.SelectedValue);
                 _usuario.UsuRegistro = UsuarioSession().DetCodigo;
-                new UsuarioBusinessLogic().guardarPersona(_usuario);
+                new UsuarioBusinessLogic().GuardarPersona(_usuario);
                 CargarLista();
                 Limpiar();
             }
@@ -104,6 +103,86 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
                 Log.Error(ex);
             }
         }
+
+        protected void GridUsuario_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            ViewState["idUsuario"] = int.Parse(e.CommandArgument.ToString());
+
+            if (e.CommandName == "editarUsuario")
+            {
+                CargarComboEdit();
+                divEntidadEdit.Visible = true;
+                Usuario usuarioActualizado = _usuarioBusinessLogic.BuscarUsuarioForID((int)ViewState["idUsuario"]);
+                foreach (ListItem item in ddlCodigoPerfilEdit.Items)
+                    {
+                        if (usuarioActualizado.IdPerfil == int.Parse(item.Value))
+                        {
+                            item.Selected = true;
+                        }
+                    }
+
+                foreach (ListItem item in ddlCodigoEntidad.Items)
+                {
+                    if (usuarioActualizado.IdEntidad == int.Parse(item.Value))
+                    {
+                        item.Selected = true;
+                    }
+                }
+
+                DNIedit.Value = usuarioActualizado.DetCodigo;
+                nombreEdit.Value = usuarioActualizado.DetNombre;
+                System.Text.StringBuilder sb = new System.Text.StringBuilder();
+                sb.Append(@"<script type='text/javascript'>");
+                sb.Append("$(document).ready(function() {$('#editarUsuarioModal').modal('show');});");
+                sb.Append(@"</script>");
+                System.Web.UI.ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "editarPerfil", sb.ToString(), false);
+            }
+
+            if (e.CommandName == "eliminarUsuario")
+            {
+                System.Text.StringBuilder sb = new System.Text.StringBuilder();
+                sb.Append(@"<script type='text/javascript'>");
+                sb.Append("$(document).ready(function() {$('#inactivacion').modal('show');});");
+                sb.Append(@"</script>");
+                System.Web.UI.ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "inactivacion", sb.ToString(), false);
+            }
+        }
+
+        protected void Submit_inactive(object sender, EventArgs e)
+        {
+            try
+            {
+                Usuario _usuario = new Usuario
+                {
+                    Id = (int)ViewState["idUsuario"],
+                    DetUsuarioModificacion = UsuarioSession().DetCodigo,
+                    FecModificacion = DateTime.Now,
+                    FlagEstado = (int)Constantes.EstadoFlag.INACTIVO
+                };
+                _rolBusinessLogic.InactivarRol(_rol);
+                Limpiar();
+                CargarLista();
+                ClientMessageBox.Show("Se inactivo el Rol", this);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+        }
+
+        private void CargarComboEdit()
+        {
+            try
+            {
+                LlenarDropDownList(ddlCodigoEntidadEdit, new EntidadBusinessLogic().listarPorEntidad().OrderBy(x => x.DesTipo), "0", "Seleccione");
+                LlenarDropDownList(ddlCodigoPerfilEdit, new PerfilBusinessLogic().ListarPorPerfil().OrderBy(x => x.DesTipo), "0", "Seleccione");
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+        }
+
 
         protected void DDlCodigoPerfil_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -118,9 +197,9 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
             try
             {
                 int id = Int32.Parse(e.CommandArgument.ToString());
-                Usuario usu = new UsuarioBusinessLogic().buscarUsuarioForID(id);
-                editNombre.Value = usu.DetNombre;
-                editDNI.Value = usu.DetCodigo;
+                Usuario usu = new UsuarioBusinessLogic().BuscarUsuarioForID(id);
+                nombreEdit.Value = usu.DetNombre;
+                DNIedit.Value = usu.DetCodigo;
             }
             catch (Exception ex)
             {
@@ -148,7 +227,8 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
             }
         }
 
-        private void Limpiar() {
+        private void Limpiar()
+        {
             txtNombre.Value = "";
             txtContra.Value = "";
         }

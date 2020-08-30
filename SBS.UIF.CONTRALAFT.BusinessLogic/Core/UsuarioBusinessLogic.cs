@@ -10,6 +10,7 @@ namespace SBS.UIF.CONTRALAFT.BusinessLogic.Core
 {
     
     public class UsuarioBusinessLogic {
+
         private readonly UsuarioDataAccess _usuarioDataAccess;
 
         public UsuarioBusinessLogic()
@@ -17,22 +18,22 @@ namespace SBS.UIF.CONTRALAFT.BusinessLogic.Core
             _usuarioDataAccess = new UsuarioDataAccess();
         }
 
-        public int guardarPersona(Usuario _usuario)
+        public int GuardarPersona(Usuario _usuario)
         {
-            return (_usuarioDataAccess.guardarPersona(_usuario));   
+            return (_usuarioDataAccess.GuardarPersona(_usuario));   
         }
 
-        public Usuario buscarUsuario(Usuario _usuario)
+        public Usuario BuscarUsuario(Usuario _usuario)
         {
-            return _usuarioDataAccess.buscarUsuario(_usuario);
+            return _usuarioDataAccess.BuscarUsuario(_usuario);
         }
 
-        public List<Usuario> buscarTodos() {
-            return _usuarioDataAccess.buscarTodos();
+        public List<Usuario> BuscarTodos() {
+            return _usuarioDataAccess.BuscarTodos();
         }
 
-        public Usuario buscarUsuarioForID(int idUsuario) {
-            return _usuarioDataAccess.buscarUsuarioForID(idUsuario);
+        public Usuario BuscarUsuarioForID(int idUsuario) {
+            return _usuarioDataAccess.BuscarUsuarioForID(idUsuario);
         }
     }
 

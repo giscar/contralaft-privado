@@ -72,22 +72,37 @@
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="editarUsuarioModalLabel">Editar usuario</h5>
+                                        <h5 class="modal-title">Editar usuario</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        <div class="form-group">
-                                            <label for="txtNombre">Nombre</label>
-                                            <input type="text" class="form-control" id="editNombre" runat="server" autocomplete="off" maxlength="80" placeholder="Ingrese nombre" />
-                                            <small class="form-text text-muted">Edite el nombre del usuario.</small>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="txtContra">DNI</label>
-                                            <input type="text" class="form-control" id="editDNI" runat="server" autocomplete="off" maxlength="80" placeholder="Ingrese DNI" />
-                                            <small class="form-text text-muted">Edite el DNI del usuario.</small>
-                                        </div>
+                                    <div class="form-group">
+                                        <label for="txtContra">DNI</label>
+                                        <input type="text" class="form-control" ID="DNIedit" readonly="readonly" runat="server" autocomplete="off" maxlength="80" placeholder="Ingrese DNI" />
+                                        <small class="form-text text-muted">Edite el DNI del usuario.</small>
+                                    </div>
+                                    <div class="form-group">
+                                        <label style="vertical-align: bottom">Perfil</label>
+                                        <asp:DropDownList class="form-control" ID="ddlCodigoPerfilEdit" runat="server" DataValueField="idTipo" DataTextField="DesTipo" AutoPostBack="true" OnSelectedIndexChanged="DDlCodigoPerfil_SelectedIndexChanged"></asp:DropDownList>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="txtNombre">Nombre</label>
+                                        <input type="text" class="form-control" ID="nombreEdit" runat="server" autocomplete="off" maxlength="80" placeholder="Ingrese nombre" />
+                                        <small class="form-text text-muted">Edite el nombre del usuario.</small>
+                                    </div>
+                                    <asp:UpdatePanel ID="upEntidadEdit" runat="server" UpdateMode="Conditional">
+                                        <ContentTemplate>
+                                            <div class="form-group" ID="divEntidadEdit" runat="server">
+                                                <label style="vertical-align: bottom">Entidad</label>
+                                                <asp:DropDownList class="form-control" ID="ddlCodigoEntidadEdit" runat="server" DataValueField="idTipo" DataTextField="DesTipo"></asp:DropDownList>
+                                            </div>
+                                        </ContentTemplate>
+                                        <Triggers>
+                                            <asp:AsyncPostBackTrigger ControlID="ddlCodigoPerfilEdit" EventName="SelectedIndexChanged" />
+                                        </Triggers>
+                                        </asp:UpdatePanel>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
@@ -125,9 +140,29 @@
                                 </div>
                             </div>
                         </div>
+                        
+                        <div class="modal fade" id="inactivacion" tabindex="-1" role="dialog" aria-hidden="true">
+                            <div class="modal-dialog modal-sm" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel-3">Ventana de Confirmación</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>Esta seguro de inactivar el usuario.</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <asp:Button class="btn btn-danger" ID="btnInactive" runat="server" Text="Inactivar Rol" OnClick="Submit_inactive" />
+                                        <button type="button" class="btn btn-light" data-dismiss="modal">Cancelar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <br />
                         <div class="table-responsive">
-                            <asp:GridView ID="GridView1" runat="server" AllowPaging="true" Class="table table-hover table-striped table-bordered" PageSize="20" AutoGenerateColumns="false">
+                            <asp:GridView ID="GridView1" runat="server" AllowPaging="true" Class="table table-hover table-striped table-bordered" PageSize="20" AutoGenerateColumns="false" OnRowCommand="GridUsuario_RowCommand">
                                 <Columns>
                                     <asp:TemplateField>
                                         <ItemTemplate>
@@ -138,7 +173,12 @@
                                     <asp:BoundField ItemStyle-Width="30%" DataField="DetNombre" HeaderText="Nombre completo" />
                                     <asp:BoundField ItemStyle-Width="30%" DataField="RazonSocialEntidad" HeaderText="Entidad" />
                                     <asp:BoundField ItemStyle-Width="15%" DataField="FecRegistro" HeaderText="Fecha de registro" />
-                                    
+                                    <asp:TemplateField ShowHeader="false">
+                                        <ItemTemplate>
+                                            <asp:LinkButton runat="server" CssClass="btn btn-success" CommandArgument='<%# Eval("IdTipo") %>' CommandName="editarRol" >Editar</asp:LinkButton>
+                                            <asp:LinkButton runat="server" CssClass="btn btn-danger" CommandArgument='<%# Eval("IdTipo") %>' CommandName="eliminarRol" >Eliminar</asp:LinkButton> 
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
                                 </Columns>
                             </asp:GridView>
                         </div>

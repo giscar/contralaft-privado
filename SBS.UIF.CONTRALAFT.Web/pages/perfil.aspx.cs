@@ -18,8 +18,6 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
 
         List<Perfil> listadoPerfiles;
 
-        Perfil _perfilEdit;
-
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -37,7 +35,6 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
                     Log.Error(ex);
                 }
             }
-                
         }
 
         protected void Submit_nuevo(object sender, EventArgs e)

@@ -33,9 +33,17 @@ namespace SBS.UIF.CONTRALAFT.Web.pages {
 		
 		protected System.Web.UI.WebControls.Button btnNuevo;
 		
-		protected System.Web.UI.HtmlControls.HtmlInputText editNombre;
+		protected System.Web.UI.HtmlControls.HtmlInputText DNIedit;
 		
-		protected System.Web.UI.HtmlControls.HtmlInputText editDNI;
+		protected System.Web.UI.WebControls.DropDownList ddlCodigoPerfilEdit;
+		
+		protected System.Web.UI.HtmlControls.HtmlInputText nombreEdit;
+		
+		protected System.Web.UI.UpdatePanel upEntidadEdit;
+		
+		protected System.Web.UI.HtmlControls.HtmlGenericControl divEntidadEdit;
+		
+		protected System.Web.UI.WebControls.DropDownList ddlCodigoEntidadEdit;
 		
 		protected System.Web.UI.WebControls.Button Button1;
 		
@@ -44,6 +52,8 @@ namespace SBS.UIF.CONTRALAFT.Web.pages {
 		protected System.Web.UI.HtmlControls.HtmlInputText txtRuc;
 		
 		protected System.Web.UI.WebControls.Button Button2;
+		
+		protected System.Web.UI.WebControls.Button btnInactive;
 		
 		protected System.Web.UI.WebControls.GridView GridView1;
 	}

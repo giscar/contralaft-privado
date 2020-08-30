@@ -9,22 +9,22 @@ namespace SBS.UIF.CONTRALAFT.DataAccess.Core
 
     public class UsuarioDataAccess {
 
-        public int guardarPersona(Usuario _usuario)
+        public int GuardarPersona(Usuario _usuario)
         {
             return (Convert.ToInt32(MapperPro.Instance().Insert("insert_usuario", _usuario)));
         }
 
-        public Usuario buscarUsuario(Usuario _usuario)
+        public Usuario BuscarUsuario(Usuario _usuario)
         {
             return (BaseService<Usuario>.QueryForObject("select_usuario", _usuario));
         }
 
-        public List<Usuario> buscarTodos()
+        public List<Usuario> BuscarTodos()
         {
             return (BaseService<Usuario>.QueryForList("select_todos", null));
         }
 
-        public Usuario buscarUsuarioForID(int idUsuario)
+        public Usuario BuscarUsuarioForID(int idUsuario)
         {
             return (BaseService<Usuario>.QueryForObject("select_usuario_id", idUsuario));
         }

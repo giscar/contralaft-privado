@@ -82,7 +82,6 @@
             </div>
         </div>
      </div>
-    
    
     <div class="modal fade" id="inactivacion" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-sm" role="document">
