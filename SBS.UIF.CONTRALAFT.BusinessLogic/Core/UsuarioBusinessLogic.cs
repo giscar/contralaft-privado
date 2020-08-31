@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 using SBS.UIF.CONTRALAFT.Entity.Core;
 using SBS.UIF.CONTRALAFT.DataAccess.Core;
@@ -34,6 +32,16 @@ namespace SBS.UIF.CONTRALAFT.BusinessLogic.Core
 
         public Usuario BuscarUsuarioForID(int idUsuario) {
             return _usuarioDataAccess.BuscarUsuarioForID(idUsuario);
+        }
+
+        public int ActualizarUsuario(Usuario _usuario)
+        {
+            return _usuarioDataAccess.ActualizarUsuario(_usuario);
+        }
+
+        public void InactivarUsuario(Usuario _usuario)
+        {
+            _usuarioDataAccess.InactivarUsuario(_usuario);
         }
     }
 

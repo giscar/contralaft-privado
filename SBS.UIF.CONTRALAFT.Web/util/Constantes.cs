@@ -15,7 +15,9 @@ namespace SBS.UIF.CONTRALAFT.Web.util
         }
 
         public const String PaginaInicioLogin = "../pages/login.aspx";
-        public const String codigoPerfilAdministradxor = "1";
-
+        public const String codigoPerfilAdministrador = "1";
+        public const String codigoPerfilGestor = "2";
+        public const String selectValueDefault = "0";
+        public const String selectLabelDefault = "Seleccione";
     }
 }

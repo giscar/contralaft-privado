@@ -6,7 +6,8 @@ namespace SBS.UIF.CONTRALAFT.Web.comun {
 
     public class PaginaBase : System.Web.UI.Page {
 
-        public void LlenarDropDownList(DropDownList Combo, object Lista, string ValorRegistroVacio, string TextoRegistroVacio) {
+        public void LlenarDropDownList(DropDownList Combo, object Lista, string ValorRegistroVacio, string TextoRegistroVacio)
+        {
             Combo.Items.Clear();
             Combo.DataSource = Lista;
             Combo.DataBind();
@@ -37,7 +38,8 @@ namespace SBS.UIF.CONTRALAFT.Web.comun {
             }
         }
 
-        public Usuario UsuarioSession() {
+        public Usuario UsuarioSession()
+        {
             Usuario usuarioSession = (Usuario)HttpContext.Current.Session["Usuario"];
             return usuarioSession;
         }

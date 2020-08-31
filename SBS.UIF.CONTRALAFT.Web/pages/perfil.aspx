@@ -58,7 +58,7 @@
                     </div>  
                 </div>
                 <div class="modal-footer">
-                    <asp:Button class="btn btn-success" ID="btnSeleccionar" runat="server" Text="Modificar Perfil" OnClick="Submit_edit" />
+                    c
                     <button type="button" class="btn btn-light" data-dismiss="modal">Cerrar</button>
                 </div>
             </div>

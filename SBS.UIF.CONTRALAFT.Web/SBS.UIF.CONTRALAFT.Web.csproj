@@ -1152,6 +1152,7 @@
     <Content Include="vendors\css\icheck\square\yellow.png" />
     <Content Include="vendors\css\icheck\square\yellow%402x.png" />
     <Content Include="js\pages\rol.js" />
+    <Content Include="js\pages\usuario.js" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="comun\PaginaBase.cs">

@@ -28,7 +28,16 @@ namespace SBS.UIF.CONTRALAFT.DataAccess.Core
         {
             return (BaseService<Usuario>.QueryForObject("select_usuario_id", idUsuario));
         }
-        
+
+        public int ActualizarUsuario(Usuario _usuario)
+        {
+            return (Convert.ToInt32(MapperPro.Instance().Update("update_usuario", _usuario)));
+        }
+
+        public void InactivarUsuario(Usuario _usuario)
+        {
+            MapperPro.Instance().Update("inactive_usustio", _usuario);
+        }
 
     }
 }

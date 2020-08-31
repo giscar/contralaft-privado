@@ -8,7 +8,7 @@
             <h5 class="card-title mb-4">Listado de usuarios activos</h5>
         </div>
         <div class="col-md-6">
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#usuarioModal">Crear usuario</button>
+            <asp:Button class="btn btn-primary" ID="btnNuevoUsuario" runat="server" Text="Crear usuario" OnClick="Modal_nuevo_usuario" />
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#entidadModal">Crear entidad</button>
         </div>
     </div>
@@ -32,27 +32,30 @@
                                     <div class="modal-body">
                                         <div class="form-group">
                                             <label for="txtNombre">DNI</label>
-                                            <input type="text" class="form-control" id="txtDocumento" runat="server" autocomplete="off" maxlength="80" placeholder="Ingrese el documento" />
-                                            <small class="form-text text-muted">Ingrese el documento de identidad</small>
+                                            <input type="text" class="form-control txtDocumento" ID="txtDocumento" runat="server" autocomplete="off" maxlength="80" placeholder="Ingrese el documento" />
+                                            <small class="form-text text-muted txtDocumentoLabel">Ingrese el documento de identidad</small>
                                         </div>
                                         <div class="form-group">
                                             <label style="vertical-align: bottom">Perfil</label>
-                                            <asp:DropDownList class="form-control" ID="ddlCodigoPerfil" runat="server" DataValueField="idTipo" DataTextField="DesTipo" AutoPostBack="true" OnSelectedIndexChanged="DDlCodigoPerfil_SelectedIndexChanged"></asp:DropDownList>
+                                            <asp:DropDownList class="form-control ddlCodigoPerfil" ID="ddlCodigoPerfil" runat="server" DataValueField="idTipo" DataTextField="DesTipo" AutoPostBack="true" OnSelectedIndexChanged="DDlCodigoPerfil_SelectedIndexChanged"></asp:DropDownList>
+                                            <small class="form-text text-muted ddlCodigoPerfilLabel">Ingrese el perfil del usuario</small>
                                         </div>
                                         <div class="form-group">
                                             <label for="txtNombre">Nombre Completo</label>
-                                            <input type="text" class="form-control" id="txtNombre" runat="server" autocomplete="off" maxlength="80" placeholder="Ingrese usuario" />
-                                            <small class="form-text text-muted">Ingrese el nuevo usuario</small>
+                                            <input type="text" class="form-control txtNombre" ID="txtNombre" runat="server" autocomplete="off" maxlength="80" placeholder="Ingrese usuario" />
+                                            <small class="form-text text-muted txtNombreLabel">Ingrese el nombre completo del usuario</small>
                                         </div>
                                         <div class="form-group">
-                                            <label for="txtContra">Password</label>
-                                            <input type="text" class="form-control" id="txtContra" runat="server" autocomplete="off" maxlength="80" placeholder="Ingrese contraseña" />
+                                            <label for="txtContra">Correo Electrónico</label>
+                                            <input type="text" class="form-control txtEmail" ID="txtEmail" runat="server" autocomplete="off" maxlength="200" placeholder="Ingrese correo" />
+                                            <small class="form-text text-muted txtEmailLabel">Ingrese el correo electrónico</small>
                                         </div>
                                         <asp:UpdatePanel ID="upEntidad" runat="server" UpdateMode="Conditional">
                                             <ContentTemplate>
                                                 <div class="form-group" ID="divEntidad" runat="server">
                                                     <label style="vertical-align: bottom">Entidad</label>
-                                                    <asp:DropDownList class="form-control" ID="ddlCodigoEntidad" runat="server" DataValueField="idTipo" DataTextField="DesTipo"></asp:DropDownList>
+                                                    <asp:DropDownList class="form-control ddlCodigoEntidad" ID="ddlCodigoEntidad" runat="server" DataValueField="idTipo" DataTextField="DesTipo"></asp:DropDownList>
+                                                    <small class="form-text text-muted ddlCodigoEntidadLabel">Ingrese la entidad a la que pertenece el usuario</small>
                                                 </div>
                                             </ContentTemplate>
                                             <Triggers>
@@ -62,7 +65,7 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                        <asp:Button class="btn btn-lg btn-primary" ID="btnNuevo" runat="server" Text="Nuevo usuario" OnClick="Submit_nuevo" />
+                                        <asp:Button class="btn btn-lg btn-primary btnNuevo" OnClientClick="return validaCrearUsuarioClient()" ID="btnNuevo" runat="server" Text="Nuevo usuario" OnClick="Submit_nuevo" />
                                     </div>
                                 </div>
                             </div>
@@ -161,30 +164,29 @@
                             </div>
                         </div>
                         <br />
-                        <div class="table-responsive">
-                            <asp:GridView ID="GridView1" runat="server" AllowPaging="true" Class="table table-hover table-striped table-bordered" PageSize="20" AutoGenerateColumns="false" OnRowCommand="GridUsuario_RowCommand">
-                                <Columns>
-                                    <asp:TemplateField>
-                                        <ItemTemplate>
-                                            <%# Container.DataItemIndex + 1 %>
-                                        </ItemTemplate>
-                                    </asp:TemplateField>
-                                    <asp:BoundField ItemStyle-Width="15%" DataField="DetCodigo" HeaderText="Usuario" />
-                                    <asp:BoundField ItemStyle-Width="30%" DataField="DetNombre" HeaderText="Nombre completo" />
-                                    <asp:BoundField ItemStyle-Width="30%" DataField="RazonSocialEntidad" HeaderText="Entidad" />
-                                    <asp:BoundField ItemStyle-Width="15%" DataField="FecRegistro" HeaderText="Fecha de registro" />
-                                    <asp:TemplateField ShowHeader="false">
-                                        <ItemTemplate>
-                                            <asp:LinkButton runat="server" CssClass="btn btn-success" CommandArgument='<%# Eval("IdTipo") %>' CommandName="editarRol" >Editar</asp:LinkButton>
-                                            <asp:LinkButton runat="server" CssClass="btn btn-danger" CommandArgument='<%# Eval("IdTipo") %>' CommandName="eliminarRol" >Eliminar</asp:LinkButton> 
-                                        </ItemTemplate>
-                                    </asp:TemplateField>
-                                </Columns>
-                            </asp:GridView>
-                        </div>
-                    </div>
+                        <asp:GridView ID="GridView1" runat="server" AllowPaging="true" Class="table table-hover table-striped table-bordered" PageSize="20" AutoGenerateColumns="false" OnRowCommand="GridUsuario_RowCommand">
+                            <Columns>
+                                <asp:TemplateField>
+                                    <ItemTemplate>
+                                        <%# Container.DataItemIndex + 1 %>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:BoundField ItemStyle-Width="15%" DataField="DetCodigo" HeaderText="Usuario" />
+                                <asp:BoundField ItemStyle-Width="30%" DataField="DetNombre" HeaderText="Nombre completo" />
+                                <asp:BoundField ItemStyle-Width="30%" DataField="RazonSocialEntidad" HeaderText="Entidad" />
+                                <asp:BoundField ItemStyle-Width="15%" DataField="FecRegistro" HeaderText="Fecha de registro" />
+                                <asp:TemplateField ShowHeader="false">
+                                    <ItemTemplate>
+                                        <asp:LinkButton runat="server" CssClass="btn btn-success" CommandArgument='<%# Eval("IdTipo") %>' CommandName="editarRol" >Editar</asp:LinkButton>
+                                        <asp:LinkButton runat="server" CssClass="btn btn-danger" CommandArgument='<%# Eval("IdTipo") %>' CommandName="eliminarRol" >Eliminar</asp:LinkButton> 
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                            </Columns>
+                        </asp:GridView>
+                    </div>                    
                 </div>
             </div>
         </div>
     </div>
+    <script src="/js/pages/usuario.js"></script>
 </asp:Content>

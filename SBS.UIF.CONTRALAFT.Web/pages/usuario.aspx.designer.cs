@@ -17,13 +17,15 @@ namespace SBS.UIF.CONTRALAFT.Web.pages {
 		
 		protected System.Web.UI.ScriptManager ScriptManager1;
 		
+		protected System.Web.UI.WebControls.Button btnNuevoUsuario;
+		
 		protected System.Web.UI.HtmlControls.HtmlInputText txtDocumento;
 		
 		protected System.Web.UI.WebControls.DropDownList ddlCodigoPerfil;
 		
 		protected System.Web.UI.HtmlControls.HtmlInputText txtNombre;
 		
-		protected System.Web.UI.HtmlControls.HtmlInputText txtContra;
+		protected System.Web.UI.HtmlControls.HtmlInputText txtEmail;
 		
 		protected System.Web.UI.UpdatePanel upEntidad;
 		

@@ -13,6 +13,7 @@ using SBS.UIF.CONTRALAFT.Entity.Core;
 using SBS.UIF.CONTRALAFT.Web.comun;
 using System.Web.Security;
 using SBS.UIF.CONTRALAFT.Web.util;
+using SBS.UIF.BUZ.Web.util;
 
 namespace SBS.UIF.CONTRALAFT.Web.pages
 {
@@ -32,8 +33,7 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
             {
                 try
                 {
-                    var usuario = HttpContext.Current.Session["Usuario"];
-                    if (usuario == null)
+                    if (UsuarioSession() == null)
                     {
                         Response.Redirect(Constantes.PaginaInicioLogin);
                     }
@@ -79,21 +79,22 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
             try
             {
                 string password = Membership.GeneratePassword(12, 1);
-                Usuario _usuario = new Usuario
-                {
-                    DetNombre = txtNombre.Value
-                };
                 SHA256Managed sha = new SHA256Managed();
-                Console.WriteLine(password);
                 byte[] pass = Encoding.Default.GetBytes(password);
                 byte[] passCifrado = sha.ComputeHash(pass);
-                _usuario.DetContrasenia = BitConverter.ToString(passCifrado).Replace("-", "");
-                _usuario.DetCodigo = txtDocumento.Value;
-                _usuario.FecRegistro = DateTime.Today;
-                _usuario.FlActivo = (int)Constantes.EstadoFlag.ACTIVO;
-                _usuario.IdEntidad = int.Parse(ddlCodigoEntidad.SelectedValue);
-                _usuario.IdPerfil = int.Parse(ddlCodigoPerfil.SelectedValue);
-                _usuario.UsuRegistro = UsuarioSession().DetCodigo;
+                Usuario _usuario = new Usuario
+                {
+                    DetNombre = txtNombre.Value,
+                    DetContrasenia = BitConverter.ToString(passCifrado).Replace("-", ""),
+                    DetCodigo = txtDocumento.Value,
+                    DetEmail = txtEmail.Value,
+                    FecRegistro = DateTime.Today,
+                    FlActivo = (int)Constantes.EstadoFlag.ACTIVO,
+                    IdEntidad = int.Parse(ddlCodigoEntidad.SelectedValue),
+                    IdPerfil = int.Parse(ddlCodigoPerfil.SelectedValue),
+                    UsuRegistro = UsuarioSession().DetCodigo
+
+                };
                 new UsuarioBusinessLogic().GuardarPersona(_usuario);
                 CargarLista();
                 Limpiar();
@@ -155,14 +156,14 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
                 Usuario _usuario = new Usuario
                 {
                     Id = (int)ViewState["idUsuario"],
-                    DetUsuarioModificacion = UsuarioSession().DetCodigo,
+                    UsuModificacion = UsuarioSession().DetCodigo,
                     FecModificacion = DateTime.Now,
-                    FlagEstado = (int)Constantes.EstadoFlag.INACTIVO
+                    FlActivo = (int)Constantes.EstadoFlag.INACTIVO
                 };
-                _rolBusinessLogic.InactivarRol(_rol);
+                _usuarioBusinessLogic.InactivarUsuario(_usuario);
                 Limpiar();
                 CargarLista();
-                ClientMessageBox.Show("Se inactivo el Rol", this);
+                ClientMessageBox.Show("Se inactivo el Usuario", this);
             }
             catch (Exception ex)
             {
@@ -174,8 +175,8 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
         {
             try
             {
-                LlenarDropDownList(ddlCodigoEntidadEdit, new EntidadBusinessLogic().listarPorEntidad().OrderBy(x => x.DesTipo), "0", "Seleccione");
-                LlenarDropDownList(ddlCodigoPerfilEdit, new PerfilBusinessLogic().ListarPorPerfil().OrderBy(x => x.DesTipo), "0", "Seleccione");
+                LlenarDropDownList(ddlCodigoEntidadEdit, new EntidadBusinessLogic().listarPorEntidad().OrderBy(x => x.DesTipo), Constantes.selectValueDefault, Constantes.selectLabelDefault);
+                LlenarDropDownList(ddlCodigoPerfilEdit, new PerfilBusinessLogic().ListarPorPerfil().OrderBy(x => x.DesTipo), Constantes.selectValueDefault, Constantes.selectLabelDefault);
             }
             catch (Exception ex)
             {
@@ -186,10 +187,8 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
 
         protected void DDlCodigoPerfil_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Console.WriteLine(Constantes.codigoPerfilAdministradxor);
-            Console.WriteLine(ddlCodigoPerfil.SelectedValue);
-            divEntidad.Visible = !ddlCodigoPerfil.SelectedValue.Equals(Constantes.codigoPerfilAdministradxor);
-            upEntidad.Update();
+            divEntidad.Visible = !ddlCodigoPerfil.SelectedValue.Equals(Constantes.codigoPerfilAdministrador) && !ddlCodigoPerfil.SelectedValue.Equals(Constantes.codigoPerfilGestor);
+            upEntidad.Update(); 
         }
 
         protected void UserProfile_Command(object sender, CommandEventArgs e)
@@ -227,10 +226,32 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
             }
         }
 
+        protected void Modal_nuevo_usuario(object sender, EventArgs e)
+        {
+            try
+            {
+                Limpiar();
+                divEntidad.Visible = false;
+                System.Text.StringBuilder sb = new System.Text.StringBuilder();
+                sb.Append(@"<script type='text/javascript'>");
+                sb.Append("$(document).ready(function() {$('#usuarioModal').modal('show');});");
+                sb.Append(@"</script>");
+                System.Web.UI.ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "usuarioModal", sb.ToString(), false);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+        }
+        
+
         private void Limpiar()
         {
+            txtDocumento.Value = "";
+            ddlCodigoPerfil.SelectedValue = "0";
+            ddlCodigoEntidad.SelectedValue = "0";
             txtNombre.Value = "";
-            txtContra.Value = "";
+            txtEmail.Value = "";
         }
     
     }
