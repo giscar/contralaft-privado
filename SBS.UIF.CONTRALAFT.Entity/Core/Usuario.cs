@@ -13,7 +13,7 @@ namespace SBS.UIF.CONTRALAFT.Entity.Core
         public string DetCodigo { get; set; }
         public string DetNombre { get; set; }
         public string DetEmail { get; set; }
-        public string DetDocumento { get; set; }
+        public string CodDocumento { get; set; }
         public int IdPerfil { get; set; }
         public int IdEntidad { get; set; }
         public string DetContrasenia { get; set; }

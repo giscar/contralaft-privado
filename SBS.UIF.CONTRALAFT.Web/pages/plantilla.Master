@@ -25,6 +25,7 @@
   <script src="/vendors/js/typeahead.js"></script>
   <script src="/vendors/js/select2.js"></script>
   <script src="/js/pages/master.js"></script>
+  <script src="/js/jquery-file-upload.js"></script>
   <link rel="shortcut icon" href="/images/favicon.png" />
 </head>
 <body>
@@ -210,7 +211,7 @@
                   
                         
         
-            <form id="signupForm" runat="server">
+            <form runat="server" method="post" enctype="multipart/form-data">
             <asp:ContentPlaceHolder ID="cphBody" runat="server">
             </asp:ContentPlaceHolder>
                 </form>

@@ -147,38 +147,49 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
         protected void GridRol_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             ViewState["idRol"] = int.Parse(e.CommandArgument.ToString());
-
-            if (e.CommandName == "editarRol")
+            try
             {
-                LlenarCheckList(ddlCodigoPerfilEdit, new PerfilBusinessLogic().ListarPorPerfil().OrderBy(x => x.DesTipo), "", "");
-                
-                Rol rolActualizado = _rolBusinessLogic.RolForId((int)ViewState["idRol"]);
-                rolActualizado.ListaPerfiles = _perfillBusinessLogic.ListarPerfirForRol(rolActualizado.IdTipo);
-                foreach (Perfil _perfil in rolActualizado.ListaPerfiles) {
-                    foreach (ListItem item in ddlCodigoPerfilEdit.Items) {
-                        if (_perfil.IdTipo == int.Parse(item.Value)) {
-                            item.Selected = true;
+                if (e.CommandName == "editarRol")
+                {
+                    LlenarCheckList(ddlCodigoPerfilEdit, new PerfilBusinessLogic().ListarPorPerfil().OrderBy(x => x.DesTipo), "", "");
+
+                    Rol rolActualizado = _rolBusinessLogic.RolForId((int)ViewState["idRol"]);
+                    rolActualizado.ListaPerfiles = _perfillBusinessLogic.ListarPerfirForRol(rolActualizado.IdTipo);
+                    foreach (Perfil _perfil in rolActualizado.ListaPerfiles)
+                    {
+                        foreach (ListItem item in ddlCodigoPerfilEdit.Items)
+                        {
+                            if (_perfil.IdTipo == int.Parse(item.Value))
+                            {
+                                item.Selected = true;
+                            }
                         }
                     }
+
+                    txtEditarRol.Value = rolActualizado.DesTipo;
+                    txtEditarDescripcion.Value = rolActualizado.DetDetalle;
+                    System.Text.StringBuilder sb = new System.Text.StringBuilder();
+                    sb.Append(@"<script type='text/javascript'>");
+                    sb.Append("$(document).ready(function() {$('#editarRol').modal('show');});");
+                    sb.Append(@"</script>");
+                    System.Web.UI.ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "editarPerfil", sb.ToString(), false);
                 }
 
-                txtEditarRol.Value = rolActualizado.DesTipo;
-                txtEditarDescripcion.Value = rolActualizado.DetDetalle;
-                System.Text.StringBuilder sb = new System.Text.StringBuilder();
-                sb.Append(@"<script type='text/javascript'>");
-                sb.Append("$(document).ready(function() {$('#editarRol').modal('show');});");
-                sb.Append(@"</script>");
-                System.Web.UI.ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "editarPerfil", sb.ToString(), false);
+                if (e.CommandName == "eliminarRol")
+                {
+                    System.Text.StringBuilder sb = new System.Text.StringBuilder();
+                    sb.Append(@"<script type='text/javascript'>");
+                    sb.Append("$(document).ready(function() {$('#inactivacion').modal('show');});");
+                    sb.Append(@"</script>");
+                    System.Web.UI.ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "inactivacion", sb.ToString(), false);
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
             }
 
-            if (e.CommandName == "eliminarRol")
-            {
-                System.Text.StringBuilder sb = new System.Text.StringBuilder();
-                sb.Append(@"<script type='text/javascript'>");
-                sb.Append("$(document).ready(function() {$('#inactivacion').modal('show');});");
-                sb.Append(@"</script>");
-                System.Web.UI.ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "inactivacion", sb.ToString(), false);
-            }
+            
         }
 
         private void CargarLista()

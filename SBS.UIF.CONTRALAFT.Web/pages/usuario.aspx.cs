@@ -14,6 +14,7 @@ using SBS.UIF.CONTRALAFT.Web.comun;
 using System.Web.Security;
 using SBS.UIF.CONTRALAFT.Web.util;
 using SBS.UIF.BUZ.Web.util;
+using System.IO;
 
 namespace SBS.UIF.CONTRALAFT.Web.pages
 {
@@ -76,8 +77,15 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
 
         protected void Submit_nuevo(object sender, EventArgs e)
         {
+            HttpPostedFile file = Request.Files["myFile"];
             try
             {
+                string fname = "";
+                if (file != null && file.ContentLength > 0)
+                {
+                    fname = Path.GetFileName(file.FileName);
+                    file.SaveAs(Server.MapPath(Path.Combine("~/App_Data/", fname)));
+                }
                 string password = Membership.GeneratePassword(12, 1);
                 SHA256Managed sha = new SHA256Managed();
                 byte[] pass = Encoding.Default.GetBytes(password);
@@ -89,11 +97,11 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
                     DetCodigo = txtDocumento.Value,
                     DetEmail = txtEmail.Value,
                     FecRegistro = DateTime.Today,
+                    CodDocumento = fname,
                     FlActivo = (int)Constantes.EstadoFlag.ACTIVO,
                     IdEntidad = int.Parse(ddlCodigoEntidad.SelectedValue),
                     IdPerfil = int.Parse(ddlCodigoPerfil.SelectedValue),
                     UsuRegistro = UsuarioSession().DetCodigo
-
                 };
                 new UsuarioBusinessLogic().GuardarPersona(_usuario);
                 CargarLista();
@@ -107,14 +115,16 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
 
         protected void GridUsuario_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            ViewState["idUsuario"] = int.Parse(e.CommandArgument.ToString());
+            ViewState["parametro"] = e.CommandArgument.ToString();
 
-            if (e.CommandName == "editarUsuario")
+            try
             {
-                CargarComboEdit();
-                divEntidadEdit.Visible = true;
-                Usuario usuarioActualizado = _usuarioBusinessLogic.BuscarUsuarioForID((int)ViewState["idUsuario"]);
-                foreach (ListItem item in ddlCodigoPerfilEdit.Items)
+                if (e.CommandName == "editarUsuario")
+                {
+                    CargarComboEdit();
+                    divEntidadEdit.Visible = true;
+                    Usuario usuarioActualizado = _usuarioBusinessLogic.BuscarUsuarioForID((int)ViewState["parametro"]);
+                    foreach (ListItem item in ddlCodigoPerfilEdit.Items)
                     {
                         if (usuarioActualizado.IdPerfil == int.Parse(item.Value))
                         {
@@ -122,30 +132,57 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
                         }
                     }
 
-                foreach (ListItem item in ddlCodigoEntidad.Items)
-                {
-                    if (usuarioActualizado.IdEntidad == int.Parse(item.Value))
+                    foreach (ListItem item in ddlCodigoEntidad.Items)
                     {
-                        item.Selected = true;
+                        if (usuarioActualizado.IdEntidad == int.Parse(item.Value))
+                        {
+                            item.Selected = true;
+                        }
                     }
+
+                    DNIedit.Value = usuarioActualizado.DetCodigo;
+                    nombreEdit.Value = usuarioActualizado.DetNombre;
+                    System.Text.StringBuilder sb = new System.Text.StringBuilder();
+                    sb.Append(@"<script type='text/javascript'>");
+                    sb.Append("$(document).ready(function() {$('#editarUsuarioModal').modal('show');});");
+                    sb.Append(@"</script>");
+                    System.Web.UI.ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "editarPerfil", sb.ToString(), false);
                 }
 
-                DNIedit.Value = usuarioActualizado.DetCodigo;
-                nombreEdit.Value = usuarioActualizado.DetNombre;
-                System.Text.StringBuilder sb = new System.Text.StringBuilder();
-                sb.Append(@"<script type='text/javascript'>");
-                sb.Append("$(document).ready(function() {$('#editarUsuarioModal').modal('show');});");
-                sb.Append(@"</script>");
-                System.Web.UI.ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "editarPerfil", sb.ToString(), false);
-            }
+                if (e.CommandName == "eliminarUsuario")
+                {
+                    System.Text.StringBuilder sb = new System.Text.StringBuilder();
+                    sb.Append(@"<script type='text/javascript'>");
+                    sb.Append("$(document).ready(function() {$('#inactivacion').modal('show');});");
+                    sb.Append(@"</script>");
+                    System.Web.UI.ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "inactivacion", sb.ToString(), false);
+                }
 
-            if (e.CommandName == "eliminarUsuario")
+                if (e.CommandName == "downloadDocumento")
+                {
+                    string filePath = Server.MapPath(Path.Combine("~/App_Data/", ViewState["parametro"].ToString()));
+                    FileInfo file = new FileInfo(filePath);
+                    if (file.Exists)
+                    {
+                        // Clear Rsponse reference  
+                        Response.Clear();
+                        // Add header by specifying file name  
+                        Response.AddHeader("Content-Disposition", "attachment; filename=" + file.Name);
+                        // Add header for content length  
+                        Response.AddHeader("Content-Length", file.Length.ToString());
+                        // Specify content type  
+                        Response.ContentType = "text/plain";
+                        // Clearing flush  
+                        Response.Flush();
+                        // Transimiting file  
+                        Response.TransmitFile(file.FullName);
+                        Response.End();
+                    }
+                }
+            }
+            catch (Exception ex)
             {
-                System.Text.StringBuilder sb = new System.Text.StringBuilder();
-                sb.Append(@"<script type='text/javascript'>");
-                sb.Append("$(document).ready(function() {$('#inactivacion').modal('show');});");
-                sb.Append(@"</script>");
-                System.Web.UI.ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "inactivacion", sb.ToString(), false);
+                Log.Error(ex);
             }
         }
 
@@ -183,7 +220,6 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
                 Log.Error(ex);
             }
         }
-
 
         protected void DDlCodigoPerfil_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -253,6 +289,7 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
             txtNombre.Value = "";
             txtEmail.Value = "";
         }
-    
+
+
     }
 }

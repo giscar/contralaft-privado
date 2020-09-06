@@ -1232,6 +1232,7 @@
     <Folder Include="vendors\css\icheck\minimal\" />
     <Folder Include="vendors\css\icheck\polaris\" />
     <Folder Include="vendors\css\icheck\square\" />
+    <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Providers.config">

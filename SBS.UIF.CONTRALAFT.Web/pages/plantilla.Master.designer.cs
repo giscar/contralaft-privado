@@ -15,8 +15,6 @@ namespace SBS.UIF.CONTRALAFT.Web {
 		
 		protected System.Web.UI.WebControls.Repeater cdcatalog;
 		
-		protected System.Web.UI.HtmlControls.HtmlForm signupForm;
-		
 		protected System.Web.UI.WebControls.ContentPlaceHolder cphBody;
 	}
 }

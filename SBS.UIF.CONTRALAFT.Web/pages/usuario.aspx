@@ -50,6 +50,12 @@
                                             <input type="text" class="form-control txtEmail" ID="txtEmail" runat="server" autocomplete="off" maxlength="200" placeholder="Ingrese correo" />
                                             <small class="form-text text-muted txtEmailLabel">Ingrese el correo electrónico</small>
                                         </div>
+                                        <div class="form-group">
+                                            <label for="txtContra">Documento de creación</label>
+                                            <input type="file" id="myFile" name="myFile" />
+                                            <small class="form-text text-muted txtEmailLabel">Ingrese el documento de creación</small>
+                                        </div>
+                                        
                                         <asp:UpdatePanel ID="upEntidad" runat="server" UpdateMode="Conditional">
                                             <ContentTemplate>
                                                 <div class="form-group" ID="divEntidad" runat="server">
@@ -175,10 +181,23 @@
                                 <asp:BoundField ItemStyle-Width="30%" DataField="DetNombre" HeaderText="Nombre completo" />
                                 <asp:BoundField ItemStyle-Width="30%" DataField="RazonSocialEntidad" HeaderText="Entidad" />
                                 <asp:BoundField ItemStyle-Width="15%" DataField="FecRegistro" HeaderText="Fecha de registro" />
+                                <asp:TemplateField HeaderText="Documento">
+                                    <ItemTemplate>
+                                        <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Jquery file upload</h4>
+                  <div class="file-upload-wrapper">
+                    <div id="fileuploader">Upload</div>
+                  </div>
+                </div>
+              </div>
+                                        <asp:LinkButton runat="server" CssClass="btn btn-success" CommandArgument='<%# Eval("CodDocumento") %>' CommandName="downloadDocumento" >Editar</asp:LinkButton>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
                                 <asp:TemplateField ShowHeader="false">
                                     <ItemTemplate>
-                                        <asp:LinkButton runat="server" CssClass="btn btn-success" CommandArgument='<%# Eval("IdTipo") %>' CommandName="editarRol" >Editar</asp:LinkButton>
-                                        <asp:LinkButton runat="server" CssClass="btn btn-danger" CommandArgument='<%# Eval("IdTipo") %>' CommandName="eliminarRol" >Eliminar</asp:LinkButton> 
+                                        <asp:LinkButton runat="server" CssClass="btn btn-success" CommandArgument='<%# Eval("Id") %>' CommandName="editarUsuario" >Editar</asp:LinkButton>
+                                        <asp:LinkButton runat="server" CssClass="btn btn-danger" CommandArgument='<%# Eval("Id") %>' CommandName="eliminarUsuario" >Eliminar</asp:LinkButton> 
                                     </ItemTemplate>
                                 </asp:TemplateField>
                             </Columns>
