@@ -1035,9 +1035,6 @@
     <Content Include="css\master.css" />
     <Content Include="images\logo.png" />
     <Content Include="js\pages\master.js" />
-    <Content Include="vendors\js\iCheck.js" />
-    <Content Include="vendors\js\typeahead.js" />
-    <Content Include="vendors\js\select2.js" />
     <Content Include="vendors\css\icheck\all.css" />
     <Content Include="vendors\css\icheck\flat\_all.css" />
     <Content Include="vendors\css\icheck\flat\aero.css" />

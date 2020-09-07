@@ -12,7 +12,6 @@
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#entidadModal">Crear entidad</button>
         </div>
     </div>
-    
     <div class="fluid-container">
         <div class="row ticket-card mt-3 pb-2 border-bottom pb-3 mb-3">
             <div class="ticket-details col-md-9">
@@ -32,7 +31,7 @@
                                     <div class="modal-body">
                                         <div class="form-group">
                                             <label for="txtNombre">DNI</label>
-                                            <input type="text" class="form-control txtDocumento" ID="txtDocumento" runat="server" autocomplete="off" maxlength="80" placeholder="Ingrese el documento" />
+                                            <input type="text" class="form-control txtDocumento soloNumeros" ID="txtDocumento" runat="server" autocomplete="off" maxlength="8" placeholder="Ingrese el documento" />
                                             <small class="form-text text-muted txtDocumentoLabel">Ingrese el documento de identidad</small>
                                         </div>
                                         <div class="form-group">
@@ -48,14 +47,19 @@
                                         <div class="form-group">
                                             <label for="txtContra">Correo Electrónico</label>
                                             <input type="text" class="form-control txtEmail" ID="txtEmail" runat="server" autocomplete="off" maxlength="200" placeholder="Ingrese correo" />
-                                            <small class="form-text text-muted txtEmailLabel">Ingrese el correo electrónico</small>
+                                            <small class="form-text text-muted txtEmailLabel">Ingrese el correo electrónico el formato debe ser valido</small>
                                         </div>
                                         <div class="form-group">
-                                            <label for="txtContra">Documento de creación</label>
-                                            <input type="file" id="myFile" name="myFile" />
-                                            <small class="form-text text-muted txtEmailLabel">Ingrese el documento de creación</small>
-                                        </div>
-                                        
+                                            <label>Documento de creación</label>
+                                            <input type="file" id="fileDocumento" name="fileDocumento" class="file-upload-default fileDocumento">
+                                            <div class="input-group col-xs-12">
+                                                <input type="text" class="form-control file-upload-info" disabled="disabled" placeholder="Subir documento">
+                                                <span class="input-group-append">
+                                                    <button class="file-upload-browse btn btn-info" type="button">Cargar al sistema</button>
+                                                </span>
+                                            </div>
+                                            <small class="form-text text-muted fileDocumentoLabel">Ingrese el documento de sustento</small>
+                                        </div>                                        
                                         <asp:UpdatePanel ID="upEntidad" runat="server" UpdateMode="Conditional">
                                             <ContentTemplate>
                                                 <div class="form-group" ID="divEntidad" runat="server">
@@ -89,17 +93,22 @@
                                     <div class="modal-body">
                                     <div class="form-group">
                                         <label for="txtContra">DNI</label>
-                                        <input type="text" class="form-control" ID="DNIedit" readonly="readonly" runat="server" autocomplete="off" maxlength="80" placeholder="Ingrese DNI" />
+                                        <input type="text" class="form-control soloNumeros" ID="DNIedit" readonly="readonly" runat="server" autocomplete="off" maxlength="8" placeholder="Ingrese DNI" />
                                         <small class="form-text text-muted">Edite el DNI del usuario.</small>
                                     </div>
                                     <div class="form-group">
                                         <label style="vertical-align: bottom">Perfil</label>
-                                        <asp:DropDownList class="form-control" ID="ddlCodigoPerfilEdit" runat="server" DataValueField="idTipo" DataTextField="DesTipo" AutoPostBack="true" OnSelectedIndexChanged="DDlCodigoPerfil_SelectedIndexChanged"></asp:DropDownList>
+                                        <asp:DropDownList class="form-control" ID="ddlCodigoPerfilEdit" runat="server" DataValueField="idTipo" DataTextField="DesTipo" AutoPostBack="true" OnSelectedIndexChanged="DDlCodigoPerfilEdit_SelectedIndexChanged"></asp:DropDownList>
                                     </div>
                                     <div class="form-group">
                                         <label for="txtNombre">Nombre</label>
                                         <input type="text" class="form-control" ID="nombreEdit" runat="server" autocomplete="off" maxlength="80" placeholder="Ingrese nombre" />
                                         <small class="form-text text-muted">Edite el nombre del usuario.</small>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="txtContra">Correo Electrónico</label>
+                                        <input type="text" class="form-control txtEmail" ID="txtEmailEdit" runat="server" autocomplete="off" maxlength="200" placeholder="Ingrese correo" />
+                                        <small class="form-text text-muted txtEmailEditLabel">Ingrese el correo electrónico el formato debe ser valido</small>
                                     </div>
                                     <asp:UpdatePanel ID="upEntidadEdit" runat="server" UpdateMode="Conditional">
                                         <ContentTemplate>
@@ -111,11 +120,11 @@
                                         <Triggers>
                                             <asp:AsyncPostBackTrigger ControlID="ddlCodigoPerfilEdit" EventName="SelectedIndexChanged" />
                                         </Triggers>
-                                        </asp:UpdatePanel>
+                                    </asp:UpdatePanel>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                        <asp:Button class="btn btn-lg btn-primary" ID="Button1" runat="server" Text="Nueva entidad" OnClick="Submit_nuevo_entidad" />
+                                        <asp:Button class="btn btn-lg btn-primary" ID="Button1" runat="server" Text="Editar usuario" OnClick="Submit_editar_usuario" />
                                     </div>
                                 </div>
                             </div>
@@ -138,7 +147,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="txtContra">RUC</label>
-                                            <input type="text" class="form-control" id="txtRuc" runat="server" autocomplete="off" maxlength="80" placeholder="Ingrese RUC" />
+                                            <input type="text" class="form-control soloNumeros" id="txtRuc" runat="server" autocomplete="off" maxlength="11" placeholder="Ingrese RUC" />
                                             <small class="form-text text-muted">Ingrese el RUC de la entidad.</small>
                                         </div>
                                     </div>
@@ -149,7 +158,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+                        <!-- Modal inactivacion-->
                         <div class="modal fade" id="inactivacion" tabindex="-1" role="dialog" aria-hidden="true">
                             <div class="modal-dialog modal-sm" role="document">
                                 <div class="modal-content">
@@ -163,7 +172,7 @@
                                         <p>Esta seguro de inactivar el usuario.</p>
                                     </div>
                                     <div class="modal-footer">
-                                        <asp:Button class="btn btn-danger" ID="btnInactive" runat="server" Text="Inactivar Rol" OnClick="Submit_inactive" />
+                                        <asp:Button class="btn btn-danger" ID="btnInactive" runat="server" Text="Inactivar" OnClick="Submit_inactive" />
                                         <button type="button" class="btn btn-light" data-dismiss="modal">Cancelar</button>
                                     </div>
                                 </div>
@@ -181,17 +190,10 @@
                                 <asp:BoundField ItemStyle-Width="30%" DataField="DetNombre" HeaderText="Nombre completo" />
                                 <asp:BoundField ItemStyle-Width="30%" DataField="RazonSocialEntidad" HeaderText="Entidad" />
                                 <asp:BoundField ItemStyle-Width="15%" DataField="FecRegistro" HeaderText="Fecha de registro" />
+                                <asp:BoundField ItemStyle-Width="15%" DataField="NombrePerfil" HeaderText="Perfil" />
                                 <asp:TemplateField HeaderText="Documento">
                                     <ItemTemplate>
-                                        <div class="card">
-                <div class="card-body">
-                  <h4 class="card-title">Jquery file upload</h4>
-                  <div class="file-upload-wrapper">
-                    <div id="fileuploader">Upload</div>
-                  </div>
-                </div>
-              </div>
-                                        <asp:LinkButton runat="server" CssClass="btn btn-success" CommandArgument='<%# Eval("CodDocumento") %>' CommandName="downloadDocumento" >Editar</asp:LinkButton>
+                                        <asp:LinkButton runat="server" CommandArgument='<%# Eval("CodDocumento") %>' CommandName="downloadDocumento" >Descargar</asp:LinkButton>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                                 <asp:TemplateField ShowHeader="false">

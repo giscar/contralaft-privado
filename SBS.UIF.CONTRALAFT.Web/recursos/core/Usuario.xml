@@ -19,6 +19,7 @@
       <result property="UsuRegistro" column="C_USU_REGISTRO"></result>
       <result property="FecModificacion" column="D_FEC_MODIFICACION"></result>
       <result property="UsuModificacion" column="C_USU_MODIFICACION"></result>
+      <result property="NombrePerfil" column="NOMBRE_PERFIL"></result>
       
     </resultMap>
   </resultMaps>
@@ -53,18 +54,23 @@
 
 
     <select id="select_usuario" resultMap="rm_usuario" >
-      SELECT A.*, B.C_DES_RAZON C_DES_RAZON FROM USUARIO A LEFT JOIN ENTIDAD B ON A.N_COD_ENTIDAD = B.N_COD_ENTIDAD 
+      SELECT A.*, B.C_DES_RAZON C_DES_RAZON, C.C_DET_NOMBRE NOMBRE_PERFIL FROM USUARIO A 
+      INNER JOIN PERFIL C ON C.N_COD_PERFIL = A.N_COD_PERFIL
+      LEFT JOIN ENTIDAD B ON A.N_COD_ENTIDAD = B.N_COD_ENTIDAD 
       WHERE A.C_DET_CODIGO = #DetCodigo# AND A.C_DET_CONTRA = #DetContrasenia# AND A.N_FL_ACTIVO = 1
     </select>
 
     <select id="select_todos" resultMap="rm_usuario" >
-      SELECT A.*, B.C_DES_RAZON C_DES_RAZON FROM USUARIO A LEFT JOIN ENTIDAD B ON A.N_COD_ENTIDAD = B.N_COD_ENTIDAD
+      SELECT A.*, B.C_DES_RAZON C_DES_RAZON, C.C_DET_NOMBRE NOMBRE_PERFIL FROM USUARIO A 
+      INNER JOIN PERFIL C ON C.N_COD_PERFIL = A.N_COD_PERFIL
+      LEFT JOIN ENTIDAD B ON A.N_COD_ENTIDAD = B.N_COD_ENTIDAD
       WHERE A.N_FL_ACTIVO = 1
     </select>
 
     <select id="select_usuario_id" resultMap="rm_usuario" >
-      SELECT A.*, B.C_DES_RAZON C_DES_RAZON
-      FROM USUARIO A LEFT JOIN ENTIDAD B ON A.N_COD_ENTIDAD = B.N_COD_ENTIDAD
+      SELECT A.*, B.C_DES_RAZON C_DES_RAZON, C.C_DET_NOMBRE NOMBRE_PERFIL FROM USUARIO A 
+      INNER JOIN PERFIL C ON C.N_COD_PERFIL = A.N_COD_PERFIL  
+      LEFT JOIN ENTIDAD B ON A.N_COD_ENTIDAD = B.N_COD_ENTIDAD
       WHERE A.N_COD_ID = #Id#
     </select>
         
@@ -75,15 +81,15 @@
             N_COD_PERFIL = #IdPerfil#,
             C_DET_EMAIL = #DetEmail#,
             C_COD_DOCUMENTO = #CodDocumento#,
-            C_USU_MODIFICACION = #DetUsuarioModificacion#,
+            C_USU_MODIFICACION = #UsuModificacion#,
             D_FEC_MODIFICACION = #FecModificacion#
             WHERE N_COD_ID = #Id#
         </update>
         
         <update id="inactive_usuario">
             UPDATE USUARIO SET 
-            N_FL_ACTIVO = #FlagEstado#,
-            C_USU_MODIFICACION = #DetUsuarioModificacion#,
+            N_FL_ACTIVO = #FlActivo#,
+            C_USU_MODIFICACION = #UsuModificacion#,
             D_FEC_MODIFICACION = #FecModificacion#
             WHERE N_COD_ID = #Id#
         </update>

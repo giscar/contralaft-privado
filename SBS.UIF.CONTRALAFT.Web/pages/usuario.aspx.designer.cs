@@ -41,6 +41,8 @@ namespace SBS.UIF.CONTRALAFT.Web.pages {
 		
 		protected System.Web.UI.HtmlControls.HtmlInputText nombreEdit;
 		
+		protected System.Web.UI.HtmlControls.HtmlInputText txtEmailEdit;
+		
 		protected System.Web.UI.UpdatePanel upEntidadEdit;
 		
 		protected System.Web.UI.HtmlControls.HtmlGenericControl divEntidadEdit;

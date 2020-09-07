@@ -77,7 +77,7 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
 
         protected void Submit_nuevo(object sender, EventArgs e)
         {
-            HttpPostedFile file = Request.Files["myFile"];
+            HttpPostedFile file = Request.Files["fileDocumento"];
             try
             {
                 string fname = "";
@@ -116,14 +116,27 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
         protected void GridUsuario_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             ViewState["parametro"] = e.CommandArgument.ToString();
-
             try
             {
                 if (e.CommandName == "editarUsuario")
                 {
                     CargarComboEdit();
-                    divEntidadEdit.Visible = true;
-                    Usuario usuarioActualizado = _usuarioBusinessLogic.BuscarUsuarioForID((int)ViewState["parametro"]);
+                    Usuario usuarioActualizado = _usuarioBusinessLogic.BuscarUsuarioForID(int.Parse(ViewState["parametro"].ToString()));
+                    if (usuarioActualizado.IdPerfil == int.Parse(Constantes.codigoPerfilAdministrador))
+                    {
+                        divEntidadEdit.Visible = false;
+                    }
+                    else {
+                        divEntidadEdit.Visible = true;
+                        foreach (ListItem item in ddlCodigoEntidadEdit.Items)
+                        {
+                            if (usuarioActualizado.IdEntidad == int.Parse(item.Value))
+                            {
+                                item.Selected = true;
+                            }
+                        }
+                    }
+                    upEntidadEdit.Update();
                     foreach (ListItem item in ddlCodigoPerfilEdit.Items)
                     {
                         if (usuarioActualizado.IdPerfil == int.Parse(item.Value))
@@ -131,22 +144,13 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
                             item.Selected = true;
                         }
                     }
-
-                    foreach (ListItem item in ddlCodigoEntidad.Items)
-                    {
-                        if (usuarioActualizado.IdEntidad == int.Parse(item.Value))
-                        {
-                            item.Selected = true;
-                        }
-                    }
-
                     DNIedit.Value = usuarioActualizado.DetCodigo;
                     nombreEdit.Value = usuarioActualizado.DetNombre;
                     System.Text.StringBuilder sb = new System.Text.StringBuilder();
                     sb.Append(@"<script type='text/javascript'>");
                     sb.Append("$(document).ready(function() {$('#editarUsuarioModal').modal('show');});");
                     sb.Append(@"</script>");
-                    System.Web.UI.ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "editarPerfil", sb.ToString(), false);
+                    System.Web.UI.ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "editarUsuario", sb.ToString(), false);
                 }
 
                 if (e.CommandName == "eliminarUsuario")
@@ -164,21 +168,41 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
                     FileInfo file = new FileInfo(filePath);
                     if (file.Exists)
                     {
-                        // Clear Rsponse reference  
                         Response.Clear();
-                        // Add header by specifying file name  
                         Response.AddHeader("Content-Disposition", "attachment; filename=" + file.Name);
-                        // Add header for content length  
                         Response.AddHeader("Content-Length", file.Length.ToString());
-                        // Specify content type  
                         Response.ContentType = "text/plain";
-                        // Clearing flush  
                         Response.Flush();
-                        // Transimiting file  
                         Response.TransmitFile(file.FullName);
                         Response.End();
                     }
                 }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+        }
+
+        protected void Submit_editar_usuario(object sender, EventArgs e)
+        {
+            try
+            {
+                Usuario _usuario = new Usuario
+                {
+                    Id = int.Parse(ViewState["parametro"].ToString()),
+                    UsuModificacion = UsuarioSession().DetCodigo,
+                    FecModificacion = DateTime.Today,
+                    FlActivo = (int)Constantes.EstadoFlag.ACTIVO,
+                    DetNombre = nombreEdit.Value,
+                    DetEmail = txtEmailEdit.Value,
+                    IdPerfil = int.Parse(ddlCodigoPerfilEdit.SelectedValue),
+                    IdEntidad = int.Parse(ddlCodigoEntidadEdit.SelectedValue),
+                };
+                _usuarioBusinessLogic.ActualizarUsuario(_usuario);
+                Limpiar();
+                CargarLista();
+                ClientMessageBox.Show("Se inactivo el Usuario", this);
             }
             catch (Exception ex)
             {
@@ -192,7 +216,7 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
             {
                 Usuario _usuario = new Usuario
                 {
-                    Id = (int)ViewState["idUsuario"],
+                    Id = int.Parse(ViewState["parametro"].ToString()),
                     UsuModificacion = UsuarioSession().DetCodigo,
                     FecModificacion = DateTime.Now,
                     FlActivo = (int)Constantes.EstadoFlag.INACTIVO
@@ -225,6 +249,12 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
         {
             divEntidad.Visible = !ddlCodigoPerfil.SelectedValue.Equals(Constantes.codigoPerfilAdministrador) && !ddlCodigoPerfil.SelectedValue.Equals(Constantes.codigoPerfilGestor);
             upEntidad.Update(); 
+        }
+
+        protected void DDlCodigoPerfilEdit_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            divEntidadEdit.Visible = !ddlCodigoPerfilEdit.SelectedValue.Equals(Constantes.codigoPerfilAdministrador) && !ddlCodigoPerfilEdit.SelectedValue.Equals(Constantes.codigoPerfilGestor);
+            upEntidadEdit.Update();
         }
 
         protected void UserProfile_Command(object sender, CommandEventArgs e)
@@ -280,7 +310,6 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
             }
         }
         
-
         private void Limpiar()
         {
             txtDocumento.Value = "";
@@ -289,7 +318,6 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
             txtNombre.Value = "";
             txtEmail.Value = "";
         }
-
 
     }
 }

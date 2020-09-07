@@ -1,4 +1,28 @@
-﻿function validaCrearUsuarioClient() {
+﻿(function ($) {
+    'use strict';
+    if ($("#fileuploader").length) {
+        $("#fileuploader").uploadFile({
+            url: "YOUR_FILE_UPLOAD_URL",
+            fileName: "fileDocumento"
+        });
+    }
+})(jQuery);
+
+(function ($) {
+    'use strict';
+    $(function () {
+        $('.file-upload-browse').on('click', function () {
+            var file = $(this).parent().parent().parent().find('.file-upload-default');
+            file.trigger('click');
+        });
+        $('.file-upload-default').on('change', function () {
+            $(this).parent().find('.form-control').val($(this).val().replace(/C:\\fakepath\\/i, ''));
+        });
+    });
+})(jQuery);
+
+function validaCrearUsuarioClient() {
+    console.log($('.fileDocumento').val());
     if ($('.txtDocumento').val().trim() === '') {
         $('.txtDocumento').addClass('form-control-danger');
         $('.txtDocumentoLabel').addClass('text-danger').removeClass('text-muted');
@@ -31,8 +55,22 @@
         $('.txtEmailLabel').addClass('text-danger').removeClass('text-muted');
         return false;
     } else {
+        if (!isEmail($('.txtEmail').val().trim())) {
+            $('.txtEmail').addClass('form-control-danger');
+            $('.txtEmailLabel').addClass('text-danger').removeClass('text-muted');
+            return false;
+        }
         $('.txtEmail').removeClass('form-control-danger');
         $('.txtEmailLabel').removeClass('text-danger').addClass('text-muted');
+    }
+
+    if (!$('.fileDocumento').val()) {
+        $('.file-upload-info').addClass('form-control-danger');
+        $('.fileDocumentoLabel').addClass('text-danger').removeClass('text-muted');
+        return false;
+    } else {
+        $('.file-upload-info').removeClass('form-control-danger');
+        $('.fileDocumentoLabel').removeClass('text-danger').addClass('text-muted');
     }
 
     if (parseInt($('.ddlCodigoPerfil').val()) > 0)
@@ -47,7 +85,20 @@
     return true;
 }
 
-function isEmail(email) {
-    var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-    return regex.test(email);
-}
+$(".soloLetras").bind('keypress', function (event) {
+    var regex = new RegExp("^[a-zA-ZÀ-ÿ\u00f1\u00d1 ]+$");
+    var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+    if (!regex.test(key)) {
+        event.preventDefault();
+        return false;
+    }
+});
+
+$(".soloNumeros").bind('keypress', function (event) {
+    var regex = new RegExp("^[0-9]+$");
+    var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+    if (!regex.test(key)) {
+        event.preventDefault();
+        return false;
+    }
+});

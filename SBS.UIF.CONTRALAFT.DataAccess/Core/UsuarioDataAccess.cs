@@ -36,7 +36,7 @@ namespace SBS.UIF.CONTRALAFT.DataAccess.Core
 
         public void InactivarUsuario(Usuario _usuario)
         {
-            MapperPro.Instance().Update("inactive_usustio", _usuario);
+            MapperPro.Instance().Update("inactive_usuario", _usuario);
         }
 
     }

@@ -23,7 +23,8 @@ namespace SBS.UIF.CONTRALAFT.Entity.Core
         public string UsuRegistro { get; set; }
         public DateTime FecModificacion { get; set; }
         public string UsuModificacion { get; set; }
-       
+        public string NombrePerfil { get; set; }
+        
     }
 }
 
