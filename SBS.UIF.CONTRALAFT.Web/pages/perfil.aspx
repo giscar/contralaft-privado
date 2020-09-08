@@ -6,12 +6,12 @@
     <div class="form-group">
         <label for="txtNombre">Perfil</label>
         <input type="text" class="form-control soloLetras txtNombrePerfil" id="txtNombrePerfil" runat="server" autocomplete="off" maxlength="80" placeholder="Ingrese perfil" style="width: 50%"/>
-        <small class="form-text text-muted">Ingrese el nuevo perfil</small>
+        <small class="form-text text-muted txtNombrePerfilLabel">Ingrese el nuevo perfil</small>
     </div>
     <div class="form-group">
         <label for="txtContra">Descripción</label>
         <textarea class="form-control txtDescripcion" id="txtDescripcion" runat="server" autocomplete="off" maxlength="800" placeholder="Ingrese descripción"></textarea>
-        <small class="form-text text-muted">Ingrese la descripción del perfil</small>
+        <small class="form-text text-muted txtDescripcionLabel">Ingrese la descripción del perfil</small>
     </div>
     <div class="form-group">
         <a class="btn btn-primary btn-sm" id="idConfirmacion" data-toggle="modal" style="color: white">Crear Perfil<i class="mdi mdi-play-circle ml-1"></i></a> 
@@ -37,7 +37,7 @@
         </Columns>
     </asp:GridView>
     </ContentTemplate>
-    
+    <!-- modal editar -->
     <div class="modal fade" id="editarPerfil" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -54,18 +54,18 @@
                     </div>
                     <div class="form-group">
                         <label for="message-text" class="col-form-label">Descripción:</label>
-                        <textarea class="form-control txtEditarDescripcion" Id="txtEditarDescripcion" runat="server" autocomplete="off" maxlength="800" placeholder="Ingrese descripción"></textarea>
+                        <textarea class="form-control txtEditarDescripcion" Id="txtEditarDescripcion" rows="8" runat="server" autocomplete="off" maxlength="800" placeholder="Ingrese descripción"></textarea>
+                        <small class="form-text text-muted txtEditarDescripcionLabel">Ingrese el nuevo perfil</small>
                     </div>  
                 </div>
                 <div class="modal-footer">
-                    c
+                    <asp:Button class="btn btn-success" ID="btnSeleccionar" runat="server" Text="Modificar Perfil" OnClientClick="return validaEditarPerfilClient()" OnClick="Submit_edit" />
                     <button type="button" class="btn btn-light" data-dismiss="modal">Cerrar</button>
                 </div>
             </div>
         </div>
      </div>
-
-    
+    <!-- modal confirmacion -->
     <div class="modal fade" id="confirmacion" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-sm" role="document">
             <div class="modal-content">
@@ -85,7 +85,7 @@
             </div>
         </div>
     </div>
-    
+    <!-- modal inactivar -->
     <div class="modal fade" id="inactivacion" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-sm" role="document">
             <div class="modal-content">

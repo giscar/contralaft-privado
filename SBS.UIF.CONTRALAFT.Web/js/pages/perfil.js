@@ -2,18 +2,21 @@
 
     $('#idConfirmacion').click(function () {
         if ($('.txtNombrePerfil').val().trim() === '') {
-            mensaje('Debe ingresar el nombre del perfil', 'Alerta');
-            $('.txtNombrePerfil').addClass('form-control-danger')
-            return;
+            $('.txtNombrePerfil').addClass('form-control-danger');
+            $('.txtNombrePerfilLabel').addClass('text-danger').removeClass('text-muted');
+            return false;
         } else {
             $('.txtNombrePerfil').removeClass('form-control-danger');
+            $('.txtNombrePerfilLabel').removeClass('text-danger').addClass('text-muted');
         }
+
         if ($('.txtDescripcion').val().trim() === '') {
-            mensaje('Debe ingresar la descripción del perfil', 'Alerta');
-            $('.txtDescripcion').addClass('form-control-danger')
-            return;
+            $('.txtDescripcion').addClass('form-control-danger');
+            $('.txtDescripcionLabel').addClass('text-danger').removeClass('text-muted');
+            return false;
         } else {
             $('.txtDescripcion').removeClass('form-control-danger');
+            $('.txtDescripcionLabel').removeClass('text-danger').addClass('text-muted');
         }
         $('#confirmacion').modal('show');
     })
@@ -29,3 +32,14 @@
    
 })(jQuery);
 
+function validaEditarPerfilClient() {
+    if ($('.txtEditarDescripcion').val().trim() === '') {
+        $('.txtEditarDescripcion').addClass('form-control-danger');
+        $('.txtEditarDescripcionLabel').addClass('text-danger').removeClass('text-muted');
+        return false;
+    } else {
+        $('.txtEditarDescripcion').removeClass('form-control-danger');
+        $('.txtEditarDescripcionLabel').removeClass('text-danger').addClass('text-muted');
+    }
+    return true;
+}

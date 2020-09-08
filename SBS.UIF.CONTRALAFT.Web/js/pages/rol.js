@@ -15,8 +15,6 @@
         $("#mensaje").html(msg);
         $("#modal-alerta").modal('show');
     }
-
-     
    
 })(jQuery);
 
@@ -32,8 +30,6 @@ function showInactive(id) {
     $('.txtIdInactive').val(id);
     $('#modal-inactivacion').modal('show');
 }
-
-
 
 (function ($) {
     'use strict';
@@ -78,3 +74,27 @@ function showInactive(id) {
         });
     });
 })(jQuery);
+
+$('#idConfirmacion').click(function () {
+    if ($('.txtNombreRol').val().trim() === '') {
+        $('.txtNombreRol').addClass('form-control-danger');
+        $('.txtNombreRolLabel').addClass('text-danger').removeClass('text-muted');
+        return false;
+    } else {
+        $('.txtNombreRol').removeClass('form-control-danger');
+        $('.txtNombreRolLabel').removeClass('text-danger').addClass('text-muted');
+    }
+    if ($('.txtDescripcion').val().trim() === '') {
+        $('.txtDescripcion').addClass('form-control-danger');
+        $('.txtDescripcionLabel').addClass('text-danger').removeClass('text-muted');
+        return false;
+    } else {
+        $('.txtDescripcion').removeClass('form-control-danger');
+        $('.txtDescripcionLabel').removeClass('text-danger').addClass('text-muted');
+    }
+    if ($('.ddlCodigoPerfil input:checked').val()) {
+        $('#modal-confirmacion').modal('show');
+    } else {
+        $('.ddlCodigoPerfilLabel').addClass('text-danger').removeClass('text-muted');
+    }
+})

@@ -22,7 +22,6 @@
 })(jQuery);
 
 function validaCrearUsuarioClient() {
-    console.log($('.fileDocumento').val());
     if ($('.txtDocumento').val().trim() === '') {
         $('.txtDocumento').addClass('form-control-danger');
         $('.txtDocumentoLabel').addClass('text-danger').removeClass('text-muted');

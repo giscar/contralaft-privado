@@ -6,17 +6,18 @@
         <div class="form-group">
             <label>Rol</label>
             <input type="text" class="form-control txtNombreRol soloLetras" id="txtNombreRol" runat="server" autocomplete="off" maxlength="80" placeholder="Ingrese perfil" />
-            <small class="form-text text-muted">Ingrese el nuevo rol</small>
+            <small class="form-text text-muted txtNombreRolLabel">Ingrese el nuevo rol</small>
         </div>
         <div class="form-group">
             <label>Descripción</label>
             <textarea class="form-control txtDescripcion" id="txtDescripcion" runat="server" autocomplete="off" maxlength="800" placeholder="Ingrese descripción"></textarea>
-            <small class="form-text text-muted">Ingrese la descripción del rol</small>
+            <small class="form-text text-muted txtDescripcionLabel">Ingrese la descripción del rol</small>
         </div>
         <div class="form-group">
             <label style="vertical-align: bottom">Seleccione el perfil </label>
             <div class="icheck-square">
                 <asp:CheckBoxList ID="ddlCodigoPerfil" runat="server" class="ddlCodigoPerfil" AutoPostBack="false" DataValueField="idTipo" DataTextField="DesTipo"/>
+                <small class="form-text text-muted ddlCodigoPerfilLabel">Ingrese los perfiles relacionados al rol</small>
             </div>
         </div>
         <div class="form-group">
@@ -49,7 +50,7 @@
             </asp:TemplateField>
         </Columns>
     </asp:GridView> 
-    
+    <!-- modal editar rol -->
     <div class="modal fade" id="editarRol" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -81,8 +82,8 @@
                 </div>
             </div>
         </div>
-     </div>
-   
+    </div>
+    <!-- modal inactivar -->
     <div class="modal fade" id="inactivacion" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-sm" role="document">
             <div class="modal-content">
@@ -102,7 +103,7 @@
             </div>
         </div>
     </div>
-    
+    <!-- modal confirmar -->
     <div class="modal fade" id="modal-confirmacion" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-sm" role="document">
             <div class="modal-content">
@@ -122,28 +123,5 @@
             </div>
         </div>
     </div>
-    <script type="text/javascript">
-    $('#idConfirmacion').click(function () {
-        if ($('.txtNombreRol').val().trim() === '') {
-            mensaje('Debe ingresar el nombre del rol', 'Alerta');
-            $('.txtNombreRol').addClass('form-control-danger')
-            return;
-        } else {
-            $('.txtNombreRol').removeClass('form-control-danger');
-        }
-        if ($('.txtDescripcion').val().trim() === '') {
-            mensaje('Debe ingresar la descripción del rol', 'Alerta');
-            $('.txtDescripcion').addClass('form-control-danger')
-            return;
-        } else {
-            $('.txtDescripcion').removeClass('form-control-danger');
-        }
-        if ($("#<%= ddlCodigoPerfil.ClientID %> input:checked").val()){
-            $('#modal-confirmacion').modal('show');
-        }else {
-            mensaje('Debe seleccionar un perfil', 'Alerta');
-        }  
-    })
-    </script>
     <script src="/js/pages/rol.js"></script>
 </asp:Content>
