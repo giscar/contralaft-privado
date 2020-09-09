@@ -63,21 +63,23 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="recipient-name" class="col-form-label">Rol:</label>
-                        <input type="text" class="form-control txtEditarPerfil" Id="txtEditarRol" readonly="true" runat="server" autocomplete="off" maxlength="80" placeholder="Ingrese perfil">
+                        <input type="text" class="form-control txtEditarRol" Id="txtEditarRol" readonly="true" runat="server" autocomplete="off" maxlength="80" placeholder="Ingrese perfil">
                     </div>
                     <div class="form-group">
                         <label for="message-text" class="col-form-label">Descripción:</label>
-                        <textarea class="form-control txtEditarDescripcion" Id="txtEditarDescripcion" runat="server" autocomplete="off" maxlength="800" placeholder="Ingrese descripción"></textarea>
+                        <textarea class="form-control txtEditarDescripcion" Id="txtEditarDescripcion" runat="server" rows="8" autocomplete="off" maxlength="800" placeholder="Ingrese descripción"></textarea>
+                        <small class="form-text text-muted txtEditarDescripcionLabel">Ingrese la descripción del rol</small>
                     </div>  
                 </div>
                 <div class="form-group">
                     <label style="vertical-align: bottom">Seleccione el perfil </label>
                     <div class="icheck-square">
-                        <asp:CheckBoxList ID="ddlCodigoPerfilEdit" runat="server" AutoPostBack="false" DataValueField="idTipo" DataTextField="DesTipo"/>
+                        <asp:CheckBoxList ID="ddlCodigoPerfilEdit" class="ddlCodigoPerfilEdit" runat="server" AutoPostBack="false" DataValueField="idTipo" DataTextField="DesTipo"/>
                     </div>
+                    <small class="form-text text-muted ddlCodigoPerfilEditLabel">Ingrese los perfiles relacionados al rol</small>
                 </div>
                 <div class="modal-footer">
-                    <asp:Button class="btn btn-success" ID="btnSeleccionar" runat="server" Text="Modificar Perfil" OnClick="Submit_edit" />
+                    <asp:Button class="btn btn-success" ID="btnSeleccionar" runat="server" Text="Modificar Rol" OnClientClick="return validaEditarRolClient()" OnClick="Submit_edit" />
                     <button type="button" class="btn btn-light" data-dismiss="modal">Cerrar</button>
                 </div>
             </div>

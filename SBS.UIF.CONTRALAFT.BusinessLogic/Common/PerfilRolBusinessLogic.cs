@@ -23,17 +23,19 @@ namespace SBS.UIF.CONTRALAFT.BusinessLogic.Common
         public void GuardarActualizarPerfilRol(PerfilRol _perfilRol)
         {
             List<PerfilRol> lista = _perfilRolDataAccess.ValidarPerfilRol(_perfilRol);
-            foreach (PerfilRol item in lista) {
-                if (_perfilRol.CodPerfil == item.CodPerfil)
+            if (lista.Count > 0)
+            {
+                foreach (PerfilRol item in lista)
                 {
-                    _perfilRolDataAccess.ActualizarPerfilRol(_perfilRol);
-                }
-                else {
-                    _perfilRolDataAccess.GuardarPerfilRol(_perfilRol);
+                    if (_perfilRol.CodPerfil == item.CodPerfil)
+                    {
+                        _perfilRolDataAccess.ActualizarPerfilRol(_perfilRol);
+                    }
                 }
             }
-            
+            else {
+                _perfilRolDataAccess.GuardarPerfilRol(_perfilRol);
+            }
         }
-
     }
 }

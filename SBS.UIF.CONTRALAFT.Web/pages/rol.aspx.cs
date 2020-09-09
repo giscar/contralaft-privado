@@ -97,7 +97,7 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
                     DetUsuarioModificacion = UsuarioSession().DetCodigo,
                     FecModificacion = DateTime.Now
                 };
-                _rolBusinessLogic.ActualizarRol(_rol);
+                    _rolBusinessLogic.ActualizarRol(_rol);
 
                 foreach (ListItem item in ddlCodigoPerfilEdit.Items) { 
                 PerfilRol _perfilRol = new PerfilRol();

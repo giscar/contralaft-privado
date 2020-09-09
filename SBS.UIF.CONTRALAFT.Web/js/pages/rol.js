@@ -25,7 +25,6 @@ function showEdit(id, desTipo, detDetalle) {
     $('#editarPerfil').modal('show');
 }
 
-
 function showInactive(id) {
     $('.txtIdInactive').val(id);
     $('#modal-inactivacion').modal('show');
@@ -97,4 +96,34 @@ $('#idConfirmacion').click(function () {
     } else {
         $('.ddlCodigoPerfilLabel').addClass('text-danger').removeClass('text-muted');
     }
-})
+});
+
+function validaEditarRolClient() {
+    if ($('.txtEditarRol').val().trim() === '') {
+        $('.txtEditarRol').addClass('form-control-danger');
+        $('.txtEditarRolLabel').addClass('text-danger').removeClass('text-muted');
+        return false;
+    } else {
+        $('.txtEditarRol').removeClass('form-control-danger');
+        $('.txtEditarRolLabel').removeClass('text-danger').addClass('text-muted');
+    }
+
+    if ($('.txtEditarDescripcion').val().trim() === '') {
+        $('.txtEditarDescripcion').addClass('form-control-danger');
+        $('.txtEditarDescripcionLabel').addClass('text-danger').removeClass('text-muted');
+        return false;
+    } else {
+        $('.txtEditarDescripcion').removeClass('form-control-danger');
+        $('.txtEditarDescripcionLabel').removeClass('text-danger').addClass('text-muted');
+    }
+
+    if ($('.ddlCodigoPerfilEdit input:checked').val()) {
+        $('.ddlCodigoPerfilEditLabel').removeClass('text-danger').addClass('text-muted');
+        return true;
+    } else {
+        $('.ddlCodigoPerfilEditLabel').addClass('text-danger').removeClass('text-muted');
+        return false;
+    }
+    
+    return true;
+}
