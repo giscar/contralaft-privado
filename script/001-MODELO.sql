@@ -1,5 +1,40 @@
 if exists (select 1
    from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
+   where r.fkeyid = object_id('ACCION') and o.name = 'FK_ACCION_REFERENCE_PLAN')
+alter table ACCION
+   drop constraint FK_ACCION_REFERENCE_PLAN
+go
+
+if exists (select 1
+   from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
+   where r.fkeyid = object_id('INDICADOR') and o.name = 'FK_INDICADO_REFERENCE_ACCION')
+alter table INDICADOR
+   drop constraint FK_INDICADO_REFERENCE_ACCION
+go
+
+if exists (select 1
+   from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
+   where r.fkeyid = object_id('INDICADOR') and o.name = 'FK_INDICADO_REFERENCE_ACCION')
+alter table INDICADOR
+   drop constraint FK_INDICADO_REFERENCE_ACCION
+go
+
+if exists (select 1
+   from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
+   where r.fkeyid = object_id('INDICADORENTIDAD') and o.name = 'FK_INDICADO_REFERENCE_INDICADO')
+alter table INDICADORENTIDAD
+   drop constraint FK_INDICADO_REFERENCE_INDICADO
+go
+
+if exists (select 1
+   from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
+   where r.fkeyid = object_id('INDICADORENTIDAD') and o.name = 'FK_INDICADO_REFERENCE_ENTIDAD')
+alter table INDICADORENTIDAD
+   drop constraint FK_INDICADO_REFERENCE_ENTIDAD
+go
+
+if exists (select 1
+   from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
    where r.fkeyid = object_id('MENUROL') and o.name = 'FK_MENUROL_REFERENCE_MENU')
 alter table MENUROL
    drop constraint FK_MENUROL_REFERENCE_MENU
@@ -98,6 +133,13 @@ go
 
 if exists (select 1
             from  sysobjects
+           where  id = object_id('"PLAN"')
+            and   type = 'U')
+   drop table "PLAN"
+go
+
+if exists (select 1
+            from  sysobjects
            where  id = object_id('ROL')
             and   type = 'U')
    drop table ROL
@@ -115,11 +157,16 @@ go
 /*==============================================================*/
 create table ACCION (
    N_ID_ACCION          int                  identity(1,1),
+   N_COD_PLAN           int                  null,
    C_NUM_CODIGO         varchar(50)          null,
    C_DES_NOMBRE         varchar(500)         null,
    C_DES_DESCRIPCION    varchar(5000)        null,
    N_FL_ACTIVO          int                  null,
    C_COD_ESTADO         varchar(500)         null,
+   C_USU_REGISTRO       varchar(20)          null,
+   D_FEC_REGISRO        datetime             null,
+   C_USU_MODIFICACION   varchar(20)          null,
+   D_FEC_MODIFICACION   datetime             null,
    constraint PK_ACCION primary key (N_ID_ACCION)
          WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 )
@@ -136,6 +183,8 @@ create table ENTIDAD (
    C_USU_REGISTRO       varchar(50)          null,
    D_FEC_REGISTRO       datetime             null,
    N_FL_ACTIVO          int                  null,
+   C_USU_MODIFICACION   varchar(20)          null,
+   D_FEC_MODIFICACION   datetime             null,
    constraint PK_ENTIDAD primary key (N_COD_ENTIDAD)
 )
 ON [PRIMARY]
@@ -145,14 +194,17 @@ go
 /* Table: INDICADOR                                             */
 /*==============================================================*/
 create table INDICADOR (
-   N_ID_INDICADOR       int                  identity(1,1),
+   N_COD_INDICADOR      int                  identity(1,1),
    N_ID_ACCION          int                  null,
+   ACC_N_ID_ACCION      int                  null,
    C_DES_DETALLE        varchar(500)         null,
    N_COD_ESTADO         int                  null,
    N_FL_ACTIVO          int                  null,
-   C_USU_REGISTRO       varchar(500)         null,
+   C_USU_REGISTRO       varchar(20)          null,
    D_FEC_REGISTRO       datetime             null,
-   constraint PK_INDICADOR primary key (N_ID_INDICADOR)
+   C_USU_MODIFICACION   varchar(20)          null,
+   D_FECHA_MODIFICACION datetime             null,
+   constraint PK_INDICADOR primary key (N_COD_INDICADOR)
          WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 )
 ON [PRIMARY]
@@ -162,8 +214,8 @@ go
 /* Table: INDICADORENTIDAD                                      */
 /*==============================================================*/
 create table INDICADORENTIDAD (
-   N_ID_INDICADOR       int                  null,
-   N_ID_ENTIDAD         int                  null,
+   N_COD_INDICADOR      int                  null,
+   N_COD_ENTIDAD        int                  null,
    N_COD_ESTADO         int                  null,
    N_FL_ACTIVO          int                  null
 )
@@ -205,8 +257,8 @@ create table PERFIL (
    C_DET_NOMBRE         varchar(100)         null,
    N_FL_ACTIVO          int                  null,
    C_DET_DETALLE        varchar(1000)        null,
-   C_USU_REGISTRO       varchar(100)         null,
-   C_USU_MODIFICACION   varchar(100)         null,
+   C_USU_REGISTRO       varchar(20)          null,
+   C_USU_MODIFICACION   varchar(20)          null,
    D_FEC_REGISTRO       datetime             null,
    D_FEC_MODIFICACION   datetime             null,
    constraint PK_PERFIL primary key (N_COD_PERFIL)
@@ -227,6 +279,22 @@ ON [PRIMARY]
 go
 
 /*==============================================================*/
+/* Table: "PLAN"                                                */
+/*==============================================================*/
+create table "PLAN" (
+   N_COD_PLAN           int                  not null,
+   C_DES_DETALLE        varchar(1000)        null,
+   N_COD_VERSION        int                  null,
+   N_COD_ESTADO         int                  null,
+   C_USU_REGISTRO       varchar(20)          null,
+   D_FECHA_REGISTRO     datetime             null,
+   C_USU_MODIFICACION   varchar(20)          null,
+   D_FECHA_MODIFICSACION datetime             null,
+   constraint PK_PLAN primary key (N_COD_PLAN)
+)
+go
+
+/*==============================================================*/
 /* Table: ROL                                                   */
 /*==============================================================*/
 create table ROL (
@@ -234,8 +302,8 @@ create table ROL (
    C_DES_ROL            varchar(50)          null,
    N_FL_ACTIVO          int                  null,
    C_DET_DETALLE        varchar(1000)        null,
-   C_USU_REGISTRO       varchar(100)         null,
-   C_USU_MODIFICACION   varchar(100)         null,
+   C_USU_REGISTRO       varchar(20)          null,
+   C_USU_MODIFICACION   varchar(20)          null,
    D_FEC_REGISTRO       datetime             null,
    D_FEC_MODIFICACION   datetime             null,
    constraint PK_ROLES primary key (N_COD_ROL)
@@ -261,9 +329,35 @@ create table USUARIO (
    C_USU_REGISTRO       varchar(100)         null,
    D_FEC_MODIFICACION   datetime             null,
    C_USU_MODIFICACION   varchar(100)         null,
+   C_COD_DOC_ELIMINA    varchar(500)         null,
    constraint PK_USUARIO primary key (N_COD_ID)
 )
 ON [PRIMARY]
+go
+
+alter table ACCION
+   add constraint FK_ACCION_REFERENCE_PLAN foreign key (N_COD_PLAN)
+      references "PLAN" (N_COD_PLAN)
+go
+
+alter table INDICADOR
+   add constraint FK_INDICADO_REFERENCE_ACCION foreign key (ACC_N_ID_ACCION)
+      references ACCION (N_ID_ACCION)
+go
+
+alter table INDICADOR
+   add constraint FK_INDICADO_REFERENCE_ACCION foreign key (N_ID_ACCION)
+      references ACCION (N_ID_ACCION)
+go
+
+alter table INDICADORENTIDAD
+   add constraint FK_INDICADO_REFERENCE_INDICADO foreign key (N_COD_INDICADOR)
+      references INDICADOR (N_COD_INDICADOR)
+go
+
+alter table INDICADORENTIDAD
+   add constraint FK_INDICADO_REFERENCE_ENTIDAD foreign key (N_COD_ENTIDAD)
+      references ENTIDAD (N_COD_ENTIDAD)
 go
 
 alter table MENUROL
