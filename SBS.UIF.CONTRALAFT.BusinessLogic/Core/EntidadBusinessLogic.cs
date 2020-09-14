@@ -17,14 +17,19 @@ namespace SBS.UIF.CONTRALAFT.BusinessLogic.Core
         
         }
 
-        public List<Entidad> listarPorEntidad()
+        public List<Entidad> ListarPorEntidad()
         {
-            return (_entidadDataAccess.listarPorEntidad());
+            return (_entidadDataAccess.ListarPorEntidad());
         }
 
-        public void guardarEntidad(Entidad _entidad)
+        public void GuardarEntidad(Entidad _entidad)
         {
-            _entidadDataAccess.guardarEntidad(_entidad);
+            _entidadDataAccess.GuardarEntidad(_entidad);
+        }
+
+        public Entidad EntidadForID(int _idEntidad)
+        {
+            return (_entidadDataAccess.EntidadForId(_idEntidad));
         }
 
     }

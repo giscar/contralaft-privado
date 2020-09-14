@@ -19,5 +19,6 @@ namespace SBS.UIF.CONTRALAFT.Web.util
         public const String codigoPerfilGestor = "2";
         public const String selectValueDefault = "0";
         public const String selectLabelDefault = "Seleccione";
+        public const String textoSubject = "Creación de usuario del modulo de CONTRALAFT";
     }
 }

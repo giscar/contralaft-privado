@@ -32,7 +32,9 @@
       C_DET_NOMBRE,
       C_DET_CODIGO,
       C_DET_CONTRA,
-      N_COD_ENTIDAD,
+      <if test="IdEntidad != 0">
+        N_COD_ENTIDAD,
+      </if>
       N_FL_ACTIVO,
       D_FEC_REGISTRO,
       C_USU_REGISTRO,
@@ -44,7 +46,9 @@
       (#DetNombre#,
       #DetCodigo#,
       #DetContrasenia#,
-      #IdEntidad#,
+      <if test="IdEntidad != 0">
+        #IdEntidad#,
+      </if>
       #FlActivo#,
       #FecRegistro#,
       #UsuRegistro#,

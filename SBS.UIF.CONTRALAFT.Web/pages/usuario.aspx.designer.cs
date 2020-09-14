@@ -19,6 +19,8 @@ namespace SBS.UIF.CONTRALAFT.Web.pages {
 		
 		protected System.Web.UI.WebControls.Button btnNuevoUsuario;
 		
+		protected System.Web.UI.WebControls.Button btnNuevoEntidad;
+		
 		protected System.Web.UI.HtmlControls.HtmlInputText txtDocumento;
 		
 		protected System.Web.UI.WebControls.DropDownList ddlCodigoPerfil;

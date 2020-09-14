@@ -17,6 +17,10 @@
     <select id="select_entidad" resultMap="rm_entidad" >
       SELECT N_COD_ENTIDAD, C_DES_RAZON, C_COD_RUC, D_FEC_REGISTRO FROM ENTIDAD WHERE N_FL_ACTIVO = 1
     </select>
+        
+    <select id="select_entidad_id" resultMap="rm_entidad"  parameterClass="int">
+      SELECT * FROM ENTIDAD WHERE N_COD_ENTIDAD = #value#
+    </select>
 
     <insert id="insert_entidad">
       INSERT INTO ENTIDAD (

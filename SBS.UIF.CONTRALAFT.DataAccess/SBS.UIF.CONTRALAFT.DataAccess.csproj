@@ -95,8 +95,9 @@
     </Reference>
     <Reference Include="System.Configuration" />
     <Reference Include="log4net">
-      <HintPath>..\packages\log4net.2.0.9\lib\net45\log4net.dll</HintPath>
+      <HintPath>..\packages\log4net.2.0.10\lib\net45\log4net.dll</HintPath>
     </Reference>
+    <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseDatos.cs" />

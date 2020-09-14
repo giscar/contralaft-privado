@@ -9,7 +9,7 @@
         </div>
         <div class="col-md-6">
             <asp:Button class="btn btn-primary" ID="btnNuevoUsuario" runat="server" Text="Crear usuario" OnClick="Modal_nuevo_usuario" />
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#entidadModal">Crear entidad</button>
+            <asp:Button class="btn btn-primary" ID="btnNuevoEntidad" runat="server" Text="Crear Entidad" OnClick="Modal_nuevo_entidad" />
         </div>
     </div>
     <div class="fluid-container">
@@ -94,20 +94,20 @@
                                     <div class="form-group">
                                         <label for="txtContra">DNI</label>
                                         <input type="text" class="form-control soloNumeros" ID="DNIedit" readonly="readonly" runat="server" autocomplete="off" maxlength="8" placeholder="Ingrese DNI" />
-                                        <small class="form-text text-muted">Edite el DNI del usuario.</small>
                                     </div>
                                     <div class="form-group">
                                         <label style="vertical-align: bottom">Perfil</label>
-                                        <asp:DropDownList class="form-control" ID="ddlCodigoPerfilEdit" runat="server" DataValueField="idTipo" DataTextField="DesTipo" AutoPostBack="true" OnSelectedIndexChanged="DDlCodigoPerfilEdit_SelectedIndexChanged"></asp:DropDownList>
+                                        <asp:DropDownList class="form-control ddlCodigoPerfilEdit" ID="ddlCodigoPerfilEdit" runat="server" DataValueField="idTipo" DataTextField="DesTipo" AutoPostBack="true" OnSelectedIndexChanged="DDlCodigoPerfilEdit_SelectedIndexChanged"></asp:DropDownList>
+                                         <small class="form-text text-muted ddlCodigoPerfilEditLabel">Ingrese el perfil del usuario</small>
                                     </div>
                                     <div class="form-group">
                                         <label for="txtNombre">Nombre</label>
-                                        <input type="text" class="form-control" ID="nombreEdit" runat="server" autocomplete="off" maxlength="80" placeholder="Ingrese nombre" />
-                                        <small class="form-text text-muted">Edite el nombre del usuario.</small>
+                                        <input type="text" class="form-control nombreEdit" ID="nombreEdit" runat="server" autocomplete="off" maxlength="80" placeholder="Ingrese nombre" />
+                                        <small class="form-text text-muted nombreEditLabel">Edite el nombre del usuario.</small>
                                     </div>
                                     <div class="form-group">
                                         <label for="txtContra">Correo Electrónico</label>
-                                        <input type="text" class="form-control txtEmail" ID="txtEmailEdit" runat="server" autocomplete="off" maxlength="200" placeholder="Ingrese correo" />
+                                        <input type="text" class="form-control txtEmailEdit" ID="txtEmailEdit" runat="server" autocomplete="off" maxlength="200" placeholder="Ingrese correo" />
                                         <small class="form-text text-muted txtEmailEditLabel">Ingrese el correo electrónico el formato debe ser valido</small>
                                     </div>
                                     <asp:UpdatePanel ID="upEntidadEdit" runat="server" UpdateMode="Conditional">
@@ -115,6 +115,7 @@
                                             <div class="form-group" ID="divEntidadEdit" runat="server">
                                                 <label style="vertical-align: bottom">Entidad</label>
                                                 <asp:DropDownList class="form-control" ID="ddlCodigoEntidadEdit" runat="server" DataValueField="idTipo" DataTextField="DesTipo"></asp:DropDownList>
+                                                <small class="form-text text-muted ddlCodigoPerfilEditLabel">Ingrese la entidad a la que pertenece el usuario</small>
                                             </div>
                                         </ContentTemplate>
                                         <Triggers>
@@ -124,7 +125,7 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                        <asp:Button class="btn btn-lg btn-primary" ID="Button1" runat="server" Text="Editar usuario" OnClick="Submit_editar_usuario" />
+                                        <asp:Button class="btn btn-lg btn-primary" ID="Button1" runat="server" Text="Editar usuario" OnClientClick="return validaEditarUsuarioClient()" OnClick="Submit_editar_usuario" />
                                     </div>
                                 </div>
                             </div>
@@ -142,12 +143,12 @@
                                     <div class="modal-body">
                                         <div class="form-group">
                                             <label for="txtNombre">Nombre</label>
-                                            <input type="text" class="form-control" id="txtEntidad" runat="server" autocomplete="off" maxlength="80" placeholder="Ingrese entidad" />
+                                            <input type="text" class="form-control txtEntidad" id="txtEntidad" runat="server" autocomplete="off" maxlength="80" placeholder="Ingrese entidad" />
                                             <small class="form-text text-muted">Ingrese el nombre de la entidad.</small>
                                         </div>
                                         <div class="form-group">
                                             <label for="txtContra">RUC</label>
-                                            <input type="text" class="form-control soloNumeros" id="txtRuc" runat="server" autocomplete="off" maxlength="11" placeholder="Ingrese RUC" />
+                                            <input type="text" class="form-control soloNumeros txtRuc" id="txtRuc" runat="server" autocomplete="off" maxlength="11" placeholder="Ingrese RUC" />
                                             <small class="form-text text-muted">Ingrese el RUC de la entidad.</small>
                                         </div>
                                     </div>

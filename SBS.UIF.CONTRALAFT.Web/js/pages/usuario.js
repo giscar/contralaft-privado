@@ -84,6 +84,53 @@ function validaCrearUsuarioClient() {
     return true;
 }
 
+
+function validaEditarUsuarioClient() {
+
+    if ($('.ddlCodigoPerfilEdit').val().trim() === '0') {
+        $('.ddlCodigoPerfilEdit').addClass('form-control-danger');
+        $('.ddlCodigoPerfilEditLabel').addClass('text-danger').removeClass('text-muted');
+        return false;
+    } else {
+        $('.ddlCodigoPerfilEdit').removeClass('form-control-danger');
+        $('.ddlCodigoPerfilEditLabel').removeClass('text-danger').addClass('text-muted');
+    }
+
+    if ($('.nombreEdit').val().trim() === '') {
+        $('.nombreEdit').addClass('form-control-danger');
+        $('.nombreEditLabel').addClass('text-danger').removeClass('text-muted');
+        return false;
+    } else {
+        $('.nombreEdit').removeClass('form-control-danger');
+        $('.nombreEditLabel').removeClass('text-danger').addClass('text-muted');
+    }
+
+    if ($('.txtEmailEdit').val().trim() === '') {
+        $('.txtEmailEdit').addClass('form-control-danger');
+        $('.txtEmailEditLabel').addClass('text-danger').removeClass('text-muted');
+        return false;
+    } else {
+        if (!isEmail($('.txtEmailEdit').val().trim())) {
+            $('.txtEmailEdit').addClass('form-control-danger');
+            $('.txtEmailEditLabel').addClass('text-danger').removeClass('text-muted');
+            return false;
+        }
+        $('.txtEmailEdit').removeClass('form-control-danger');
+        $('.txtEmailEditLabel').removeClass('text-danger').addClass('text-muted');
+    }
+
+    if (parseInt($('.ddlCodigoPerfilEdit').val()) > 1)
+        if ($('.ddlCodigoPerfilEdit').val().trim() === '0') {
+            $('.ddlCodigoPerfilEdit').addClass('form-control-danger');
+            $('.ddlCodigoPerfilEditLabel').addClass('text-danger').removeClass('text-muted');
+            return false;
+        } else {
+            $('.ddlCodigoPerfilEdit').removeClass('form-control-danger');
+            $('.ddlCodigoPerfilEditLabel').removeClass('text-danger').addClass('text-muted');
+        }
+    return true;
+}
+
 $(".soloLetras").bind('keypress', function (event) {
     var regex = new RegExp("^[a-zA-ZÀ-ÿ\u00f1\u00d1 ]+$");
     var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);

@@ -52,7 +52,7 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
         {
             try
             {
-                LlenarDropDownList(ddlCodigoEntidad, new EntidadBusinessLogic().listarPorEntidad().OrderBy(x => x.DesTipo), "0", "Seleccione");
+                LlenarDropDownList(ddlCodigoEntidad, new EntidadBusinessLogic().ListarPorEntidad().OrderBy(x => x.DesTipo), "0", "Seleccione");
                 LlenarDropDownList(ddlCodigoPerfil, new PerfilBusinessLogic().ListarPorPerfil().OrderBy(x => x.DesTipo), "0", "Seleccione");
             }
             catch (Exception ex)
@@ -104,8 +104,11 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
                     UsuRegistro = UsuarioSession().DetCodigo
                 };
                 new UsuarioBusinessLogic().GuardarPersona(_usuario);
+                _usuario.DetContrasenia = password;
+                EnviarEmail(_usuario);
                 CargarLista();
                 Limpiar();
+                ClientMessageBox.Show("Se creo el usuario", this);
             }
             catch (Exception ex)
             {
@@ -146,6 +149,7 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
                     }
                     DNIedit.Value = usuarioActualizado.DetCodigo;
                     nombreEdit.Value = usuarioActualizado.DetNombre;
+                    txtEmailEdit.Value = usuarioActualizado.DetEmail;
                     System.Text.StringBuilder sb = new System.Text.StringBuilder();
                     sb.Append(@"<script type='text/javascript'>");
                     sb.Append("$(document).ready(function() {$('#editarUsuarioModal').modal('show');});");
@@ -202,7 +206,7 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
                 _usuarioBusinessLogic.ActualizarUsuario(_usuario);
                 Limpiar();
                 CargarLista();
-                ClientMessageBox.Show("Se inactivo el Usuario", this);
+                ClientMessageBox.Show("Se edito el usuario", this);
             }
             catch (Exception ex)
             {
@@ -236,7 +240,7 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
         {
             try
             {
-                LlenarDropDownList(ddlCodigoEntidadEdit, new EntidadBusinessLogic().listarPorEntidad().OrderBy(x => x.DesTipo), Constantes.selectValueDefault, Constantes.selectLabelDefault);
+                LlenarDropDownList(ddlCodigoEntidadEdit, new EntidadBusinessLogic().ListarPorEntidad().OrderBy(x => x.DesTipo), Constantes.selectValueDefault, Constantes.selectLabelDefault);
                 LlenarDropDownList(ddlCodigoPerfilEdit, new PerfilBusinessLogic().ListarPorPerfil().OrderBy(x => x.DesTipo), Constantes.selectValueDefault, Constantes.selectLabelDefault);
             }
             catch (Exception ex)
@@ -257,7 +261,7 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
             upEntidadEdit.Update();
         }
 
-        protected void UserProfile_Command(object sender, CommandEventArgs e)
+        /*protected void UserProfile_Command(object sender, CommandEventArgs e)
         {
             try
             {
@@ -270,7 +274,7 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
             {
                 Log.Error(ex);
             }
-        }
+        }*/
 
         protected void Submit_nuevo_entidad(object sender, EventArgs e)
         {
@@ -278,13 +282,16 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
             {
                 Entidad entidad = new Entidad
                 {
-                    DesTipo = txtNombre.Value,
+                    DesTipo = txtEntidad.Value,
                     CodRuc = txtRuc.Value,
-                    FecRegistro = new DateTime(),
+                    FecRegistro = DateTime.Now,
                     UsuRegistro = UsuarioSession().DetCodigo,
                     FlActivo = (int)Constantes.EstadoFlag.ACTIVO
                 };
-                _entidadBusinessLogic.guardarEntidad(entidad);
+                _entidadBusinessLogic.GuardarEntidad(entidad);
+                CargarCombos();
+                CargarComboEdit();
+                ClientMessageBox.Show("Se creo la Entidad", this);
             }
             catch (Exception ex)
             {
@@ -309,7 +316,24 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
                 Log.Error(ex);
             }
         }
-        
+
+        protected void Modal_nuevo_entidad(object sender, EventArgs e)
+        {
+            try
+            {
+                LimpiarEntidad();
+                System.Text.StringBuilder sb = new System.Text.StringBuilder();
+                sb.Append(@"<script type='text/javascript'>");
+                sb.Append("$(document).ready(function() {$('#entidadModal').modal('show');});");
+                sb.Append(@"</script>");
+                System.Web.UI.ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "entidadModal", sb.ToString(), false);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+        }
+
         private void Limpiar()
         {
             txtDocumento.Value = "";
@@ -318,6 +342,26 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
             txtNombre.Value = "";
             txtEmail.Value = "";
         }
+
+        private void LimpiarEntidad()
+        {
+            txtEntidad.Value = "";
+            txtRuc.Value = "";
+        }
+
+        private void EnviarEmail(Usuario _usuario)
+        {
+            Comunicacion comunicacion = new Comunicacion();
+            comunicacion.CorreoUsuario = _usuario.DetEmail;
+            comunicacion.UserId = _usuario.DetCodigo;
+            comunicacion.NombreUsuario = _usuario.DetNombre;
+            comunicacion.Pass = _usuario.DetContrasenia;
+            comunicacion.Entidad = _entidadBusinessLogic.EntidadForID(_usuario.IdEntidad).DesTipo;
+            comunicacion.Subject = Constantes.textoSubject;
+            Correo correo = new Correo();
+            correo.SendMail(comunicacion);
+        }
+
 
     }
 }

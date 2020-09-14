@@ -6,9 +6,15 @@
 
 
 
+    <asp:GridView ID="GridView1" runat="server" AllowPaging="true" Class="table table-hover table-bordered" PageSize="10" AutoGenerateColumns="false">
+        <Columns>
+            <asp:BoundField ItemStyle-Width="10%" DataField="Codigo" HeaderText="Codigo" />
+            <asp:BoundField ItemStyle-Width="20%" DataField="Nombre" HeaderText="Acción" />
+            <asp:BoundField ItemStyle-Width="60%" DataField="Descripcion" HeaderText="Descripcion" />
+            <asp:BoundField ItemStyle-Width="10%" DataField="Estado" HeaderText="Estado" />
+        </Columns>
+    </asp:GridView>
     
-        <asp:GridView ID="GridView1" runat="server" AllowPaging="true" OnPageIndexChanging="GridView1_PageIndexChanging" CssClass="table table-hover">
-        </asp:GridView>
         <br />
 
     </asp:Content>
