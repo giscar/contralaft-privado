@@ -173,6 +173,7 @@ create table ENTIDAD (
    N_COD_ENTIDAD        int                  identity(1,1),
    C_DES_RAZON          varchar(200)         null,
    C_COD_RUC            varchar(50)          null,
+   C_DET_SIGLA          varchar(50)          null,
    C_USU_REGISTRO       varchar(50)          null,
    D_FEC_REGISTRO       datetime             null,
    N_FL_ACTIVO          int                  null,
@@ -275,13 +276,14 @@ go
 /*==============================================================*/
 create table "PLAN" (
    N_COD_PLAN           int                  identity(1,1),
+   C_NOM_PLAN           varchar(300)         null,
    C_DES_DETALLE        varchar(1000)        null,
    N_COD_VERSION        int                  null,
    N_COD_ESTADO         int                  null,
    C_USU_REGISTRO       varchar(20)          null,
    D_FECHA_REGISTRO     datetime             null,
    C_USU_MODIFICACION   varchar(20)          null,
-   D_FECHA_MODIFICSACION datetime             null,
+   D_FECHA_MODIFICACION datetime             null,
    constraint PK_PLAN primary key (N_COD_PLAN)
 )
 go
