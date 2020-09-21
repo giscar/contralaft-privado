@@ -83,7 +83,6 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
             }            
         }
         
-
         protected void Submit_edit(object sender, EventArgs e)
         {
             try
@@ -113,7 +112,6 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
             {
                 CargarLista();
                 GridView1.PageIndex = e.NewPageIndex;
-                GridView1.DataBind();
             }
             catch (Exception ex)
             {
@@ -124,9 +122,45 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
         private void CargarLista()
         {
             listadoPlanes = _planBusinessLogic.BuscarTodos();
+            foreach (Plan item in listadoPlanes) {
+                Console.Write(item.Estado.ToString());
+                Console.Write(Constantes.EstadoPlan.BORRADOR.ToString());
+                if (item.Estado == (int)Constantes.EstadoPlan.BORRADOR)
+                {
+                    item.EstadoDescripcion = Constantes.estadoPlanBORRADOR;
+                }
+                if (item.Estado == (int)Constantes.EstadoPlan.PUBLICADO)
+                {
+                    item.EstadoDescripcion = Constantes.estadoPlanPUBLICADO;
+                }
+            }
             GridView1.DataSource = listadoPlanes;
             GridView1.DataBind();
         }
+
+        protected void Submit_publicar(object sender, EventArgs e)
+        {
+            try
+            {
+                Plan _plan = new Plan
+                {
+                    Id = (int)ViewState["idPlan"],
+                    Estado = (int)Constantes.EstadoPlan.PUBLICADO,
+                    Version = _planBusinessLogic.BuscarVersion(),
+                    UsuModificacion = UsuarioSession().DetCodigo,
+                    FecModificacion = DateTime.Now
+                };
+                _planBusinessLogic.EstadoPlan(_plan);
+                Limpiar();
+                CargarLista();
+                ClientMessageBox.Show("Se modificó el plan", this);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+        }
+        
 
         private void Limpiar() {
             txtNombrePlan.Value = "";
@@ -136,26 +170,43 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
         protected void GridPlan_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             ViewState["idPlan"] = int.Parse(e.CommandArgument.ToString());
-       
-            if (e.CommandName == "editarPlan")
-            {
-                Plan planlActualizado = _planBusinessLogic.BuscarPlanForID((int)ViewState["idPlan"]);
-                txtEditarNombre.Value = planlActualizado.Nombre;
-                txtEditarDescripcion.Value = planlActualizado.Descripcion;
-                System.Text.StringBuilder sb = new System.Text.StringBuilder();
-                sb.Append(@"<script type='text/javascript'>");
-                sb.Append("$(document).ready(function() {$('#editarPlan').modal('show');});");
-                sb.Append(@"</script>");
-                System.Web.UI.ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "editarPlan", sb.ToString(), false);
-            }
 
-            if (e.CommandName == "inactivarPlan")
+            Plan planlActualizado = _planBusinessLogic.BuscarPlanForID((int)ViewState["idPlan"]);
+
+            if (planlActualizado.Estado == (int)Constantes.EstadoPlan.PUBLICADO)
             {
-                System.Text.StringBuilder sb = new System.Text.StringBuilder();
-                sb.Append(@"<script type='text/javascript'>");
-                sb.Append("$(document).ready(function() {$('#inactivacion').modal('show');});");
-                sb.Append(@"</script>");
-                System.Web.UI.ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "inactivacion", sb.ToString(), false);
+                ClientMessageBox.Show("El plan se encuentra en estado publicado no se puede modificar", this);
+            }
+            else {
+                if (e.CommandName == "editarPlan")
+                {
+                    txtEditarNombre.Value = planlActualizado.Nombre;
+                    txtEditarDescripcion.Value = planlActualizado.Descripcion;
+                    System.Text.StringBuilder sb = new System.Text.StringBuilder();
+                    sb.Append(@"<script type='text/javascript'>");
+                    sb.Append("$(document).ready(function() {$('#editarPlan').modal('show');});");
+                    sb.Append(@"</script>");
+                    System.Web.UI.ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "editarPlan", sb.ToString(), false);
+                }
+
+                if (e.CommandName == "inactivarPlan")
+                {
+                    System.Text.StringBuilder sb = new System.Text.StringBuilder();
+                    sb.Append(@"<script type='text/javascript'>");
+                    sb.Append("$(document).ready(function() {$('#inactivacion').modal('show');});");
+                    sb.Append(@"</script>");
+                    System.Web.UI.ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "inactivacion", sb.ToString(), false);
+                }
+
+                if (e.CommandName == "publicarPlan")
+                {
+                    System.Text.StringBuilder sb = new System.Text.StringBuilder();
+                    sb.Append(@"<script type='text/javascript'>");
+                    sb.Append("$(document).ready(function() {$('#publicar').modal('show');});");
+                    sb.Append(@"</script>");
+                    System.Web.UI.ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "publicar", sb.ToString(), false);
+                }
+
             }
         }
     }

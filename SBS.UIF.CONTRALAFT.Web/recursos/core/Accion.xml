@@ -10,15 +10,23 @@
       <result property="Nombre" column="C_DES_NOMBRE"></result>
       <result property="Descripcion" column="C_DES_DESCRIPCION"></result>
       <result property="FlActivo" column="N_FL_ACTIVO"></result>
-      <result property="Estado" column="C_COD_ESTADO"></result>
+      <result property="FecRegistro" column="D_FEC_REGISTRO"></result>
+      <result property="UsuRegistro" column="C_USU_REGISTRO"></result>
+      <result property="FecModificacion" column="D_FEC_MODIFICACION"></result>
+      <result property="UsuModificacion" column="C_USU_MODIFICACION"></result>
      
     </resultMap>
   </resultMaps>
 
   <statements>
-    <select id="select_accion" resultMap="rm_accion" >
+    <select id="select_acciones" resultMap="rm_accion" >
       SELECT * FROM ACCION WHERE N_FL_ACTIVO = 1
     </select>
+        
+    <select id="select_accion" resultMap="rm_accion"  parameterClass="int">
+      SELECT * FROM ACCION WHERE N_COD_ACCION = #value#
+    </select>
+
 
     <insert id="insert_accion">
       INSERT INTO ACCION (
@@ -26,25 +34,36 @@
       C_DES_NOMBRE,
       C_DES_DESCRIPCION,
       C_COD_ESTADO,
-      N_FL_ACTIVO
+      N_FL_ACTIVO,
+      D_FEC_REGISTRO,
+      C_USU_REGISTRO
       )
       VALUES
       (#Codigo#,
       #Nombre#,
       #Descripcion#,
       #Estado#,
-      1)
+      #FlActivo#,
+      #FecModificacion#,
+      #UsuRegistro#)
     </insert>
-
-
+    
     <update id="update_accion">
       UPDATE ACCION SET
       C_NUM_CODIGO = #Codigo#,
       C_DES_NOMBRE = #Nombre#,
       C_DES_DESCRIPCION = #Descripcion#,
-      C_COD_ESTADO = #Estado#,
-      N_FL_ACTIVO = #FlActivo#
+      C_USU_MODIFICACION = #UsuModificacion#,
+      D_FEC_MODIFICACION = #FecModificacion#
       WHERE N_ID_ACCION = #Id#
+    </update>
+        
+    <update id="inactive_accion">
+        UPDATE ACCION SET 
+        N_FL_ACTIVO = #FlActivo#,
+        C_USU_MODIFICACION = #UsuModificacion#,
+        D_FEC_MODIFICACION = #FecModificacion#
+        WHERE N_COD_PLAN = #Id#
     </update>
   </statements>
 </sqlMap>

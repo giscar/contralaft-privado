@@ -100,7 +100,7 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
                     DetContrasenia = BitConverter.ToString(passCifrado).Replace("-", ""),
                     DetCodigo = txtDocumento.Value,
                     DetEmail = txtEmail.Value,
-                    FecRegistro = DateTime.Today,
+                    FecRegistro = DateTime.Now,
                     CodDocumento = fname,
                     FlActivo = (int)Constantes.EstadoFlag.ACTIVO,
                     IdEntidad = int.Parse(ddlCodigoEntidad.SelectedValue),
@@ -200,7 +200,7 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
                 {
                     Id = int.Parse(ViewState["parametro"].ToString()),
                     UsuModificacion = UsuarioSession().DetCodigo,
-                    FecModificacion = DateTime.Today,
+                    FecModificacion = DateTime.Now,
                     FlActivo = (int)Constantes.EstadoFlag.ACTIVO,
                     DetNombre = nombreEdit.Value,
                     DetEmail = txtEmailEdit.Value,
@@ -264,21 +264,6 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
             divEntidadEdit.Visible = !ddlCodigoPerfilEdit.SelectedValue.Equals(Constantes.codigoPerfilAdministrador) && !ddlCodigoPerfilEdit.SelectedValue.Equals(Constantes.codigoPerfilGestor);
             upEntidadEdit.Update();
         }
-
-        /*protected void UserProfile_Command(object sender, CommandEventArgs e)
-        {
-            try
-            {
-                int id = Int32.Parse(e.CommandArgument.ToString());
-                Usuario usu = new UsuarioBusinessLogic().BuscarUsuarioForID(id);
-                nombreEdit.Value = usu.DetNombre;
-                DNIedit.Value = usu.DetCodigo;
-            }
-            catch (Exception ex)
-            {
-                Log.Error(ex);
-            }
-        }*/
 
         protected void Submit_nuevo_entidad(object sender, EventArgs e)
         {
@@ -368,7 +353,5 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
             Correo correo = new Correo();
             correo.SendMail(comunicacion);
         }
-
-
     }
 }

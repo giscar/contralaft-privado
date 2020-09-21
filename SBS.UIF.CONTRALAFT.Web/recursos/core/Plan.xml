@@ -55,6 +55,7 @@
         <update id="estado_plan">
             UPDATE PLANCONTRALAFT SET 
             N_COD_ESTADO = #Estado#,
+            N_COD_VERSION = #Version#,
             C_USU_MODIFICACION = #UsuModificacion#,
             D_FEC_MODIFICACION = #FecModificacion#
             WHERE N_COD_PLAN = #Id#
@@ -76,8 +77,14 @@
     <select id="select_planes" resultMap="rm_plan">
       SELECT * FROM PLANCONTRALAFT WHERE N_FL_ACTIVO = 1
     </select>
-
+    
+    <select id="select_version" resultClass="int">
+        SELECT MAX(N_COD_ESTADO) + 1 FROM PLANCONTRALAFT WHERE N_FL_ACTIVO = 1
+    </select>
         
+    <select id="select_plan_publicado" resultMap="rm_plan">
+      SELECT * FROM PLANCONTRALAFT WHERE N_FL_ACTIVO = 1 AND N_COD_ESTADO = 1 
+    </select>
 
   </statements>
 </sqlMap>

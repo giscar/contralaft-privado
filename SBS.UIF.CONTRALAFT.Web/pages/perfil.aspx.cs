@@ -111,7 +111,6 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
             {
                 CargarLista();
                 GridView1.PageIndex = e.NewPageIndex;
-                GridView1.DataBind();
             }
             catch (Exception ex)
             {

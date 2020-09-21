@@ -32,5 +32,7 @@ namespace SBS.UIF.CONTRALAFT.Web.pages {
 		protected System.Web.UI.WebControls.Button btnNuevo;
 		
 		protected System.Web.UI.WebControls.Button btnInactive;
+		
+		protected System.Web.UI.WebControls.Button btnPublicar;
 	}
 }

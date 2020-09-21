@@ -26,10 +26,22 @@ namespace SBS.UIF.CONTRALAFT.BusinessLogic.Core
             return _planDataAccess.BuscarPlanForID(idPlan);
         }
 
+        public Plan BuscarPlanPublicado()
+        {
+            return _planDataAccess.BuscarPlanPublicado();
+        }
+        
+
         public List<Plan> BuscarTodos()
         {
             return _planDataAccess.BuscarTodos();
         }
+
+        public int BuscarVersion()
+        {
+            return _planDataAccess.BuscarVersion();
+        }
+        
 
         public void ActualizarPlan(Plan _plan)
         {

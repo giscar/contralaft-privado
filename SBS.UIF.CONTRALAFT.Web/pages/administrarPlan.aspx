@@ -28,11 +28,14 @@
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:BoundField ItemStyle-Width="20%" DataField="Nombre" HeaderText="Plan" />
-            <asp:BoundField ItemStyle-Width="40%" DataField="Descripcion" HeaderText="Descripción del Plan" />
+            <asp:BoundField ItemStyle-Width="30%" DataField="Descripcion" HeaderText="Descripción del Plan" />
+            <asp:BoundField ItemStyle-Width="10%" DataField="EstadoDescripcion" HeaderText="Estado" />    
+            <asp:BoundField ItemStyle-Width="10%" DataField="Version" HeaderText="Versión" /> 
             <asp:TemplateField ShowHeader="false">
                 <ItemTemplate>
                     <asp:LinkButton runat="server" CssClass="btn btn-success" CommandArgument='<%# Eval("Id") %>' CommandName="editarPlan" >Editar</asp:LinkButton>
-                    <asp:LinkButton runat="server" CssClass="btn btn-danger" CommandArgument='<%# Eval("Id") %>' CommandName="inactivarPlan" >Eliminar</asp:LinkButton>    
+                    <asp:LinkButton runat="server" CssClass="btn btn-danger" CommandArgument='<%# Eval("Id") %>' CommandName="inactivarPlan" >Eliminar</asp:LinkButton> 
+                    <asp:LinkButton runat="server" CssClass="btn btn-primary" CommandArgument='<%# Eval("Id") %>' CommandName="publicarPlan" >Publicar</asp:LinkButton>
                 </ItemTemplate>
             </asp:TemplateField>
         </Columns>
@@ -71,7 +74,7 @@
         <div class="modal-dialog modal-sm" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel-3">Ventana de Confirmación</h5>
+                    <h5 class="modal-title">Ventana de Confirmación</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -91,7 +94,7 @@
         <div class="modal-dialog modal-sm" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel-3">Ventana de Confirmación</h5>
+                    <h5 class="modal-title">Ventana de Confirmación</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -101,6 +104,26 @@
                 </div>
                 <div class="modal-footer">
                     <asp:Button class="btn btn-danger" ID="btnInactive" runat="server" Text="Inactivar Plan" OnClick="Submit_inactive" />
+                    <button type="button" class="btn btn-light" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- modal publicar -->
+    <div class="modal fade" id="publicar" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Ventana de Confirmación</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Esta seguro de publicar el plan.</p>
+                </div>
+                <div class="modal-footer">
+                    <asp:Button class="btn btn-primary" ID="btnPublicar" runat="server" Text="Publicar Plan" OnClick="Submit_publicar" />
                     <button type="button" class="btn btn-light" data-dismiss="modal">Cancelar</button>
                 </div>
             </div>

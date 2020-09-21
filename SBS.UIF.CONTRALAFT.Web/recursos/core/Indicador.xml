@@ -38,5 +38,6 @@
       #FecRegistro#,
       #FlActivo#)
     </insert>
+        
   </statements>
 </sqlMap>

@@ -12,7 +12,8 @@ namespace SBS.UIF.CONTRALAFT.Web.util
         public enum EstadoPlan
         {
             BORRADOR = 0,
-            PUBLICADO = 1
+            PUBLICADO = 1,
+            DESPUBLICADO = 2
         }
 
         public enum PerfilFlag

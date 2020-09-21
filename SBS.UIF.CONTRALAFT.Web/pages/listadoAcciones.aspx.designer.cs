@@ -17,6 +17,24 @@ namespace SBS.UIF.CONTRALAFT.Web.pages {
 		
 		protected System.Web.UI.ScriptManager ScriptManager1;
 		
+		protected System.Web.UI.HtmlControls.HtmlInputText txtCodigoAccion;
+		
+		protected System.Web.UI.HtmlControls.HtmlTextArea txtAccion;
+		
+		protected System.Web.UI.HtmlControls.HtmlTextArea txtDescripcion;
+		
 		protected System.Web.UI.WebControls.GridView GridView1;
+		
+		protected System.Web.UI.HtmlControls.HtmlInputText txtEditarCodigoAccion;
+		
+		protected System.Web.UI.HtmlControls.HtmlTextArea txtEditarAccion;
+		
+		protected System.Web.UI.HtmlControls.HtmlTextArea txtEditarDescripcion;
+		
+		protected System.Web.UI.WebControls.Button btnSeleccionar;
+		
+		protected System.Web.UI.WebControls.Button btnNuevo;
+		
+		protected System.Web.UI.WebControls.Button btnInactive;
 	}
 }
