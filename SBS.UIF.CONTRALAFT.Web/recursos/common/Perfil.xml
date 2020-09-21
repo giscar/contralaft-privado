@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<sqlMap namespace="PerfilMap" xmlns="http://ibatis.apache.org/mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+  <alias>
+    <typeAlias alias="Perfil" type="SBS.UIF.CONTRALAFT.Entity.Common.Perfil,SBS.UIF.CONTRALAFT.Entity" />
+  </alias>
+  <resultMaps>
+    <resultMap id="rm_perfil" class="Perfil">
+      <result property="IdTipo" column="N_COD_PERFIL"></result>
+      <result property="DesTipo" column="C_DET_NOMBRE"></result>
+      <result property="DetDetalle" column="C_DET_DETALLE"></result>
+      <result property="DetUsuarioRegistro" column="C_USU_REGISTRO"></result>
+      <result property="DetUsuarioModificacion" column="C_USU_MODIFICACION"></result>
+      <result property="FecModificacion" column="D_FEC_MODIFICACION"></result>
+      <result property="FecRegistro" column="D_FEC_REGISTRO"></result>
+      <result property="FlagEstado" column="N_FL_ACTIVO"></result>
+      
+    </resultMap>
+  </resultMaps>
+  <statements>
+    <select id="select_perfil" resultMap="rm_perfil" >
+      SELECT * FROM PERFIL WHERE N_FL_ACTIVO = 1
+    </select>
+        
+    <select id="select_perfil_id" resultMap="rm_perfil"  parameterClass="int">
+      SELECT * FROM PERFIL WHERE N_FL_ACTIVO = 1 AND N_COD_PERFIL = #value#
+    </select>
+        
+    <select id="select_perfil_for_rol" resultMap="rm_perfil"  parameterClass="int">
+      SELECT A.* FROM PERFIL A
+      INNER JOIN PERFILROL B ON A.N_COD_PERFIL = B.N_COD_PERFIL
+      WHERE B.N_COD_ROL = #value# AND B.N_FL_ACTIVO = 1
+    </select>    
+        
+    <insert id="insert_perfil">
+      INSERT INTO PERFIL (
+      C_DET_NOMBRE,
+      C_DET_DETALLE,
+      C_USU_REGISTRO,
+      D_FEC_REGISTRO,   
+      N_FL_ACTIVO)
+      VALUES
+      (#DesTipo#,
+      #DetDetalle#,
+      #DetUsuarioRegistro#,
+      #FecRegistro#,
+      #FlagEstado#
+            )
+    </insert>
+        
+        <update id="update_perfil">
+            UPDATE PERFIL SET 
+            C_DET_DETALLE = #DetDetalle#,
+            C_USU_MODIFICACION = #DetUsuarioModificacion#,
+            D_FEC_MODIFICACION = #FecModificacion#
+            WHERE N_COD_PERFIL = #IdTipo#
+        </update>
+        
+        <update id="inactive_perfil">
+            UPDATE PERFIL SET 
+            N_FL_ACTIVO = #FlagEstado#,
+            C_USU_MODIFICACION = #DetUsuarioModificacion#,
+            D_FEC_MODIFICACION = #FecModificacion#
+            WHERE N_COD_PERFIL = #IdTipo#
+        </update>
+  </statements>
+</sqlMap>

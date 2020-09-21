@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<sqlMap namespace="MenuMap" xmlns="http://ibatis.apache.org/mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+  <alias>
+    <typeAlias alias="Menu" type="SBS.UIF.CONTRALAFT.Entity.Common.Menu,SBS.UIF.CONTRALAFT.Entity" />
+  </alias>
+  <resultMaps>
+    <resultMap id="rm_menu" class="Menu">
+      <result property="Id" column="N_COD_MENU"></result>
+      <result property="CodPadre" column="N_COD_PADRE"></result>
+      <result property="DesNombre" column="C_DES_NOMBRE"></result>
+      <result property="CodIcon" column="C_COD_ICON"></result>
+      <result property="NomPage" column="C_NOM_PAGE"></result>
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <select id="select_menu" parameterType="int" resultMap="rm_menu" >
+      SELECT A.* FROM MENU A
+      INNER JOIN MENUROL B ON A.N_COD_MENU = B.N_COD_MENU
+      INNER JOIN ROL C ON C.N_COD_ROL = B.N_COD_ROL
+      INNER JOIN PERFILROL D ON C.N_COD_ROL = D.N_COD_ROL
+      WHERE D.N_COD_PERFIL = #id# AND D.N_FL_ACTIVO = 1
+    </select>
+  </statements>
+</sqlMap>

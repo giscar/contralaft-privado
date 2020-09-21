@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<sqlMap namespace="IndicadorMap" xmlns="http://ibatis.apache.org/mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+  <alias>
+    <typeAlias alias="Indicador" type="SBS.UIF.CONTRALAFT.Entity.Core.Indicador,SBS.UIF.CONTRALAFT.Entity" />
+  </alias>
+  <resultMaps>
+    <resultMap id="rm_indicador" class="Indicador">
+      <result property="Id" column="N_ID_INDICADOR"></result>
+      <result property="IdAccion" column="N_ID_ACCION"></result>
+      <result property="Detalle" column="C_DES_DETALLE"></result>
+      <result property="Estado" column="N_COD_ESTADO"></result>
+      <result property="UsuRegistro" column="C_USU_REGISTRO"></result>
+      <result property="FecRegistro" column="D_FEC_REGISTRO"></result>
+      <result property="FlActivo" column="N_FL_ACTIVO"></result>
+      
+    </resultMap>
+
+  </resultMaps>
+
+  <statements>
+    <select id="select_indicador" resultMap="rm_indicador" >
+      SELECT * FROM INDICADOR WHERE N_FL_ACTIVO = 1 AND N_ID_ACCION = #Id#
+    </select>
+
+    <insert id="insert_indicador">
+      INSERT INTO INDICADOR (
+      N_ID_ACCION,
+      C_DES_DETALLE,
+      N_COD_ESTADO,
+      C_USU_REGISTRO,
+      D_FEC_REGISTRO,
+      N_FL_ACTIVO)
+      VALUES
+      (#IdAccion#,
+      #Detalle#,
+      #Estado#,
+      #UsuRegistro#,
+      #FecRegistro#,
+      #FlActivo#)
+    </insert>
+  </statements>
+</sqlMap>

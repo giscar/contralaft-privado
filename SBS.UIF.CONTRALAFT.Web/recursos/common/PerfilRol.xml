@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<sqlMap namespace="PerfilRolMap" xmlns="http://ibatis.apache.org/mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+  <alias>
+    <typeAlias alias="PerfilRol" type="SBS.UIF.CONTRALAFT.Entity.Common.PerfilRol,SBS.UIF.CONTRALAFT.Entity" />
+  </alias>
+  <resultMaps>
+    <resultMap id="rm_perfilRol" class="PerfilRol">
+      <result property="CodPerfil" column="N_COD_PERFIL"></result>
+      <result property="CodRol" column="N_COD_ROL"></result>
+      <result property="FlActivo" column="N_FL_ACTIVO"></result>
+    </resultMap>
+  </resultMaps>
+  <statements>
+    
+    <insert id="insert_perfilRol">
+      INSERT INTO PERFILROL (
+      N_COD_PERFIL,
+      N_COD_ROL,
+      N_FL_ACTIVO)
+      VALUES
+      (#CodPerfil#,
+      #CodRol#,
+      #FlActivo#)
+    </insert>
+        
+    <select id="list_perfil_rol_all" resultMap="rm_perfilRol" >
+      SELECT * FROM PERFILROL WHERE N_COD_PERFIL = #CodPerfil# AND N_COD_ROL = #CodRol#
+    </select> 
+        
+    <update id="update_perfil_rol">
+            UPDATE PERFILROL SET 
+            N_FL_ACTIVO = #FlActivo#
+            WHERE N_COD_PERFIL = #CodPerfil# AND N_COD_ROL = #CodRol# 
+    </update>    
+        
+        
+  </statements>
+</sqlMap>
