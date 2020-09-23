@@ -33,7 +33,6 @@
       C_NUM_CODIGO,
       C_DES_NOMBRE,
       C_DES_DESCRIPCION,
-      C_COD_ESTADO,
       N_FL_ACTIVO,
       D_FEC_REGISTRO,
       C_USU_REGISTRO
@@ -42,9 +41,8 @@
       (#Codigo#,
       #Nombre#,
       #Descripcion#,
-      #Estado#,
       #FlActivo#,
-      #FecModificacion#,
+      #FecRegistro#,
       #UsuRegistro#)
     </insert>
     
@@ -55,7 +53,7 @@
       C_DES_DESCRIPCION = #Descripcion#,
       C_USU_MODIFICACION = #UsuModificacion#,
       D_FEC_MODIFICACION = #FecModificacion#
-      WHERE N_ID_ACCION = #Id#
+      WHERE N_COD_ACCION = #Id#
     </update>
         
     <update id="inactive_accion">
@@ -63,7 +61,7 @@
         N_FL_ACTIVO = #FlActivo#,
         C_USU_MODIFICACION = #UsuModificacion#,
         D_FEC_MODIFICACION = #FecModificacion#
-        WHERE N_COD_PLAN = #Id#
+        WHERE N_COD_ACCION = #Id#
     </update>
   </statements>
 </sqlMap>

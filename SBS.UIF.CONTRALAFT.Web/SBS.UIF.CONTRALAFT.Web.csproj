@@ -1155,6 +1155,7 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="js\pages\administrarPlan.js" />
+    <Content Include="js\pages\listadoAcciones.js" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="comun\PaginaBase.cs">

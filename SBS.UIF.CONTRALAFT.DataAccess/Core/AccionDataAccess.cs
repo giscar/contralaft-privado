@@ -31,12 +31,8 @@ namespace SBS.UIF.CONTRALAFT.DataAccess.Core
 
         public void InactivarAccion(Accion _accion)
         {
-            MapperPro.Instance().Update("inactive_plan", _accion);
+            MapperPro.Instance().Update("inactive_accion", _accion);
         }
 
-        public void EstadoPlan(Plan _plan)
-        {
-            MapperPro.Instance().Update("inactive_accion", _plan);
-        }
     }
 }

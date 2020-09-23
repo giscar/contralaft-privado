@@ -110,14 +110,15 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
                 {
                     Id = (int)ViewState["idAccion"],
                     Codigo = txtEditarCodigoAccion.Value,
-                    Nombre = UsuarioSession().DetCodigo,
+                    Nombre = txtEditarAccion.Value,
+                    Descripcion = txtEditarDescripcion.Value,
                     FecModificacion = DateTime.Now,
                     UsuModificacion = UsuarioSession().DetCodigo,
                 };
                 _accionBusinessLogic.ActualizarAccion(_accion);
                 Limpiar();
                 CargarLista();
-                ClientMessageBox.Show("Se modificó el perfil seleccionado", this);
+                ClientMessageBox.Show("Se modificó la acción seleccionada", this);
             }
             catch (Exception ex)
             {
@@ -132,7 +133,7 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
             txtDescripcion.Value = "";
         }
 
-        protected void gridAccion_RowCommand(object sender, GridViewCommandEventArgs e)
+        protected void GridAccion_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             ViewState["idAccion"] = int.Parse(e.CommandArgument.ToString());
 
@@ -140,21 +141,22 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
             {
                 Accion accionActualizada = _accionBusinessLogic.BuscarAccionForID((int)ViewState["idAccion"]);
                 txtEditarCodigoAccion.Value = accionActualizada.Codigo;
+                txtEditarAccion.Value = accionActualizada.Nombre;
                 txtEditarDescripcion.Value = accionActualizada.Descripcion;
                 System.Text.StringBuilder sb = new System.Text.StringBuilder();
                 sb.Append(@"<script type='text/javascript'>");
-                sb.Append("$(document).ready(function() {$('#editarPerfil').modal('show');});");
+                sb.Append("$(document).ready(function() {$('#editar').modal('show');});");
                 sb.Append(@"</script>");
-                System.Web.UI.ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "editarPerfil", sb.ToString(), false);
+                System.Web.UI.ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "editar", sb.ToString(), false);
             }
 
-            if (e.CommandName == "eliminarPerfil")
+            if (e.CommandName == "inactivar")
             {
                 System.Text.StringBuilder sb = new System.Text.StringBuilder();
                 sb.Append(@"<script type='text/javascript'>");
-                sb.Append("$(document).ready(function() {$('#inactivacion').modal('show');});");
+                sb.Append("$(document).ready(function() {$('#inactivar').modal('show');});");
                 sb.Append(@"</script>");
-                System.Web.UI.ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "inactivacion", sb.ToString(), false);
+                System.Web.UI.ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "inactivar", sb.ToString(), false);
             }
         }
     }

@@ -2,13 +2,22 @@
 
     $('#idConfirmacion').click(function () {
         console.log(1);
-        if ($('.txtNombrePlan').val().trim() === '') {
-            $('.txtNombrePlan').addClass('form-control-danger');
-            $('.txtNombrePlanLabel').addClass('text-danger').removeClass('text-muted');
+        if ($('.txtCodigoAccion').val().trim() === '') {
+            $('.txtCodigoAccion').addClass('form-control-danger');
+            $('.txtCodigoAccionLabel').addClass('text-danger').removeClass('text-muted');
             return false;
         } else {
-            $('.txtNombrePlan').removeClass('form-control-danger');
-            $('.txtNombrePlanLabel').removeClass('text-danger').addClass('text-muted');
+            $('.txtCodigoAccion').removeClass('form-control-danger');
+            $('.txtCodigoAccionLabel').removeClass('text-danger').addClass('text-muted');
+        }
+
+        if ($('.txtAccion').val().trim() === '') {
+            $('.txtAccion').addClass('form-control-danger');
+            $('.txtAccionLabel').addClass('text-danger').removeClass('text-muted');
+            return false;
+        } else {
+            $('.txtAccion').removeClass('form-control-danger');
+            $('.txtAccionLabel').removeClass('text-danger').addClass('text-muted');
         }
 
         if ($('.txtDescripcion').val().trim() === '') {

@@ -2,34 +2,39 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cphBody" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-    <h2>Acciones de la versión del Plan vigente</h2>
+    <h3 class="mr-auto">Acciones de la versión del Plan vigente</h3>
+    <br/>
     <div class="form-group">
-        <label for="txtNombre">Número</label>
+        <label>Número</label>
         <input type="text" class="form-control soloLetras txtCodigoAccion" id="txtCodigoAccion" runat="server" autocomplete="off" maxlength="80" placeholder="Ingrese el número de la Acción" style="width: 50%"/>
         <small class="form-text text-muted txtCodigoAccionLabel">Ingrese el código de la Acción</small>
     </div>
     <div class="form-group">
-        <label for="txtContra">Acción</label>
+        <label>Acción</label>
         <textarea class="form-control txtAccion" id="txtAccion" runat="server" autocomplete="off" maxlength="800" placeholder="Ingrese la Acción"></textarea>
         <small class="form-text text-muted txtAccionLabel">Ingrese la acción</small>
     </div>
     <div class="form-group">
-        <label for="txtContra">Descripción</label>
+        <label>Descripción</label>
         <textarea class="form-control txtDescripcion" id="txtDescripcion" runat="server" autocomplete="off" maxlength="800" placeholder="Ingrese descripción"></textarea>
         <small class="form-text text-muted txtDescripcionLabel">Ingrese la descripción de la acción</small>
     </div>
     <div class="form-group">
         <a class="btn btn-primary btn-sm" id="idConfirmacion" data-toggle="modal" style="color: white">Crear Acción<i class="mdi mdi-play-circle ml-1"></i></a> 
     </div>
-
-
-
-    <asp:GridView ID="GridView1" runat="server" AllowPaging="true" Class="table table-hover table-bordered" PageSize="10" AutoGenerateColumns="false">
+    
+    <asp:GridView ID="GridView1" runat="server" AllowPaging="true" OnPageIndexChanging="GridView1_PageIndexChanging" OnRowCommand="GridAccion_RowCommand" Class="table table-hover table-striped table-bordered" PageSize="10" AutoGenerateColumns="false">
         <Columns>
             <asp:BoundField ItemStyle-Width="10%" DataField="Codigo" HeaderText="Codigo" />
             <asp:BoundField ItemStyle-Width="20%" DataField="Nombre" HeaderText="Acción" />
             <asp:BoundField ItemStyle-Width="60%" DataField="Descripcion" HeaderText="Descripcion" />
-            <asp:BoundField ItemStyle-Width="10%" DataField="Estado" HeaderText="Estado" />
+            <asp:TemplateField ShowHeader="false">
+                <ItemTemplate>
+                    <asp:LinkButton runat="server" CssClass="btn btn-success" CommandArgument='<%# Eval("Id") %>' CommandName="editar" >Editar</asp:LinkButton>
+                    <asp:LinkButton runat="server" CssClass="btn btn-danger" CommandArgument='<%# Eval("Id") %>' CommandName="inactivar" >Eliminar</asp:LinkButton> 
+                    <asp:LinkButton runat="server" CssClass="btn btn-primary" CommandArgument='<%# Eval("Id") %>' CommandName="agregar" >Agregar Indicador</asp:LinkButton>
+                </ItemTemplate>
+            </asp:TemplateField>
         </Columns>
     </asp:GridView>
     
@@ -46,7 +51,7 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="recipient-name" class="col-form-label">Codigo:</label>
-                        <input type="text" class="form-control txtEditarCodigoAccion" Id="txtEditarCodigoAccion" readonly="true" runat="server" autocomplete="off" maxlength="80" placeholder="Ingrese perfil">
+                        <input type="text" class="form-control txtEditarCodigoAccion" Id="txtEditarCodigoAccion" runat="server" autocomplete="off" maxlength="80" placeholder="Ingrese perfil">
                     </div>
                     <div class="form-group">
                         <label for="txtContra">Acción</label>
@@ -87,7 +92,7 @@
         </div>
     </div>
     <!-- modal inactivar -->
-    <div class="modal fade" id="inactivacion" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal fade" id="inactivar" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-sm" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -106,5 +111,5 @@
             </div>
         </div>
     </div>
-
+    <script src="/js/pages/listadoAcciones.js"></script>
     </asp:Content>
