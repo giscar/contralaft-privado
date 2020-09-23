@@ -5,10 +5,10 @@
   </alias>
   <resultMaps>
     <resultMap id="rm_indicador" class="Indicador">
-      <result property="Id" column="N_ID_INDICADOR"></result>
+      <result property="Id" column="N_COD_INDICADOR"></result>
       <result property="IdAccion" column="N_ID_ACCION"></result>
+      <result property="Nombre" column="C_DES_NOMBRE"></result>
       <result property="Detalle" column="C_DES_DETALLE"></result>
-      <result property="Estado" column="N_COD_ESTADO"></result>
       <result property="UsuRegistro" column="C_USU_REGISTRO"></result>
       <result property="FecRegistro" column="D_FEC_REGISTRO"></result>
       <result property="FlActivo" column="N_FL_ACTIVO"></result>
@@ -18,26 +18,48 @@
   </resultMaps>
 
   <statements>
-    <select id="select_indicador" resultMap="rm_indicador" >
+   
+    <select id="select_indicador_id" resultMap="rm_indicador" parameterClass="int">
+      SELECT * FROM INDICADOR WHERE N_FL_ACTIVO = 1 AND N_COD_INDICADOR = #Id#
+    </select>
+        
+    <select id="select_indicador_accion" resultMap="rm_accion"  parameterClass="int">
       SELECT * FROM INDICADOR WHERE N_FL_ACTIVO = 1 AND N_ID_ACCION = #Id#
     </select>
 
     <insert id="insert_indicador">
       INSERT INTO INDICADOR (
       N_ID_ACCION,
+      C_DES_NOMBRE,
       C_DES_DETALLE,
-      N_COD_ESTADO,
       C_USU_REGISTRO,
       D_FEC_REGISTRO,
       N_FL_ACTIVO)
       VALUES
       (#IdAccion#,
+      #Nombre#,
       #Detalle#,
-      #Estado#,
       #UsuRegistro#,
       #FecRegistro#,
       #FlActivo#)
     </insert>
+        
+    <update id="update_indicador">
+      UPDATE INDICADOR SET
+      C_DES_DETALLE = #Detalle#,
+      C_DES_NOMBRE = #Nombre#,
+      C_USU_MODIFICACION = #UsuModificacion#,
+      D_FEC_MODIFICACION = #FecModificacion#
+      WHERE N_COD_INDICADOR = #Id#
+    </update>
+        
+    <update id="inactive_indicador">
+        UPDATE INDICADOR SET 
+        N_FL_ACTIVO = #FlActivo#,
+        C_USU_MODIFICACION = #UsuModificacion#,
+        D_FEC_MODIFICACION = #FecModificacion#
+        WHERE N_COD_INDICADOR = #Id#
+    </update>
         
   </statements>
 </sqlMap>

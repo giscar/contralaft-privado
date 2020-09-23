@@ -119,7 +119,6 @@
     <Content Include="images\sprites\red.png" />
     <Content Include="images\sprites\yellow.png" />
     <Content Include="pages\editarAccion.aspx" />
-    <Content Include="pages\inicializarEntidad.aspx" />
     <Content Include="pages\listadoAcciones.aspx" />
     <Content Include="pages\login.aspx" />
     <Content Include="pages\perfil.aspx" />
@@ -1170,13 +1169,6 @@
     </Compile>
     <Compile Include="pages\editarAccion.aspx.designer.cs">
       <DependentUpon>editarAccion.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="pages\inicializarEntidad.aspx.cs">
-      <DependentUpon>inicializarEntidad.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="pages\inicializarEntidad.aspx.designer.cs">
-      <DependentUpon>inicializarEntidad.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\listadoAcciones.aspx.cs">
       <DependentUpon>listadoAcciones.aspx</DependentUpon>

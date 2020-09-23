@@ -5,7 +5,7 @@
     
     <div class="row">
         <div class="col-md-6">
-            <h5 class="card-title mb-4">Listado de usuarios activos</h5>
+            <h5 class="card-title mb-4">usuarios activos</h5>
         </div>
         <div class="col-md-6">
             <asp:Button class="btn btn-primary" ID="btnNuevoUsuario" runat="server" Text="Crear usuario" OnClick="Modal_nuevo_usuario" />

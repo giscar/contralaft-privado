@@ -16,14 +16,29 @@ namespace SBS.UIF.CONTRALAFT.BusinessLogic.Core
             _indicadorDataAccess = new IndicadorDataAccess();
         }
 
-        public List<Indicador> listarPorIndicador()
+        public List<Indicador> ListarIndicadorForId(int idIndicador)
         {
-            return (_indicadorDataAccess.listarPorIndicador());
+            return _indicadorDataAccess.ListarIndicadorForId(idIndicador);
         }
 
-        public void guardarIndicador(Indicador _indicador)
+        public List<Indicador> ListarIndicadorForAccion(int idAccion)
         {
-            _indicadorDataAccess.guardarIndicador(_indicador);
+            return _indicadorDataAccess.ListarIndicadorForAccion(idAccion);
+        }
+
+        public void GuardarIndicador(Indicador _indicador)
+        {
+            _indicadorDataAccess.GuardarIndicador(_indicador);
+        }
+
+        public void ActualizarIndicador(Accion _accion)
+        {
+            _indicadorDataAccess.ActualizarIndicador(_accion);
+        }
+
+        public void InactivarAccion(Accion _accion)
+        {
+            _indicadorDataAccess.InactivarAccion(_accion);
         }
 
     }
