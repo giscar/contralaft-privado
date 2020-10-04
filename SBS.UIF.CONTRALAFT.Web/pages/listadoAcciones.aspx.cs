@@ -109,7 +109,7 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
                 Accion _accion = new Accion
                 {
                     Id = (int)ViewState["idAccion"],
-                    Codigo = txtEditarCodigoAccion.Value,
+                    Codigo = txtEditarCodigo.Value,
                     Nombre = txtEditarAccion.Value,
                     Descripcion = txtEditarDescripcion.Value,
                     FecModificacion = DateTime.Now,
@@ -140,7 +140,7 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
             if (e.CommandName == "editar")
             {
                 Accion accionActualizada = _accionBusinessLogic.BuscarAccionForID((int)ViewState["idAccion"]);
-                txtEditarCodigoAccion.Value = accionActualizada.Codigo;
+                txtEditarCodigo.Value = accionActualizada.Codigo;
                 txtEditarAccion.Value = accionActualizada.Nombre;
                 txtEditarDescripcion.Value = accionActualizada.Descripcion;
                 System.Text.StringBuilder sb = new System.Text.StringBuilder();

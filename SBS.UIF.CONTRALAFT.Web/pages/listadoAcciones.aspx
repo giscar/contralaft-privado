@@ -50,7 +50,7 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="recipient-name" class="col-form-label">Codigo:</label>
-                        <input type="text" class="form-control txtEditarCodigoAccion" Id="txtEditarCodigoAccion" runat="server" autocomplete="off" maxlength="80" placeholder="Ingrese perfil">
+                        <input type="text" class="form-control txtEditarCodigo" Id="txtEditarCodigo" runat="server" autocomplete="off" maxlength="80" placeholder="Ingrese perfil">
                     </div>
                     <div class="form-group">
                         <label for="txtContra">Acción</label>
@@ -83,21 +83,21 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="recipient-name" class="col-form-label">Codigo:</label>
-                        <input type="text" class="form-control txtEditarCodigoAccion" Id="txtEditarCodigoAccion" runat="server" autocomplete="off" maxlength="80" placeholder="Ingrese perfil">
+                        <input type="text" class="form-control" runat="server" autocomplete="off" maxlength="80" placeholder="Ingrese ">
                     </div>
                     <div class="form-group">
                         <label for="txtContra">Acción</label>
-                        <textarea class="form-control txtEditarAccion" id="txtEditarAccion" runat="server" autocomplete="off" maxlength="800" placeholder="Ingrese la Acción"></textarea>
+                        <textarea class="form-control" runat="server" autocomplete="off" maxlength="800" placeholder="Ingrese la Acción"></textarea>
                         <small class="form-text text-muted txtEditarAccionLabel">Ingrese la acción</small>
                     </div>
                     <div class="form-group">
                         <label for="message-text" class="col-form-label">Descripción:</label>
-                        <textarea class="form-control txtEditarDescripcion" Id="txtEditarDescripcion" rows="8" runat="server" autocomplete="off" maxlength="800" placeholder="Ingrese descripción"></textarea>
+                        <textarea class="form-control txtEditarDescripcion" rows="8" runat="server" autocomplete="off" maxlength="800" placeholder="Ingrese descripción"></textarea>
                         <small class="form-text text-muted txtEditarDescripcionLabel">Ingrese el nuevo perfil</small>
                     </div>  
                 </div>
                 <div class="modal-footer">
-                    <asp:Button class="btn btn-success" ID="btnSeleccionar" runat="server" Text="Modificar Perfil" OnClientClick="return validaEditarAccionClient()" OnClick="Submit_edit" />
+                    <asp:Button class="btn btn-success" ID="btnSeleccionarIndicador" runat="server" Text="Modificar Perfil" OnClientClick="return validaEditarAccionClient()" OnClick="Submit_edit" />
                     <button type="button" class="btn btn-light" data-dismiss="modal">Cerrar</button>
                 </div>
             </div>

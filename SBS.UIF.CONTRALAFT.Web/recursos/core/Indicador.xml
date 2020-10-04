@@ -23,7 +23,7 @@
       SELECT * FROM INDICADOR WHERE N_FL_ACTIVO = 1 AND N_COD_INDICADOR = #Id#
     </select>
         
-    <select id="select_indicador_accion" resultMap="rm_accion"  parameterClass="int">
+    <select id="select_indicador_accion" resultMap="rm_indicador"  parameterClass="int">
       SELECT * FROM INDICADOR WHERE N_FL_ACTIVO = 1 AND N_ID_ACCION = #Id#
     </select>
 
