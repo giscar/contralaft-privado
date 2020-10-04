@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Web.UI;
 
-namespace SBS.UIF.BUZ.Web.util
+namespace SBS.UIF.CONTRALAFT.Web.util
 {
     public class ClientMessageBox
     {

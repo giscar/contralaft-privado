@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SBS.UIF.CONTRALAFT.BusinessLogic</RootNamespace>
     <AssemblyName>SBS.UIF.CONTRALAFT.BusinessLogic</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -94,15 +94,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Core\PlanBusinessLogic.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="..\SBS.UIF.CONTRALAFT.Entity\SBS.UIF.CONTRALAFT.Entity.csproj">
-      <Project>{CF2D6DF6-C1F7-4DD7-B023-B1A55B5D3BE3}</Project>
-      <Name>SBS.UIF.CONTRALAFT.Entity</Name>
-    </ProjectReference>
     <ProjectReference Include="..\SBS.UIF.CONTRALAFT.DataAccess\SBS.UIF.CONTRALAFT.DataAccess.csproj">
-      <Project>{F7875E67-05B8-4203-B013-E24EE599851B}</Project>
+      <Project>{f7875e67-05b8-4203-b013-e24ee599851b}</Project>
       <Name>SBS.UIF.CONTRALAFT.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SBS.UIF.CONTRALAFT.Entity\SBS.UIF.CONTRALAFT.Entity.csproj">
+      <Project>{cf2d6df6-c1f7-4dd7-b023-b1a55b5d3be3}</Project>
+      <Name>SBS.UIF.CONTRALAFT.Entity</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

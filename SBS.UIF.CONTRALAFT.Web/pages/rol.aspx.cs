@@ -8,7 +8,6 @@ using NLog;
 using SBS.UIF.CONTRALAFT.BusinessLogic.Common;
 using SBS.UIF.CONTRALAFT.Entity.Common;
 using SBS.UIF.CONTRALAFT.Web.util;
-using SBS.UIF.BUZ.Web.util;
 using System.Data;
 
 namespace SBS.UIF.CONTRALAFT.Web.pages
