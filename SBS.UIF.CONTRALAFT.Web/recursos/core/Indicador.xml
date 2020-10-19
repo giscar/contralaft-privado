@@ -6,30 +6,36 @@
   <resultMaps>
     <resultMap id="rm_indicador" class="Indicador">
       <result property="Id" column="N_COD_INDICADOR"></result>
-      <result property="IdAccion" column="N_ID_ACCION"></result>
+      <result property="IdAccion" column="N_COD_ACCION"></result>
       <result property="Nombre" column="C_DES_NOMBRE"></result>
       <result property="Detalle" column="C_DES_DETALLE"></result>
       <result property="UsuRegistro" column="C_USU_REGISTRO"></result>
       <result property="FecRegistro" column="D_FEC_REGISTRO"></result>
+      <result property="UsuModificacion" column="C_USU_MODIFICACION"></result>
+      <result property="FecModificacion" column="D_FECHA_MODIFICACION"></result>
       <result property="FlActivo" column="N_FL_ACTIVO"></result>
       
     </resultMap>
-
+  
   </resultMaps>
 
   <statements>
    
     <select id="select_indicador_id" resultMap="rm_indicador" parameterClass="int">
-      SELECT * FROM INDICADOR WHERE N_FL_ACTIVO = 1 AND N_COD_INDICADOR = #Id#
+      SELECT * FROM PRIVADO.INDICADOR WHERE N_FL_ACTIVO = 1 AND N_COD_INDICADOR = #Id#
     </select>
         
     <select id="select_indicador_accion" resultMap="rm_indicador"  parameterClass="int">
-      SELECT * FROM INDICADOR WHERE N_FL_ACTIVO = 1 AND N_ID_ACCION = #Id#
+      SELECT * FROM PRIVADO.INDICADOR WHERE N_FL_ACTIVO = 1 AND N_COD_ACCION = #Id#
+    </select>
+        
+    <select id="select_indicador_all" resultMap="rm_indicador">
+      SELECT * FROM PRIVADO.INDICADOR WHERE N_FL_ACTIVO = 1
     </select>
 
     <insert id="insert_indicador">
-      INSERT INTO INDICADOR (
-      N_ID_ACCION,
+      INSERT INTO PRIVADO.INDICADOR (
+      N_COD_ACCION,
       C_DES_NOMBRE,
       C_DES_DETALLE,
       C_USU_REGISTRO,
@@ -42,10 +48,13 @@
       #UsuRegistro#,
       #FecRegistro#,
       #FlActivo#)
+      <selectKey property="IdAccion" type="post" resultClass="int">
+        SELECT MAX(N_COD_INDICADOR) FROM PRIVADO.INDICADOR
+      </selectKey>
     </insert>
         
     <update id="update_indicador">
-      UPDATE INDICADOR SET
+      UPDATE PRIVADO.INDICADOR SET
       C_DES_DETALLE = #Detalle#,
       C_DES_NOMBRE = #Nombre#,
       C_USU_MODIFICACION = #UsuModificacion#,
@@ -54,7 +63,7 @@
     </update>
         
     <update id="inactive_indicador">
-        UPDATE INDICADOR SET 
+        UPDATE PRIVADO.INDICADOR SET 
         N_FL_ACTIVO = #FlActivo#,
         C_USU_MODIFICACION = #UsuModificacion#,
         D_FEC_MODIFICACION = #FecModificacion#

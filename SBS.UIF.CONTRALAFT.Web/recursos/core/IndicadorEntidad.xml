@@ -5,8 +5,8 @@
   </alias>
   <resultMaps>
     <resultMap id="rm_indicadorEntidad" class="IndicadorEntidad">
-      <result property="IdIndicador" column="N_ID_INDICADOR"></result>
-      <result property="IdEntidad" column="N_ID_ENTIDAD"></result>
+      <result property="IdIndicador" column="N_COD_INDICADOR"></result>
+      <result property="IdEntidad" column="N_COD_ENTIDAD"></result>
       <result property="Estado" column="N_COD_ESTADO"></result>
       <result property="FlActivo" column="N_FL_ACTIVO"></result>
       
@@ -15,13 +15,13 @@
 
   <statements>
     <select id="select_indicadorEntidad" resultMap="rm_indicadorEntidad" >
-      SELECT * FROM INDICADORENTIDAD WHERE N_FL_ACTIVO = 1
+      SELECT * FROM PRIVADO.INDICADORENTIDAD WHERE N_FL_ACTIVO = 1
     </select>
 
     <insert id="insert_indicadorEntidad">
-      INSERT INTO INDICADORENTIDAD (
-      N_ID_INDICADOR,
-      N_ID_ENTIDAD,
+      INSERT INTO PRIVADO.INDICADORENTIDAD (
+      N_COD_INDICADOR,
+      N_COD_ENTIDAD,
       N_COD_ESTADO,
       N_FL_ACTIVO)
       VALUES

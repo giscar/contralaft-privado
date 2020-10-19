@@ -1,74 +1,90 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
-<sqlMap namespace="IndicadorMap" xmlns="http://ibatis.apache.org/mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+<sqlMap namespace="PlanMap" xmlns="http://ibatis.apache.org/mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
   <alias>
-    <typeAlias alias="Indicador" type="SBS.UIF.CONTRALAFT.Entity.Core.Indicador,SBS.UIF.CONTRALAFT.Entity" />
+    <typeAlias alias="Plan" type="SBS.UIF.CONTRALAFT.Entity.Core.Plan,SBS.UIF.CONTRALAFT.Entity" />
   </alias>
   <resultMaps>
-    <resultMap id="rm_indicador" class="Indicador">
-      <result property="Id" column="N_COD_INDICADOR"></result>
-      <result property="IdAccion" column="N_COD_ACCION"></result>
-      <result property="Nombre" column="C_DES_NOMBRE"></result>
-      <result property="Detalle" column="C_DES_DETALLE"></result>
-      <result property="UsuRegistro" column="C_USU_REGISTRO"></result>
-      <result property="FecRegistro" column="D_FEC_REGISTRO"></result>
-      <result property="UsuModificacion" column="C_USU_MODIFICACION"></result>
-      <result property="FecModificacion" column="D_FECHA_MODIFICACION"></result>
+    <resultMap id="rm_plan" class="Plan">
+      <result property="Id" column="N_COD_PLAN"></result>
+      <result property="Nombre" column="C_NOM_PLAN"></result>
+      <result property="Descripcion" column="C_DES_DETALLE"></result>
+      <result property="Version" column="N_COD_VERSION"></result>
+      <result property="Estado" column="N_COD_ESTADO"></result>
       <result property="FlActivo" column="N_FL_ACTIVO"></result>
-      
+      <result property="FecRegistro" column="D_FEC_REGISTRO"></result>
+      <result property="UsuRegistro" column="C_USU_REGISTRO"></result>
+      <result property="FecModificacion" column="D_FEC_MODIFICACION"></result>
+      <result property="UsuModificacion" column="C_USU_MODIFICACION"></result>
+            
     </resultMap>
-  
+        
   </resultMaps>
 
   <statements>
-   
-    <select id="select_indicador_id" resultMap="rm_indicador" parameterClass="int">
-      SELECT * FROM PRIVADO.INDICADOR WHERE N_FL_ACTIVO = 1 AND N_COD_INDICADOR = #Id#
-    </select>
-        
-    <select id="select_indicador_accion" resultMap="rm_indicador"  parameterClass="int">
-      SELECT * FROM PRIVADO.INDICADOR WHERE N_FL_ACTIVO = 1 AND N_COD_ACCION = #Id#
-    </select>
-        
-    <select id="select_indicador_all" resultMap="rm_indicador">
-      SELECT * FROM PRIVADO.INDICADOR WHERE N_FL_ACTIVO = 1
-    </select>
 
-    <insert id="insert_indicador">
-      INSERT INTO PRIVADO.INDICADOR (
-      N_COD_ACCION,
-      C_DES_NOMBRE,
+    <insert id="insert_plan">
+      INSERT INTO PRIVADO.PLANCONTRALAFT (
+      C_NOM_PLAN,
       C_DES_DETALLE,
+      N_COD_VERSION,
+      N_COD_ESTADO,
+      N_FL_ACTIVO,
       C_USU_REGISTRO,
-      D_FEC_REGISTRO,
-      N_FL_ACTIVO)
+      D_FEC_REGISTRO    
+      )
       VALUES
-      (#IdAccion#,
-      #Nombre#,
-      #Detalle#,
+      (#Nombre#,
+      #Descripcion#,
+      #Version#,
+      #Estado#,
+      #FlActivo#,      
       #UsuRegistro#,
-      #FecRegistro#,
-      #FlActivo#)
-      <selectKey property="IdAccion" type="post" resultClass="int">
-        SELECT MAX(N_COD_INDICADOR) FROM PRIVADO.INDICADOR
-      </selectKey>
+      #FecRegistro#
+      )
     </insert>
         
-    <update id="update_indicador">
-      UPDATE PRIVADO.INDICADOR SET
-      C_DES_DETALLE = #Detalle#,
-      C_DES_NOMBRE = #Nombre#,
-      C_USU_MODIFICACION = #UsuModificacion#,
-      D_FEC_MODIFICACION = #FecModificacion#
-      WHERE N_COD_INDICADOR = #Id#
-    </update>
+    <update id="update_plan">
+            UPDATE PRIVADO.PLANCONTRALAFT SET 
+            C_NOM_PLAN = #Nombre#,
+            C_DES_DETALLE = #Descripcion#,
+            C_USU_MODIFICACION = #UsuModificacion#,
+            D_FEC_MODIFICACION = #FecModificacion#
+            WHERE N_COD_PLAN = #Id#
+        </update>
         
-    <update id="inactive_indicador">
-        UPDATE PRIVADO.INDICADOR SET 
-        N_FL_ACTIVO = #FlActivo#,
-        C_USU_MODIFICACION = #UsuModificacion#,
-        D_FEC_MODIFICACION = #FecModificacion#
-        WHERE N_COD_INDICADOR = #Id#
-    </update>
+        <update id="estado_plan">
+            UPDATE PRIVADO.PLANCONTRALAFT SET 
+            N_COD_ESTADO = #Estado#,
+            N_COD_VERSION = #Version#,
+            C_USU_MODIFICACION = #UsuModificacion#,
+            D_FEC_MODIFICACION = #FecModificacion#
+            WHERE N_COD_PLAN = #Id#
+        </update>
         
+        <update id="inactive_plan">
+            UPDATE PRIVADO.PLANCONTRALAFT SET 
+            N_FL_ACTIVO = #FlActivo#,
+            C_USU_MODIFICACION = #UsuModificacion#,
+            D_FEC_MODIFICACION = #FecModificacion#
+            WHERE N_COD_PLAN = #Id#
+        </update>
+
+
+    <select id="select_plan" resultMap="rm_plan"  parameterClass="int">
+      SELECT * FROM PRIVADO.PLANCONTRALAFT WHERE N_COD_PLAN = #value#
+    </select>
+
+    <select id="select_planes" resultMap="rm_plan">
+      SELECT * FROM PRIVADO.PLANCONTRALAFT WHERE N_FL_ACTIVO = 1
+    </select>
+    
+    <select id="select_version" resultClass="int">
+        SELECT MAX(N_COD_ESTADO) + 1 FROM PRIVADO.PLANCONTRALAFT WHERE N_FL_ACTIVO = 1
+    </select>
+        
+    <select id="select_plan_publicado" resultMap="rm_plan">
+      SELECT * FROM PRIVADO.PLANCONTRALAFT WHERE N_FL_ACTIVO = 1 AND N_COD_ESTADO = 1 
+    </select>
+
   </statements>
 </sqlMap>

@@ -1154,6 +1154,7 @@
     <Content Include="js\pages\administrarPlan.js" />
     <Content Include="js\pages\listadoAcciones.js" />
     <Content Include="pages\listadoIndicadoresEntidad.aspx" />
+    <Content Include="pages\listadoIndicadores.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="comun\PaginaBase.cs">
@@ -1222,6 +1223,13 @@
     </Compile>
     <Compile Include="pages\listadoIndicadoresEntidad.designer.cs">
       <DependentUpon>listadoIndicadoresEntidad.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\listadoIndicadores.aspx.cs">
+      <DependentUpon>listadoIndicadores.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\listadoIndicadores.aspx.designer.cs">
+      <DependentUpon>listadoIndicadores.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
