@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<sqlMap namespace="PlanMap" xmlns="http://ibatis.apache.org/mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+  <alias>
+    <typeAlias alias="Meta" type="SBS.UIF.CONTRALAFT.Entity.Core.Meta,SBS.UIF.CONTRALAFT.Entity" />
+  </alias>
+  <resultMaps>
+    <resultMap id="rm_meta" class="Meta">
+      <result property="Id" column="N_COD_META"></result>
+      <result property="IdIndicador" column="N_COD_INDICADOR"></result>
+      <result property="IdEntidad" column="N_COD_ENTIDAD"></result>
+      <result property="NumeroBase" column="N_NUM_BASE"></result>
+      <result property="MedioVerificacion" column="C_MED_VERIFICACION"></result>
+      <result property="Descripcion" column="C_DET_DESCRIPCION"></result>
+      <result property="CodigoDocumento" column="C_COD_DOCUMENTO"></result>
+      <result property="Anio" column="C_COD_ANIO"></result>
+      <result property="FlActivo" column="N_FL_ACTIVO"></result>
+      <result property="Estado" column="N_COD_ESTADO"></result>
+      <result property="Version" column="N_COD_VERSION"></result>
+      <result property="UsuRegistro" column="C_USU_REGISTRO"></result>
+      <result property="FecRegistro" column="D_FEC_REGISTRO"></result>
+      <result property="UsuModificacion" column="C_USU_MODIFICACION"></result>
+      <result property="FecModificacion" column="D_FEC_MODIFICACION"></result>
+            
+    </resultMap>
+       
+  </resultMaps>
+
+  <statements>
+
+    <insert id="insert_meta">
+      INSERT INTO PRIVADO.META (
+      N_COD_INDICADOR,
+      N_COD_ENTIDAD,
+      N_NUM_BASE,
+      C_MED_VERIFICACION,
+      C_DET_DESCRIPCION,
+      C_COD_DOCUMENTO,
+      C_COD_ANIO,
+      N_FL_ACTIVO,
+      N_COD_ESTADO,      
+      N_COD_VERSION,
+      C_USU_REGISTRO,
+      D_FEC_REGISTRO
+      )
+      VALUES
+      (#IdIndicador#,
+      #IdEntidad#,
+      #NumeroBase#,
+      #MedioVerificacion#,
+      #Descripcion#,      
+      #Anio#,
+      #FlActivo#,
+      #Estado#,
+      #Version#,
+      #FlActivo#,
+      #UsuRegistro#,
+      #FecRegistro#
+      )
+    </insert>
+        
+    <select id="select_metas_entidad" resultMap="rm_meta" >
+      SELECT * FROM PRIVADO.META WHERE N_COD_ENTIDAD = #IdEntidad# AND N_COD_INDICADOR = #IdIndicador# 
+    </select>
+
+
+
+  </statements>
+</sqlMap>

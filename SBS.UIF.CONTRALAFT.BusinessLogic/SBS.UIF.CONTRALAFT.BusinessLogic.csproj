@@ -93,6 +93,7 @@
     <Compile Include="Core\UsuarioBusinessLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Core\PlanBusinessLogic.cs" />
+    <Compile Include="Core\MetaBusinessLogic.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SBS.UIF.CONTRALAFT.DataAccess\SBS.UIF.CONTRALAFT.DataAccess.csproj">

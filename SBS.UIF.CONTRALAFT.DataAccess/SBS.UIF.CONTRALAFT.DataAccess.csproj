@@ -112,6 +112,7 @@
     <Compile Include="Mapper\MapperPro.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Core\PlanDataAccess.cs" />
+    <Compile Include="Core\MetaDataAccess.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
