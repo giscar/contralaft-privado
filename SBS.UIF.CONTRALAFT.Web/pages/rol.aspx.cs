@@ -96,20 +96,22 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
                     DetUsuarioModificacion = UsuarioSession().DetCodigo,
                     FecModificacion = DateTime.Now
                 };
-                    _rolBusinessLogic.ActualizarRol(_rol);
+                _rolBusinessLogic.ActualizarRol(_rol);
 
-                foreach (ListItem item in ddlCodigoPerfilEdit.Items) { 
-                PerfilRol _perfilRol = new PerfilRol();
+                foreach (ListItem item in ddlCodigoPerfilEdit.Items)
+                {
+                    PerfilRol _perfilRol = new PerfilRol();
                     if (item.Selected)
                     {
                         _perfilRol.FlActivo = (int)Constantes.EstadoFlag.ACTIVO;
                     }
-                    else {
+                    else
+                    {
                         _perfilRol.FlActivo = (int)Constantes.EstadoFlag.INACTIVO;
                     }
-                _perfilRol.CodRol = _rol.IdTipo;
-                _perfilRol.CodPerfil = int.Parse(item.Value);
-                _perfilRolBusinessLogic.GuardarActualizarPerfilRol(_perfilRol);
+                    _perfilRol.CodRol = _rol.IdTipo;
+                    _perfilRol.CodPerfil = int.Parse(item.Value);
+                    _perfilRolBusinessLogic.GuardarActualizarPerfilRol(_perfilRol);
                 }
                 Limpiar();
                 CargarLista();
@@ -188,7 +190,7 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
                 Log.Error(ex);
             }
 
-            
+
         }
 
         private void CargarLista()
@@ -196,10 +198,11 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
             try
             {
                 listadoRoles = _rolBusinessLogic.ListarPorRol();
-                foreach (Rol item in listadoRoles) {
+                foreach (Rol item in listadoRoles)
+                {
                     item.ListaPerfiles = _perfillBusinessLogic.ListarPerfirForRol(item.IdTipo);
                 }
-                
+
                 GridView1.DataSource = listadoRoles;
                 GridView1.DataBind();
                 Limpiar();

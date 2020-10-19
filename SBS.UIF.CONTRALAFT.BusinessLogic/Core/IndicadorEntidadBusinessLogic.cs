@@ -12,7 +12,7 @@ namespace SBS.UIF.CONTRALAFT.BusinessLogic.Core
             _indicadorEntidadDataAccess = new IndicadorEntidadDataAccess();
         }
 
-        public void guardarIndicadorEntidad(IndicadorEntidad _indicadorEntidad)
+        public void GuardarIndicadorEntidad(IndicadorEntidad _indicadorEntidad)
         {
             _indicadorEntidadDataAccess.guardarIndicadorEntidad(_indicadorEntidad);
         }

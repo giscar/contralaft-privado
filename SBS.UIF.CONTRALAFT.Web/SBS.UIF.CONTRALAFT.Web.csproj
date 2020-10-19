@@ -32,7 +32,6 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
-    <AssemblyName>SBS.UIF.CONTRALAFT.Web</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -42,7 +41,6 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
-    <AssemblyName>SBS.UIF.CONTRALAFT.Web</AssemblyName>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="IBatisNet.Common, Version=1.6.2.0, Culture=neutral, PublicKeyToken=ed781d9fc396c6ca, processorArchitecture=MSIL">
@@ -94,15 +92,16 @@
       <HintPath>..\packages\Castle.Core.4.4.1\lib\net45\Castle.Core.dll</HintPath>
     </Reference>
     <Reference Include="NLog">
-      <HintPath>..\packages\NLog.4.7.4\lib\net45\NLog.dll</HintPath>
+      <HintPath>..\packages\NLog.4.7.5\lib\net45\NLog.dll</HintPath>
     </Reference>
     <Reference Include="System.IO.Compression" />
     <Reference Include="System.Transactions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="log4net">
-      <HintPath>..\packages\log4net.2.0.10\lib\net45\log4net.dll</HintPath>
+      <HintPath>..\packages\log4net.2.0.11\lib\net45\log4net.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\style.css" />
@@ -118,7 +117,6 @@
     <Content Include="images\sprites\jsgrid-icons.png" />
     <Content Include="images\sprites\red.png" />
     <Content Include="images\sprites\yellow.png" />
-    <Content Include="pages\editarAccion.aspx" />
     <Content Include="pages\listadoAcciones.aspx" />
     <Content Include="pages\login.aspx" />
     <Content Include="pages\perfil.aspx" />
@@ -1155,6 +1153,7 @@
     </Content>
     <Content Include="js\pages\administrarPlan.js" />
     <Content Include="js\pages\listadoAcciones.js" />
+    <Content Include="pages\listadoIndicadoresEntidad.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="comun\PaginaBase.cs">
@@ -1162,13 +1161,6 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="pages\editarAccion.aspx.cs">
-      <DependentUpon>editarAccion.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="pages\editarAccion.aspx.designer.cs">
-      <DependentUpon>editarAccion.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\listadoAcciones.aspx.cs">
       <DependentUpon>listadoAcciones.aspx</DependentUpon>
@@ -1223,6 +1215,13 @@
     </Compile>
     <Compile Include="pages\administrarPlan.aspx.designer.cs">
       <DependentUpon>administrarPlan.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\listadoIndicadoresEntidad.aspx.cs">
+      <DependentUpon>listadoIndicadoresEntidad.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\listadoIndicadoresEntidad.designer.cs">
+      <DependentUpon>listadoIndicadoresEntidad.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

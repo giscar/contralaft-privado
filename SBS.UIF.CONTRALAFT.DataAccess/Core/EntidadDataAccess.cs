@@ -11,18 +11,24 @@ namespace SBS.UIF.CONTRALAFT.DataAccess.Core
     {
         public List<Entidad> ListarPorEntidad()
         {
-            return (BaseService<Entidad>.QueryForList("select_entidad", null));
+            return BaseService<Entidad>.QueryForList("select_entidad", null);
         }
 
         public void GuardarEntidad(Entidad _entidad)
         {
-           Convert.ToInt32(MapperPro.Instance().Insert("insert_entidad", _entidad));
+            Convert.ToInt32(MapperPro.Instance().Insert("insert_entidad", _entidad));
         }
 
         public Entidad EntidadForId(int _idEntidad)
         {
             return (BaseService<Entidad>.QueryForObject("select_entidad_id", _idEntidad));
         }
-        
+
+        public List<Entidad> ListarPorEntidadIndicador(int _idIndicador)
+        {
+            return BaseService<Entidad>.QueryForList("select_entidad_indicador", _idIndicador);
+        }
+
+
     }
 }

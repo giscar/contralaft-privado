@@ -16,7 +16,7 @@ namespace SBS.UIF.CONTRALAFT.DataAccess.Core
 
         public void GuardarAccion(Accion _accion)
         {
-           Convert.ToInt32(MapperPro.Instance().Insert("insert_accion", _accion));
+            MapperPro.Instance().Insert("insert_accion", _accion);
         }
 
         public Accion BuscarAccionForID(int idAccion)

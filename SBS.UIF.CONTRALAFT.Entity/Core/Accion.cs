@@ -1,6 +1,7 @@
 ﻿#pragma warning disable 1591
 
 using System;
+using System.Collections.Generic;
 
 namespace SBS.UIF.CONTRALAFT.Entity.Core
 {
@@ -18,6 +19,7 @@ namespace SBS.UIF.CONTRALAFT.Entity.Core
         public DateTime FecModificacion { get; set; }
         public string UsuModificacion { get; set; }
         public string NombrePerfil { get; set; }
+        public List<Indicador> ListaIndicadores { get; set; }
     }
 }
 #pragma warning restore 1591

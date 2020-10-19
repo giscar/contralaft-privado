@@ -15,10 +15,10 @@
 
   <statements>
     <select id="select_menu" parameterType="int" resultMap="rm_menu" >
-      SELECT A.* FROM MENU A
-      INNER JOIN MENUROL B ON A.N_COD_MENU = B.N_COD_MENU
-      INNER JOIN ROL C ON C.N_COD_ROL = B.N_COD_ROL
-      INNER JOIN PERFILROL D ON C.N_COD_ROL = D.N_COD_ROL
+      SELECT A.* FROM PRIVADO.MENU A
+      INNER JOIN PRIVADO.MENUROL B ON A.N_COD_MENU = B.N_COD_MENU
+      INNER JOIN PRIVADO.ROL C ON C.N_COD_ROL = B.N_COD_ROL
+      INNER JOIN PRIVADO.PERFILROL D ON C.N_COD_ROL = D.N_COD_ROL
       WHERE D.N_COD_PERFIL = #id# AND D.N_FL_ACTIVO = 1
     </select>
   </statements>

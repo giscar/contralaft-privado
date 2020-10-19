@@ -11,17 +11,22 @@ namespace SBS.UIF.CONTRALAFT.DataAccess.Core
     {
         public List<Indicador> ListarIndicadorForId(int idIndicador)
         {
-            return (BaseService<Indicador>.QueryForList("select_indicador_id", idIndicador));
+            return BaseService<Indicador>.QueryForList("select_indicador_id", idIndicador);
+        }
+
+        public List<Indicador> ListarIndicadorAll()
+        {
+            return BaseService<Indicador>.QueryForList("select_indicador_all", null);
         }
 
         public List<Indicador> ListarIndicadorForAccion(int idAccion)
         {
-            return (BaseService<Indicador>.QueryForList("select_indicador_accion", idAccion));
+            return BaseService<Indicador>.QueryForList("select_indicador_accion", idAccion);
         }
 
-        public void GuardarIndicador(Indicador _indicador)
+        public int GuardarIndicador(Indicador _indicador)
         {
-           Convert.ToInt32(MapperPro.Instance().Insert("insert_indicador", _indicador));
+            return Convert.ToInt32(MapperPro.Instance().Insert("insert_indicador", _indicador));
         }
 
         public void ActualizarIndicador(Accion _accion)

@@ -18,21 +18,21 @@
   </resultMaps>
   <statements>
     <select id="select_perfil" resultMap="rm_perfil" >
-      SELECT * FROM PERFIL WHERE N_FL_ACTIVO = 1
+      SELECT * FROM PRIVADO.PERFIL WHERE N_FL_ACTIVO = 1
     </select>
         
     <select id="select_perfil_id" resultMap="rm_perfil"  parameterClass="int">
-      SELECT * FROM PERFIL WHERE N_FL_ACTIVO = 1 AND N_COD_PERFIL = #value#
+      SELECT * FROM PRIVADO.PERFIL WHERE N_FL_ACTIVO = 1 AND N_COD_PERFIL = #value#
     </select>
         
     <select id="select_perfil_for_rol" resultMap="rm_perfil"  parameterClass="int">
-      SELECT A.* FROM PERFIL A
-      INNER JOIN PERFILROL B ON A.N_COD_PERFIL = B.N_COD_PERFIL
+      SELECT A.* FROM PRIVADO.PERFIL A
+      INNER JOIN PRIVADO.PERFILROL B ON A.N_COD_PERFIL = B.N_COD_PERFIL
       WHERE B.N_COD_ROL = #value# AND B.N_FL_ACTIVO = 1
     </select>    
         
     <insert id="insert_perfil">
-      INSERT INTO PERFIL (
+      INSERT INTO PRIVADO.PERFIL (
       C_DET_NOMBRE,
       C_DET_DETALLE,
       C_USU_REGISTRO,
@@ -48,7 +48,7 @@
     </insert>
         
         <update id="update_perfil">
-            UPDATE PERFIL SET 
+            UPDATE PRIVADO.PERFIL SET 
             C_DET_DETALLE = #DetDetalle#,
             C_USU_MODIFICACION = #DetUsuarioModificacion#,
             D_FEC_MODIFICACION = #FecModificacion#
@@ -56,7 +56,7 @@
         </update>
         
         <update id="inactive_perfil">
-            UPDATE PERFIL SET 
+            UPDATE PRIVADO.PERFIL SET 
             N_FL_ACTIVO = #FlagEstado#,
             C_USU_MODIFICACION = #DetUsuarioModificacion#,
             D_FEC_MODIFICACION = #FecModificacion#

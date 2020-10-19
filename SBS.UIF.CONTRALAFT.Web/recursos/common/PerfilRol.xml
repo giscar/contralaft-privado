@@ -13,7 +13,7 @@
   <statements>
     
     <insert id="insert_perfilRol">
-      INSERT INTO PERFILROL (
+      INSERT INTO PRIVADO.PERFILROL (
       N_COD_PERFIL,
       N_COD_ROL,
       N_FL_ACTIVO)
@@ -24,11 +24,11 @@
     </insert>
         
     <select id="list_perfil_rol_all" resultMap="rm_perfilRol" >
-      SELECT * FROM PERFILROL WHERE N_COD_PERFIL = #CodPerfil# AND N_COD_ROL = #CodRol#
+      SELECT * FROM PRIVADO.PERFILROL WHERE N_COD_PERFIL = #CodPerfil# AND N_COD_ROL = #CodRol#
     </select> 
         
     <update id="update_perfil_rol">
-            UPDATE PERFILROL SET 
+            UPDATE PRIVADO.PERFILROL SET 
             N_FL_ACTIVO = #FlActivo#
             WHERE N_COD_PERFIL = #CodPerfil# AND N_COD_ROL = #CodRol# 
     </update>    

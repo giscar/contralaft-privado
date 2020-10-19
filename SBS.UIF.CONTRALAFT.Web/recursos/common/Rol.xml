@@ -18,15 +18,15 @@
   </resultMaps>
   <statements>
     <select id="select_rol" resultMap="rm_rol" >
-      SELECT * FROM ROL WHERE N_FL_ACTIVO = 1
+      SELECT * FROM PRIVADO.ROL WHERE N_FL_ACTIVO = 1
     </select>
         
     <select id="select_rol_id" resultMap="rm_rol" parameterClass="int">
-      SELECT * FROM ROL WHERE N_FL_ACTIVO = 1 AND N_COD_ROL = #value#
+      SELECT * FROM PRIVADO.ROL WHERE N_FL_ACTIVO = 1 AND N_COD_ROL = #value#
     </select>
 
     <insert id="insert_rol">
-      INSERT INTO ROL (
+      INSERT INTO PRIVADO.ROL (
       C_DES_ROL,
       C_DET_DETALLE,
       C_USU_REGISTRO,
@@ -39,12 +39,12 @@
       #FecRegistro#,
       #FlagEstado#)
       <selectKey property="IdTipo" type="post" resultClass="int">
-        SELECT MAX(N_COD_ROL) FROM ROL
+        SELECT MAX(N_COD_ROL) FROM PRIVADO.ROL
       </selectKey>
     </insert>
         
         <update id="update_rol">
-            UPDATE ROL SET 
+            UPDATE PRIVADO.ROL SET 
             C_DET_DETALLE = #DetDetalle#,
             C_USU_MODIFICACION = #DetUsuarioModificacion#,
             D_FEC_MODIFICACION = #FecModificacion#
@@ -52,7 +52,7 @@
         </update>
         
         <update id="inactive_rol">
-            UPDATE ROL SET 
+            UPDATE PRIVADO.ROL SET 
             N_FL_ACTIVO = #FlagEstado#,
             C_USU_MODIFICACION = #DetUsuarioModificacion#,
             D_FEC_MODIFICACION = #FecModificacion#

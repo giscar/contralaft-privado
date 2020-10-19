@@ -20,16 +20,16 @@
 
   <statements>
     <select id="select_acciones" resultMap="rm_accion" >
-      SELECT * FROM ACCION WHERE N_FL_ACTIVO = 1
+      SELECT * FROM PRIVADO.ACCION WHERE N_FL_ACTIVO = 1
     </select>
         
     <select id="select_accion" resultMap="rm_accion"  parameterClass="int">
-      SELECT * FROM ACCION WHERE N_COD_ACCION = #value#
+      SELECT * FROM PRIVADO.ACCION WHERE N_COD_ACCION = #value#
     </select>
 
 
     <insert id="insert_accion">
-      INSERT INTO ACCION (
+      INSERT INTO PRIVADO.ACCION (
       C_NUM_CODIGO,
       C_DES_NOMBRE,
       C_DES_DESCRIPCION,
@@ -47,7 +47,7 @@
     </insert>
     
     <update id="update_accion">
-      UPDATE ACCION SET
+      UPDATE PRIVADO.ACCION SET
       C_NUM_CODIGO = #Codigo#,
       C_DES_NOMBRE = #Nombre#,
       C_DES_DESCRIPCION = #Descripcion#,
@@ -57,7 +57,7 @@
     </update>
         
     <update id="inactive_accion">
-        UPDATE ACCION SET 
+        UPDATE PRIVADO.ACCION SET 
         N_FL_ACTIVO = #FlActivo#,
         C_USU_MODIFICACION = #UsuModificacion#,
         D_FEC_MODIFICACION = #FecModificacion#

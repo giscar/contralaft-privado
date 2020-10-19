@@ -79,9 +79,9 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
             catch (Exception ex)
             {
                 Log.Error(ex);
-            }            
+            }
         }
-        
+
         protected void Submit_edit(object sender, EventArgs e)
         {
             try
@@ -121,7 +121,8 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
         private void CargarLista()
         {
             listadoPlanes = _planBusinessLogic.BuscarTodos();
-            foreach (Plan item in listadoPlanes) {
+            foreach (Plan item in listadoPlanes)
+            {
                 Console.Write(item.Estado.ToString());
                 Console.Write(Constantes.EstadoPlan.BORRADOR.ToString());
                 if (item.Estado == (int)Constantes.EstadoPlan.BORRADOR)
@@ -159,9 +160,10 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
                 Log.Error(ex);
             }
         }
-        
 
-        private void Limpiar() {
+
+        private void Limpiar()
+        {
             txtNombrePlan.Value = "";
             txtDescripcion.Value = "";
         }
@@ -176,7 +178,8 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
             {
                 ClientMessageBox.Show("El plan se encuentra en estado publicado no se puede modificar", this);
             }
-            else {
+            else
+            {
                 if (e.CommandName == "editarPlan")
                 {
                     txtEditarNombre.Value = planlActualizado.Nombre;

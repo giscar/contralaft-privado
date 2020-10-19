@@ -78,9 +78,9 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
             catch (Exception ex)
             {
                 Log.Error(ex);
-            }            
+            }
         }
-        
+
 
         protected void Submit_edit(object sender, EventArgs e)
         {
@@ -124,7 +124,8 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
             GridView1.DataBind();
         }
 
-        private void Limpiar() {
+        private void Limpiar()
+        {
             txtNombrePerfil.Value = "";
             txtDescripcion.Value = "";
         }
@@ -132,7 +133,7 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
         protected void gridPerfil_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             ViewState["idPerfil"] = int.Parse(e.CommandArgument.ToString());
-       
+
             if (e.CommandName == "editarPerfil")
             {
                 Perfil perfilActualizado = _perfilBusinessLogic.PerfilForId((int)ViewState["idPerfil"]);

@@ -63,7 +63,7 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
             }
         }
 
-        private void CargarLista() 
+        private void CargarLista()
         {
             try
             {
@@ -132,7 +132,8 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
                     {
                         divEntidadEdit.Visible = false;
                     }
-                    else {
+                    else
+                    {
                         divEntidadEdit.Visible = true;
                         foreach (ListItem item in ddlCodigoEntidadEdit.Items)
                         {
@@ -255,7 +256,7 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
         protected void DDlCodigoPerfil_SelectedIndexChanged(object sender, EventArgs e)
         {
             divEntidad.Visible = !ddlCodigoPerfil.SelectedValue.Equals(Constantes.codigoPerfilAdministrador) && !ddlCodigoPerfil.SelectedValue.Equals(Constantes.codigoPerfilGestor);
-            upEntidad.Update(); 
+            upEntidad.Update();
         }
 
         protected void DDlCodigoPerfilEdit_SelectedIndexChanged(object sender, EventArgs e)
@@ -344,8 +345,8 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
             comunicacion.UserId = _usuario.DetCodigo;
             comunicacion.NombreUsuario = _usuario.DetNombre;
             comunicacion.Pass = _usuario.ContraseniaEmail;
-            if(_usuario.IdPerfil > 2)
-            comunicacion.Entidad = _entidadBusinessLogic.EntidadForID(_usuario.IdEntidad).DesTipo;
+            if (_usuario.IdPerfil > 2)
+                comunicacion.Entidad = _entidadBusinessLogic.EntidadForID(_usuario.IdEntidad).DesTipo;
             comunicacion.Perfil = _perfilBusinessLogic.PerfilForId(_usuario.IdPerfil).DesTipo;
             comunicacion.IdPerfil = _usuario.IdPerfil;
             comunicacion.Subject = Constantes.textoSubject;

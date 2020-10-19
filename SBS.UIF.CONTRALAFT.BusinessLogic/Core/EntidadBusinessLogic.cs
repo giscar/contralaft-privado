@@ -14,7 +14,6 @@ namespace SBS.UIF.CONTRALAFT.BusinessLogic.Core
         public EntidadBusinessLogic()
         {
             _entidadDataAccess = new EntidadDataAccess();
-        
         }
 
         public List<Entidad> ListarPorEntidad()
@@ -30,6 +29,11 @@ namespace SBS.UIF.CONTRALAFT.BusinessLogic.Core
         public Entidad EntidadForID(int _idEntidad)
         {
             return (_entidadDataAccess.EntidadForId(_idEntidad));
+        }
+
+        public List<Entidad> ListarPorEntidadforIndicador(int _idIndicador)
+        {
+            return _entidadDataAccess.ListarPorEntidadIndicador(_idIndicador);
         }
 
     }
