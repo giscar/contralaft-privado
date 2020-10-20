@@ -1155,7 +1155,6 @@
     <Content Include="js\pages\listadoAcciones.js" />
     <Content Include="pages\listadoIndicadoresEntidad.aspx" />
     <Content Include="pages\listadoIndicadores.aspx" />
-    <Content Include="pages\resultadoEntidad.aspx" />
     <Content Include="recursos\core\Meta.xml">
       <SubType>Designer</SubType>
     </Content>
@@ -1234,13 +1233,6 @@
     </Compile>
     <Compile Include="pages\listadoIndicadores.aspx.designer.cs">
       <DependentUpon>listadoIndicadores.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="pages\resultadoEntidad.aspx.cs">
-      <DependentUpon>resultadoEntidad.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="pages\resultadoEntidad.aspx.designer.cs">
-      <DependentUpon>resultadoEntidad.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
