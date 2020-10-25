@@ -6,7 +6,7 @@
     <br/>
     <div class="form-group">
         <label>Número</label>
-        <input type="text" class="form-control soloLetras txtCodigoAccion" id="txtCodigoAccion" runat="server" autocomplete="off" maxlength="80" placeholder="Ingrese el número de la Acción" style="width: 50%"/>
+        <input type="text" class="form-control txtCodigoAccion" id="txtCodigoAccion" runat="server" autocomplete="off" maxlength="80" placeholder="Ingrese el número de la Acción" style="width: 50%"/>
         <small class="form-text text-muted txtCodigoAccionLabel">Ingrese el código de la Acción</small>
     </div>
     <div class="form-group">

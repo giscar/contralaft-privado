@@ -34,3 +34,8 @@ $(".soloNumeros").bind('keypress', function (event) {
         return false;
     }
 });
+
+function salir() {
+    console.log("entro");
+    $('#confirmacionMaster').modal('show');
+}

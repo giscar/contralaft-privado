@@ -19,10 +19,16 @@ namespace SBS.UIF.CONTRALAFT.DataAccess.Core
             return BaseService<Indicador>.QueryForList("select_indicador_all", null);
         }
 
+        public List<Indicador> ListarIndicadorForAccionEntidad(Indicador indicador)
+        {
+            return BaseService<Indicador>.QueryForList("select_indicador_accion_entidad", indicador);
+        }
+
         public List<Indicador> ListarIndicadorForAccion(int idAccion)
         {
             return BaseService<Indicador>.QueryForList("select_indicador_accion", idAccion);
         }
+        
 
         public int GuardarIndicador(Indicador _indicador)
         {

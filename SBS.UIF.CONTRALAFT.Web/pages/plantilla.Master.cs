@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Web;
 using SBS.UIF.CONTRALAFT.Entity.Common;
 using SBS.UIF.CONTRALAFT.Entity.Core;
+using SBS.UIF.CONTRALAFT.Web.util;
 
 namespace SBS.UIF.CONTRALAFT.Web
 {
@@ -20,6 +21,12 @@ namespace SBS.UIF.CONTRALAFT.Web
             listadoMenu = _menuBusinessLogic.listarPorMenu(usuarioSession.IdPerfil);
             cdcatalog.DataSource = listadoMenu;
             cdcatalog.DataBind();
+        }
+
+        protected void Cerrar_Session(object sender, EventArgs e)
+        {
+            Session["Usuario"] = null;
+            Response.Redirect(Constantes.PaginaInicioLogin);
         }
     }
 }

@@ -32,9 +32,7 @@
       INNER JOIN PRIVADO.INDICADOR B ON A.N_COD_ACCION = B.N_COD_ACCION
       INNER JOIN PRIVADO.INDICADORENTIDAD C ON B.N_COD_INDICADOR = C.N_COD_INDICADOR
       WHERE A.N_FL_ACTIVO = 1 AND C.N_COD_ENTIDAD = #value#
-    </select>    
-        
-
+    </select>
 
     <insert id="insert_accion">
       INSERT INTO PRIVADO.ACCION (

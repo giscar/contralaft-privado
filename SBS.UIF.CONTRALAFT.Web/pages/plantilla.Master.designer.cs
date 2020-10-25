@@ -16,5 +16,7 @@ namespace SBS.UIF.CONTRALAFT.Web {
 		protected System.Web.UI.WebControls.Repeater cdcatalog;
 		
 		protected System.Web.UI.WebControls.ContentPlaceHolder cphBody;
+		
+		protected System.Web.UI.WebControls.Button btnSalir;
 	}
 }

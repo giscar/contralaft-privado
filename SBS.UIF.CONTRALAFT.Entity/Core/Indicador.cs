@@ -17,6 +17,8 @@ namespace SBS.UIF.CONTRALAFT.Entity.Core
         public string UsuModificacion { get; set; }
         public int FlActivo { get; set; }
         public List<Entidad> ListaEntidades { get; set; }
+        public int IdEntidadBusqueda { get; set; }
+        public string NombreEntidadBusqueda { get; set; }
     }
 }
 

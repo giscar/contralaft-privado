@@ -1,7 +1,7 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="plantilla.master.cs" Inherits="SBS.UIF.CONTRALAFT.Web.plantilla" %>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <!-- Required meta tags -->
@@ -25,18 +25,14 @@
   <link rel="shortcut icon" href="/images/favicon.png" />
 </head>
 <body>
-
-                 <div class="nav-bottom">
+     <div class="nav-bottom">
         <div class="container">
-          <ul class="nav page-navigation">
-
-        
-  
-    </ul>
-            </div>
+            <ul class="nav page-navigation">
+            </ul>
         </div>
+    </div>
         
-        <div class="modal fade" id="modal-alerta" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal fade" id="modal-alerta" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-sm" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -151,9 +147,7 @@
                 <a class="dropdown-item">
                   Check Inbox
                 </a>
-                <a class="dropdown-item">
-                  Sign Out
-                </a>
+                <a class="dropdown-item idConfirmacionMaster" onclick="salir()" style="cursor:pointer">Salir</a> 
               </div>
             </li>
           </ul>
@@ -166,12 +160,12 @@
         <div class="container">
           <ul class="nav page-navigation">
             <asp:Repeater id="cdcatalog" runat="server">
-   <ItemTemplate>
-       <li class="nav-item">
-              <a href="<%# Eval("NomPage")%>.aspx" class="nav-link"><i class="link-icon mdi mdi-television"></i><span class="menu-title"><%# Eval("DesNombre")%></span></a>
-            </li>
-        </ItemTemplate>
-</asp:Repeater>
+                <ItemTemplate>
+                    <li class="nav-item">
+                        <a href="<%# Eval("NomPage")%>.aspx" class="nav-link"><i class="link-icon mdi mdi-television"></i><span class="menu-title"><%# Eval("DesNombre")%></span></a>
+                    </li>
+                </ItemTemplate>
+            </asp:Repeater>
           </ul>
         </div>
       </div>
@@ -204,14 +198,30 @@
             <div class="col-12 grid-margin">
               <div class="card">
                 <div class="card-body">
-                  
-                        
-        
-            <form runat="server" method="post" enctype="multipart/form-data">
-            <asp:ContentPlaceHolder ID="cphBody" runat="server">
-            </asp:ContentPlaceHolder>
-                </form>
-        
+                    <form runat="server" method="post" enctype="multipart/form-data">
+                        <asp:ContentPlaceHolder ID="cphBody" runat="server">
+                        </asp:ContentPlaceHolder>
+                        <!-- modal confirmacion -->
+                        <div class="modal fade" id="confirmacionMaster" tabindex="-1" role="dialog" aria-hidden="true">
+                            <div class="modal-dialog modal-sm" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">Cerrar sesión</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>Esta de salir del sistema?.</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <asp:Button class="btn btn-danger" ID="btnSalir" runat="server" Text="Salir" OnClick="Cerrar_Session" />
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                 </div>
               </div>
             </div>
@@ -234,5 +244,5 @@
    
   </div>
         
-        </body>
+    </body>
 </html>

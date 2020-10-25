@@ -23,20 +23,13 @@
                                 </ItemTemplate>
                             </asp:TemplateField>
                             <asp:TemplateField ShowHeader="false">
-                <ItemTemplate>
-                    <asp:LinkButton runat="server" CssClass="btn btn-success" CommandArgument='<%# Eval("Id") %>' CommandName="editar" >Editar</asp:LinkButton>
-                    <asp:LinkButton runat="server" CssClass="btn btn-danger" CommandArgument='<%# Eval("Id") %>' CommandName="inactivar" >Eliminar</asp:LinkButton> 
-                </ItemTemplate>
-            </asp:TemplateField>
+                                <ItemTemplate>
+                                    <asp:LinkButton runat="server" CssClass="btn btn-success" CommandArgument='<%# Eval("Id") %>' CommandName="editar" >Editar</asp:LinkButton>
+                                    <asp:LinkButton runat="server" CssClass="btn btn-danger" CommandArgument='<%# Eval("Id") %>' CommandName="inactivar" >Eliminar</asp:LinkButton> 
+                                </ItemTemplate>
+                            </asp:TemplateField>
                         </Columns>
                     </asp:GridView>    
-                </ItemTemplate>
-            </asp:TemplateField>
-            <asp:TemplateField HeaderText="Acciones">
-                <ItemTemplate>
-                    <asp:LinkButton runat="server" CssClass="btn btn-success" CommandArgument='<%# Eval("Id") %>' CommandName="editar" >Editar</asp:LinkButton>
-                    <asp:LinkButton runat="server" CssClass="btn btn-danger" CommandArgument='<%# Eval("Id") %>' CommandName="inactivar" >Eliminar</asp:LinkButton> 
-                    
                 </ItemTemplate>
             </asp:TemplateField>
         </Columns>
