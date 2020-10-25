@@ -9,9 +9,9 @@ namespace SBS.UIF.CONTRALAFT.DataAccess.Core
 {
     public class IndicadorDataAccess
     {
-        public List<Indicador> ListarIndicadorForId(int idIndicador)
+        public Indicador ListarIndicadorForId(int idIndicador)
         {
-            return BaseService<Indicador>.QueryForList("select_indicador_id", idIndicador);
+            return BaseService<Indicador>.QueryForObject("select_indicador_id", idIndicador);
         }
 
         public List<Indicador> ListarIndicadorAll()

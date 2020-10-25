@@ -29,7 +29,13 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
                 _usuario.DetCodigo = txtCodigo.Value;
                 _usuario = new UsuarioBusinessLogic().BuscarUsuario(_usuario);
                 Session["Usuario"] = _usuario;
-                Response.Redirect("usuario.aspx");
+                if (_usuario.IdPerfil > 2) {
+                    Response.Redirect("listadoIndicadoresEntidad.aspx");
+                }
+                else {
+                    Response.Redirect("usuario.aspx");
+                }
+                
             }
             catch (Exception ex)
             {

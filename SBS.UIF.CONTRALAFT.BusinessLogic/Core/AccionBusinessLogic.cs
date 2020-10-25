@@ -18,9 +18,14 @@ namespace SBS.UIF.CONTRALAFT.BusinessLogic.Core
 
         public List<Accion> ListarPorAccion()
         {
-            return (_accionDataAccess.ListarPorAccion());
+            return _accionDataAccess.ListarPorAccion();
         }
 
+        public List<Accion> ListarAccionPorEntidad(int idEntidad)
+        {
+            return _accionDataAccess.ListarAccionPorEntidad(idEntidad);
+        }
+        
         public void GuardarAccion(Accion _accion)
         {
             _accionDataAccess.GuardarAccion(_accion);

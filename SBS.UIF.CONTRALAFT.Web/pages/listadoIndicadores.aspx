@@ -26,7 +26,6 @@
                 <ItemTemplate>
                     <asp:LinkButton runat="server" CssClass="btn btn-success" CommandArgument='<%# Eval("Id") %>' CommandName="editar" >Editar</asp:LinkButton>
                     <asp:LinkButton runat="server" CssClass="btn btn-danger" CommandArgument='<%# Eval("Id") %>' CommandName="inactivar" >Eliminar</asp:LinkButton> 
-                    
                 </ItemTemplate>
             </asp:TemplateField>
                         </Columns>
@@ -67,9 +66,7 @@
                         <textarea class="form-control txtEditarDescripcion" Id="txtEditarDescripcion" rows="8" runat="server" autocomplete="off" maxlength="800" placeholder="Ingrese descripción"></textarea>
                         <small class="form-text text-muted txtEditarDescripcionLabel">Ingrese la descripcion de la acción</small>
                     </div> 
-                    
                 </div>
-                
             </div>
         </div>
      </div>

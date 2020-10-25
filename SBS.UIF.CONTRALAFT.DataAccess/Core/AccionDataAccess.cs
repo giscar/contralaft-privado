@@ -11,9 +11,14 @@ namespace SBS.UIF.CONTRALAFT.DataAccess.Core
     {
         public List<Accion> ListarPorAccion()
         {
-            return (BaseService<Accion>.QueryForList("select_acciones", null));
+            return BaseService<Accion>.QueryForList("select_acciones", null);
         }
 
+        public List<Accion> ListarAccionPorEntidad(int idEntidad)
+        {
+            return BaseService<Accion>.QueryForList("select_accion_entidad", idEntidad);
+        }
+        
         public void GuardarAccion(Accion _accion)
         {
             MapperPro.Instance().Insert("insert_accion", _accion);
@@ -21,7 +26,7 @@ namespace SBS.UIF.CONTRALAFT.DataAccess.Core
 
         public Accion BuscarAccionForID(int idAccion)
         {
-            return (BaseService<Accion>.QueryForObject("select_accion", idAccion));
+            return BaseService<Accion>.QueryForObject("select_accion", idAccion);
         }
 
         public void ActualizarAccion(Accion _accion)

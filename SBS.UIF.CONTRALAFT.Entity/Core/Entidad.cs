@@ -12,7 +12,7 @@ namespace SBS.UIF.CONTRALAFT.Entity.Core
         public string UsuRegistro { get; set; }
         public DateTime FecRegistro { get; set; }
         public int FlActivo { get; set; }
-
+        public int idIndicador { get; set; }
 
 
     }

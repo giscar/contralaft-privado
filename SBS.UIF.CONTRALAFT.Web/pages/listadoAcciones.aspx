@@ -83,14 +83,14 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="recipient-name" class="col-form-label">Accion:</label>
+                        <label for="recipient-name" class="col-form-label">Indicador:</label>
                         <input type="text" class="form-control txtNombreIndicador" id="txtNombreIndicador" runat="server" autocomplete="off" maxlength="80" placeholder="Ingrese el nombre del indicador">
-                        <small class="form-text text-muted txtNombreIndicadorLabel">Ingrese la acción</small>
+                        <small class="form-text text-muted txtNombreIndicadorLabel">Ingrese el Indicador</small>
                     </div>
                     <div class="form-group">
                         <label for="txtContra">Detalle</label>
                         <textarea class="form-control txtDetalleIndicador" runat="server" id="txtDetalleIndicador" autocomplete="off" maxlength="800" placeholder="Ingrese la Acción"></textarea>
-                        <small class="form-text text-muted txtDetalleIndicadorLabel">Ingrese la acción</small>
+                        <small class="form-text text-muted txtDetalleIndicadorLabel">Ingrese la descripción del indicador</small>
                     </div>
                     <asp:UpdatePanel id="upSeccionEntidad" runat="server" UpdateMode="Conditional">
                 <ContentTemplate>

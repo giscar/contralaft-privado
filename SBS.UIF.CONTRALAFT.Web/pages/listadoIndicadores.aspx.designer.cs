@@ -8,27 +8,25 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SBS.UIF.CONTRALAFT.Web.pages
-{
-
-
-	public partial class listadoIndicadores
-	{
-
+namespace SBS.UIF.CONTRALAFT.Web.pages {
+	
+	
+	public partial class listadoIndicadores {
+		
 		protected System.Web.UI.WebControls.Content Content1;
-
+		
 		protected System.Web.UI.ScriptManager ScriptManager1;
-
+		
 		protected System.Web.UI.WebControls.GridView GridView1;
-
+		
 		protected System.Web.UI.WebControls.GridView GridView2;
-
+		
 		protected System.Web.UI.WebControls.GridView GridView3;
-
+		
 		protected System.Web.UI.HtmlControls.HtmlInputText txtEditarCodigo;
-
+		
 		protected System.Web.UI.HtmlControls.HtmlTextArea txtEditarAccion;
-
+		
 		protected System.Web.UI.HtmlControls.HtmlTextArea txtEditarDescripcion;
 	}
 }

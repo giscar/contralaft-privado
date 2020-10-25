@@ -16,7 +16,7 @@ namespace SBS.UIF.CONTRALAFT.BusinessLogic.Core
             _indicadorDataAccess = new IndicadorDataAccess();
         }
 
-        public List<Indicador> ListarIndicadorForId(int idIndicador)
+        public Indicador ListarIndicadorForId(int idIndicador)
         {
             return _indicadorDataAccess.ListarIndicadorForId(idIndicador);
         }

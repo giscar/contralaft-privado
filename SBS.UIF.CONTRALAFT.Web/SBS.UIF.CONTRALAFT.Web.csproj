@@ -1234,6 +1234,7 @@
     <Compile Include="pages\listadoIndicadores.aspx.designer.cs">
       <DependentUpon>listadoIndicadores.aspx</DependentUpon>
     </Compile>
+    <Compile Include="util\SelectItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

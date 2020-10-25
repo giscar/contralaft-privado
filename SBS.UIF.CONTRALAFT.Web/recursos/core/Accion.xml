@@ -26,6 +26,14 @@
     <select id="select_accion" resultMap="rm_accion"  parameterClass="int">
       SELECT * FROM PRIVADO.ACCION WHERE N_COD_ACCION = #value#
     </select>
+        
+    <select id="select_accion_entidad" resultMap="rm_accion"  parameterClass="int">
+      SELECT A.* FROM PRIVADO.ACCION A 
+      INNER JOIN PRIVADO.INDICADOR B ON A.N_COD_ACCION = B.N_COD_ACCION
+      INNER JOIN PRIVADO.INDICADORENTIDAD C ON B.N_COD_INDICADOR = C.N_COD_INDICADOR
+      WHERE A.N_FL_ACTIVO = 1 AND C.N_COD_ENTIDAD = #value#
+    </select>    
+        
 
 
     <insert id="insert_accion">
