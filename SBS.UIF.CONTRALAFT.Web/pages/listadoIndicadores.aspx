@@ -59,6 +59,7 @@
                         <textarea class="form-control txtEditarDescripcion" Id="txtEditarDescripcion" rows="8" runat="server" autocomplete="off" maxlength="800" placeholder="Ingrese descripción"></textarea>
                         <small class="form-text text-muted txtEditarDescripcionLabel">Ingrese la descripcion de la acción</small>
                     </div> 
+                    
                 </div>
             </div>
         </div>

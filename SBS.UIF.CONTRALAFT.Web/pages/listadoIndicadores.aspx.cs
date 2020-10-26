@@ -60,6 +60,7 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
             GridView1.DataBind();
         }
 
+        
 
         protected void GridAccion_RowCommand(object sender, GridViewCommandEventArgs e)
         {

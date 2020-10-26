@@ -45,7 +45,7 @@ namespace SBS.UIF.CONTRALAFT.Web.util
             StringBuilder msg = new StringBuilder();
             msg.Append("<table border='0' align='center'>");
             msg.Append("<tr style='line - height:24px; font-size:16px'><td align='center'><strong>");
-            msg.Append("Acceso al modulo de indicadores de CONTRALAFT.</strong></td></tr>");
+            msg.Append("Se le ha creado el acceso para ingresar al módulo de monitoreo en el cumplimiento de las acciones del Plan Nacional contra el LA/FT 2018-2021:</strong></td></tr>");
             msg.Append("<tr><td>&nbsp;</td></tr>");
             msg.Append("<tr><td align='center'>Datos de acceso:</td></tr>");
             msg.Append("<tr><td>&nbsp;</td></tr>");

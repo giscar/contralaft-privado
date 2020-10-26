@@ -12,10 +12,8 @@
       <result property="MedioVerificacion" column="C_MED_VERIFICACION"></result>
       <result property="Descripcion" column="C_DET_DESCRIPCION"></result>
       <result property="CodigoDocumento" column="C_COD_DOCUMENTO"></result>
-      <result property="Anio" column="C_COD_ANIO"></result>
       <result property="FlActivo" column="N_FL_ACTIVO"></result>
       <result property="Estado" column="N_COD_ESTADO"></result>
-      <result property="Version" column="N_COD_VERSION"></result>
       <result property="UsuRegistro" column="C_USU_REGISTRO"></result>
       <result property="FecRegistro" column="D_FEC_REGISTRO"></result>
             
@@ -33,10 +31,8 @@
       C_MED_VERIFICACION,
       C_DET_DESCRIPCION,
       C_COD_DOCUMENTO,
-      C_COD_ANIO,
+      N_COD_ESTADO,
       N_FL_ACTIVO,
-      N_COD_ESTADO,      
-      N_COD_VERSION,
       C_USU_REGISTRO,
       D_FEC_REGISTRO
       )
@@ -45,11 +41,9 @@
       #IdEntidad#,
       #NumeroBase#,
       #MedioVerificacion#,
-      #Descripcion#,      
-      #Anio#,
-      #FlActivo#,
+      #Descripcion#,
+      #CodigoDocumento#,
       #Estado#,
-      #Version#,
       #FlActivo#,
       #UsuRegistro#,
       #FecRegistro#

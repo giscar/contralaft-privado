@@ -92,6 +92,11 @@
                         <textarea class="form-control txtDetalleIndicador" runat="server" id="txtDetalleIndicador" autocomplete="off" maxlength="800" placeholder="Ingrese la Acción"></textarea>
                         <small class="form-text text-muted txtDetalleIndicadorLabel">Ingrese la descripción del indicador</small>
                     </div>
+                    <div class="form-group" runat="server">
+                        <label style="vertical-align: bottom">Año</label>
+                        <asp:DropDownList class="form-control ddlCodigoAnho" ID="ddlCodigoAnho" runat="server" DataValueField="idTipo" DataTextField="DesTipo"></asp:DropDownList>
+                        <small class="form-text text-muted dddlCodigoAnhoLabel">Ingrese el año</small>
+                    </div>
                     <asp:UpdatePanel id="upSeccionEntidad" runat="server" UpdateMode="Conditional">
                 <ContentTemplate>
                      <div class="form-group" ID="divEntidad" runat="server">

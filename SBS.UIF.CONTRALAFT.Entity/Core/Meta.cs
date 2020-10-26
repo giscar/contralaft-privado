@@ -13,10 +13,8 @@ namespace SBS.UIF.CONTRALAFT.Entity.Core
      public string MedioVerificacion { get; set; }
      public string Descripcion { get; set; }
      public string CodigoDocumento { get; set; }
-     public string Anio { get; set; }
      public int FlActivo { get; set; }
      public int Estado { get; set; }
-     public int Version { get; set; }
      public string UsuRegistro { get; set; }
      public DateTime FecRegistro { get; set; }
     }

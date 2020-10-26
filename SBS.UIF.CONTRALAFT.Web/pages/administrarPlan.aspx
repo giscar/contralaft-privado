@@ -5,7 +5,7 @@
         
     <div class="form-group">
         <label for="txtNombre">Título del Plan</label>
-        <input type="text" class="form-control soloLetras txtNombrePlan" id="txtNombrePlan" runat="server" autocomplete="off" maxlength="80" placeholder="Ingrese el Plan" style="width: 50%"/>
+        <input type="text" class="form-control txtNombrePlan" id="txtNombrePlan" runat="server" autocomplete="off" maxlength="80" placeholder="Ingrese el Plan" style="width: 50%"/>
         <small class="form-text text-muted txtNombrePlanLabel">Ingrese el título de la nueva versión del Plan</small>
     </div>
     <div class="form-group">

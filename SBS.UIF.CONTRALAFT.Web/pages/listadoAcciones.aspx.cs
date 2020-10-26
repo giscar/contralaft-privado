@@ -41,6 +41,7 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
                         Response.Redirect(Constantes.PaginaInicioLogin);
                     }
                     CargarLista();
+                    CargarAnho();
                 }
                 catch (Exception ex)
                 {
@@ -52,6 +53,17 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
         private void CargarCombos()
         {
             LlenarDropDownList(ddlCodigoEntidad, new EntidadBusinessLogic().ListarPorEntidad().OrderBy(x => x.DesTipo), "0", "Seleccione");
+        }
+
+        private void CargarAnho()
+        {
+            int year = DateTime.Now.Year;
+            for (int i = year - 2; i <= year + 2; i++)
+            {
+                ListItem li = new ListItem(i.ToString());
+                ddlCodigoAnho.Items.Add(li);
+            }
+            ddlCodigoAnho.Items.FindByText(year.ToString()).Selected = true;
         }
 
         protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
@@ -78,6 +90,7 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
                     IdAccion = (int)ViewState["idAccion"],
                     UsuRegistro = UsuarioSession().DetCodigo,
                     FecRegistro = DateTime.Now,
+                    Anho = ddlCodigoAnho.SelectedValue,
                     FlActivo = (int)Constantes.EstadoFlag.ACTIVO
                 };
                 ViewState["idIndicador"] = _indicadorBusinessLogic.GuardarIndicador(indicador);

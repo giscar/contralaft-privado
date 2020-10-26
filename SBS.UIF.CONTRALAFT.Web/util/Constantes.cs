@@ -16,6 +16,12 @@ namespace SBS.UIF.CONTRALAFT.Web.util
             DESPUBLICADO = 2
         }
 
+        public enum EstadoMeta
+        {
+            BORRADOR = 0,
+            PUBLICADO = 1
+        }
+
         public enum PerfilFlag
         {
             ADMINISTRADOR = '1'
@@ -26,7 +32,7 @@ namespace SBS.UIF.CONTRALAFT.Web.util
         public const String codigoPerfilGestor = "2";
         public const String selectValueDefault = "0";
         public const String selectLabelDefault = "Seleccione";
-        public const String textoSubject = "Se le ha creado el acceso para ingresar al módulo de monitoreo en el cumplimiento de las acciones del Plan Nacional contra el LA/FT 2018-2021:";
+        public const String textoSubject = "Creación de usuario del modulo de CONTRALAFT";
         public const String estadoPlanBORRADOR = "Borrador";
         public const String estadoPlanPUBLICADO = "Publicado";
 
