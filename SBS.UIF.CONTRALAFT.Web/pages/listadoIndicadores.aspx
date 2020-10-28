@@ -15,9 +15,14 @@
                             <asp:BoundField DataField="Nombre" />
                             <asp:TemplateField  HeaderText="Indicadores">
                                 <ItemTemplate>
-                                    <asp:GridView ID="GridView3" ShowHeader="false" runat="server" AutoGenerateColumns="false" DataSource='<%# Bind("ListaEntidades")%>' >
+                                    <asp:GridView ID="GridView3" ShowHeader="false" runat="server" OnRowCommand="GridAccion2_RowCommand" AutoGenerateColumns="false" DataSource='<%# Bind("ListaEntidades")%>' >
                                         <Columns>
                                             <asp:BoundField DataField="DesTipo" />
+                                            <asp:TemplateField ShowHeader="false">
+                                                <ItemTemplate>
+                                                    <asp:LinkButton runat="server" CssClass="btn btn-success" CommandArgument='<%#Eval("IdTipo") + ";" +Eval("IdIndicador") + ";" +Eval("IdAccion")%>' CommandName="avance" >Ver avance</asp:LinkButton>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
                                         </Columns>
                                     </asp:GridView>    
                                 </ItemTemplate>
@@ -95,9 +100,67 @@
                 <div class="modal-body">
                     <p>Esta seguro de inactivar la acción.</p>
                 </div>
-                
             </div>
         </div>
     </div>
+    <!-- modal resultado -->
+    <div class="modal fade" id="resultado" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">
+                        <label>Acción: </label>
+                        <asp:Label ID="lblAccionTitulo" runat="server"></asp:Label>
+                    </h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        <label>Indicador: </label>
+                        <asp:Label ID="lblIndicadorTitulo" runat="server"></asp:Label>
+                    </h5>
+                    <br/>
+                    <h5 class="modal-title">
+                        <label>Año: </label>
+                        <asp:Label ID="lblIndicadorAnho" runat="server"></asp:Label>
+                    </h5>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="col-form-label">Medio de verificación:</label>
+                        <input type="text" class="form-control txtMedioVerificacion" Id="txtMedioVerificacion" runat="server" autocomplete="off" maxlength="80" placeholder="Ingrese el medio de verificacion">
+                        <small class="form-text text-muted txtMedioVerificacionLabel">Ingrese el medio de verificación</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="txtContra">Número:</label>
+                        <input type="text" class="form-control txtNumero" Id="txtNumero" runat="server" autocomplete="off" maxlength="80" placeholder="Ingrese número" />
+                        <small class="form-text text-muted txtNumeroLabel">Ingrese el número</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="message-text" class="col-form-label">Descripción:</label>
+                        <textarea class="form-control txtDescripcion" Id="txtDescripcion" rows="8" runat="server" autocomplete="off" maxlength="800" placeholder="Ingrese descripción"></textarea>
+                        <small class="form-text text-muted txtDescripcionLabel">Ingrese la descripcion del resultado</small>
+                    </div> 
+                    <div class="form-group">
+                        <label>Documento de creación</label>
+                        <input type="file" id="fileDocumento" name="fileDocumento" class="file-upload-default fileDocumento">
+                        <div class="input-group col-xs-12">
+                            <input type="text" class="form-control file-upload-info" disabled="disabled" placeholder="Subir documento">
+                            <span class="input-group-append">
+                                <button class="file-upload-browse btn btn-info" type="button">Cargar al sistema</button>
+                            </span>
+                        </div>
+                        <small class="form-text text-muted fileDocumentoLabel">Ingrese el documento de sustento</small>
+                    </div> 
+                </div>
+                <div class="modal-footer">
+                    <asp:Button class="btn btn-success" Id="borradorMeta" runat="server" Text="Guardar Estado" OnClick="Submit_guardar_estado" />
+                    <button type="button" class="btn btn-light" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+     </div>
     <script src="/js/pages/listadoAcciones.js"></script>
     </asp:Content>

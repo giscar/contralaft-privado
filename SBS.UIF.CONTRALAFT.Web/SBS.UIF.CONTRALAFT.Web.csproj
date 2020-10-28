@@ -98,7 +98,7 @@
     <Reference Include="System.Transactions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="log4net">
-      <HintPath>..\packages\log4net.2.0.11\lib\net45\log4net.dll</HintPath>
+      <HintPath>..\packages\log4net.2.0.12\lib\net45\log4net.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Core" />
@@ -1158,6 +1158,7 @@
     <Content Include="recursos\core\Meta.xml">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="js\pages\listadoIndicadoresEntidad.js" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="comun\PaginaBase.cs">

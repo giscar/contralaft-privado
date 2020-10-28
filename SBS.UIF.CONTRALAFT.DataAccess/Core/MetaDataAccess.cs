@@ -11,12 +11,17 @@ namespace SBS.UIF.CONTRALAFT.DataAccess.Core
 
         public int GuardarMeta(Meta _meta)
         {
-            return (Convert.ToInt32(MapperPro.Instance().Insert("insert_meta", _meta)));
+            return Convert.ToInt32(MapperPro.Instance().Insert("insert_meta", _meta));
         }
 
-        public List<Meta> BuscarMetaPorEntidad(Meta _meta)
+        public Meta BuscarMetaPorEntidad(Meta _meta)
         {
-            return (BaseService<Meta>.QueryForList("select_metas_entidad", null));
+            return BaseService<Meta>.QueryForObject("select_metas_entidad", _meta);
+        }
+
+        public void ActualizarMeta(Meta _meta)
+        {
+            MapperPro.Instance().Update("update_meta", _meta);
         }
 
     }

@@ -16,7 +16,8 @@
       <result property="Estado" column="N_COD_ESTADO"></result>
       <result property="UsuRegistro" column="C_USU_REGISTRO"></result>
       <result property="FecRegistro" column="D_FEC_REGISTRO"></result>
-            
+      <result property="UsuModificacion" column="C_USU_MODIFICACION"></result>
+      <result property="FecModificacion" column="D_FEC_MODIFICACION"></result>    
     </resultMap>
        
   </resultMaps>
@@ -53,8 +54,19 @@
     <select id="select_metas_entidad" resultMap="rm_meta" >
       SELECT * FROM PRIVADO.META WHERE N_COD_ENTIDAD = #IdEntidad# AND N_COD_INDICADOR = #IdIndicador# 
     </select>
-
-
+        
+    <update id="update_meta">
+      UPDATE PRIVADO.META SET
+      N_NUM_BASE = #NumeroBase#,
+      C_MED_VERIFICACION = #MedioVerificacion#,
+      C_DET_DESCRIPCION = #Descripcion#,
+      C_COD_DOCUMENTO = #CodigoDocumento#,
+      N_COD_ESTADO = #Estado#,
+      N_FL_ACTIVO = #FlActivo#,
+      C_USU_MODIFICACION = #UsuModificacion#,
+      D_FEC_MODIFICACION = #FecModificacion#
+      WHERE N_COD_ENTIDAD = #IdEntidad# AND N_COD_INDICADOR = #IdIndicador# 
+    </update>
 
   </statements>
 </sqlMap>

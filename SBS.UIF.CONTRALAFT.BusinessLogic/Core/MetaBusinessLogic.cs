@@ -21,9 +21,14 @@ namespace SBS.UIF.CONTRALAFT.BusinessLogic.Core
             return _metaDataAccess.GuardarMeta(_meta);
         }
 
-        public List<Meta> BuscarMetaPorEntidad(Meta _meta)
+        public Meta BuscarMetaPorEntidad(Meta _meta)
         {
             return _metaDataAccess.BuscarMetaPorEntidad(_meta);
+        }
+
+        public void ActualizarMeta(Meta _meta)
+        {
+            _metaDataAccess.ActualizarMeta(_meta);
         }
 
     }

@@ -28,5 +28,19 @@ namespace SBS.UIF.CONTRALAFT.Web.pages {
 		protected System.Web.UI.HtmlControls.HtmlTextArea txtEditarAccion;
 		
 		protected System.Web.UI.HtmlControls.HtmlTextArea txtEditarDescripcion;
+		
+		protected System.Web.UI.WebControls.Label lblAccionTitulo;
+		
+		protected System.Web.UI.WebControls.Label lblIndicadorTitulo;
+		
+		protected System.Web.UI.WebControls.Label lblIndicadorAnho;
+		
+		protected System.Web.UI.HtmlControls.HtmlInputText txtMedioVerificacion;
+		
+		protected System.Web.UI.HtmlControls.HtmlInputText txtNumero;
+		
+		protected System.Web.UI.HtmlControls.HtmlTextArea txtDescripcion;
+		
+		protected System.Web.UI.WebControls.Button borradorMeta;
 	}
 }

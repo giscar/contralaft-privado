@@ -17,6 +17,8 @@ namespace SBS.UIF.CONTRALAFT.Entity.Core
      public int Estado { get; set; }
      public string UsuRegistro { get; set; }
      public DateTime FecRegistro { get; set; }
+     public string UsuModificacion { get; set; }
+     public DateTime FecModificacion { get; set; }
     }
 }
 #pragma warning restore 1591
