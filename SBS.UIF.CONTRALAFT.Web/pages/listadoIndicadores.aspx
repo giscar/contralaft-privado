@@ -65,6 +65,7 @@
                         <small class="form-text text-muted txtEditarDescripcionLabel">Ingrese la descripcion de la acción</small>
                     </div> 
                     
+                    
                 </div>
             </div>
         </div>
@@ -144,15 +145,16 @@
                         <small class="form-text text-muted txtDescripcionLabel">Ingrese la descripcion del resultado</small>
                     </div> 
                     <div class="form-group">
-                        <label>Documento de creación</label>
-                        <input type="file" id="fileDocumento" name="fileDocumento" class="file-upload-default fileDocumento">
-                        <div class="input-group col-xs-12">
-                            <input type="text" class="form-control file-upload-info" disabled="disabled" placeholder="Subir documento">
-                            <span class="input-group-append">
-                                <button class="file-upload-browse btn btn-info" type="button">Cargar al sistema</button>
-                            </span>
-                        </div>
-                        <small class="form-text text-muted fileDocumentoLabel">Ingrese el documento de sustento</small>
+                   
+                        <asp:Button class="btn btn-success" runat="server" Text="Descargar Documento" OnClick="Submit_descargar" />
+                    </div> 
+                    <div class="form-group">
+                        <label>Estado</label>
+                        <select class="form-control">
+                            <option>Seleccione estado</option>
+                            <option>Pendiente</option>
+                            <option>Culminado</option>
+                        </select>
                     </div> 
                 </div>
                 <div class="modal-footer">

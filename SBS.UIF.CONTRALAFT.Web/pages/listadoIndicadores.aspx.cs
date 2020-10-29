@@ -5,6 +5,7 @@ using SBS.UIF.CONTRALAFT.Web.comun;
 using SBS.UIF.CONTRALAFT.Web.util;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -125,11 +126,27 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
             txtMedioVerificacion.Value = meta.MedioVerificacion;
             txtDescripcion.Value = meta.Descripcion;
             txtNumero.Value = meta.NumeroBase.ToString();
+            ViewState["documento"] = meta.CodigoDocumento;
         }
 
+        protected void Submit_descargar(object sender, EventArgs e)
+        {
+            string filePath = Server.MapPath(Path.Combine("~/App_Data/", ViewState["documento"].ToString()));
+            FileInfo file = new FileInfo(filePath);
+            if (file.Exists)
+            {
+                Response.Clear();
+                Response.AddHeader("Content-Disposition", "attachment; filename=" + file.Name);
+                Response.AddHeader("Content-Length", file.Length.ToString());
+                Response.ContentType = "text/plain";
+                Response.Flush();
+                Response.TransmitFile(file.FullName);
+                Response.End();
+            }
+        }
+        
 
-
-        protected void GridAccion_RowCommand(object sender, GridViewCommandEventArgs e)
+    protected void GridAccion_RowCommand(object sender, GridViewCommandEventArgs e)
         {
 
 
