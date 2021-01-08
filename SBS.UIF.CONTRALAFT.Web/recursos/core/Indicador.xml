@@ -12,7 +12,7 @@
       <result property="UsuRegistro" column="C_USU_REGISTRO"></result>
       <result property="FecRegistro" column="D_FEC_REGISTRO"></result>
       <result property="UsuModificacion" column="C_USU_MODIFICACION"></result>
-      <result property="FecModificacion" column="D_FECHA_MODIFICACION"></result>
+      <result property="FecModificacion" column="D_FEC_MODIFICACION"></result>
       <result property="Anho" column="C_COD_ANHO"></result>
       <result property="FlActivo" column="N_FL_ACTIVO"></result>
       

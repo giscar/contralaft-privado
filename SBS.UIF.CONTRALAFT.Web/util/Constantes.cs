@@ -24,12 +24,18 @@ namespace SBS.UIF.CONTRALAFT.Web.util
 
         public enum PerfilFlag
         {
-            ADMINISTRADOR = '1'
+            ADMINISTRADOR = 1,
+            GESTOR = 2,
+            TITULAR = 3,
+            SUPLEMENTARIO = 4
+        }
+
+        public enum EntidadFlag
+        {
+            SBS = 2
         }
 
         public const String PaginaInicioLogin = "../pages/login.aspx";
-        public const String codigoPerfilAdministrador = "1";
-        public const String codigoPerfilGestor = "2";
         public const String selectValueDefault = "0";
         public const String selectLabelDefault = "Seleccione";
         public const String textoSubject = "Creación de usuario del modulo de CONTRALAFT";

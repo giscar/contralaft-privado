@@ -26,11 +26,13 @@ namespace SBS.UIF.CONTRALAFT.BusinessLogic.Core
             return _usuarioDataAccess.BuscarUsuario(_usuario);
         }
 
-        public List<Usuario> BuscarTodos() {
+        public List<Usuario> BuscarTodos()
+        {
             return _usuarioDataAccess.BuscarTodos();
         }
 
-        public Usuario BuscarUsuarioForID(int idUsuario) {
+        public Usuario BuscarUsuarioForID(int idUsuario)
+        {
             return _usuarioDataAccess.BuscarUsuarioForID(idUsuario);
         }
 

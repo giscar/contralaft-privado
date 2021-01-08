@@ -15,6 +15,7 @@ using System.Web.Security;
 using SBS.UIF.CONTRALAFT.Web.util;
 using System.IO;
 using System.Text.RegularExpressions;
+using static SBS.UIF.CONTRALAFT.Web.util.Constantes;
 
 namespace SBS.UIF.CONTRALAFT.Web.pages
 {
@@ -107,6 +108,11 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
                     UsuRegistro = UsuarioSession().DetCodigo,
                     ContraseniaEmail = password
                 };
+                Log.Debug(Constantes.PerfilFlag.ADMINISTRADOR.ToString());
+                if (_usuario.IdPerfil == int.Parse(Constantes.PerfilFlag.ADMINISTRADOR.ToString()) || _usuario.IdPerfil == int.Parse(Constantes.PerfilFlag.ADMINISTRADOR.ToString()))
+                {
+                    _usuario.IdEntidad = (int)Constantes.EntidadFlag.SBS;
+                }
                 new UsuarioBusinessLogic().GuardarPersona(_usuario);
                 EnviarEmail(_usuario);
                 CargarLista();
@@ -127,8 +133,9 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
                 if (e.CommandName == "editarUsuario")
                 {
                     CargarComboEdit();
+                    Log.Debug((int)Constantes.PerfilFlag.ADMINISTRADOR);
                     Usuario usuarioActualizado = _usuarioBusinessLogic.BuscarUsuarioForID(int.Parse(ViewState["parametro"].ToString()));
-                    if (usuarioActualizado.IdPerfil == int.Parse(Constantes.codigoPerfilAdministrador))
+                    if (usuarioActualizado.IdPerfil == (int)Constantes.PerfilFlag.ADMINISTRADOR) 
                     {
                         divEntidadEdit.Visible = false;
                     }
@@ -207,6 +214,10 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
                     IdPerfil = int.Parse(ddlCodigoPerfilEdit.SelectedValue),
                     IdEntidad = int.Parse(ddlCodigoEntidadEdit.SelectedValue),
                 };
+                if (_usuario.IdPerfil == (int)Constantes.PerfilFlag.ADMINISTRADOR)
+                {
+                    _usuario.IdEntidad = (int)Constantes.EntidadFlag.SBS;
+                }
                 _usuarioBusinessLogic.ActualizarUsuario(_usuario);
                 Limpiar();
                 CargarLista();
@@ -255,13 +266,13 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
 
         protected void DDlCodigoPerfil_SelectedIndexChanged(object sender, EventArgs e)
         {
-            divEntidad.Visible = !ddlCodigoPerfil.SelectedValue.Equals(Constantes.codigoPerfilAdministrador) && !ddlCodigoPerfil.SelectedValue.Equals(Constantes.codigoPerfilGestor);
+            divEntidad.Visible = !ddlCodigoPerfil.SelectedValue.Equals(Constantes.PerfilFlag.ADMINISTRADOR.ToString()) && !ddlCodigoPerfil.SelectedValue.Equals(Constantes.PerfilFlag.GESTOR.ToString());
             upEntidad.Update();
         }
 
         protected void DDlCodigoPerfilEdit_SelectedIndexChanged(object sender, EventArgs e)
         {
-            divEntidadEdit.Visible = !ddlCodigoPerfilEdit.SelectedValue.Equals(Constantes.codigoPerfilAdministrador) && !ddlCodigoPerfilEdit.SelectedValue.Equals(Constantes.codigoPerfilGestor);
+            divEntidadEdit.Visible = !ddlCodigoPerfilEdit.SelectedValue.Equals(Constantes.PerfilFlag.ADMINISTRADOR.ToString()) && !ddlCodigoPerfilEdit.SelectedValue.Equals(Constantes.PerfilFlag.GESTOR.ToString());
             upEntidadEdit.Update();
         }
 

@@ -4,7 +4,7 @@
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <h5 class="card-title mb-4">Indicadores del Plan</h5>
     <br/>
-    <asp:GridView ID="GridView1" runat="server" AllowPaging="true" OnRowCommand="GridAccion_RowCommand" Class="table table-hover table-striped table-bordered" PageSize="10" AutoGenerateColumns="false">
+    <asp:GridView ID="GridView1" runat="server" AllowPaging="true" OnRowCommand="GridAccion_RowCommand" Class="table table-bordered" PageSize="10" AutoGenerateColumns="false">
         <Columns>
             <asp:BoundField ItemStyle-Width="20%" DataField="Codigo" HeaderText="Código" />
             <asp:BoundField ItemStyle-Width="20%" DataField="Nombre" HeaderText="Acción" />
