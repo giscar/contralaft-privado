@@ -23,7 +23,11 @@ namespace SBS.UIF.CONTRALAFT.DataAccess.Core
         {
             return (BaseService<Plan>.QueryForObject("select_plan_publicado", null));
         }
-        
+
+        public Plan BuscarPlanBorrador()
+        {
+            return (BaseService<Plan>.QueryForObject("select_plan_borrador", null));
+        }
 
         public List<Plan> BuscarTodos()
         {
@@ -34,7 +38,6 @@ namespace SBS.UIF.CONTRALAFT.DataAccess.Core
         {
             return (int)MapperPro.Instance().QueryForObject("select_version", null);
         }
-        
 
         public void ActualizarPlan(Plan _plan)
         {

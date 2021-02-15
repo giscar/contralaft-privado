@@ -85,6 +85,10 @@
     <select id="select_plan_publicado" resultMap="rm_plan">
       SELECT * FROM PRIVADO.PLANCONTRALAFT WHERE N_FL_ACTIVO = 1 AND N_COD_ESTADO = 1 
     </select>
+        
+    <select id="select_plan_borrador" resultMap="rm_plan">
+      SELECT * FROM PRIVADO.PLANCONTRALAFT WHERE N_FL_ACTIVO = 1 AND N_COD_ESTADO = 0
+    </select>
 
   </statements>
 </sqlMap>

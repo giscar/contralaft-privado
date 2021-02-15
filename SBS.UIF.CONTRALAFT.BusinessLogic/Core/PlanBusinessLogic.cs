@@ -30,7 +30,11 @@ namespace SBS.UIF.CONTRALAFT.BusinessLogic.Core
         {
             return _planDataAccess.BuscarPlanPublicado();
         }
-        
+
+        public Plan BuscarPlanBorrador()
+        {
+            return _planDataAccess.BuscarPlanBorrador();
+        }
 
         public List<Plan> BuscarTodos()
         {
@@ -42,7 +46,6 @@ namespace SBS.UIF.CONTRALAFT.BusinessLogic.Core
             return _planDataAccess.BuscarVersion();
         }
         
-
         public void ActualizarPlan(Plan _plan)
         {
             _planDataAccess.ActualizarPlan(_plan);

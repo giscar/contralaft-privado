@@ -132,7 +132,14 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
         {
             try
             {
-                Accion accion = new Accion
+                Accion accion;
+                Plan val = _planBusinessLogic.BuscarPlanPublicado();
+                if (val == null) {
+                    ClientMessageBox.Show("No existe ningun Plan publicado nose puede crear la acción", this);
+                    return;
+                }
+
+                accion = new Accion
                 {
                     Nombre = txtAccion.Value,
                     Codigo = txtCodigoAccion.Value,

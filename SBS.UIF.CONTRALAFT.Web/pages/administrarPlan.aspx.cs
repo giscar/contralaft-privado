@@ -40,6 +40,13 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
         {
             try
             {
+                Plan validaBorrador;
+                validaBorrador = _planBusinessLogic.BuscarPlanBorrador();
+                if (validaBorrador != null) {
+                    ClientMessageBox.Show("Actualmente existe un plan en estado borrador", this);
+                    return;
+                }
+
                 Plan plan = new Plan
                 {
                     Nombre = txtNombrePlan.Value,
@@ -174,42 +181,44 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
 
             Plan planlActualizado = _planBusinessLogic.BuscarPlanForID((int)ViewState["idPlan"]);
 
-            if (planlActualizado.Estado == (int)Constantes.EstadoPlan.PUBLICADO)
+            if (e.CommandName == "editarPlan")
             {
-                ClientMessageBox.Show("El plan se encuentra en estado publicado no se puede modificar", this);
+                txtEditarNombre.Value = planlActualizado.Nombre;
+                txtEditarDescripcion.Value = planlActualizado.Descripcion;
+                System.Text.StringBuilder sb = new System.Text.StringBuilder();
+                sb.Append(@"<script type='text/javascript'>");
+                sb.Append("$(document).ready(function() {$('#editarPlan').modal('show');});");
+                sb.Append(@"</script>");
+                System.Web.UI.ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "editarPlan", sb.ToString(), false);
             }
-            else
+
+            if (e.CommandName == "inactivarPlan")
             {
-                if (e.CommandName == "editarPlan")
+                if (planlActualizado.Estado == (int)Constantes.EstadoPlan.PUBLICADO)
                 {
-                    txtEditarNombre.Value = planlActualizado.Nombre;
-                    txtEditarDescripcion.Value = planlActualizado.Descripcion;
-                    System.Text.StringBuilder sb = new System.Text.StringBuilder();
-                    sb.Append(@"<script type='text/javascript'>");
-                    sb.Append("$(document).ready(function() {$('#editarPlan').modal('show');});");
-                    sb.Append(@"</script>");
-                    System.Web.UI.ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "editarPlan", sb.ToString(), false);
+                    ClientMessageBox.Show("El plan se encuentra en estado publicado no se puede eliminar", this);
+                    return;
                 }
-
-                if (e.CommandName == "inactivarPlan")
-                {
-                    System.Text.StringBuilder sb = new System.Text.StringBuilder();
-                    sb.Append(@"<script type='text/javascript'>");
-                    sb.Append("$(document).ready(function() {$('#inactivacion').modal('show');});");
-                    sb.Append(@"</script>");
-                    System.Web.UI.ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "inactivacion", sb.ToString(), false);
-                }
-
-                if (e.CommandName == "publicarPlan")
-                {
-                    System.Text.StringBuilder sb = new System.Text.StringBuilder();
-                    sb.Append(@"<script type='text/javascript'>");
-                    sb.Append("$(document).ready(function() {$('#publicar').modal('show');});");
-                    sb.Append(@"</script>");
-                    System.Web.UI.ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "publicar", sb.ToString(), false);
-                }
-
+                System.Text.StringBuilder sb = new System.Text.StringBuilder();
+                sb.Append(@"<script type='text/javascript'>");
+                sb.Append("$(document).ready(function() {$('#inactivacion').modal('show');});");
+                sb.Append(@"</script>");
+                System.Web.UI.ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "inactivacion", sb.ToString(), false);
             }
+
+             if (e.CommandName == "publicarPlan")
+             {
+                if (planlActualizado.Estado == (int)Constantes.EstadoPlan.PUBLICADO)
+                {
+                    ClientMessageBox.Show("El plan se encuentra en estado publicado no se puede volver a publicar", this);
+                    return;
+                }
+                System.Text.StringBuilder sb = new System.Text.StringBuilder();
+                sb.Append(@"<script type='text/javascript'>");
+                sb.Append("$(document).ready(function() {$('#publicar').modal('show');});");
+                sb.Append(@"</script>");
+                System.Web.UI.ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "publicar", sb.ToString(), false);
+             }
         }
     }
 }

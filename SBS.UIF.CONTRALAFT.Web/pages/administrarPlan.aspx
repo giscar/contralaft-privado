@@ -53,13 +53,14 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="recipient-name" class="col-form-label">Titulo:</label>
-                        <input type="text" class="form-control txtEditarNombre" Id="txtEditarNombre" runat="server" autocomplete="off" maxlength="80" placeholder="Ingrese Titulo del Plan">
+                        <label for="recipient-name" class="col-form-label">Título:</label>
+                        <input type="text" class="form-control txtEditarNombre" Id="txtEditarNombre" runat="server" autocomplete="off" maxlength="80" placeholder="Ingrese Título del Plan">
+                        <small class="form-text text-muted txtEditarDescripcionLabel">Ingrese título del Plan</small>
                     </div>
                     <div class="form-group">
                         <label for="message-text" class="col-form-label">Descripción:</label>
                         <textarea class="form-control txtEditarDescripcion" Id="txtEditarDescripcion" rows="8" runat="server" autocomplete="off" maxlength="800" placeholder="Ingrese descripción"></textarea>
-                        <small class="form-text text-muted txtEditarDescripcionLabel">Ingrese descripción del plan</small>
+                        <small class="form-text text-muted txtEditarDescripcionLabel">Ingrese descripción del Plan</small>
                     </div>  
                 </div>
                 <div class="modal-footer">
