@@ -1,9 +1,9 @@
 ﻿using System;
-namespace SBS.UIF.CONTRALAFT.Web.util
+namespace SBS.UIF.CONTRALAFT.Util
 {
     public class SelectItem
     {
-        public string idTipo { get; set; }
+        public string IdTipo { get; set; }
         public string DesTipo { get; set; }
     }
 }

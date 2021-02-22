@@ -5,7 +5,7 @@ using NLog;
 using SBS.UIF.CONTRALAFT.BusinessLogic.Common;
 using SBS.UIF.CONTRALAFT.Entity.Common;
 using SBS.UIF.CONTRALAFT.Web.comun;
-using SBS.UIF.CONTRALAFT.Web.util;
+using SBS.UIF.CONTRALAFT.Util;
 
 namespace SBS.UIF.CONTRALAFT.Web.pages
 {

@@ -5,7 +5,7 @@ using NLog;
 using SBS.UIF.CONTRALAFT.BusinessLogic.Core;
 using SBS.UIF.CONTRALAFT.Entity.Core;
 using SBS.UIF.CONTRALAFT.Web.comun;
-using SBS.UIF.CONTRALAFT.Web.util;
+using SBS.UIF.CONTRALAFT.Util;
 
 namespace SBS.UIF.CONTRALAFT.Web.pages
 {
@@ -42,7 +42,8 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
             {
                 Plan validaBorrador;
                 validaBorrador = _planBusinessLogic.BuscarPlanBorrador();
-                if (validaBorrador != null) {
+                if (validaBorrador != null)
+                {
                     ClientMessageBox.Show("Actualmente existe un plan en estado borrador", this);
                     return;
                 }
@@ -54,6 +55,7 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
                     Estado = (int)Constantes.EstadoPlan.BORRADOR,
                     UsuRegistro = UsuarioSession().DetCodigo,
                     FecRegistro = DateTime.Now,
+                    Vigente = (int)Constantes.EstadoVigencia.NOVIGENTE,
                     FlActivo = (int)Constantes.EstadoFlag.ACTIVO
                 };
                 _planBusinessLogic.GuardarPlan(plan);
@@ -75,6 +77,7 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
                 {
                     Id = (int)ViewState["idPlan"],
                     UsuModificacion = UsuarioSession().DetCodigo,
+                    Vigente = (int)Constantes.EstadoVigencia.NOVIGENTE,
                     FecModificacion = DateTime.Now,
                     FlActivo = (int)Constantes.EstadoFlag.INACTIVO
                 };
@@ -104,7 +107,7 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
                 _planBusinessLogic.ActualizarPlan(_plan);
                 Limpiar();
                 CargarLista();
-                ClientMessageBox.Show("Se modificó el plan", this);
+                ClientMessageBox.Show("Se modificó el Plan", this);
             }
             catch (Exception ex)
             {
@@ -130,8 +133,6 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
             listadoPlanes = _planBusinessLogic.BuscarTodos();
             foreach (Plan item in listadoPlanes)
             {
-                Console.Write(item.Estado.ToString());
-                Console.Write(Constantes.EstadoPlan.BORRADOR.ToString());
                 if (item.Estado == (int)Constantes.EstadoPlan.BORRADOR)
                 {
                     item.EstadoDescripcion = Constantes.estadoPlanBORRADOR;
@@ -154,20 +155,27 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
                     Id = (int)ViewState["idPlan"],
                     Estado = (int)Constantes.EstadoPlan.PUBLICADO,
                     Version = _planBusinessLogic.BuscarVersion(),
+                    Vigente = (int)Constantes.EstadoVigencia.VIGENTE,
                     UsuModificacion = UsuarioSession().DetCodigo,
                     FecModificacion = DateTime.Now
                 };
+                Plan _planVigente = _planBusinessLogic.BuscarPlanVigente();
+                if (_planVigente != null)
+                {
+                    _planVigente.Vigente = (int)Constantes.EstadoVigencia.NOVIGENTE;
+                    _planBusinessLogic.VigenciaPlan(_planVigente);
+                }
                 _planBusinessLogic.EstadoPlan(_plan);
+                _planBusinessLogic.VigenciaPlan(_plan);
                 Limpiar();
                 CargarLista();
-                ClientMessageBox.Show("Se modificó el plan", this);
+                ClientMessageBox.Show("Se público el Plan", this);
             }
             catch (Exception ex)
             {
                 Log.Error(ex);
             }
         }
-
 
         private void Limpiar()
         {
@@ -208,11 +216,20 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
 
              if (e.CommandName == "publicarPlan")
              {
-                if (planlActualizado.Estado == (int)Constantes.EstadoPlan.PUBLICADO)
+                Plan _planVigente = _planBusinessLogic.BuscarPlanVigente();
+                if (_planVigente != null)
                 {
-                    ClientMessageBox.Show("El plan se encuentra en estado publicado no se puede volver a publicar", this);
-                    return;
+                    _planVigente.Vigente = (int)Constantes.EstadoVigencia.NOVIGENTE;
+                    _planBusinessLogic.VigenciaPlan(_planVigente);
                 }
+                else {
+                    if (planlActualizado.Estado == (int)Constantes.EstadoPlan.PUBLICADO)
+                    {
+                        ClientMessageBox.Show("El plan se encuentra en estado publicado no se puede volver a publicar", this);
+                        return;
+                    }
+                }
+                
                 System.Text.StringBuilder sb = new System.Text.StringBuilder();
                 sb.Append(@"<script type='text/javascript'>");
                 sb.Append("$(document).ready(function() {$('#publicar').modal('show');});");

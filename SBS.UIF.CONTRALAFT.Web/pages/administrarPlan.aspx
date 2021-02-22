@@ -22,20 +22,29 @@
 <ContentTemplate> 
     <asp:GridView ID="GridView1" runat="server" AllowPaging="true" OnPageIndexChanging="GridView1_PageIndexChanging" OnRowCommand="GridPlan_RowCommand" Class="table table-hover table-striped table-bordered" PageSize="10" AutoGenerateColumns="false">
         <Columns>
-            <asp:TemplateField HeaderText="Nro.">
+            <asp:TemplateField HeaderText="Nro." ItemStyle-Width="5%">
                 <ItemTemplate>
                     <%# Container.DataItemIndex + 1 %>
                 </ItemTemplate>
             </asp:TemplateField>
-            <asp:BoundField ItemStyle-Width="20%" DataField="Nombre" HeaderText="Plan" />
-            <asp:BoundField ItemStyle-Width="30%" DataField="Descripcion" HeaderText="Descripción del Plan" />
+            <asp:BoundField ItemStyle-Width="15%" DataField="Nombre" HeaderText="Plan" />
+            <asp:BoundField ItemStyle-Width="25%" DataField="Descripcion" HeaderText="Descripción del Plan" />
             <asp:BoundField ItemStyle-Width="10%" DataField="EstadoDescripcion" HeaderText="Estado" />    
-            <asp:BoundField ItemStyle-Width="10%" DataField="Version" HeaderText="Versión" /> 
+            <asp:BoundField ItemStyle-Width="5%" DataField="Version" HeaderText="Versión" /> 
+            <asp:BoundField ItemStyle-Width="10%" DataField="VigenteDetalle" HeaderText="Vigente" /> 
             <asp:TemplateField ShowHeader="false">
                 <ItemTemplate>
-                    <asp:LinkButton runat="server" CssClass="btn btn-success" CommandArgument='<%# Eval("Id") %>' CommandName="editarPlan" >Editar</asp:LinkButton>
-                    <asp:LinkButton runat="server" CssClass="btn btn-danger" CommandArgument='<%# Eval("Id") %>' CommandName="inactivarPlan" >Eliminar</asp:LinkButton> 
-                    <asp:LinkButton runat="server" CssClass="btn btn-primary" CommandArgument='<%# Eval("Id") %>' CommandName="publicarPlan" >Publicar</asp:LinkButton>
+                    <div class="row">
+                        <div class="column" style="padding-right:5px">
+                            <asp:LinkButton runat="server" CssClass="btn btn-icons btn-inverse-secondary" ToolTip="Editar" CommandArgument='<%# Eval("Id") %>' CommandName="editarPlan" ><i class="mdi mdi-pencil"></i></asp:LinkButton>
+                        </div>  
+                        <div class="column" style="padding-right:5px">
+                            <asp:LinkButton runat="server" CssClass="btn btn-icons btn-inverse-danger" ToolTip="Eliminar" CommandArgument='<%# Eval("Id") %>' CommandName="inactivarPlan" ><i class="mdi mdi-delete"></i></asp:LinkButton>  
+                        </div>
+                        <div class="column">
+                            <asp:LinkButton runat="server" CssClass="btn btn-icons btn-inverse-primary" ToolTip="Publicar" CommandArgument='<%# Eval("Id") %>' CommandName="publicarPlan" ><i class="mdi mdi-check"></i></asp:LinkButton>     
+                        </div> 
+                    </div>        
                 </ItemTemplate>
             </asp:TemplateField>
         </Columns>

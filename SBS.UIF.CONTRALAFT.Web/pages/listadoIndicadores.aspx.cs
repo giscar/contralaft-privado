@@ -2,7 +2,7 @@
 using SBS.UIF.CONTRALAFT.BusinessLogic.Core;
 using SBS.UIF.CONTRALAFT.Entity.Core;
 using SBS.UIF.CONTRALAFT.Web.comun;
-using SBS.UIF.CONTRALAFT.Web.util;
+using SBS.UIF.CONTRALAFT.Util;
 using System;
 using System.Collections.Generic;
 using System.IO;

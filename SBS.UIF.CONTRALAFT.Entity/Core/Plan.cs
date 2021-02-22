@@ -11,6 +11,8 @@ namespace SBS.UIF.CONTRALAFT.Entity.Core
      public string Descripcion { get; set; }
      public int Version { get; set; }
      public int Estado { get; set; }
+     public int Vigente { get; set; }
+     public string VigenteDetalle { get; set; }
      public int FlActivo { get; set; }
      public DateTime FecRegistro { get; set; }
      public string UsuRegistro { get; set; }

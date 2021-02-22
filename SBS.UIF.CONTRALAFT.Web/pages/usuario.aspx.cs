@@ -12,10 +12,9 @@ using SBS.UIF.CONTRALAFT.BusinessLogic.Common;
 using SBS.UIF.CONTRALAFT.Entity.Core;
 using SBS.UIF.CONTRALAFT.Web.comun;
 using System.Web.Security;
-using SBS.UIF.CONTRALAFT.Web.util;
+using SBS.UIF.CONTRALAFT.Util;
 using System.IO;
 using System.Text.RegularExpressions;
-using static SBS.UIF.CONTRALAFT.Web.util.Constantes;
 
 namespace SBS.UIF.CONTRALAFT.Web.pages
 {

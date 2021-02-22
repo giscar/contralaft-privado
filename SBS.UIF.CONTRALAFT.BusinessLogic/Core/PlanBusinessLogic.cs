@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using SBS.UIF.CONTRALAFT.Entity.Core;
 using SBS.UIF.CONTRALAFT.DataAccess.Core;
+using SBS.UIF.CONTRALAFT.Util;
 
 namespace SBS.UIF.CONTRALAFT.BusinessLogic.Core
 {
@@ -31,6 +32,11 @@ namespace SBS.UIF.CONTRALAFT.BusinessLogic.Core
             return _planDataAccess.BuscarPlanPublicado();
         }
 
+        public Plan BuscarPlanVigente()
+        {
+            return _planDataAccess.BuscarPlanVigente();
+        }
+
         public Plan BuscarPlanBorrador()
         {
             return _planDataAccess.BuscarPlanBorrador();
@@ -38,7 +44,19 @@ namespace SBS.UIF.CONTRALAFT.BusinessLogic.Core
 
         public List<Plan> BuscarTodos()
         {
-            return _planDataAccess.BuscarTodos();
+            List<Plan> lista = _planDataAccess.BuscarTodos();
+            foreach (Plan item in lista)
+            {
+                if (item.Vigente == (int)Constantes.EstadoVigencia.NOVIGENTE)
+                {
+                    item.VigenteDetalle = Constantes.estadoNoVigente;
+                }
+                if (item.Vigente == (int)Constantes.EstadoVigencia.VIGENTE)
+                {
+                    item.VigenteDetalle = Constantes.estadoVigente;
+                }
+            }
+            return lista;
         }
 
         public int BuscarVersion()
@@ -59,6 +77,11 @@ namespace SBS.UIF.CONTRALAFT.BusinessLogic.Core
         public void EstadoPlan(Plan _plan)
         {
             _planDataAccess.EstadoPlan(_plan);
+        }
+
+        public void VigenciaPlan(Plan _plan)
+        {
+            _planDataAccess.VigenciaPlan(_plan);
         }
 
     }

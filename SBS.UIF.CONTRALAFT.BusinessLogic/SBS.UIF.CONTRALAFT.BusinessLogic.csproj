@@ -104,6 +104,10 @@
       <Project>{cf2d6df6-c1f7-4dd7-b023-b1a55b5d3be3}</Project>
       <Name>SBS.UIF.CONTRALAFT.Entity</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SBS.UIF.CONTRALAFT.Util\SBS.UIF.CONTRALAFT.Util.csproj">
+      <Project>{F395534E-56C4-443B-A8DC-4903A0138EDC}</Project>
+      <Name>SBS.UIF.CONTRALAFT.Util</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

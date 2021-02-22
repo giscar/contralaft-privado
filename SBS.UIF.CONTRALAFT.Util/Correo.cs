@@ -7,7 +7,7 @@ using System.Net.Mail;
 using System.Web.Configuration;
 using System.Text;
 
-namespace SBS.UIF.CONTRALAFT.Web.util
+namespace SBS.UIF.CONTRALAFT.Util
 {
     public class Correo
     {

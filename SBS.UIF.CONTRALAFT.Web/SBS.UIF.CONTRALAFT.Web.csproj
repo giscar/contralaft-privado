@@ -64,7 +64,6 @@
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
-    <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
@@ -1210,10 +1209,6 @@
       <DependentUpon>plantilla.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="util\Constantes.cs" />
-    <Compile Include="util\ClientMessageBox.cs" />
-    <Compile Include="util\Correo.cs" />
-    <Compile Include="util\Comunicacion.cs" />
     <Compile Include="pages\administrarPlan.aspx.cs">
       <DependentUpon>administrarPlan.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1235,7 +1230,6 @@
     <Compile Include="pages\listadoIndicadores.aspx.designer.cs">
       <DependentUpon>listadoIndicadores.aspx</DependentUpon>
     </Compile>
-    <Compile Include="util\SelectItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1377,6 +1371,10 @@
     <ProjectReference Include="..\SBS.UIF.CONTRALAFT.Entity\SBS.UIF.CONTRALAFT.Entity.csproj">
       <Project>{cf2d6df6-c1f7-4dd7-b023-b1a55b5d3be3}</Project>
       <Name>SBS.UIF.CONTRALAFT.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SBS.UIF.CONTRALAFT.Util\SBS.UIF.CONTRALAFT.Util.csproj">
+      <Project>{F395534E-56C4-443B-A8DC-4903A0138EDC}</Project>
+      <Name>SBS.UIF.CONTRALAFT.Util</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

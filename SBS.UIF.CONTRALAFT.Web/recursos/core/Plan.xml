@@ -11,6 +11,7 @@
       <result property="Version" column="N_COD_VERSION"></result>
       <result property="Estado" column="N_COD_ESTADO"></result>
       <result property="FlActivo" column="N_FL_ACTIVO"></result>
+      <result property="Vigente" column="N_COD_VIGENTE"></result>
       <result property="FecRegistro" column="D_FEC_REGISTRO"></result>
       <result property="UsuRegistro" column="C_USU_REGISTRO"></result>
       <result property="FecModificacion" column="D_FEC_MODIFICACION"></result>
@@ -29,6 +30,7 @@
       N_COD_VERSION,
       N_COD_ESTADO,
       N_FL_ACTIVO,
+      N_COD_VIGENTE,
       C_USU_REGISTRO,
       D_FEC_REGISTRO    
       )
@@ -37,7 +39,8 @@
       #Descripcion#,
       #Version#,
       #Estado#,
-      #FlActivo#,      
+      #FlActivo#,
+      #Vigente#, 
       #UsuRegistro#,
       #FecRegistro#
       )
@@ -68,8 +71,15 @@
             D_FEC_MODIFICACION = #FecModificacion#
             WHERE N_COD_PLAN = #Id#
         </update>
-
-
+        
+        <update id="vigencia_plan">
+            UPDATE PRIVADO.PLANCONTRALAFT SET 
+            N_COD_VIGENTE = #Vigente#,
+            C_USU_MODIFICACION = #UsuModificacion#,
+            D_FEC_MODIFICACION = #FecModificacion#
+            WHERE N_COD_PLAN = #Id#
+        </update>
+        
     <select id="select_plan" resultMap="rm_plan"  parameterClass="int">
       SELECT * FROM PRIVADO.PLANCONTRALAFT WHERE N_COD_PLAN = #value#
     </select>
@@ -87,7 +97,11 @@
     </select>
         
     <select id="select_plan_borrador" resultMap="rm_plan">
-      SELECT * FROM PRIVADO.PLANCONTRALAFT WHERE N_FL_ACTIVO = 1 AND N_COD_ESTADO = 0
+      SELECT * FROM PRIVADO.PLANCONTRALAFT WHERE N_FL_ACTIVO = 1 AND N_COD_ESTADO = 0 AND N_COD_VIGENTE = 0
+    </select>
+        
+    <select id="select_plan_vigente" resultMap="rm_plan">
+      SELECT * FROM PRIVADO.PLANCONTRALAFT WHERE N_FL_ACTIVO = 1 AND N_COD_ESTADO = 1 AND N_COD_VIGENTE = 1
     </select>
 
   </statements>

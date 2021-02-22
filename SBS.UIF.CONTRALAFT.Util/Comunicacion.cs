@@ -2,7 +2,7 @@
 
 using System;
 
-namespace SBS.UIF.CONTRALAFT.Web.util
+namespace SBS.UIF.CONTRALAFT.Util
 
 {
     public class Comunicacion

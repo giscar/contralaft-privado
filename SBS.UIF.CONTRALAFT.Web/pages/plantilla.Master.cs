@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Web;
 using SBS.UIF.CONTRALAFT.Entity.Common;
 using SBS.UIF.CONTRALAFT.Entity.Core;
-using SBS.UIF.CONTRALAFT.Web.util;
+using SBS.UIF.CONTRALAFT.Util;
 
 namespace SBS.UIF.CONTRALAFT.Web
 {

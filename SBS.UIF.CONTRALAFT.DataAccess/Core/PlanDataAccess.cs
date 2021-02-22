@@ -29,6 +29,12 @@ namespace SBS.UIF.CONTRALAFT.DataAccess.Core
             return (BaseService<Plan>.QueryForObject("select_plan_borrador", null));
         }
 
+        public Plan BuscarPlanVigente()
+        {
+            return (BaseService<Plan>.QueryForObject("select_plan_vigente", null));
+        }
+        
+
         public List<Plan> BuscarTodos()
         {
             return (BaseService<Plan>.QueryForList("select_planes", null));
@@ -54,5 +60,10 @@ namespace SBS.UIF.CONTRALAFT.DataAccess.Core
             MapperPro.Instance().Update("estado_plan", _plan);
         }
 
+        public void VigenciaPlan(Plan _plan)
+        {
+            MapperPro.Instance().Update("vigencia_plan", _plan);
+        }
+        
     }
 }

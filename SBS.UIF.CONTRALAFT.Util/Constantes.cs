@@ -1,5 +1,5 @@
 ﻿using System;
-namespace SBS.UIF.CONTRALAFT.Web.util
+namespace SBS.UIF.CONTRALAFT.Util
 {
     public class Constantes
     {
@@ -22,6 +22,12 @@ namespace SBS.UIF.CONTRALAFT.Web.util
             PUBLICADO = 1
         }
 
+        public enum EstadoVigencia
+        {
+            NOVIGENTE = 0,
+            VIGENTE = 1
+        }
+
         public enum PerfilFlag
         {
             ADMINISTRADOR = 1,
@@ -41,6 +47,8 @@ namespace SBS.UIF.CONTRALAFT.Web.util
         public const String textoSubject = "Creación de usuario del modulo de CONTRALAFT";
         public const String estadoPlanBORRADOR = "Borrador";
         public const String estadoPlanPUBLICADO = "Publicado";
+        public const String estadoVigente = "Vigente";
+        public const String estadoNoVigente = "No Vigente";
 
     }
 }
