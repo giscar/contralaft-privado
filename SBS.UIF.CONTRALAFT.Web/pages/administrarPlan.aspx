@@ -139,5 +139,25 @@
             </div>
         </div>
     </div>
+    <!-- modal publicar Nuevo-->
+    <div class="modal fade" id="publicarNuevo" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Ventana de Confirmación</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Esta seguro de publicar el nuevo Plan? tener en cuenta que el Plan anteior dejare de estar activo, esta accion no se puede revertir.</p>
+                </div>
+                <div class="modal-footer">
+                    <asp:Button class="btn btn-primary" ID="btnPublicarNuevo" runat="server" Text="Publicar Plan" OnClick="Submit_publicar_nuevo" />
+                    <button type="button" class="btn btn-primart" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
    <script src="/js/pages/administrarPlan.js"></script>
 </asp:Content>

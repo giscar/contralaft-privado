@@ -40,12 +40,17 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
         {
             try
             {
-                Plan validaBorrador;
-                validaBorrador = _planBusinessLogic.BuscarPlanBorrador();
+                Plan validaBorrador = _planBusinessLogic.BuscarPlanBorrador();
                 if (validaBorrador != null)
                 {
                     ClientMessageBox.Show("Actualmente existe un plan en estado borrador", this);
                     return;
+                }
+                Plan validaVigente = _planBusinessLogic.BuscarPlanVigente();
+                int version = 0;
+                if (validaVigente != null)
+                {
+                    version = validaVigente.Version + 1;
                 }
 
                 Plan plan = new Plan
@@ -56,7 +61,8 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
                     UsuRegistro = UsuarioSession().DetCodigo,
                     FecRegistro = DateTime.Now,
                     Vigente = (int)Constantes.EstadoVigencia.NOVIGENTE,
-                    FlActivo = (int)Constantes.EstadoFlag.ACTIVO
+                    FlActivo = (int)Constantes.EstadoFlag.ACTIVO,
+                    Version = version
                 };
                 _planBusinessLogic.GuardarPlan(plan);
                 Limpiar();
@@ -159,12 +165,7 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
                     UsuModificacion = UsuarioSession().DetCodigo,
                     FecModificacion = DateTime.Now
                 };
-                Plan _planVigente = _planBusinessLogic.BuscarPlanVigente();
-                if (_planVigente != null)
-                {
-                    _planVigente.Vigente = (int)Constantes.EstadoVigencia.NOVIGENTE;
-                    _planBusinessLogic.VigenciaPlan(_planVigente);
-                }
+                
                 _planBusinessLogic.EstadoPlan(_plan);
                 _planBusinessLogic.VigenciaPlan(_plan);
                 Limpiar();
@@ -176,6 +177,41 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
                 Log.Error(ex);
             }
         }
+
+        protected void Submit_publicar_nuevo(object sender, EventArgs e)
+        {
+            try
+            {
+                Plan _plan = new Plan
+                {
+                    Id = (int)ViewState["idPlan"],
+                    Estado = (int)Constantes.EstadoPlan.PUBLICADO,
+                    Version = _planBusinessLogic.BuscarVersion(),
+                    Vigente = (int)Constantes.EstadoVigencia.VIGENTE,
+                    UsuModificacion = UsuarioSession().DetCodigo,
+                    FecModificacion = DateTime.Now
+                };
+                
+                int version = 0;
+                Plan _planVigente = _planBusinessLogic.BuscarPlanVigente();
+                if (_planVigente != null)
+                {
+                    _planVigente.Vigente = (int)Constantes.EstadoVigencia.NOVIGENTE;
+                    _planBusinessLogic.VigenciaPlan(_planVigente);
+                    version = _planVigente.Version + 1;
+                }
+                _planBusinessLogic.EstadoPlan(_plan);
+                _planBusinessLogic.VigenciaPlan(_plan);
+                Limpiar();
+                CargarLista();
+                ClientMessageBox.Show("Se público el Nuevo Plan", this);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+        }
+        
 
         private void Limpiar()
         {
@@ -219,8 +255,11 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
                 Plan _planVigente = _planBusinessLogic.BuscarPlanVigente();
                 if (_planVigente != null)
                 {
-                    _planVigente.Vigente = (int)Constantes.EstadoVigencia.NOVIGENTE;
-                    _planBusinessLogic.VigenciaPlan(_planVigente);
+                    System.Text.StringBuilder sb1 = new System.Text.StringBuilder();
+                    sb1.Append(@"<script type='text/javascript'>");
+                    sb1.Append("$(document).ready(function() {$('#publicarNuevo').modal('show');});");
+                    sb1.Append(@"</script>");
+                    System.Web.UI.ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "publicarNuevo", sb1.ToString(), false);
                 }
                 else {
                     if (planlActualizado.Estado == (int)Constantes.EstadoPlan.PUBLICADO)

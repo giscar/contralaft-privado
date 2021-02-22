@@ -6,6 +6,7 @@
   <resultMaps>
     <resultMap id="rm_accion" class="Accion">
       <result property="Id" column="N_COD_ACCION"></result>
+      <result property="IdPlan" column="N_COD_PLAN"></result>
       <result property="Codigo" column="C_NUM_CODIGO"></result>
       <result property="Nombre" column="C_DES_NOMBRE"></result>
       <result property="Descripcion" column="C_DES_DESCRIPCION"></result>
@@ -14,13 +15,15 @@
       <result property="UsuRegistro" column="C_USU_REGISTRO"></result>
       <result property="FecModificacion" column="D_FEC_MODIFICACION"></result>
       <result property="UsuModificacion" column="C_USU_MODIFICACION"></result>
-     
+      <result property="VersionPlan" column="N_COD_VERSION"></result>
     </resultMap>
   </resultMaps>
 
   <statements>
     <select id="select_acciones" resultMap="rm_accion" >
-      SELECT * FROM PRIVADO.ACCION WHERE N_FL_ACTIVO = 1
+      SELECT B.N_COD_VERSION, A.* FROM PRIVADO.ACCION A
+      INNER JOIN PRIVADO.PLANCONTRALAFT B ON A.N_COD_PLAN = B.N_COD_PLAN
+      WHERE A.N_FL_ACTIVO = 1
     </select>
         
     <select id="select_accion" resultMap="rm_accion"  parameterClass="int">
@@ -36,6 +39,7 @@
 
     <insert id="insert_accion">
       INSERT INTO PRIVADO.ACCION (
+      N_COD_PLAN,
       C_NUM_CODIGO,
       C_DES_NOMBRE,
       C_DES_DESCRIPCION,
@@ -44,7 +48,8 @@
       C_USU_REGISTRO
       )
       VALUES
-      (#Codigo#,
+      (#IdPlan#,
+      #Codigo#,
       #Nombre#,
       #Descripcion#,
       #FlActivo#,

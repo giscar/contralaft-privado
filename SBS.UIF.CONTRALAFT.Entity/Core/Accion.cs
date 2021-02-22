@@ -20,6 +20,7 @@ namespace SBS.UIF.CONTRALAFT.Entity.Core
         public string UsuModificacion { get; set; }
         public string NombrePerfil { get; set; }
         public List<Indicador> ListaIndicadores { get; set; }
+        public int VersionPlan { get; set; }
     }
 }
 #pragma warning restore 1591

@@ -25,14 +25,23 @@
     
     <asp:GridView ID="GridView1" runat="server" AllowPaging="true" OnPageIndexChanging="GridView1_PageIndexChanging" OnRowCommand="GridAccion_RowCommand" Class="table table-hover table-striped table-bordered" PageSize="10" AutoGenerateColumns="false">
         <Columns>
+            <asp:BoundField ItemStyle-Width="15%" DataField="VersionPlan" HeaderText="Versión del Plan" />
             <asp:BoundField ItemStyle-Width="10%" DataField="Codigo" HeaderText="Codigo" />
-            <asp:BoundField ItemStyle-Width="20%" DataField="Nombre" HeaderText="Acción" />
-            <asp:BoundField ItemStyle-Width="60%" DataField="Descripcion" HeaderText="Descripcion" />
+            <asp:BoundField ItemStyle-Width="15%" DataField="Nombre" HeaderText="Acción" />
+            <asp:BoundField ItemStyle-Width="30%" DataField="Descripcion" HeaderText="Descripcion" />
             <asp:TemplateField HeaderText="Acciones">
                 <ItemTemplate>
-                    <asp:LinkButton runat="server" CssClass="btn btn-success" CommandArgument='<%# Eval("Id") %>' CommandName="editar" >Editar</asp:LinkButton>
-                    <asp:LinkButton runat="server" CssClass="btn btn-danger" CommandArgument='<%# Eval("Id") %>' CommandName="inactivar" >Eliminar</asp:LinkButton> 
-                    <asp:LinkButton runat="server" CssClass="btn btn-primary" CommandArgument='<%# Eval("Id") %>' CommandName="indicador" >Agregar Indicador</asp:LinkButton>
+                    <div class="row">
+                        <div class="column" style="padding-right:5px">
+                            <asp:LinkButton runat="server" CssClass="btn btn-icons btn-inverse-secondary" ToolTip="Editar" CommandArgument='<%# Eval("Id") %>' CommandName="editar" ><i class="mdi mdi-pencil"></i></asp:LinkButton>
+                        </div>  
+                        <div class="column" style="padding-right:5px">
+                            <asp:LinkButton runat="server" CssClass="btn btn-icons btn-inverse-danger" ToolTip="Eliminar" CommandArgument='<%# Eval("Id") %>' CommandName="inactivar" ><i class="mdi mdi-delete"></i></asp:LinkButton> 
+                        </div>
+                        <div class="column">
+                            <asp:LinkButton runat="server" CssClass="btn btn-icons btn-inverse-primary" ToolTip="Agregar Indicador" CommandArgument='<%# Eval("Id") %>' CommandName="indicador" ><i class="mdi mdi-plus"></i></asp:LinkButton>
+                        </div> 
+                    </div>
                 </ItemTemplate>
             </asp:TemplateField>
         </Columns>
