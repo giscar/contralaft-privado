@@ -74,7 +74,7 @@
                     
                 </div>
                 <div class="modal-footer">
-                    <asp:Button class="btn btn-success" ID="btnSeleccionar" runat="server" Text="Modificar Indicador" OnClick="Submit_agregar_indicador" />
+                    <asp:Button class="btn btn-success" ID="btnSeleccionar" runat="server" Text="Modificar Indicador" OnClick="Submit_edit" />
                     <button type="button" class="btn btn-light" data-dismiss="modal">Cerrar</button>
                 </div>
             </div>
