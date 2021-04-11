@@ -23,7 +23,7 @@
     <select id="select_acciones" resultMap="rm_accion" >
       SELECT B.N_COD_VERSION, A.* FROM PRIVADO.ACCION A
       INNER JOIN PRIVADO.PLANCONTRALAFT B ON A.N_COD_PLAN = B.N_COD_PLAN
-      WHERE B.N_FL_ACTIVO = 1 AND N_COD_VIGENTE = 1
+      WHERE B.N_FL_ACTIVO = 1 AND A.N_FL_ACTIVO = 1 AND B.N_COD_VIGENTE = 1
     </select>
         
     <select id="select_accion" resultMap="rm_accion"  parameterClass="int">

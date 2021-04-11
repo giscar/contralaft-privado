@@ -106,37 +106,36 @@
                         <asp:DropDownList class="form-control ddlCodigoAnho" ID="ddlCodigoAnho" runat="server" DataValueField="idTipo" DataTextField="DesTipo"></asp:DropDownList>
                         <small class="form-text text-muted dddlCodigoAnhoLabel">Ingrese el año</small>
                     </div>
-                    <asp:UpdatePanel id="upSeccionEntidad" runat="server" UpdateMode="Conditional">
-                <ContentTemplate>
-                     <div class="form-group" ID="divEntidad" runat="server">
-                        <label style="vertical-align: bottom">Entidad</label>
-                        <asp:DropDownList class="form-control ddlCodigoEntidad" ID="ddlCodigoEntidad" runat="server" DataValueField="idTipo" DataTextField="DesTipo"></asp:DropDownList>
-                        <asp:LinkButton runat="server" CssClass="btn btn-success" id="IdBotonAgregarEntidad" OnClick="DdlTipoEntidad_SelectedIndexChanged">Agregar</asp:LinkButton>
-                        <small class="form-text text-muted ddlCodigoEntidadLabel">Ingrese la entidad relacionada al indicador</small>
+                    <div class="form-group" runat="server">
+                        <asp:Button class="btn btn-success" id="btnSeleccionarIndicador" runat="server" Text="Agregar Indicador" OnClick="Guardar_Indicador" />
                     </div>
-            </ContentTemplate>
-                <Triggers>
-                    <asp:AsyncPostBackTrigger ControlID="btnSeleccionarIndicador" EventName="Click" />
-                </Triggers>
-            </asp:UpdatePanel>
-                    
-                    
-                    
+                    <asp:UpdatePanel id="upSeccionEntidad" runat="server" UpdateMode="Conditional">
+                        <ContentTemplate>
+                            <div class="form-group" ID="divEntidad" runat="server">
+                                <label style="vertical-align: bottom">Entidad</label>
+                                <asp:DropDownList class="form-control ddlCodigoEntidad" ID="ddlCodigoEntidad" runat="server" DataValueField="idTipo" DataTextField="DesTipo"></asp:DropDownList>
+                                <asp:LinkButton runat="server" CssClass="btn btn-success" id="IdBotonAgregarEntidad" OnClick="DdlTipoEntidad_SelectedIndexChanged">Agregar</asp:LinkButton>
+                                <small class="form-text text-muted ddlCodigoEntidadLabel">Ingrese la entidad relacionada al indicador</small>
+                            </div>
+                        </ContentTemplate>
+                        <Triggers>
+                            <asp:AsyncPostBackTrigger ControlID="btnSeleccionarIndicador" EventName="Click" />
+                        </Triggers>
+                    </asp:UpdatePanel>
                     <asp:UpdatePanel ID="upListadoEntidades" runat="server" UpdateMode="Conditional">
-                <ContentTemplate>
-                    <asp:GridView ID="GridView2" runat="server" AllowPaging="true" Class="table table-hover table-striped table-bordered" PageSize="10" AutoGenerateColumns="false">
-                        <Columns>
-                            <asp:BoundField DataField="DesTipo" HeaderText="Entidad" />
-                        </Columns>
-                    </asp:GridView>
-               </ContentTemplate>
-                <Triggers>
-                    <asp:AsyncPostBackTrigger ControlID="IdBotonAgregarEntidad" EventName="Click" />
-                </Triggers>
-            </asp:UpdatePanel>
+                        <ContentTemplate>
+                            <asp:GridView ID="GridView2" runat="server" AllowPaging="true" Class="table table-hover table-striped table-bordered" PageSize="10" AutoGenerateColumns="false">
+                                <Columns>
+                                    <asp:BoundField DataField="DesTipo" HeaderText="Entidad" />
+                                </Columns>
+                            </asp:GridView>
+                        </ContentTemplate>
+                        <Triggers>
+                            <asp:AsyncPostBackTrigger ControlID="IdBotonAgregarEntidad" EventName="Click" />
+                        </Triggers>
+                    </asp:UpdatePanel>
                 </div>
                 <div class="modal-footer">
-                    <asp:Button class="btn btn-success" id="btnSeleccionarIndicador" runat="server" Text="Agregar Indicador" OnClick="GuardarIndicador" />
                     <button type="button" class="btn btn-light" data-dismiss="modal">Cerrar</button>
                 </div>
             </div>

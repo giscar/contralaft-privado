@@ -79,7 +79,7 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
             GridView1.DataBind();
         }
 
-        protected void GuardarIndicador(object sender, EventArgs e)
+        protected void Guardar_Indicador(object sender, EventArgs e)
         {
             try
             {
@@ -106,6 +106,29 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
         }
 
         protected void DdlTipoEntidad_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                string selectorEntidad = ddlCodigoEntidad.SelectedValue;
+                Entidad entidad = _entidadBusinessLogic.EntidadForID(int.Parse(selectorEntidad.ToString()));
+                IndicadorEntidad ie = new IndicadorEntidad();
+                ie.IdIndicador = (int)ViewState["idIndicador"];
+                ie.IdEntidad = entidad.IdTipo;
+                ie.FlActivo = (int)Constantes.EstadoFlag.ACTIVO;
+                ie.Estado = (int)Constantes.EstadoFlag.ACTIVO;
+                _indicadorEntidadBusinessLogic.GuardarIndicadorEntidad(ie);
+                ListadoEntidad = _entidadBusinessLogic.ListarPorEntidadforIndicador(ie.IdIndicador);
+                GridView2.DataSource = ListadoEntidad;
+                GridView2.DataBind();
+                upListadoEntidades.Update();
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+        }
+
+        protected void DdlTipoEntidad_SelectedIndexChanged()
         {
             try
             {
@@ -262,7 +285,6 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
 
             if (e.CommandName == "indicador")
             {
-
                 System.Text.StringBuilder sb = new System.Text.StringBuilder();
                 sb.Append(@"<script type='text/javascript'>");
                 sb.Append("$(document).ready(function() {$('#indicador').modal('show');});");
