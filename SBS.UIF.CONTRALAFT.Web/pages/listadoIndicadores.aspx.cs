@@ -66,6 +66,7 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
                 }
             }
             GridView1.DataSource = listadoAccion;
+            //GridView1.Attributes["style"] = "border-color: white";
             GridView1.DataBind();
         }
 

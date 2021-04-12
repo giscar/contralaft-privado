@@ -4,33 +4,41 @@
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <h5 class="card-title mb-4">Indicadores del Plan</h5>
     <br/>
-    <asp:GridView ID="GridView1" runat="server" AllowPaging="true" OnRowCommand="GridAccion_RowCommand" Class="table table-bordered" PageSize="10" AutoGenerateColumns="false">
+    <style>
+    .divTableBorderNone td {
+        border-color: white;
+    }
+
+    </style>
+    <asp:GridView ID="GridView1" runat="server" AllowPaging="true" OnRowCommand="GridAccion_RowCommand" PageSize="10" AutoGenerateColumns="false" Class="table table-bordered">
         <Columns>
             <asp:BoundField ItemStyle-Width="20%" DataField="Codigo" HeaderText="Código" />
             <asp:BoundField ItemStyle-Width="20%" DataField="Nombre" HeaderText="Acción" />
             <asp:TemplateField  HeaderText="Indicadores">
                 <ItemTemplate>
-                    <asp:GridView ID="GridView2" ShowHeader="false" runat="server" AutoGenerateColumns="false" DataSource='<%# Bind("ListaIndicadores")%>' >
+                    <asp:GridView ID="GridView2" ShowHeader="false" runat="server" AutoGenerateColumns="false" DataSource='<%# Bind("ListaIndicadores")%>'  >
                         <Columns>
                             <asp:BoundField DataField="Nombre" />
-                            <asp:TemplateField  HeaderText="Indicadores">
-                                <ItemTemplate>
-                                    <asp:GridView ID="GridView3" ShowHeader="false" runat="server" OnRowCommand="GridAccion2_RowCommand" AutoGenerateColumns="false" DataSource='<%# Bind("ListaEntidades")%>' >
+                            <asp:TemplateField  HeaderText="Indicadores">                                
+                                <ItemTemplate style="border:0px;">
+                                    <asp:GridView ID="GridView3" ShowHeader="false" runat="server" OnRowCommand="GridAccion2_RowCommand" AutoGenerateColumns="false" DataSource='<%# Bind("ListaEntidades")%>' Class="divTableBorderNone">
                                         <Columns>
                                             <asp:BoundField DataField="DesTipo" />
                                             <asp:TemplateField ShowHeader="false">
                                                 <ItemTemplate>
-                                                    <asp:LinkButton runat="server" CssClass="btn btn-success" CommandArgument='<%#Eval("IdTipo") + ";" +Eval("IdIndicador") + ";" +Eval("IdAccion")%>' CommandName="avance" >Ver avance</asp:LinkButton>
+                                                    <div class="column" style="padding-right:5px">
+                                                        <asp:LinkButton runat="server" CssClass="btn btn-icons btn-inverse-secondary" ToolTip="Ver avance" CommandArgument='<%#Eval("IdTipo") + ";" +Eval("IdIndicador") + ";" +Eval("IdAccion")%>' CommandName="avance" ><i class="mdi mdi-file-find"></i></asp:LinkButton>
+                                                    </div> 
                                                 </ItemTemplate>
                                             </asp:TemplateField>
                                         </Columns>
-                                    </asp:GridView>    
+                                    </asp:GridView>
                                 </ItemTemplate>
                             </asp:TemplateField>
                             <asp:TemplateField ShowHeader="false">
                                 <ItemTemplate>
-                                    <asp:LinkButton runat="server" CssClass="btn btn-success" CommandArgument='<%# Eval("Id") %>' CommandName="editar" >Editar</asp:LinkButton>
-                                    <asp:LinkButton runat="server" CssClass="btn btn-danger" CommandArgument='<%# Eval("Id") %>' CommandName="inactivar" >Eliminar</asp:LinkButton> 
+                                    <asp:LinkButton runat="server" CssClass="btn btn-icons btn-inverse-primary" ToolTip="Editar" CommandArgument='<%# Eval("Id") %>' CommandName="editar" ><i class="mdi mdi-pencil"></i></asp:LinkButton>
+                                    <asp:LinkButton runat="server" CssClass="btn btn-icons btn-inverse-danger" ToolTip="Eliminar" CommandArgument='<%# Eval("Id") %>' CommandName="inactivar" ><i class="mdi mdi-delete"></i></asp:LinkButton> 
                                 </ItemTemplate>
                             </asp:TemplateField>
                         </Columns>
