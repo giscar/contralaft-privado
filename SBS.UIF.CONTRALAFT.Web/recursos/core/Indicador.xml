@@ -66,6 +66,7 @@
       UPDATE PRIVADO.INDICADOR SET
       C_DES_DETALLE = #Detalle#,
       C_DES_NOMBRE = #Nombre#,
+      C_COD_ANHO = #Anho#,
       C_USU_MODIFICACION = #UsuModificacion#,
       D_FEC_MODIFICACION = #FecModificacion#
       WHERE N_COD_INDICADOR = #Id#

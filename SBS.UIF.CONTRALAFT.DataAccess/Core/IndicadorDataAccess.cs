@@ -35,9 +35,9 @@ namespace SBS.UIF.CONTRALAFT.DataAccess.Core
             return Convert.ToInt32(MapperPro.Instance().Insert("insert_indicador", _indicador));
         }
 
-        public void ActualizarIndicador(Accion _accion)
+        public void ActualizarIndicador(Indicador _indicador)
         {
-            MapperPro.Instance().Update("update_indicador", _accion);
+            MapperPro.Instance().Update("update_indicador", _indicador);
         }
 
         public void InactivarAccion(Accion _accion)

@@ -19,6 +19,8 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
 
         IndicadorBusinessLogic _indicadorBusinessLogic = new IndicadorBusinessLogic();
 
+        IndicadorEntidadBusinessLogic _indicadorEntidadBusinessLogic = new IndicadorEntidadBusinessLogic();
+
         AccionBusinessLogic _accionBusinessLogic = new AccionBusinessLogic();
 
         EntidadBusinessLogic _entidadBusinessLogic = new EntidadBusinessLogic();
@@ -28,6 +30,8 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
         List<Accion> listadoAccion;
 
         List<Indicador> listadoIndicador;
+
+        List<Entidad> ListadoEntidad = new List<Entidad>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -40,12 +44,29 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
                         Response.Redirect(Constantes.PaginaInicioLogin);
                     }
                     CargarLista();
+                    CargarAnho();
                 }
                 catch (Exception ex)
                 {
                     Log.Error(ex);
                 }
             }
+        }
+
+        private void CargarAnho()
+        {
+            int year = DateTime.Now.Year;
+            for (int i = year - 2; i <= year + 2; i++)
+            {
+                ListItem li = new ListItem(i.ToString());
+                ddlCodigoAnho.Items.Add(li);
+            }
+            ddlCodigoAnho.Items.FindByText(year.ToString()).Selected = true;
+        }
+
+        private void CargarEntidades()
+        {
+            LlenarDropDownList(ddlCodigoEntidad, new EntidadBusinessLogic().ListarPorEntidad().OrderBy(x => x.DesTipo), "0", "Seleccione");
         }
 
         private void CargarLista()
@@ -66,7 +87,6 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
                 }
             }
             GridView1.DataSource = listadoAccion;
-            //GridView1.Attributes["style"] = "border-color: white";
             GridView1.DataBind();
         }
 
@@ -74,7 +94,71 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
         {
 
         }
-            
+
+        protected void DdlTipoEntidad_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                string selectorEntidad = ddlCodigoEntidad.SelectedValue;
+                Entidad entidad = _entidadBusinessLogic.EntidadForID(int.Parse(selectorEntidad.ToString()));
+                IndicadorEntidad ie = new IndicadorEntidad();
+                ie.IdIndicador = (int)ViewState["idIndicadorAccion"];
+                ie.IdEntidad = entidad.IdTipo;
+                ie.FlActivo = (int)Constantes.EstadoFlag.ACTIVO;
+                ie.Estado = (int)Constantes.EstadoFlag.ACTIVO;
+                _indicadorEntidadBusinessLogic.GuardarIndicadorEntidad(ie);
+                ListadoEntidad = _entidadBusinessLogic.ListarPorEntidadforIndicador(ie.IdIndicador);
+                GridView2.DataSource = ListadoEntidad;
+                GridView2.DataBind();
+                upListadoEntidades.Update();
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+        }
+
+        protected void Editar_Indicador(object sender, EventArgs e)
+        {
+            try
+            {
+                Indicador _indicador = new Indicador();
+                _indicador.Id = (int)ViewState["idIndicadorAccion"];
+                _indicador.Nombre = txtNombreIndicador.Value;
+                _indicador.Detalle = txtDetalleIndicador.Value;
+                _indicador.Anho = ddlCodigoAnho.SelectedValue;
+                _indicador.FecModificacion = DateTime.Now;
+                _indicador.UsuModificacion = UsuarioSession().DetCodigo;
+                _indicadorBusinessLogic.ActualizarIndicador(_indicador);
+                CargarLista();
+                ClientMessageBox.Show("Se modificó el indicador seleccionado", this);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+        }
+
+
+        protected void GriIndicador_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            ViewState["idIndicadorAccion"] = int.Parse(e.CommandArgument.ToString());
+            if (e.CommandName == "editar")
+            {
+                CargarEntidades();
+                Indicador _indicador = new Indicador();
+                _indicador = _indicadorBusinessLogic.ListarIndicadorForId((int)ViewState["idIndicadorAccion"]);
+                txtNombreIndicador.Value = _indicador.Nombre;
+                txtDetalleIndicador.Value = _indicador.Detalle;
+                ddlCodigoAnho.SelectedValue = _indicador.Anho;
+            }
+            System.Text.StringBuilder sb = new System.Text.StringBuilder();
+            sb.Append(@"<script type='text/javascript'>");
+            sb.Append("$(document).ready(function() {$('#indicador').modal('show');});");
+            sb.Append(@"</script>");
+            System.Web.UI.ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "indicador", sb.ToString(), false);
+        }
+
 
         protected void GridAccion2_RowCommand(object sender, GridViewCommandEventArgs e)
         {

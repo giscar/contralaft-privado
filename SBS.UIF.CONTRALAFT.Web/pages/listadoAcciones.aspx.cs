@@ -50,7 +50,7 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
             }
         }
 
-        private void CargarCombos()
+        private void CargarEntidades()
         {
             LlenarDropDownList(ddlCodigoEntidad, new EntidadBusinessLogic().ListarPorEntidad().OrderBy(x => x.DesTipo), "0", "Seleccione");
         }
@@ -94,7 +94,7 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
                     FlActivo = (int)Constantes.EstadoFlag.ACTIVO
                 };
                 ViewState["idIndicador"] = _indicadorBusinessLogic.GuardarIndicador(indicador);
-                CargarCombos();
+                CargarEntidades();
                 upSeccionEntidad.Update();
 
             }

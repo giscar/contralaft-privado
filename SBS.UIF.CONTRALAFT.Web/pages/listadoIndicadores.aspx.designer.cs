@@ -42,5 +42,15 @@ namespace SBS.UIF.CONTRALAFT.Web.pages {
 		protected System.Web.UI.HtmlControls.HtmlTextArea txtDescripcion;
 		
 		protected System.Web.UI.WebControls.Button borradorMeta;
+
+		protected System.Web.UI.WebControls.DropDownList ddlCodigoEntidad;
+
+		protected System.Web.UI.UpdatePanel upListadoEntidades;
+
+		protected System.Web.UI.HtmlControls.HtmlInputText txtNombreIndicador;
+
+		protected System.Web.UI.HtmlControls.HtmlTextArea txtDetalleIndicador;
+
+		protected System.Web.UI.WebControls.DropDownList ddlCodigoAnho;
 	}
 }
