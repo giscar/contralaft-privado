@@ -77,7 +77,7 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
             }
         }
 
-        protected void Submit_nuevo(object sender, EventArgs e)
+        protected void Submit_nuevo_usuario(object sender, EventArgs e)
         {
             HttpPostedFile file = Request.Files["fileDocumento"];
             try
@@ -108,7 +108,8 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
                     ContraseniaEmail = password
                 };
                 Log.Debug(Constantes.PerfilFlag.ADMINISTRADOR.ToString());
-                if (_usuario.IdPerfil == int.Parse(Constantes.PerfilFlag.ADMINISTRADOR.ToString()) || _usuario.IdPerfil == int.Parse(Constantes.PerfilFlag.ADMINISTRADOR.ToString()))
+
+                if (_usuario.IdPerfil == (int) Constantes.PerfilFlag.ADMINISTRADOR || _usuario.IdPerfil == (int) Constantes.PerfilFlag.GESTOR)
                 {
                     _usuario.IdEntidad = (int)Constantes.EntidadFlag.SBS;
                 }
@@ -265,7 +266,17 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
 
         protected void DDlCodigoPerfil_SelectedIndexChanged(object sender, EventArgs e)
         {
-            divEntidad.Visible = !ddlCodigoPerfil.SelectedValue.Equals(Constantes.PerfilFlag.ADMINISTRADOR.ToString()) && !ddlCodigoPerfil.SelectedValue.Equals(Constantes.PerfilFlag.GESTOR.ToString());
+            string perfilSeleccionado = ddlCodigoPerfil.SelectedValue;
+            int enumPerfilAdministrador = (int) Constantes.PerfilFlag.ADMINISTRADOR;
+            int enumPerfilGestor = (int)Constantes.PerfilFlag.GESTOR;
+            if (perfilSeleccionado == enumPerfilAdministrador.ToString() || perfilSeleccionado == enumPerfilGestor.ToString())
+            {
+                divEntidad.Visible = false;
+            }
+            else
+            {
+                divEntidad.Visible = true;
+            }
             upEntidad.Update();
         }
 
