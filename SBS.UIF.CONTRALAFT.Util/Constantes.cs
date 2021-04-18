@@ -49,6 +49,16 @@ namespace SBS.UIF.CONTRALAFT.Util
         public const String estadoPlanPUBLICADO = "Publicado";
         public const String estadoVigente = "Vigente";
         public const String estadoNoVigente = "No Vigente";
+        /**iconos de documentos*/
+        public const String iconoPdf = "../images/pdf.png";
+        public const String iconoDoc = "../images/docx.png";
+        public const String iconoZip = "../images/zip.png";
+        public const String iconoOtros = "../images/otros.png";
+        /**iconos de documentos*/
+        public const String extensionPdf = ".pdf";
+        public const String extensionDoc = ".docx";
+        public const String extensionZip = ".zip";
+
 
     }
 }

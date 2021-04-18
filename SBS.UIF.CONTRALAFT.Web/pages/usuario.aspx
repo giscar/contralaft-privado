@@ -10,6 +10,10 @@
     .divTableUsuarios th {
         padding: 10px;
     }
+
+    .table td img, .jsgrid .jsgrid-table td img, .table th img, .jsgrid .jsgrid-table th img {
+        border-radius :0px;
+    }
     </style>
     <div class="row">
         <div class="col-md-8">
@@ -26,12 +30,14 @@
             <Columns>
                 <asp:BoundField ItemStyle-Width="10%" DataField="DetCodigo" HeaderText="Usuario" />
                 <asp:BoundField ItemStyle-Width="20%" DataField="DetNombre" HeaderText="Nombre completo" />
-                <asp:BoundField ItemStyle-Width="30%" DataField="RazonSocialEntidad" HeaderText="Entidad" />
+                <asp:BoundField ItemStyle-Width="25%" DataField="RazonSocialEntidad" HeaderText="Entidad" />
                 <asp:BoundField ItemStyle-Width="10%" DataField="FecRegistro" HeaderText="Fecha de registro" />
-                <asp:BoundField ItemStyle-Width="10%" DataField="NombrePerfil" HeaderText="Perfil" />
-                <asp:TemplateField HeaderText="Documento" ItemStyle-Width="10%">
+                <asp:BoundField ItemStyle-Width="15%" DataField="NombrePerfil" HeaderText="Perfil" />
+                <asp:TemplateField HeaderText="Documento" ItemStyle-Width="10%" ItemStyle-HorizontalAlign="Center">
                     <ItemTemplate>
-                        <asp:LinkButton runat="server" CommandArgument='<%# Eval("CodDocumento") %>' CommandName="downloadDocumento" >Descargar</asp:LinkButton>
+                        <asp:LinkButton runat="server" CommandArgument='<%# Eval("CodDocumento") %>' CommandName="downloadDocumento" >
+                            <img src='<%# Eval("ImageFile") %>' width="50" height="50"></img>
+                        </asp:LinkButton>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField ShowHeader="false" ItemStyle-Width="10%">
@@ -104,7 +110,7 @@
                         </asp:UpdatePanel>         
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-lg btn-danger" data-dismiss="modal">Cerrar</button>
                         <asp:Button class="btn btn-lg btn-primary btnNuevo" OnClientClick="return validaCrearUsuarioClient()" ID="btnNuevo" runat="server" Text="Nuevo usuario" OnClick="Submit_nuevo_usuario" />
                     </div>
                 </div>
@@ -154,7 +160,7 @@
                         </asp:UpdatePanel>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-lg btn-danger" data-dismiss="modal">Cerrar</button>
                         <asp:Button class="btn btn-lg btn-primary" ID="Button1" runat="server" Text="Editar usuario" OnClientClick="return validaEditarUsuarioClient()" OnClick="Submit_editar_usuario" />
                     </div>
                 </div>
@@ -183,7 +189,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-lg btn-danger" data-dismiss="modal">Cerrar</button>
                         <asp:Button class="btn btn-lg btn-primary" ID="Button2" runat="server" Text="Nueva entidad" OnClick="Submit_nuevo_entidad" />
                     </div>
                 </div>

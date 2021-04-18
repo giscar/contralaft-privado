@@ -12,6 +12,7 @@ namespace SBS.UIF.CONTRALAFT.Entity.Core
         public string DetNombre { get; set; }
         public string DetEmail { get; set; }
         public string CodDocumento { get; set; }
+        public string CodExtension { get; set; }
         public int IdPerfil { get; set; }
         public int IdEntidad { get; set; }
         public string DetContrasenia { get; set; }
@@ -23,6 +24,7 @@ namespace SBS.UIF.CONTRALAFT.Entity.Core
         public string UsuModificacion { get; set; }
         public string NombrePerfil { get; set; }
         public string ContraseniaEmail { get; set; }
+        public string ImageFile { get; set; }
     }
 }
 

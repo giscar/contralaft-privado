@@ -68,6 +68,20 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
             try
             {
                 listadoUsuarios = _usuarioBusinessLogic.BuscarTodos();
+                foreach (Usuario usu in listadoUsuarios) {
+                    usu.ImageFile = Constantes.iconoOtros;
+                    if (usu.CodExtension == Constantes.extensionDoc) {
+                        usu.ImageFile = Constantes.iconoDoc;
+                    }
+                    if (usu.CodExtension == Constantes.extensionPdf)
+                    {
+                        usu.ImageFile = Constantes.iconoPdf;
+                    }
+                    if (usu.CodExtension == Constantes.extensionZip)
+                    {
+                        usu.ImageFile = Constantes.iconoZip;
+                    }
+                }
                 GridView1.DataSource = listadoUsuarios;
                 GridView1.DataBind();
             }
@@ -83,9 +97,13 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
             try
             {
                 string fname = "";
+                string ext = "";
                 if (file != null && file.ContentLength > 0)
                 {
                     fname = Path.GetFileName(file.FileName);
+                    ext = Path.GetExtension(file.FileName);
+                    string namefile = DateTime.Now.ToString("yyyyMMddHHmmss");
+                    fname = namefile + ext;
                     file.SaveAs(Server.MapPath(Path.Combine("~/App_Data/", fname)));
                 }
                 string password = Membership.GeneratePassword(12, 1);
@@ -101,6 +119,7 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
                     DetEmail = txtEmail.Value,
                     FecRegistro = DateTime.Now,
                     CodDocumento = fname,
+                    CodExtension = ext,
                     FlActivo = (int)Constantes.EstadoFlag.ACTIVO,
                     IdEntidad = int.Parse(ddlCodigoEntidad.SelectedValue),
                     IdPerfil = int.Parse(ddlCodigoPerfil.SelectedValue),

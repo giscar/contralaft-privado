@@ -10,6 +10,7 @@
       <result property="DetNombre" column="C_DET_NOMBRE"></result>
       <result property="DetEmail" column="C_DET_EMAIL"></result>
       <result property="CodDocumento" column="C_COD_DOCUMENTO"></result>
+      <result property="CodExtension" column="C_COD_EXTENSION"></result>
       <result property="IdPerfil" column="N_COD_PERFIL"></result>
       <result property="IdEntidad" column="N_COD_ENTIDAD"></result>
       <result property="DetContrasenia" column="C_DET_CONTRA"></result>
@@ -40,7 +41,8 @@
       C_USU_REGISTRO,
       N_COD_PERFIL,
       C_DET_EMAIL,
-      C_COD_DOCUMENTO      
+      C_COD_DOCUMENTO,
+      C_COD_EXTENSION
       )
       VALUES
       (#DetNombre#,
@@ -54,7 +56,8 @@
       #UsuRegistro#,
       #IdPerfil#,
       #DetEmail#,
-      #CodDocumento#)
+      #CodDocumento#,
+      #CodExtension#)
     </insert>
 
 
@@ -85,7 +88,6 @@
             N_COD_ENTIDAD = #IdEntidad#,
             N_COD_PERFIL = #IdPerfil#,
             C_DET_EMAIL = #DetEmail#,
-            C_COD_DOCUMENTO = #CodDocumento#,
             C_USU_MODIFICACION = #UsuModificacion#,
             D_FEC_MODIFICACION = #FecModificacion#
             WHERE N_COD_ID = #Id#
