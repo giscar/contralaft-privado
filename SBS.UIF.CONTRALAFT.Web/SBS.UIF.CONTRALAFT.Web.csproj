@@ -659,10 +659,6 @@
     <Content Include="vendors\iconfonts\mdi\css\materialdesignicons.min.css" />
     <Content Include="vendors\iconfonts\mdi\fonts\materialdesignicons-webfont.svg" />
     <Content Include="vendors\iconfonts\mdi\preview.html" />
-    <Content Include="vendors\iconfonts\puse-icons-feather\feather.css" />
-    <Content Include="vendors\iconfonts\puse-icons-feather\fonts\feather-webfont.svg" />
-    <Content Include="vendors\iconfonts\simple-line-icon\css\simple-line-icons.css" />
-    <Content Include="vendors\iconfonts\simple-line-icon\fonts\Simple-Line-Icons.svg" />
     <Content Include="vendors\js\vendor.bundle.addons.js" />
     <Content Include="vendors\js\vendor.bundle.base.js" />
     <Content Include="Web.config">
@@ -974,24 +970,6 @@
     <Content Include="vendors\iconfonts\mdi\scss\_icons.scss" />
     <Content Include="vendors\iconfonts\mdi\scss\_path.scss" />
     <Content Include="vendors\iconfonts\mdi\scss\_variables.scss" />
-    <Content Include="vendors\iconfonts\puse-icons-feather\fonts\feather-webfont.eot" />
-    <Content Include="vendors\iconfonts\puse-icons-feather\fonts\feather-webfont.ttf" />
-    <Content Include="vendors\iconfonts\puse-icons-feather\fonts\feather-webfont.woff" />
-    <Content Include="vendors\iconfonts\puse-icons-feather\package.json" />
-    <Content Include="vendors\iconfonts\puse-icons-feather\README.md" />
-    <Content Include="vendors\iconfonts\simple-line-icon\bower.json" />
-    <Content Include="vendors\iconfonts\simple-line-icon\CODE_OF_CONDUCT.md" />
-    <Content Include="vendors\iconfonts\simple-line-icon\CONTRIBUTING.md" />
-    <Content Include="vendors\iconfonts\simple-line-icon\fonts\Simple-Line-Icons.eot" />
-    <Content Include="vendors\iconfonts\simple-line-icon\fonts\Simple-Line-Icons.ttf" />
-    <Content Include="vendors\iconfonts\simple-line-icon\fonts\Simple-Line-Icons.woff" />
-    <Content Include="vendors\iconfonts\simple-line-icon\fonts\Simple-Line-Icons.woff2" />
-    <Content Include="vendors\iconfonts\simple-line-icon\History.md" />
-    <Content Include="vendors\iconfonts\simple-line-icon\less\simple-line-icons.less" />
-    <Content Include="vendors\iconfonts\simple-line-icon\LICENSE.md" />
-    <Content Include="vendors\iconfonts\simple-line-icon\package.json" />
-    <Content Include="vendors\iconfonts\simple-line-icon\README.md" />
-    <Content Include="vendors\iconfonts\simple-line-icon\scss\simple-line-icons.scss" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

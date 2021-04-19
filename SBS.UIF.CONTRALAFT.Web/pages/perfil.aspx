@@ -2,7 +2,15 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cphBody" runat="server">
 <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-        
+    <style>
+        .divTablePerfil td {
+            padding: 5px;
+        }
+
+        .divTablePerfil th {
+            padding: 10px;
+        }
+    </style>       
     <div class="form-group">
         <label for="txtNombre">Perfil</label>
         <input type="text" class="form-control soloLetras txtNombrePerfil" id="txtNombrePerfil" runat="server" autocomplete="off" maxlength="80" placeholder="Ingrese perfil" style="width: 50%"/>
@@ -14,24 +22,30 @@
         <small class="form-text text-muted txtDescripcionLabel">Ingrese la descripción del perfil</small>
     </div>
     <div class="form-group">
-        <a class="btn btn-primary btn-sm" id="idConfirmacion" data-toggle="modal" style="color: white">Crear Perfil<i class="mdi mdi-play-circle ml-1"></i></a> 
+        <a class="btn btn-primary btn-sm" id="idConfirmacion" data-toggle="modal" style="color: white">Crear Perfil</a> 
     </div>
     <br />
    
 <ContentTemplate> 
-    <asp:GridView ID="GridView1" runat="server" AllowPaging="true" OnPageIndexChanging="GridView1_PageIndexChanging" OnRowCommand="gridPerfil_RowCommand" Class="table table-hover table-striped table-bordered" PageSize="10" AutoGenerateColumns="false">
+    <asp:GridView ID="GridView1" runat="server" AllowPaging="true" OnPageIndexChanging="GridView1_PageIndexChanging" OnRowCommand="gridPerfil_RowCommand" Class="table table-bordered divTablePerfil" PageSize="10" AutoGenerateColumns="false">
         <Columns>
-            <asp:TemplateField HeaderText="Nro.">
+            <asp:TemplateField HeaderText="Nro." ItemStyle-Width="5%">
                 <ItemTemplate>
                     <%# Container.DataItemIndex + 1 %>
                 </ItemTemplate>
             </asp:TemplateField>
-            <asp:BoundField ItemStyle-Width="20%" DataField="DesTipo" HeaderText="Nombre del Perfil" />
-            <asp:BoundField ItemStyle-Width="40%" DataField="DetDetalle" HeaderText="Detalle del Perfil" />
-            <asp:TemplateField ShowHeader="false">
+            <asp:BoundField ItemStyle-Width="30%" DataField="DesTipo" HeaderText="Nombre del Perfil" />
+            <asp:BoundField ItemStyle-Width="50%" DataField="DetDetalle" HeaderText="Detalle del Perfil" />
+            <asp:TemplateField ShowHeader="false" ItemStyle-Width="15%">
                 <ItemTemplate>
-                    <asp:LinkButton runat="server" CssClass="btn btn-success" CommandArgument='<%# Eval("IdTipo") %>' CommandName="editarPerfil" >Editar</asp:LinkButton>
-                    <asp:LinkButton runat="server" CssClass="btn btn-danger" CommandArgument='<%# Eval("IdTipo") %>' CommandName="eliminarPerfil" >Eliminar</asp:LinkButton>    
+                    <div class="row" style="padding: 15px">
+                        <div style="padding-right:5px">
+                            <asp:LinkButton runat="server" CssClass="btn btn-icons btn-inverse-primary" ToolTip="Editar" CommandArgument='<%# Eval("IdTipo") %>' CommandName="editarPerfil" ><i class="mdi mdi-pencil"></i></asp:LinkButton>
+                        </div>  
+                        <div >
+                            <asp:LinkButton runat="server" CssClass="btn btn-icons btn-inverse-danger" ToolTip="Eliminar" CommandArgument='<%# Eval("IdTipo") %>' CommandName="eliminarPerfil" ><i class="mdi mdi-delete"></i></asp:LinkButton> 
+                        </div> 
+                    </div>
                 </ItemTemplate>
             </asp:TemplateField>
         </Columns>
@@ -60,7 +74,7 @@
                 </div>
                 <div class="modal-footer">
                     <asp:Button class="btn btn-success" ID="btnSeleccionar" runat="server" Text="Modificar Perfil" OnClientClick="return validaEditarPerfilClient()" OnClick="Submit_edit" />
-                    <button type="button" class="btn btn-light" data-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
                 </div>
             </div>
         </div>
@@ -100,7 +114,7 @@
                 </div>
                 <div class="modal-footer">
                     <asp:Button class="btn btn-danger" ID="btnInactive" runat="server" Text="Inactivar Perfil" OnClick="Submit_inactive" />
-                    <button type="button" class="btn btn-light" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
                 </div>
             </div>
         </div>

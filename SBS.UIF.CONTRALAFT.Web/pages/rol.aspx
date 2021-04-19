@@ -2,7 +2,21 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cphBody" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+        <style>
+        .divTablePerfiles td {
+            border-color: white;
+            padding: 7px;
+        }
 
+        .divTableRoles td {
+            padding: 5px;
+        }
+
+        .divTableRoles th {
+            padding: 10px;
+        }
+
+    </style>
         <div class="form-group">
             <label>Rol</label>
             <input type="text" class="form-control txtNombreRol soloLetras" id="txtNombreRol" runat="server" autocomplete="off" maxlength="80" placeholder="Ingrese perfil" />
@@ -21,10 +35,10 @@
             </div>
         </div>
         <div class="form-group">
-            <a class="btn btn-primary btn-sm" id="idConfirmacion" data-toggle="modal" style="color: white">Crear Rol<i class="mdi mdi-play-circle ml-1"></i></a>
+            <a class="btn btn-primary btn-sm" id="idConfirmacion" data-toggle="modal" style="color: white">Crear Rol</a>
         </div>
     <br/>
-    <asp:GridView ID="GridView1" runat="server" AllowPaging="true" OnRowCommand="GridRol_RowCommand" Class="table table-hover table-bordered" PageSize="10" AutoGenerateColumns="false">
+    <asp:GridView ID="GridView1" runat="server" AllowPaging="true" OnRowCommand="GridRol_RowCommand" Class="table table-bordered divTableRoles" PageSize="10" AutoGenerateColumns="false">
         <Columns>
             <asp:TemplateField HeaderText="Nro.">
                 <ItemTemplate>
@@ -35,7 +49,7 @@
             <asp:BoundField ItemStyle-Width="20%" DataField="DetDetalle" HeaderText="Detalle del Rol" />
             <asp:TemplateField  HeaderText="Lista de perfiles">
                 <ItemTemplate>
-                    <asp:GridView ID="GridView2" ShowHeader="false" runat="server" AutoGenerateColumns="false" DataSource='<%# Bind("ListaPerfiles")%>' >
+                    <asp:GridView ID="GridView2" ShowHeader="false" runat="server" AutoGenerateColumns="false" DataSource='<%# Bind("ListaPerfiles")%>' Class="divTablePerfiles" >
                         <Columns>
                             <asp:BoundField DataField="DesTipo" />
                         </Columns>
@@ -44,8 +58,14 @@
             </asp:TemplateField>
             <asp:TemplateField ShowHeader="false">
                 <ItemTemplate>
-                    <asp:LinkButton runat="server" CssClass="btn btn-success" CommandArgument='<%# Eval("IdTipo") %>' CommandName="editarRol" >Editar</asp:LinkButton>
-                    <asp:LinkButton runat="server" CssClass="btn btn-danger" CommandArgument='<%# Eval("IdTipo") %>' CommandName="eliminarRol" >Eliminar</asp:LinkButton> 
+                    <div class="row" style="padding: 15px">
+                        <div style="padding-right:5px">
+                            <asp:LinkButton runat="server" CssClass="btn btn-icons btn-inverse-primary" ToolTip="Editar" CommandArgument='<%# Eval("IdTipo") %>' CommandName="editarRol" ><i class="mdi mdi-pencil"></i></asp:LinkButton>
+                        </div>  
+                        <div >
+                            <asp:LinkButton runat="server" CssClass="btn btn-icons btn-inverse-danger" ToolTip="Eliminar" CommandArgument='<%# Eval("IdTipo") %>' CommandName="eliminarRol" ><i class="mdi mdi-delete"></i></asp:LinkButton> 
+                        </div> 
+                    </div>
                 </ItemTemplate>
             </asp:TemplateField>
         </Columns>
@@ -71,7 +91,7 @@
                         <small class="form-text text-muted txtEditarDescripcionLabel">Ingrese la descripción del rol</small>
                     </div>  
                 </div>
-                <div class="form-group">
+                <div class="form-group" style="padding-left: 25px; ">
                     <label style="vertical-align: bottom">Seleccione el perfil </label>
                     <div class="icheck-square">
                         <asp:CheckBoxList ID="ddlCodigoPerfilEdit" class="ddlCodigoPerfilEdit" runat="server" AutoPostBack="false" DataValueField="idTipo" DataTextField="DesTipo"/>
@@ -80,7 +100,7 @@
                 </div>
                 <div class="modal-footer">
                     <asp:Button class="btn btn-success" ID="btnSeleccionar" runat="server" Text="Modificar Rol" OnClientClick="return validaEditarRolClient()" OnClick="Submit_edit" />
-                    <button type="button" class="btn btn-light" data-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
                 </div>
             </div>
         </div>
@@ -100,7 +120,7 @@
                 </div>
                 <div class="modal-footer">
                     <asp:Button class="btn btn-danger" ID="btnInactive" runat="server" Text="Inactivar Rol" OnClick="Submit_inactive" />
-                    <button type="button" class="btn btn-light" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
                 </div>
             </div>
         </div>

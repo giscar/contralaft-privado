@@ -2,7 +2,15 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cphBody" runat="server">
 <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-        
+    <style>
+        .divTablePlan td {
+            padding: 5px;
+        }
+
+        .divTablePlan th {
+            padding: 10px;
+        }
+    </style>        
     <div class="form-group">
         <label for="txtNombre">Título del Plan</label>
         <input type="text" class="form-control txtNombrePlan" id="txtNombrePlan" runat="server" autocomplete="off" maxlength="80" placeholder="Ingrese el Plan" style="width: 50%"/>
@@ -19,36 +27,36 @@
     </div>
     <br />
    
-<ContentTemplate> 
-    <asp:GridView ID="GridView1" runat="server" AllowPaging="true" OnPageIndexChanging="GridView1_PageIndexChanging" OnRowCommand="GridPlan_RowCommand" Class="table table-hover table-striped table-bordered" PageSize="10" AutoGenerateColumns="false">
-        <Columns>
-            <asp:TemplateField HeaderText="Nro." ItemStyle-Width="5%">
-                <ItemTemplate>
-                    <%# Container.DataItemIndex + 1 %>
-                </ItemTemplate>
-            </asp:TemplateField>
-            <asp:BoundField ItemStyle-Width="15%" DataField="Nombre" HeaderText="Plan" />
-            <asp:BoundField ItemStyle-Width="25%" DataField="Descripcion" HeaderText="Descripción del Plan" />
-            <asp:BoundField ItemStyle-Width="10%" DataField="EstadoDescripcion" HeaderText="Estado" />    
-            <asp:BoundField ItemStyle-Width="5%" DataField="Version" HeaderText="Versión" /> 
-            <asp:BoundField ItemStyle-Width="10%" DataField="VigenteDetalle" HeaderText="Vigente" /> 
-            <asp:TemplateField ShowHeader="false">
-                <ItemTemplate>
-                    <div class="row">
-                        <div class="column" style="padding-right:5px">
-                            <asp:LinkButton runat="server" CssClass="btn btn-icons btn-inverse-secondary" ToolTip="Editar" CommandArgument='<%# Eval("Id") %>' CommandName="editarPlan" ><i class="mdi mdi-pencil"></i></asp:LinkButton>
-                        </div>  
-                        <div class="column" style="padding-right:5px">
-                            <asp:LinkButton runat="server" CssClass="btn btn-icons btn-inverse-danger" ToolTip="Eliminar" CommandArgument='<%# Eval("Id") %>' CommandName="inactivarPlan" ><i class="mdi mdi-delete"></i></asp:LinkButton>  
-                        </div>
-                        <div class="column">
-                            <asp:LinkButton runat="server" CssClass="btn btn-icons btn-inverse-primary" ToolTip="Publicar" CommandArgument='<%# Eval("Id") %>' CommandName="publicarPlan" ><i class="mdi mdi-check"></i></asp:LinkButton>     
-                        </div> 
-                    </div>        
-                </ItemTemplate>
-            </asp:TemplateField>
-        </Columns>
-    </asp:GridView>
+    <ContentTemplate> 
+        <asp:GridView ID="GridView1" runat="server" AllowPaging="true" OnPageIndexChanging="GridView1_PageIndexChanging" OnRowCommand="GridPlan_RowCommand" Class="table table-bordered divTablePlan" PageSize="10" AutoGenerateColumns="false">
+            <Columns>
+                <asp:TemplateField HeaderText="Nro." ItemStyle-Width="5%" ItemStyle-HorizontalAlign="Center">
+                    <ItemTemplate>
+                        <%# Container.DataItemIndex + 1 %>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:BoundField ItemStyle-Width="25%" DataField="Nombre" HeaderText="Plan" />
+                <asp:BoundField ItemStyle-Width="30%" DataField="Descripcion" HeaderText="Descripción del Plan" />
+                <asp:BoundField ItemStyle-Width="10%" DataField="EstadoDescripcion" HeaderText="Estado" />    
+                <asp:BoundField ItemStyle-Width="5%" DataField="Version" HeaderText="Versión" /> 
+                <asp:BoundField ItemStyle-Width="10%" DataField="VigenteDetalle" HeaderText="Vigente" /> 
+                <asp:TemplateField ShowHeader="false" ItemStyle-Width="15%" ItemStyle-HorizontalAlign="Center">
+                    <ItemTemplate>
+                        <div class="row">
+                            <div style="padding-right:5px; padding-left:20px">
+                                <asp:LinkButton runat="server" CssClass="btn btn-icons btn-inverse-secondary" ToolTip="Editar" CommandArgument='<%# Eval("Id") %>' CommandName="editarPlan" ><i class="mdi mdi-pencil"></i></asp:LinkButton>
+                            </div>  
+                            <div style="padding-right:5px">
+                                <asp:LinkButton runat="server" CssClass="btn btn-icons btn-inverse-danger" ToolTip="Eliminar" CommandArgument='<%# Eval("Id") %>' CommandName="inactivarPlan" ><i class="mdi mdi-delete"></i></asp:LinkButton>  
+                            </div>
+                            <div>
+                                <asp:LinkButton runat="server" CssClass="btn btn-icons btn-inverse-primary" ToolTip="Publicar" CommandArgument='<%# Eval("Id") %>' CommandName="publicarPlan" ><i class="mdi mdi-check"></i></asp:LinkButton>     
+                            </div> 
+                        </div>        
+                    </ItemTemplate>
+                </asp:TemplateField>
+            </Columns>
+        </asp:GridView>
     </ContentTemplate>
     <!-- modal editar -->
     <div class="modal fade" id="editarPlan" tabindex="-1" role="dialog" aria-hidden="true">
