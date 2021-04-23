@@ -18,12 +18,12 @@
     </div>
     <div class="form-group">
         <label for="txtContra">Descripción</label>
-        <textarea class="form-control txtDescripcion" id="txtDescripcion" runat="server" autocomplete="off" maxlength="800" placeholder="Ingrese descripción"></textarea>
+        <textarea class="form-control txtDescripcion" id="txtDescripcion" runat="server" autocomplete="off" maxlength="800" placeholder="Ingrese"></textarea>
         <small class="form-text text-muted txtDescripcionLabel">Ingrese la descripción del Plan</small>
     </div>
     
     <div class="form-group">
-        <a class="btn btn-primary btn-sm" id="idConfirmacion" data-toggle="modal" style="color: white">Crear Versión del Plan<i class="mdi mdi-play-circle ml-1"></i></a> 
+        <a class="btn btn-primary btn-sm" id="idConfirmacion" data-toggle="modal" style="color: white">Crear Versión del Plan</a> 
     </div>
     <br />
    
@@ -44,13 +44,13 @@
                     <ItemTemplate>
                         <div class="row">
                             <div style="padding-right:5px; padding-left:20px">
-                                <asp:LinkButton runat="server" CssClass="btn btn-icons btn-inverse-secondary" ToolTip="Editar" CommandArgument='<%# Eval("Id") %>' CommandName="editarPlan" ><i class="mdi mdi-pencil"></i></asp:LinkButton>
+                                <asp:LinkButton runat="server" Visible='<%# Eval("EstadoVisualizacionEditar") %>' CssClass="btn btn-icons btn-inverse-secondary" ToolTip="Editar" CommandArgument='<%# Eval("Id") %>' CommandName="editarPlan" ><i class="mdi mdi-pencil"></i></asp:LinkButton>
                             </div>  
                             <div style="padding-right:5px">
-                                <asp:LinkButton runat="server" CssClass="btn btn-icons btn-inverse-danger" ToolTip="Eliminar" CommandArgument='<%# Eval("Id") %>' CommandName="inactivarPlan" ><i class="mdi mdi-delete"></i></asp:LinkButton>  
+                                <asp:LinkButton runat="server" Visible='<%# Eval("EstadoVisualizacionInactivar") %>' CssClass="btn btn-icons btn-inverse-danger" ToolTip="Eliminar" CommandArgument='<%# Eval("Id") %>' CommandName="inactivarPlan" ><i class="mdi mdi-delete"></i></asp:LinkButton>  
                             </div>
                             <div>
-                                <asp:LinkButton runat="server" CssClass="btn btn-icons btn-inverse-primary" ToolTip="Publicar" CommandArgument='<%# Eval("Id") %>' CommandName="publicarPlan" ><i class="mdi mdi-check"></i></asp:LinkButton>     
+                                <asp:LinkButton runat="server" Visible='<%# Eval("EstadoVisualizacionPublicar") %>' CssClass="btn btn-icons btn-inverse-primary" ToolTip="Publicar" CommandArgument='<%# Eval("Id") %>' CommandName="publicarPlan" ><i class="mdi mdi-check"></i></asp:LinkButton>     
                             </div> 
                         </div>        
                     </ItemTemplate>

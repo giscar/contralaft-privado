@@ -147,6 +147,30 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
                 {
                     item.EstadoDescripcion = Constantes.estadoPlanPUBLICADO;
                 }
+                //visulizacion de botones
+                item.EstadoVisualizacionEditar = true;
+                item.EstadoVisualizacionInactivar = true;
+                item.EstadoVisualizacionPublicar = true;
+                if (item.Estado == (int)Constantes.EstadoPlan.BORRADOR)
+                {
+                    item.EstadoVisualizacionEditar = true;
+                    item.EstadoVisualizacionInactivar = true;
+                    item.EstadoVisualizacionPublicar = true;
+                }
+                if (item.Estado == (int)Constantes.EstadoPlan.PUBLICADO)
+                {
+                    if (item.Vigente == (int)Constantes.EstadoVigencia.VIGENTE)
+                    {
+                        item.EstadoVisualizacionEditar = true;
+                        item.EstadoVisualizacionInactivar = true;
+                        item.EstadoVisualizacionPublicar = false;
+                    }
+                    else {
+                        item.EstadoVisualizacionEditar = false;
+                        item.EstadoVisualizacionInactivar = false;
+                        item.EstadoVisualizacionPublicar = false;
+                    }
+                }
             }
             GridView1.DataSource = listadoPlanes;
             GridView1.DataBind();

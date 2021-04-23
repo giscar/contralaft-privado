@@ -2,6 +2,15 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cphBody" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+    <style>
+        .divTableAcciones td {
+            padding: 5px;
+        }
+
+        .divTableAcciones th {
+            padding: 10px;
+        }
+    </style> 
     <h5 class="card-title mb-4">Acciones del Plan</h5>
     <br/>
     <div class="form-group">
@@ -20,19 +29,19 @@
         <small class="form-text text-muted txtDescripcionLabel">Ingrese la descripción de la acción</small>
     </div>
     <div class="form-group">
-        <a class="btn btn-primary btn-sm" id="idConfirmacion" data-toggle="modal" style="color: white">Crear Acción<i class="mdi mdi-play-circle ml-1"></i></a> 
+        <a class="btn btn-primary btn-sm" id="idConfirmacion" data-toggle="modal" style="color: white">Crear Acción</a> 
     </div>
     
-    <asp:GridView ID="GridView1" runat="server" AllowPaging="true" OnPageIndexChanging="GridView1_PageIndexChanging" OnRowCommand="GridAccion_RowCommand" Class="table table-hover table-striped table-bordered" PageSize="10" AutoGenerateColumns="false">
+    <asp:GridView ID="GridView1" runat="server" AllowPaging="true" OnPageIndexChanging="GridView1_PageIndexChanging" OnRowCommand="GridAccion_RowCommand" Class="table table-bordered divTableAcciones" PageSize="10" AutoGenerateColumns="false">
         <Columns>
-            <asp:BoundField ItemStyle-Width="15%" DataField="VersionPlan" HeaderText="Versión del Plan" />
+            <asp:BoundField ItemStyle-Width="10%" ItemStyle-HorizontalAlign="Center" DataField="VersionPlan" HeaderText="Versión del Plan" />
             <asp:BoundField ItemStyle-Width="10%" DataField="Codigo" HeaderText="Codigo" />
-            <asp:BoundField ItemStyle-Width="15%" DataField="Nombre" HeaderText="Acción" />
-            <asp:BoundField ItemStyle-Width="30%" DataField="Descripcion" HeaderText="Descripcion" />
-            <asp:TemplateField HeaderText="Acciones">
+            <asp:BoundField ItemStyle-Width="20%" DataField="Nombre" HeaderText="Acción" />
+            <asp:BoundField ItemStyle-Width="40%" DataField="Descripcion" HeaderText="Descripcion" />
+            <asp:TemplateField HeaderText="Acciones" ItemStyle-Width="20%" ItemStyle-HorizontalAlign="Center">
                 <ItemTemplate>
                     <div class="row">
-                        <div class="column" style="padding-right:5px">
+                        <div class="column" style="padding-right:5px; padding-left:20px">
                             <asp:LinkButton runat="server" CssClass="btn btn-icons btn-inverse-secondary" ToolTip="Editar" CommandArgument='<%# Eval("Id") %>' CommandName="editar" ><i class="mdi mdi-pencil"></i></asp:LinkButton>
                         </div>  
                         <div class="column" style="padding-right:5px">
@@ -106,15 +115,23 @@
                         <asp:DropDownList class="form-control ddlCodigoAnho" ID="ddlCodigoAnho" runat="server" DataValueField="idTipo" DataTextField="DesTipo"></asp:DropDownList>
                         <small class="form-text text-muted dddlCodigoAnhoLabel">Ingrese el año</small>
                     </div>
-                    <div class="form-group" runat="server">
-                        <asp:Button class="btn btn-success" id="btnSeleccionarIndicador" runat="server" Text="Agregar Indicador" OnClick="Guardar_Indicador" />
-                    </div>
+                    <asp:UpdatePanel id="upSeccionBotonIndicador" runat="server" UpdateMode="Conditional">
+                        <ContentTemplate>
+                            <div class="form-group" runat="server" >
+                                <asp:Button class="btn btn-success" id="btnSeleccionarIndicador" runat="server" Text="Agregar Indicador" OnClick="Guardar_Indicador" />
+                            </div>
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
                     <asp:UpdatePanel id="upSeccionEntidad" runat="server" UpdateMode="Conditional">
                         <ContentTemplate>
                             <div class="form-group" ID="divEntidad" runat="server">
                                 <label style="vertical-align: bottom">Entidad</label>
-                                <asp:DropDownList class="form-control ddlCodigoEntidad" ID="ddlCodigoEntidad" runat="server" DataValueField="idTipo" DataTextField="DesTipo"></asp:DropDownList>
-                                <asp:LinkButton runat="server" CssClass="btn btn-success" id="IdBotonAgregarEntidad" OnClick="DdlTipoEntidad_SelectedIndexChanged">Agregar</asp:LinkButton>
+                                    <div class="input-group">
+                                    <asp:DropDownList class="form-control ddlCodigoEntidad" ID="ddlCodigoEntidad" runat="server" DataValueField="idTipo" DataTextField="DesTipo"></asp:DropDownList>
+                                    <div class="input-group-append bg-primary border-primary">
+                                        <asp:LinkButton runat="server" CssClass="btn btn-warning" id="IdBotonAgregarEntidad" OnClick="DdlTipoEntidad_SelectedIndexChanged">Agregar Entidad</asp:LinkButton>
+                                    </div>
+                                </div>
                                 <small class="form-text text-muted ddlCodigoEntidadLabel">Ingrese la entidad relacionada al indicador</small>
                             </div>
                         </ContentTemplate>
@@ -124,9 +141,18 @@
                     </asp:UpdatePanel>
                     <asp:UpdatePanel ID="upListadoEntidades" runat="server" UpdateMode="Conditional">
                         <ContentTemplate>
-                            <asp:GridView ID="GridView2" runat="server" AllowPaging="true" Class="table table-hover table-striped table-bordered" PageSize="10" AutoGenerateColumns="false">
+                            <asp:GridView ID="GridView2" runat="server" AllowPaging="true" Class="table table-hover table-striped table-bordered" PageSize="10" AutoGenerateColumns="false" OnRowCommand="GridAccion_RowCommandEntidad">
                                 <Columns>
                                     <asp:BoundField DataField="DesTipo" HeaderText="Entidad" />
+                                    <asp:TemplateField HeaderText="Acciones" ItemStyle-Width="20%" ItemStyle-HorizontalAlign="Center">
+                                        <ItemTemplate>
+                                            <div class="row">
+                                                <div class="column" style="padding-right:5px">
+                                                    <asp:LinkButton runat="server" CssClass="btn btn-icons btn-inverse-danger" ToolTip="Eliminar" CommandArgument='<%# Eval("IdTipo") %>' CommandName="inactivar" ><i class="mdi mdi-delete"></i></asp:LinkButton> 
+                                                </div>
+                                            </div>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
                                 </Columns>
                             </asp:GridView>
                         </ContentTemplate>
@@ -136,7 +162,7 @@
                     </asp:UpdatePanel>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-light" data-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-lg btn-primary" data-dismiss="modal">Cerrar</button>
                 </div>
             </div>
         </div>

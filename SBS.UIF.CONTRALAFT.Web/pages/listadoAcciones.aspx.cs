@@ -95,6 +95,9 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
                 };
                 ViewState["idIndicador"] = _indicadorBusinessLogic.GuardarIndicador(indicador);
                 CargarEntidades();
+                divEntidad.Visible = true;
+                btnSeleccionarIndicador.Visible = false;
+                upSeccionBotonIndicador.Update();
                 upSeccionEntidad.Update();
 
             }
@@ -258,6 +261,19 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
             txtDescripcion.Value = "";
         }
 
+        protected void GridAccion_RowCommandEntidad(object sender, GridViewCommandEventArgs e)
+        {
+            IndicadorEntidad _indicadorEntidad = new IndicadorEntidad();
+            _indicadorEntidad.IdIndicador = (int)ViewState["idAccion"];
+            _indicadorEntidad.IdEntidad = int.Parse(e.CommandArgument.ToString());
+            _indicadorEntidadBusinessLogic.EliminarIndicadorEntidad(_indicadorEntidad);
+            ListadoEntidad = _entidadBusinessLogic.ListarPorEntidadforIndicador(_indicadorEntidad.IdIndicador);
+            GridView2.DataSource = ListadoEntidad;
+            GridView2.DataBind();
+            upListadoEntidades.Update();
+            upListadoEntidades.Update();
+        }    
+
         protected void GridAccion_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             ViewState["idAccion"] = int.Parse(e.CommandArgument.ToString());
@@ -285,6 +301,7 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
 
             if (e.CommandName == "indicador")
             {
+                divEntidad.Visible = false;
                 System.Text.StringBuilder sb = new System.Text.StringBuilder();
                 sb.Append(@"<script type='text/javascript'>");
                 sb.Append("$(document).ready(function() {$('#indicador').modal('show');});");

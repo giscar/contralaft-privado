@@ -30,5 +30,12 @@
       #Estado#,
       #FlActivo#)
     </insert>
+
+    <delete id="eliminar_entidad">
+      DELETE FROM PRIVADO.INDICADORENTIDAD
+      WHERE N_COD_INDICADOR = #IdIndicador#
+      AND N_COD_ENTIDAD = #IdEntidad#
+   </delete>
+
   </statements>
 </sqlMap>
