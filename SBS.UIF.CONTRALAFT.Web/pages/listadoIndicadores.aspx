@@ -19,12 +19,11 @@
         padding: 5px;
         
     }
-
     </style>
     <asp:GridView ID="GridView1" runat="server" AllowPaging="true" OnRowCommand="GridAccion_RowCommand" PageSize="10" AutoGenerateColumns="false" Class="table table-bordered divTableAcciones">
         <Columns>
             <asp:BoundField ItemStyle-Width="10%" DataField="Codigo" HeaderText="Código" />
-            <asp:BoundField ItemStyle-Width="20%" DataField="Nombre" HeaderText="Acción" />
+            <asp:BoundField ItemStyle-Width="15%" DataField="Nombre" HeaderText="Acción" />
             <asp:TemplateField  HeaderText="Indicadores">
                 <ItemTemplate>
                     <asp:GridView ID="GridView2" ShowHeader="false" runat="server" AutoGenerateColumns="false" DataSource='<%# Bind("ListaIndicadores")%>' Class="table divTableIndicadores" OnRowCommand="GriIndicador_RowCommand">
@@ -101,23 +100,6 @@
                 <div class="modal-body">
                     <p>Esta seguro de registrar la acción.</p>
                 </div>
-                
-            </div>
-        </div>
-    </div>
-    <!-- modal inactivar -->
-    <div class="modal fade" id="inactivar" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog modal-sm" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Ventana de Confirmación</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <p>Esta seguro de inactivar la acción.</p>
-                </div>
             </div>
         </div>
     </div>
@@ -186,9 +168,6 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Modificar Indicador</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
@@ -210,8 +189,12 @@
                         <ContentTemplate>
                             <div class="form-group" ID="divEntidad" runat="server">
                                 <label style="vertical-align: bottom">Entidad</label>
-                                <asp:DropDownList class="form-control ddlCodigoEntidad" ID="ddlCodigoEntidad" runat="server" DataValueField="idTipo" DataTextField="DesTipo"></asp:DropDownList>
-                                <asp:LinkButton runat="server" CssClass="btn btn-success" id="IdBotonAgregarEntidad" OnClick="DdlTipoEntidad_SelectedIndexChanged">Agregar</asp:LinkButton>
+                                    <div class="input-group">
+                                    <asp:DropDownList class="form-control ddlCodigoEntidad" ID="ddlCodigoEntidad" runat="server" DataValueField="idTipo" DataTextField="DesTipo"></asp:DropDownList>
+                                    <div class="input-group-append bg-primary border-primary">
+                                        <asp:LinkButton runat="server" CssClass="btn btn-warning" id="IdBotonAgregarEntidad" OnClick="DdlTipoEntidad_SelectedIndexChanged">Agregar Entidad</asp:LinkButton>
+                                    </div>
+                                </div>
                                 <small class="form-text text-muted ddlCodigoEntidadLabel">Ingrese la entidad relacionada al indicador</small>
                             </div>
                         </ContentTemplate>
@@ -221,9 +204,18 @@
                     </asp:UpdatePanel>
                     <asp:UpdatePanel ID="upListadoEntidades" runat="server" UpdateMode="Conditional">
                         <ContentTemplate>
-                            <asp:GridView ID="GridView2" runat="server" AllowPaging="true" Class="table table-hover table-striped table-bordered" PageSize="10" AutoGenerateColumns="false">
+                            <asp:GridView ID="GridView2" runat="server" AllowPaging="true" Class="table table-hover table-striped table-bordered" PageSize="10" AutoGenerateColumns="false" OnRowCommand="GridAccion_RowCommandEntidad">
                                 <Columns>
                                     <asp:BoundField DataField="DesTipo" HeaderText="Entidad" />
+                                    <asp:TemplateField HeaderText="Acciones" ItemStyle-Width="20%" ItemStyle-HorizontalAlign="Center">
+                                        <ItemTemplate>
+                                            <div class="row">
+                                                <div class="column" style="padding-right:5px">
+                                                    <asp:LinkButton runat="server" CssClass="btn btn-icons btn-inverse-danger" ToolTip="Eliminar" CommandArgument='<%# Eval("IdTipo") %>' CommandName="inactivar" ><i class="mdi mdi-delete"></i></asp:LinkButton> 
+                                                </div>
+                                            </div>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
                                 </Columns>
                             </asp:GridView>
                         </ContentTemplate>
@@ -233,11 +225,30 @@
                     </asp:UpdatePanel>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-light" data-dismiss="modal">Cerrar</button>
-                    <asp:Button class="btn btn-success" id="btnSeleccionarIndicador" runat="server" Text="Editar Indicador" OnClick="Editar_Indicador" />
+                    <asp:Button type="submit" class="btn btn-success" ID="btnSeleccionarIndicador" runat="server" Text="Editar Indicador" OnClick="Editar_Indicador" />
                 </div>
             </div>
         </div>
      </div>
+     <!-- modal inactivar -->
+    <div class="modal fade" id="inactivar" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Ventana de Confirmación</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Esta seguro de inactivar el indicador?</p>
+                </div>
+                <div class="modal-footer">
+                    <asp:Button class="btn btn-danger" ID="btnInactive" runat="server" Text="Si" OnClick="Submit_inactiveIndicador" />
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">No</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="/js/pages/listadoAcciones.js"></script>
     </asp:Content>

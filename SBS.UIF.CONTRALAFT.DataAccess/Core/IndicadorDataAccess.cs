@@ -29,7 +29,6 @@ namespace SBS.UIF.CONTRALAFT.DataAccess.Core
             return BaseService<Indicador>.QueryForList("select_indicador_accion", idAccion);
         }
         
-
         public int GuardarIndicador(Indicador _indicador)
         {
             return Convert.ToInt32(MapperPro.Instance().Insert("insert_indicador", _indicador));
@@ -40,9 +39,9 @@ namespace SBS.UIF.CONTRALAFT.DataAccess.Core
             MapperPro.Instance().Update("update_indicador", _indicador);
         }
 
-        public void InactivarAccion(Accion _accion)
+        public void InactivarIndicador(Indicador _indicador)
         {
-            MapperPro.Instance().Update("inactive_indicador", _accion);
+            MapperPro.Instance().Update("inactive_indicador", _indicador);
         }
     }
 }

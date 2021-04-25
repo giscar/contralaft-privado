@@ -3,20 +3,13 @@
 <html lang="en">
 
 <head>
-  <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>CONTRALAFT</title>
-  <!-- plugins:css -->
   <link rel="stylesheet" href="../../vendors/iconfonts/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="../../vendors/css/vendor.bundle.base.css">
   <link rel="stylesheet" href="../../vendors/css/vendor.bundle.addons.css">
-  <!-- endinject -->
-  <!-- plugin css for this page -->
-  <!-- End plugin css for this page -->
-  <!-- inject:css -->
   <link rel="stylesheet" href="../../css/style.css">
-  <!-- endinject -->
   <link rel="shortcut icon" href="../../images/favicon.png" />
 </head>
 <body>
@@ -70,7 +63,7 @@
                   </div>
                 </div>
                 <div class="form-group">
-                  <asp:Button  class="btn btn-primary submit-btn" ID="Button1" runat="server" Text="Acceder" OnClick="Submit_Login" />
+                  <asp:Button class="btn btn-primary submit-btn" ID="Button1" runat="server" Text="Acceder" OnClick="Submit_Login" />
                 </div>
                 <div class="wrapper mt-5" style="float:right">
                     <img src="../images/giz.jpg" />
@@ -80,9 +73,7 @@
           </div>
         </div>
       </div>
-      <!-- content-wrapper ends -->
     </div>
-    <!-- page-body-wrapper ends -->
   </div>
 
     <script src="../../vendors/js/vendor.bundle.base.js"></script>

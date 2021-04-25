@@ -131,6 +131,7 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
                 _indicador.UsuModificacion = UsuarioSession().DetCodigo;
                 _indicadorBusinessLogic.ActualizarIndicador(_indicador);
                 CargarLista();
+                Response.Redirect("listadoIndicadores.aspx");
                 ClientMessageBox.Show("Se modificó el indicador seleccionado", this);
             }
             catch (Exception ex)
@@ -139,6 +140,17 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
             }
         }
 
+        protected void GridAccion_RowCommandEntidad(object sender, GridViewCommandEventArgs e)
+        {
+            IndicadorEntidad _indicadorEntidad = new IndicadorEntidad();
+            _indicadorEntidad.IdIndicador = (int)ViewState["idIndicadorAccion"];
+            _indicadorEntidad.IdEntidad = int.Parse(e.CommandArgument.ToString());
+            _indicadorEntidadBusinessLogic.EliminarIndicadorEntidad(_indicadorEntidad);
+            ListadoEntidad = _entidadBusinessLogic.ListarPorEntidadforIndicador(_indicadorEntidad.IdIndicador);
+            GridView2.DataSource = ListadoEntidad;
+            GridView2.DataBind();
+            upListadoEntidades.Update();
+        }
 
         protected void GriIndicador_RowCommand(object sender, GridViewCommandEventArgs e)
         {
@@ -146,17 +158,31 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
             if (e.CommandName == "editar")
             {
                 CargarEntidades();
+                ListadoEntidad = _entidadBusinessLogic.ListarPorEntidadforIndicador((int)ViewState["idIndicadorAccion"]);
                 Indicador _indicador = new Indicador();
                 _indicador = _indicadorBusinessLogic.ListarIndicadorForId((int)ViewState["idIndicadorAccion"]);
                 txtNombreIndicador.Value = _indicador.Nombre;
                 txtDetalleIndicador.Value = _indicador.Detalle;
                 ddlCodigoAnho.SelectedValue = _indicador.Anho;
+                GridView2.DataSource = ListadoEntidad;
+                GridView2.DataBind();
+                upListadoEntidades.Update();
+                System.Text.StringBuilder sb = new System.Text.StringBuilder();
+                sb.Append(@"<script type='text/javascript'>");
+                sb.Append("$(document).ready(function() { $('#indicador').modal({backdrop: 'static',keyboard: false}); });");
+                sb.Append(@"</script>");
+                System.Web.UI.ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "indicador", sb.ToString(), false);
             }
-            System.Text.StringBuilder sb = new System.Text.StringBuilder();
-            sb.Append(@"<script type='text/javascript'>");
-            sb.Append("$(document).ready(function() {$('#indicador').modal('show');});");
-            sb.Append(@"</script>");
-            System.Web.UI.ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "indicador", sb.ToString(), false);
+
+            if (e.CommandName == "inactivar")
+            {
+                System.Text.StringBuilder sb = new System.Text.StringBuilder();
+                sb.Append(@"<script type='text/javascript'>");
+                sb.Append("$(document).ready(function() {$('#inactivar').modal('show');});");
+                sb.Append(@"</script>");
+                System.Web.UI.ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "inactivar", sb.ToString(), false);
+            }
+
         }
 
 
@@ -193,7 +219,7 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
 
                 System.Text.StringBuilder sb = new System.Text.StringBuilder();
                 sb.Append(@"<script type='text/javascript'>");
-                sb.Append("$(document).ready(function() {$('#resultado').modal('show');});");
+                sb.Append("$(document).ready(function() {$('#resultado').modal('show'){backdrop: 'static',keyboard: false};});");
                 sb.Append(@"</script>");
                 System.Web.UI.ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "resultado", sb.ToString(), false);
             }
@@ -229,9 +255,30 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
                 Response.End();
             }
         }
-        
 
-    protected void GridAccion_RowCommand(object sender, GridViewCommandEventArgs e)
+        protected void Submit_inactiveIndicador(object sender, EventArgs e)
+        {
+            try
+            {
+                Indicador indicador = new Indicador
+                {
+                    Id = (int)ViewState["idIndicadorAccion"],
+                    UsuModificacion = UsuarioSession().DetCodigo,
+                    FecModificacion = DateTime.Now,
+                    FlActivo = (int)Constantes.EstadoFlag.INACTIVO
+                };
+                _indicadorBusinessLogic.InactivarIndicador(indicador);
+                Limpiar();
+                CargarLista();
+                ClientMessageBox.Show("Se inactivo el indicador", this);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+        }
+
+        protected void GridAccion_RowCommand(object sender, GridViewCommandEventArgs e)
         {
 
 

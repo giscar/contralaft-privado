@@ -36,6 +36,5 @@ $(".soloNumeros").bind('keypress', function (event) {
 });
 
 function salir() {
-    console.log("entro");
     $('#confirmacionMaster').modal('show');
 }

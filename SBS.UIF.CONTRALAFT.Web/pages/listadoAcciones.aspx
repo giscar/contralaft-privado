@@ -79,8 +79,7 @@
                         <label for="message-text" class="col-form-label">Descripción:</label>
                         <textarea class="form-control txtEditarDescripcion" Id="txtEditarDescripcion" rows="8" runat="server" autocomplete="off" maxlength="800" placeholder="Ingrese descripción"></textarea>
                         <small class="form-text text-muted txtEditarDescripcionLabel">Ingrese la descripcion de la acción</small>
-                    </div> 
-                    
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <asp:Button class="btn btn-success" ID="btnSeleccionar" runat="server" Text="Modificar Indicador" OnClick="Submit_edit" />
@@ -141,7 +140,7 @@
                     </asp:UpdatePanel>
                     <asp:UpdatePanel ID="upListadoEntidades" runat="server" UpdateMode="Conditional">
                         <ContentTemplate>
-                            <asp:GridView ID="GridView2" runat="server" AllowPaging="true" Class="table table-hover table-striped table-bordered" PageSize="10" AutoGenerateColumns="false" OnRowCommand="GridAccion_RowCommandEntidad">
+                            <asp:GridView ID="GridView2" runat="server" AllowPaging="true" Class="table table-bordered" PageSize="10" AutoGenerateColumns="false" OnRowCommand="GridAccion_RowCommandEntidad">
                                 <Columns>
                                     <asp:BoundField DataField="DesTipo" HeaderText="Entidad" />
                                     <asp:TemplateField HeaderText="Acciones" ItemStyle-Width="20%" ItemStyle-HorizontalAlign="Center">

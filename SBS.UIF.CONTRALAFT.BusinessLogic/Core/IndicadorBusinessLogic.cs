@@ -46,9 +46,9 @@ namespace SBS.UIF.CONTRALAFT.BusinessLogic.Core
             _indicadorDataAccess.ActualizarIndicador(_indicador);
         }
 
-        public void InactivarAccion(Accion _accion)
+        public void InactivarIndicador(Indicador _indicador)
         {
-            _indicadorDataAccess.InactivarAccion(_accion);
+            _indicadorDataAccess.InactivarIndicador(_indicador);
         }
 
     }
