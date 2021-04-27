@@ -219,7 +219,7 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
 
                 System.Text.StringBuilder sb = new System.Text.StringBuilder();
                 sb.Append(@"<script type='text/javascript'>");
-                sb.Append("$(document).ready(function() {$('#resultado').modal('show'){backdrop: 'static',keyboard: false};});");
+                sb.Append("$(document).ready(function() { $('#resultado').modal({backdrop: 'static',keyboard: false}); });");
                 sb.Append(@"</script>");
                 System.Web.UI.ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "resultado", sb.ToString(), false);
             }

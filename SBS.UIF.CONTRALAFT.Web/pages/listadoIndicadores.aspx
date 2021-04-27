@@ -12,12 +12,10 @@
 
     .divTableIndicadores td {
         padding: 5px;
-        
     }
 
     .divTableAcciones td {
         padding: 5px;
-        
     }
     </style>
     <asp:GridView ID="GridView1" runat="server" AllowPaging="true" OnRowCommand="GridAccion_RowCommand" PageSize="10" AutoGenerateColumns="false" Class="table table-bordered divTableAcciones">
