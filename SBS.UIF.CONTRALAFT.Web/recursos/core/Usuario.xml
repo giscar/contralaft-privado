@@ -76,30 +76,30 @@
     </select>
 
     <select id="select_usuario_id" resultMap="rm_usuario" >
-      SELECT A.*, B.C_DES_RAZON C_DES_RAZON, C.C_DET_NOMBRE NOMBRE_PERFIL FROM PRIVADO.USUARIO A 
-      INNER JOIN PRIVADO.PERFIL C ON C.N_COD_PERFIL = A.N_COD_PERFIL  
-      LEFT JOIN PRIVADO.ENTIDAD B ON A.N_COD_ENTIDAD = B.N_COD_ENTIDAD
-      WHERE A.N_COD_ID = #Id#
+        SELECT A.*, B.C_DES_RAZON C_DES_RAZON, C.C_DET_NOMBRE NOMBRE_PERFIL FROM PRIVADO.USUARIO A 
+        INNER JOIN PRIVADO.PERFIL C ON C.N_COD_PERFIL = A.N_COD_PERFIL  
+        LEFT JOIN PRIVADO.ENTIDAD B ON A.N_COD_ENTIDAD = B.N_COD_ENTIDAD
+        WHERE A.N_COD_ID = #Id#
     </select>
         
-        <update id="update_usuario">
-            UPDATE PRIVADO.USUARIO SET 
-            C_DET_NOMBRE = #DetNombre#,
-            N_COD_ENTIDAD = #IdEntidad#,
-            N_COD_PERFIL = #IdPerfil#,
-            C_DET_EMAIL = #DetEmail#,
-            C_USU_MODIFICACION = #UsuModificacion#,
-            D_FEC_MODIFICACION = #FecModificacion#
-            WHERE N_COD_ID = #Id#
-        </update>
+    <update id="update_usuario">
+        UPDATE PRIVADO.USUARIO SET 
+        C_DET_NOMBRE = #DetNombre#,
+        N_COD_ENTIDAD = #IdEntidad#,
+        N_COD_PERFIL = #IdPerfil#,
+        C_DET_EMAIL = #DetEmail#,
+        C_USU_MODIFICACION = #UsuModificacion#,
+        D_FEC_MODIFICACION = #FecModificacion#
+        WHERE N_COD_ID = #Id#
+    </update>
         
-        <update id="inactive_usuario">
-            UPDATE PRIVADO.USUARIO SET 
-            N_FL_ACTIVO = #FlActivo#,
-            C_USU_MODIFICACION = #UsuModificacion#,
-            D_FEC_MODIFICACION = #FecModificacion#
-            WHERE N_COD_ID = #Id#
-        </update>
+    <update id="inactive_usuario">
+        UPDATE PRIVADO.USUARIO SET 
+        N_FL_ACTIVO = #FlActivo#,
+        C_USU_MODIFICACION = #UsuModificacion#,
+        D_FEC_MODIFICACION = #FecModificacion#
+        WHERE N_COD_ID = #Id#
+    </update>
 
   </statements>
 </sqlMap>

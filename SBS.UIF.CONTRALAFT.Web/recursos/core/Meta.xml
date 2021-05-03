@@ -12,6 +12,7 @@
       <result property="MedioVerificacion" column="C_MED_VERIFICACION"></result>
       <result property="Descripcion" column="C_DET_DESCRIPCION"></result>
       <result property="CodigoDocumento" column="C_COD_DOCUMENTO"></result>
+      <result property="CodExtension" column="C_COD_EXTENSION"></result>
       <result property="FlActivo" column="N_FL_ACTIVO"></result>
       <result property="Estado" column="N_COD_ESTADO"></result>
       <result property="UsuRegistro" column="C_USU_REGISTRO"></result>
@@ -25,30 +26,36 @@
   <statements>
 
     <insert id="insert_meta">
-      INSERT INTO PRIVADO.META (
-      N_COD_INDICADOR,
-      N_COD_ENTIDAD,
-      N_NUM_BASE,
-      C_MED_VERIFICACION,
-      C_DET_DESCRIPCION,
-      C_COD_DOCUMENTO,
-      N_COD_ESTADO,
-      N_FL_ACTIVO,
-      C_USU_REGISTRO,
-      D_FEC_REGISTRO
-      )
-      VALUES
-      (#IdIndicador#,
-      #IdEntidad#,
-      #NumeroBase#,
-      #MedioVerificacion#,
-      #Descripcion#,
-      #CodigoDocumento#,
-      #Estado#,
-      #FlActivo#,
-      #UsuRegistro#,
-      #FecRegistro#
-      )
+        INSERT INTO PRIVADO.META (
+        N_COD_INDICADOR,
+        N_COD_ENTIDAD,
+        N_NUM_BASE,
+        C_MED_VERIFICACION,
+        C_DET_DESCRIPCION,
+        <isNotNull prepend="and" property="CodigoDocumento">
+            C_COD_DOCUMENTO,
+            C_COD_EXTENSION,
+        </isNotNull>
+        N_COD_ESTADO,
+        N_FL_ACTIVO,
+        C_USU_REGISTRO,
+        D_FEC_REGISTRO
+        )
+        VALUES(
+        #IdIndicador#,
+        #IdEntidad#,
+        #NumeroBase#,
+        #MedioVerificacion#,
+        #Descripcion#,
+        <isNotNull prepend="and" property="CodigoDocumento">
+            #CodigoDocumento#,
+            #CodExtension#,
+        </isNotNull>
+        #Estado#,
+        #FlActivo#,
+        #UsuRegistro#,
+        #FecRegistro#
+        )
     </insert>
         
     <select id="select_metas_entidad" resultMap="rm_meta" >
@@ -60,7 +67,10 @@
       N_NUM_BASE = #NumeroBase#,
       C_MED_VERIFICACION = #MedioVerificacion#,
       C_DET_DESCRIPCION = #Descripcion#,
-      C_COD_DOCUMENTO = #CodigoDocumento#,
+      <isNotNull prepend="and" property="CodigoDocumento">
+        C_COD_DOCUMENTO = #CodigoDocumento#,
+        C_COD_EXTENSION = #CodExtension#,
+      </isNotNull>
       N_COD_ESTADO = #Estado#,
       N_FL_ACTIVO = #FlActivo#,
       C_USU_MODIFICACION = #UsuModificacion#,

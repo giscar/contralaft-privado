@@ -47,37 +47,37 @@
     </insert>
         
     <update id="update_plan">
-            UPDATE PRIVADO.PLANCONTRALAFT SET 
-            C_NOM_PLAN = #Nombre#,
-            C_DES_DETALLE = #Descripcion#,
-            C_USU_MODIFICACION = #UsuModificacion#,
-            D_FEC_MODIFICACION = #FecModificacion#
-            WHERE N_COD_PLAN = #Id#
-        </update>
+        UPDATE PRIVADO.PLANCONTRALAFT SET 
+        C_NOM_PLAN = #Nombre#,
+        C_DES_DETALLE = #Descripcion#,
+        C_USU_MODIFICACION = #UsuModificacion#,
+        D_FEC_MODIFICACION = #FecModificacion#
+        WHERE N_COD_PLAN = #Id#
+    </update>
         
-        <update id="estado_plan">
-            UPDATE PRIVADO.PLANCONTRALAFT SET 
-            N_COD_ESTADO = #Estado#,
-            C_USU_MODIFICACION = #UsuModificacion#,
-            D_FEC_MODIFICACION = #FecModificacion#
-            WHERE N_COD_PLAN = #Id#
-        </update>
+    <update id="estado_plan">
+        UPDATE PRIVADO.PLANCONTRALAFT SET 
+        N_COD_ESTADO = #Estado#,
+        C_USU_MODIFICACION = #UsuModificacion#,
+        D_FEC_MODIFICACION = #FecModificacion#
+        WHERE N_COD_PLAN = #Id#
+    </update>
         
-        <update id="inactive_plan">
-            UPDATE PRIVADO.PLANCONTRALAFT SET 
-            N_FL_ACTIVO = #FlActivo#,
-            C_USU_MODIFICACION = #UsuModificacion#,
-            D_FEC_MODIFICACION = #FecModificacion#
-            WHERE N_COD_PLAN = #Id#
-        </update>
+    <update id="inactive_plan">
+        UPDATE PRIVADO.PLANCONTRALAFT SET 
+        N_FL_ACTIVO = #FlActivo#,
+        C_USU_MODIFICACION = #UsuModificacion#,
+        D_FEC_MODIFICACION = #FecModificacion#
+        WHERE N_COD_PLAN = #Id#
+    </update>
         
-        <update id="vigencia_plan">
-            UPDATE PRIVADO.PLANCONTRALAFT SET 
-            N_COD_VIGENTE = #Vigente#,
-            C_USU_MODIFICACION = #UsuModificacion#,
-            D_FEC_MODIFICACION = #FecModificacion#
-            WHERE N_COD_PLAN = #Id#
-        </update>
+    <update id="vigencia_plan">
+        UPDATE PRIVADO.PLANCONTRALAFT SET 
+        N_COD_VIGENTE = #Vigente#,
+        C_USU_MODIFICACION = #UsuModificacion#,
+        D_FEC_MODIFICACION = #FecModificacion#
+        WHERE N_COD_PLAN = #Id#
+    </update>
         
     <select id="select_plan" resultMap="rm_plan"  parameterClass="int">
       SELECT * FROM PRIVADO.PLANCONTRALAFT WHERE N_COD_PLAN = #value#
