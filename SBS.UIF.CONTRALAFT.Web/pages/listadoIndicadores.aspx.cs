@@ -237,7 +237,7 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
             txtMedioVerificacion.Value = meta.MedioVerificacion;
             txtDescripcion.Value = meta.Descripcion;
             txtNumero.Value = meta.NumeroBase.ToString();
-            ViewState["documento"] = meta.CodigoDocumento;
+            ViewState["documento"] = meta.CodDocumento;
         }
 
         protected void Submit_descargar(object sender, EventArgs e)

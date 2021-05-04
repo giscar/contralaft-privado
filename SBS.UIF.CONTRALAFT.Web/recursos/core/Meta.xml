@@ -11,7 +11,7 @@
       <result property="NumeroBase" column="N_NUM_BASE"></result>
       <result property="MedioVerificacion" column="C_MED_VERIFICACION"></result>
       <result property="Descripcion" column="C_DET_DESCRIPCION"></result>
-      <result property="CodigoDocumento" column="C_COD_DOCUMENTO"></result>
+      <result property="CodDocumento" column="C_COD_DOCUMENTO"></result>
       <result property="CodExtension" column="C_COD_EXTENSION"></result>
       <result property="FlActivo" column="N_FL_ACTIVO"></result>
       <result property="Estado" column="N_COD_ESTADO"></result>
@@ -32,7 +32,7 @@
         N_NUM_BASE,
         C_MED_VERIFICACION,
         C_DET_DESCRIPCION,
-        <isNotNull prepend="and" property="CodigoDocumento">
+        <isNotNull prepend="and" property="CodDocumento">
             C_COD_DOCUMENTO,
             C_COD_EXTENSION,
         </isNotNull>
@@ -47,8 +47,8 @@
         #NumeroBase#,
         #MedioVerificacion#,
         #Descripcion#,
-        <isNotNull prepend="and" property="CodigoDocumento">
-            #CodigoDocumento#,
+        <isNotNull prepend="and" property="CodDocumento">
+            #CodDocumento#,
             #CodExtension#,
         </isNotNull>
         #Estado#,
@@ -67,8 +67,8 @@
       N_NUM_BASE = #NumeroBase#,
       C_MED_VERIFICACION = #MedioVerificacion#,
       C_DET_DESCRIPCION = #Descripcion#,
-      <isNotNull prepend="and" property="CodigoDocumento">
-        C_COD_DOCUMENTO = #CodigoDocumento#,
+      <isNotNull property="CodDocumento">
+        C_COD_DOCUMENTO = #CodDocumento#,
         C_COD_EXTENSION = #CodExtension#,
       </isNotNull>
       N_COD_ESTADO = #Estado#,
