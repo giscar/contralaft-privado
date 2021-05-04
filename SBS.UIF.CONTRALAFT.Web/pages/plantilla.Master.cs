@@ -26,7 +26,7 @@ namespace SBS.UIF.CONTRALAFT.Web
         protected void Cerrar_Session(object sender, EventArgs e)
         {
             Session["Usuario"] = null;
-            Response.Redirect(Constantes.PaginaInicioLogin);
+            Response.Redirect(Constantes.paginaInicioLogin);
         }
     }
 }

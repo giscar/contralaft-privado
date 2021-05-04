@@ -41,7 +41,7 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
                 {
                     if (UsuarioSession() == null)
                     {
-                        Response.Redirect(Constantes.PaginaInicioLogin);
+                        Response.Redirect(Constantes.paginaInicioLogin);
                     }
                     CargarLista();
                     CargarAnho();
@@ -242,7 +242,7 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
 
         protected void Submit_descargar(object sender, EventArgs e)
         {
-            string filePath = Server.MapPath(Path.Combine("~/App_Data/", ViewState["documento"].ToString()));
+            string filePath = Server.MapPath(Path.Combine(Constantes.uploadFile, ViewState["documento"].ToString()));
             FileInfo file = new FileInfo(filePath);
             if (file.Exists)
             {

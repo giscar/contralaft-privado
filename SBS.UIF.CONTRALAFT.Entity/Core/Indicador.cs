@@ -20,7 +20,8 @@ namespace SBS.UIF.CONTRALAFT.Entity.Core
         public int IdEntidadBusqueda { get; set; }
         public string NombreEntidadBusqueda { get; set; }
         public string Anho { get; set; }
-        
+        public int CodEstadoMeta { get; set; }
+        public string DetEstadoMeta { get; set; }
     }
 }
 

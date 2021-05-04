@@ -38,7 +38,7 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
                 {
                     if (UsuarioSession() == null)
                     {
-                        Response.Redirect(Constantes.PaginaInicioLogin);
+                        Response.Redirect(Constantes.paginaInicioLogin);
                     }
                     CargarLista();
                     CargarCombos();
@@ -104,7 +104,7 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
                     ext = Path.GetExtension(file.FileName);
                     string namefile = DateTime.Now.ToString("yyyyMMddHHmmss");
                     fname = namefile + ext;
-                    file.SaveAs(Server.MapPath(Path.Combine("~/App_Data/", fname)));
+                    file.SaveAs(Server.MapPath(Path.Combine(Constantes.uploadFile, fname)));
                 }
                 string password = Membership.GeneratePassword(12, 1);
                 password = Regex.Replace(password, @"[^a-zA-Z0-9]", m => "9");
@@ -198,7 +198,7 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
 
                 if (e.CommandName == "downloadDocumento")
                 {
-                    string filePath = Server.MapPath(Path.Combine("~/App_Data/", ViewState["parametro"].ToString()));
+                    string filePath = Server.MapPath(Path.Combine(Constantes.uploadFile, ViewState["parametro"].ToString()));
                     FileInfo file = new FileInfo(filePath);
                     if (file.Exists)
                     {

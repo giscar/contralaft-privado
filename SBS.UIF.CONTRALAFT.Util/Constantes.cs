@@ -41,7 +41,15 @@ namespace SBS.UIF.CONTRALAFT.Util
             SBS = 2
         }
 
-        public const String PaginaInicioLogin = "../pages/login.aspx";
+        public enum MetaEstadoFlag
+        {
+            BORRADOR = 0,
+            ENVIADO = 1
+        }
+
+        /**constantes generales*/
+        public const String paginaInicioLogin = "../pages/login.aspx";
+        public const String uploadFile = "~/App_Data/";
         public const String selectValueDefault = "0";
         public const String selectLabelDefault = "Seleccione";
         public const String textoSubject = "Creación de usuario del modulo de CONTRALAFT";
@@ -58,6 +66,10 @@ namespace SBS.UIF.CONTRALAFT.Util
         public const String extensionPdf = ".pdf";
         public const String extensionDoc = ".docx";
         public const String extensionZip = ".zip";
+        /**estado de la meta*/
+        public const String estadoMetaSinRegistro = "Sin registro";
+        public const String estadoMetaBorrador = "Borrador";
+        public const String estadoMetaEnviado = "Enviado a la UIF";
 
 
     }

@@ -29,7 +29,8 @@
     <select id="select_indicador_accion_entidad" resultMap="rm_indicador">
       SELECT DISTINCT A.* FROM PRIVADO.INDICADOR A 
       INNER JOIN PRIVADO.INDICADORENTIDAD B ON A.N_COD_INDICADOR = B.N_COD_INDICADOR
-      WHERE A.N_COD_ACCION = #IdAccion# AND A.N_FL_ACTIVO = 1 AND B.N_FL_ACTIVO = 1 AND B.N_COD_ENTIDAD = #IdEntidadBusqueda#
+      WHERE A.N_COD_ACCION = #IdAccion# AND A.N_FL_ACTIVO = 1
+      AND B.N_FL_ACTIVO = 1 AND B.N_COD_ENTIDAD = #IdEntidadBusqueda#
     </select>
         
     <select id="select_indicador_accion" resultMap="rm_indicador" parameterClass="int">

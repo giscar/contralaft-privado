@@ -25,7 +25,7 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
                 {
                     if (UsuarioSession() == null)
                     {
-                        Response.Redirect(Constantes.PaginaInicioLogin);
+                        Response.Redirect(Constantes.paginaInicioLogin);
                     }
                     CargarLista();
                 }
