@@ -47,6 +47,13 @@ namespace SBS.UIF.CONTRALAFT.Util
             ENVIADO = 1
         }
 
+        public enum IndicadorEstadoFlag
+        {
+            RECIBIDO = 0,
+            PENDIENTE = 1,
+            CULMINADO = 2
+        }
+
         /**constantes generales*/
         public const String paginaInicioLogin = "../pages/login.aspx";
         public const String uploadFile = "~/App_Data/";
@@ -70,7 +77,10 @@ namespace SBS.UIF.CONTRALAFT.Util
         public const String estadoMetaSinRegistro = "Sin registro";
         public const String estadoMetaBorrador = "Borrador";
         public const String estadoMetaEnviado = "Enviado a la UIF";
-
-
+        /**estado de la indicador*/
+        public const String estadoIndicadorRecibido = "Recibido";
+        public const String estadoIndicadorNoRecibido = "No Recibido";
+        public const String estadoIndicadorPendiente = "Calificado Pendiente";
+        public const String estadoIndicadorCulminado = "Calificado culminado";
     }
 }

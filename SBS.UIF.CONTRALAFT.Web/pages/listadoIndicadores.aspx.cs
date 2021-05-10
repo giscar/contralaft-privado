@@ -33,6 +33,10 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
 
         List<Entidad> ListadoEntidad = new List<Entidad>();
 
+        public string tipoDocumentoMeta;
+
+        public string rutaDocumento;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -79,6 +83,7 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
                 {
                     item1.IdAccion = item.Id;
                     item1.ListaEntidades = _entidadBusinessLogic.ListarPorEntidadforIndicador(item1.Id);
+                    
                     foreach (Entidad item2 in item1.ListaEntidades)
                     {
                         item2.IdIndicador = item1.Id;
@@ -182,9 +187,7 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
                 sb.Append(@"</script>");
                 System.Web.UI.ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "inactivar", sb.ToString(), false);
             }
-
         }
-
 
         protected void GridAccion2_RowCommand(object sender, GridViewCommandEventArgs e)
         {
@@ -203,7 +206,7 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
                     IdEntidad = int.Parse(idEntidad),
                     IdIndicador = int.Parse(idIndicador)
                 };
-                meta = _metaBusinessLogic.BuscarMetaPorEntidad(meta);
+                meta = _metaBusinessLogic.BuscarMetaEnviadUIF(meta);
                 if (meta == null)
                 {
                     Limpiar();
@@ -238,6 +241,23 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
             txtDescripcion.Value = meta.Descripcion;
             txtNumero.Value = meta.NumeroBase.ToString();
             ViewState["documento"] = meta.CodDocumento;
+            rutaDocumento = "../App_Data/" + meta.CodDocumento;
+            if (meta.CodExtension != null)
+            {
+                tipoDocumentoMeta = Constantes.iconoOtros;
+                if (meta.CodExtension == Constantes.extensionDoc)
+                {
+                    tipoDocumentoMeta = Constantes.iconoDoc;
+                }
+                if (meta.CodExtension == Constantes.extensionPdf)
+                {
+                    tipoDocumentoMeta = Constantes.iconoPdf;
+                }
+                if (meta.CodExtension == Constantes.extensionZip)
+                {
+                    tipoDocumentoMeta = Constantes.iconoZip;
+                }
+            }
         }
 
         protected void Submit_descargar(object sender, EventArgs e)

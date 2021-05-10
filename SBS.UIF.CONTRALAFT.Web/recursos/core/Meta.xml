@@ -61,6 +61,10 @@
     <select id="select_metas_entidad" resultMap="rm_meta" >
       SELECT * FROM PRIVADO.META WHERE N_COD_ENTIDAD = #IdEntidad# AND N_COD_INDICADOR = #IdIndicador# 
     </select>
+
+    <select id="select_metas_enviado_uif" resultMap="rm_meta" >
+      SELECT * FROM PRIVADO.META WHERE N_COD_ENTIDAD = #IdEntidad# AND N_COD_INDICADOR = #IdIndicador# AND N_COD_ESTADO = 1
+    </select>
         
     <update id="update_meta">
       UPDATE PRIVADO.META SET

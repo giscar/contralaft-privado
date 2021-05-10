@@ -128,22 +128,22 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label class="col-form-label">Medio de verificación:</label>
-                        <input type="text" class="form-control txtMedioVerificacion" Id="txtMedioVerificacion" runat="server" autocomplete="off" maxlength="80" placeholder="Ingrese el medio de verificacion">
-                        <small class="form-text text-muted txtMedioVerificacionLabel">Ingrese el medio de verificación</small>
+                        <input type="text" class="form-control txtMedioVerificacion" readonly="true" Id="txtMedioVerificacion" runat="server" autocomplete="off" maxlength="80" placeholder="Ingrese el medio de verificacion">
                     </div>
                     <div class="form-group">
                         <label for="txtContra">Número:</label>
-                        <input type="text" class="form-control txtNumero" Id="txtNumero" runat="server" autocomplete="off" maxlength="80" placeholder="Ingrese número" />
-                        <small class="form-text text-muted txtNumeroLabel">Ingrese el número</small>
+                        <input type="text" class="form-control txtNumero" Id="txtNumero" readonly="true" runat="server" autocomplete="off" maxlength="80" placeholder="Ingrese número" />
                     </div>
                     <div class="form-group">
                         <label for="message-text" class="col-form-label">Descripción:</label>
-                        <textarea class="form-control txtDescripcion" Id="txtDescripcion" rows="8" runat="server" autocomplete="off" maxlength="800" placeholder="Ingrese descripción"></textarea>
-                        <small class="form-text text-muted txtDescripcionLabel">Ingrese la descripcion del resultado</small>
+                        <textarea class="form-control txtDescripcion" Id="txtDescripcion" readonly="true" rows="8" runat="server" autocomplete="off" maxlength="800" placeholder="Ingrese descripción"></textarea>
                     </div> 
-                    <div class="form-group">
-                        <asp:Button class="btn btn-success" runat="server" Text="Descargar Documento" OnClick="Submit_descargar" />
-                    </div> 
+                    <div class="form-group" ID="divVisualizarDocumento" runat="server">
+                        <label for="message-text" class="col-form-label">Descargar:</label>
+                        <a href="<%=rutaDocumento%>" target="_blank">
+                            <img src="<%=tipoDocumentoMeta%>" width="50" height="50"></img>
+                        </a>
+                    </div>
                     <div class="form-group">
                         <label>Estado</label>
                         <select class="form-control">

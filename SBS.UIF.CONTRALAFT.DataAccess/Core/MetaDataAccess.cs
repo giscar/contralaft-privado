@@ -19,6 +19,12 @@ namespace SBS.UIF.CONTRALAFT.DataAccess.Core
             return BaseService<Meta>.QueryForObject("select_metas_entidad", _meta);
         }
 
+        public Meta BuscarMetaEnviadUIF(Meta _meta)
+        {
+            return BaseService<Meta>.QueryForObject("select_metas_enviado_uif", _meta);
+        }
+        
+
         public void ActualizarMeta(Meta _meta)
         {
             MapperPro.Instance().Update("update_meta", _meta);
