@@ -14,7 +14,8 @@ namespace SBS.UIF.CONTRALAFT.Entity.Core
         public int FlActivo { get; set; }
         public int IdIndicador { get; set; }
         public int IdAccion { get; set; }
-
+        public int CodEstadoEntidadIndicador { get; set; }
+        public string DetEstadoEntidadIndicador { get; set; }
     }
 }
 #pragma warning restore 1591

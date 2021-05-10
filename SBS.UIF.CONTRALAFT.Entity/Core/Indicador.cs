@@ -22,8 +22,6 @@ namespace SBS.UIF.CONTRALAFT.Entity.Core
         public string Anho { get; set; }
         public int CodEstadoMeta { get; set; }
         public string DetEstadoMeta { get; set; }
-        public int CodEstadoIndicador { get; set; }
-        public string DetEstadoIndicador { get; set; }
     }
 }
 

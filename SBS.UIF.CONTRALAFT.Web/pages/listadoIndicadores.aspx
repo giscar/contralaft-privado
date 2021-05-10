@@ -31,7 +31,8 @@
                                 <ItemTemplate style="border:0px;">
                                     <asp:GridView ID="GridView3" ShowHeader="false" runat="server" OnRowCommand="GridAccion2_RowCommand" AutoGenerateColumns="false" DataSource='<%# Bind("ListaEntidades")%>' Class="table divTableEntidades">
                                         <Columns>
-                                            <asp:BoundField DataField="DesTipo"/>
+                                            <asp:BoundField DataField="DesTipo" ItemStyle-Width="60%"/>
+                                            <asp:BoundField DataField="DetEstadoEntidadIndicador" ItemStyle-Width="30%"/>
                                             <asp:TemplateField ShowHeader="false">
                                                 <ItemTemplate>
                                                     <div class="column" style="text-align: right">

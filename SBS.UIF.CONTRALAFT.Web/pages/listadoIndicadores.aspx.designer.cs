@@ -52,5 +52,7 @@ namespace SBS.UIF.CONTRALAFT.Web.pages {
 		protected System.Web.UI.HtmlControls.HtmlTextArea txtDetalleIndicador;
 
 		protected System.Web.UI.WebControls.DropDownList ddlCodigoAnho;
+
+		protected System.Web.UI.HtmlControls.HtmlGenericControl divVisualizarDocumento;
 	}
 }

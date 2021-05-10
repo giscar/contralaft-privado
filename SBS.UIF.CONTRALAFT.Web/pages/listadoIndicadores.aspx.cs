@@ -88,6 +88,22 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
                     {
                         item2.IdIndicador = item1.Id;
                         item2.IdAccion = item1.IdAccion;
+                        item2.DetEstadoEntidadIndicador = Constantes.estadoIndicadorNoRecibido;
+                        Meta _meta = new Meta();
+                        _meta.IdEntidad = item2.IdTipo;
+                        _meta.IdIndicador = item1.Id;
+                        _meta = _metaBusinessLogic.BuscarMetaPorEntidad(_meta);
+                        item1.DetEstadoMeta = Constantes.estadoMetaSinRegistro;
+                        if (_meta != null)
+                        {
+                            item1.CodEstadoMeta = _meta.Estado;
+                          
+                            if (item1.CodEstadoMeta == 1)
+                            {
+                                item2.DetEstadoEntidadIndicador = Constantes.estadoIndicadorRecibido;
+                            }
+
+                        }
                     }
                 }
             }
@@ -210,6 +226,7 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
                 if (meta == null)
                 {
                     Limpiar();
+                    divVisualizarDocumento.Visible = false;
                 }
                 else
                 {
@@ -258,6 +275,16 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
                     tipoDocumentoMeta = Constantes.iconoZip;
                 }
             }
+
+            if (meta.CodDocumento != null)
+            {
+                divVisualizarDocumento.Visible = true;
+            }
+            else
+            {
+                divVisualizarDocumento.Visible = false;
+            }
+
         }
 
         protected void Submit_descargar(object sender, EventArgs e)
