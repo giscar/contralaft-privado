@@ -113,7 +113,7 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
 
         protected void Submit_guardar_clasificacion(object sender, EventArgs e)
         {
-            //ClasificarUIF
+            //ClasificarUIF 
         }
 
         protected void DdlTipoEntidad_SelectedIndexChanged(object sender, EventArgs e)
