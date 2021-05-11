@@ -15,6 +15,7 @@
       <result property="CodExtension" column="C_COD_EXTENSION"></result>
       <result property="FlActivo" column="N_FL_ACTIVO"></result>
       <result property="Estado" column="N_COD_ESTADO"></result>
+      <result property="EstadoUIF" column="N_COD_ESTADO_UIF"></result>
       <result property="UsuRegistro" column="C_USU_REGISTRO"></result>
       <result property="FecRegistro" column="D_FEC_REGISTRO"></result>
       <result property="UsuModificacion" column="C_USU_MODIFICACION"></result>
@@ -79,6 +80,12 @@
       N_FL_ACTIVO = #FlActivo#,
       C_USU_MODIFICACION = #UsuModificacion#,
       D_FEC_MODIFICACION = #FecModificacion#
+      WHERE N_COD_ENTIDAD = #IdEntidad# AND N_COD_INDICADOR = #IdIndicador# 
+    </update>
+
+    <update id="update_clasificacion">
+      UPDATE PRIVADO.META SET
+      N_COD_ESTADO_UIF = #EstadoUIF#
       WHERE N_COD_ENTIDAD = #IdEntidad# AND N_COD_INDICADOR = #IdIndicador# 
     </update>
 

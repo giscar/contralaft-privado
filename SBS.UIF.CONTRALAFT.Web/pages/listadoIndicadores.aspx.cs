@@ -111,9 +111,9 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
             GridView1.DataBind();
         }
 
-        protected void Submit_guardar_estado(object sender, EventArgs e)
+        protected void Submit_guardar_clasificacion(object sender, EventArgs e)
         {
-
+            //ClasificarUIF
         }
 
         protected void DdlTipoEntidad_SelectedIndexChanged(object sender, EventArgs e)
@@ -227,6 +227,7 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
                 {
                     Limpiar();
                     divVisualizarDocumento.Visible = false;
+                    borradorMeta.Visible = false;
                 }
                 else
                 {

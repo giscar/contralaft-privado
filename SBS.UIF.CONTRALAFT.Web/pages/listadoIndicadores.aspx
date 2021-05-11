@@ -155,7 +155,7 @@
                     </div> 
                 </div>
                 <div class="modal-footer">
-                    <asp:Button class="btn btn-success" Id="borradorMeta" runat="server" Text="Guardar Estado" OnClick="Submit_guardar_estado" />
+                    <asp:Button class="btn btn-success" ID="borradorMeta" runat="server" Text="Guardar Estado" OnClick="Submit_guardar_clasificacion" />
                     <button type="button" class="btn btn-light" data-dismiss="modal">Cerrar</button>
                 </div>
             </div>

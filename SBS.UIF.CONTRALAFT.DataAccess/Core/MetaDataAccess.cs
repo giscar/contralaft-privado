@@ -24,11 +24,16 @@ namespace SBS.UIF.CONTRALAFT.DataAccess.Core
             return BaseService<Meta>.QueryForObject("select_metas_enviado_uif", _meta);
         }
         
-
         public void ActualizarMeta(Meta _meta)
         {
             MapperPro.Instance().Update("update_meta", _meta);
         }
+
+        public void ClasificarUIF(Meta _meta)
+        {
+            MapperPro.Instance().Update("update_clasificacion", _meta);
+        }
+        
 
     }
 }

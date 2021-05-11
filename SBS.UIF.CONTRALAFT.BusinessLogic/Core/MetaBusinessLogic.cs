@@ -36,5 +36,11 @@ namespace SBS.UIF.CONTRALAFT.BusinessLogic.Core
             _metaDataAccess.ActualizarMeta(_meta);
         }
 
+        public void ClasificarUIF(Meta _meta)
+        {
+            _metaDataAccess.ClasificarUIF(_meta);
+        }
+        
+
     }
 }
