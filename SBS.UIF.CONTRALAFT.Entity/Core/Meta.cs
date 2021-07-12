@@ -21,6 +21,7 @@ namespace SBS.UIF.CONTRALAFT.Entity.Core
         public string UsuModificacion { get; set; }
         public DateTime FecModificacion { get; set; }
         public string ImageFile { get; set; }
+        public int EstadoUIF { get; set; }
     }
 }
 #pragma warning restore 1591

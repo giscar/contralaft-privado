@@ -101,6 +101,13 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
                             if (item1.CodEstadoMeta == 1)
                             {
                                 item2.DetEstadoEntidadIndicador = Constantes.estadoIndicadorRecibido;
+                                if (_meta.EstadoUIF == (int)Constantes.IndicadorEstadoFlag.PENDIENTE) {
+                                    item2.DetEstadoEntidadIndicador = Constantes.estadoIndicadorPendiente;
+                                }
+                                if (_meta.EstadoUIF == (int)Constantes.IndicadorEstadoFlag.CULMINADO)
+                                {
+                                    item2.DetEstadoEntidadIndicador = Constantes.estadoIndicadorCulminado;
+                                }
                             }
 
                         }
@@ -113,7 +120,20 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
 
         protected void Submit_guardar_clasificacion(object sender, EventArgs e)
         {
-            //ClasificarUIF 
+            try
+            {
+                Meta _meta = new Meta();
+                _meta.IdEntidad = int.Parse(hddIdCodigoEntidad.Value);
+                _meta.IdIndicador = int.Parse(hddIdCodigoIndicador.Value);
+                _meta.EstadoUIF = int.Parse(ddlCodigoClasificacionUIF.SelectedValue);
+                _metaBusinessLogic.ClasificarUIF(_meta);
+                ClientMessageBox.Show("Se realizo la clasificacion del estado de la meta", this);
+                upListadoEntidades.Update();
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
         }
 
         protected void DdlTipoEntidad_SelectedIndexChanged(object sender, EventArgs e)
@@ -212,6 +232,9 @@ namespace SBS.UIF.CONTRALAFT.Web.pages
             string idEntidad = arg[0];
             string idIndicador = arg[1];
             string idAccion = arg[2];
+
+            hddIdCodigoEntidad.Value = idEntidad;
+            hddIdCodigoIndicador.Value = idIndicador;
 
             if (e.CommandName == "avance")
             {

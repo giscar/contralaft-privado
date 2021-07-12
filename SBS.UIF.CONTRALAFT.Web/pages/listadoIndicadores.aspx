@@ -127,6 +127,8 @@
                     </h5>
                 </div>
                 <div class="modal-body">
+                    <input type="hidden" ID="hddIdCodigoEntidad" runat="server" />
+                    <input type="hidden" ID="hddIdCodigoIndicador" runat="server" />
                     <div class="form-group">
                         <label class="col-form-label">Medio de verificación:</label>
                         <input type="text" class="form-control txtMedioVerificacion" readonly="true" Id="txtMedioVerificacion" runat="server" autocomplete="off" maxlength="80" placeholder="Ingrese el medio de verificacion">
@@ -147,11 +149,10 @@
                     </div>
                     <div class="form-group">
                         <label>Estado</label>
-                        <select class="form-control">
-                            <option>Seleccione estado</option>
-                            <option>Pendiente</option>
-                            <option>Culminado</option>
-                        </select>
+                        <asp:DropDownList class="form-control" ID="ddlCodigoClasificacionUIF" runat="server" >
+                            <asp:ListItem Value="1"> Pendiente </asp:ListItem>
+                            <asp:ListItem Value="2"> Culminado </asp:ListItem>
+                        </asp:DropDownList>
                     </div> 
                 </div>
                 <div class="modal-footer">
@@ -203,13 +204,13 @@
                     </asp:UpdatePanel>
                     <asp:UpdatePanel ID="upListadoEntidades" runat="server" UpdateMode="Conditional">
                         <ContentTemplate>
-                            <asp:GridView ID="GridView2" runat="server" AllowPaging="true" Class="table table-hover table-striped table-bordered" PageSize="10" AutoGenerateColumns="false" OnRowCommand="GridAccion_RowCommandEntidad">
+                            <asp:GridView ID="GridView2" runat="server" AllowPaging="true" Class="table divTableIndicadores table-hover table-striped table-bordered" PageSize="10" AutoGenerateColumns="false" OnRowCommand="GridAccion_RowCommandEntidad">
                                 <Columns>
                                     <asp:BoundField DataField="DesTipo" HeaderText="Entidad" />
                                     <asp:TemplateField HeaderText="Acciones" ItemStyle-Width="20%" ItemStyle-HorizontalAlign="Center">
                                         <ItemTemplate>
                                             <div class="row">
-                                                <div class="column" style="padding-right:5px">
+                                                <div class="column" style="padding-left:25px">
                                                     <asp:LinkButton runat="server" CssClass="btn btn-icons btn-inverse-danger" ToolTip="Eliminar" CommandArgument='<%# Eval("IdTipo") %>' CommandName="inactivar" ><i class="mdi mdi-delete"></i></asp:LinkButton> 
                                                 </div>
                                             </div>
@@ -225,6 +226,7 @@
                 </div>
                 <div class="modal-footer">
                     <asp:Button type="submit" class="btn btn-success" ID="btnSeleccionarIndicador" runat="server" Text="Editar Indicador" OnClick="Editar_Indicador" />
+                    <button type="button" class="btn btn-light" data-dismiss="modal">Cerrar</button>
                 </div>
             </div>
         </div>

@@ -54,5 +54,11 @@ namespace SBS.UIF.CONTRALAFT.Web.pages {
 		protected System.Web.UI.WebControls.DropDownList ddlCodigoAnho;
 
 		protected System.Web.UI.HtmlControls.HtmlGenericControl divVisualizarDocumento;
+
+		protected System.Web.UI.WebControls.DropDownList ddlCodigoClasificacionUIF;
+
+		protected System.Web.UI.HtmlControls.HtmlInputHidden hddIdCodigoEntidad;
+
+		protected System.Web.UI.HtmlControls.HtmlInputHidden hddIdCodigoIndicador;
 	}
 }
